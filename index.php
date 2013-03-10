@@ -73,7 +73,5 @@
 
 	</div>
 
-	<script src="assets/js/script.js" async defer></script>
-
 </body>
 </html>
