@@ -22,7 +22,7 @@
 
 	<meta property="og:title" content="Brewer Logic"/>
 	<meta property="og:type" content="Portfolio"/>
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="assets/img/logo_a.png"/>
 	<meta property="og:url" content="http://brewerlogic.com"/>
 	<meta property="og:site_name" content="Brewer Logic"/>
 	<meta property="og:description" content="The work of web developer, Adam Brewer"/>
