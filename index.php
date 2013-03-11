@@ -49,6 +49,16 @@
 
 		<article class="content">
 			<h1 class="logo"><a href="/" title="Brewer Logic">Brewer Logic</a></h1>
+			<div class="spinner">
+				<div class="cube">
+					<div class="side side-front"></div>
+					<div class="side side-bottom"></div>
+					<div class="side side-back"></div>
+					<div class="side side-top"></div>
+					<div class="side side-left"></div>
+					<div class="side side-right"></div>
+				</div>
+			</div>
 			<p class="intro">coming soon</p>
 
 			<footer class="footer">
@@ -59,17 +69,6 @@
 				<a class="icon icon-gplus" href="https://plus.google.com/u/0/109651434155076896860/" target="_blank" title="Google Plus"><span>Google +</span></a>
 			</footer>
 		</article>
-
-		<div class="spinner">
-			<div class="cube">
-				<div class="side side-front"></div>
-				<div class="side side-bottom"></div>
-				<div class="side side-back"></div>
-				<div class="side side-top"></div>
-				<div class="side side-left"></div>
-				<div class="side side-right"></div>
-			</div>
-		</div>
 
 	</div>
 
