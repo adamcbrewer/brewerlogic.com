@@ -22,13 +22,13 @@ TECHNOLOGY
 Launchpad
 https://github.com/adamcbrewer/launchpad
 
-HTML5BP, LESS, CodeKit, Modernizr, jQuery, SMACSS
+HTML5BP, LESS, Modernizr, jQuery, SMACSS
 
 ______________________________________________________________________________
 
 DEVELOPMENT ENVIRONMENT
 
-Sublime Text 2, Git
+Sublime Text 2, Git, CodeKit
 
 _______________________________________________________________________________
 

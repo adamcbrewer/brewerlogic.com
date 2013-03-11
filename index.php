@@ -17,29 +17,29 @@
 
 	<link type="text/plain" rel="author" href="humans.txt" />
 
-	<meta name="description" content="">
-	<meta name="keywords" content="">
+	<meta name="description" content="The work of web developer, Adam Brewer">
+	<meta name="keywords" content="brewerlogic, adamcbrewer, adam brewer, brewer logic, web-development, front-end developer, front end developer">
 
-	<meta property="og:title" content=""/>
-	<meta property="og:type" content=""/>
+	<meta property="og:title" content="Brewer Logic"/>
+	<meta property="og:type" content="Portfolio"/>
 	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
+	<meta property="og:url" content="http://brewerlogic.com"/>
+	<meta property="og:site_name" content="Brewer Logic"/>
+	<meta property="og:description" content="The work of web developer, Adam Brewer"/>
 
 	<link href="assets/css/core.css" rel="stylesheet">
 
-	<script src="assets/js/libs/modernizr-2.6.2.custom.js"></script>
+	<? //<script src="assets/js/libs/modernizr-2.6.2.custom.js"></script> ?>
 
 	<script type="text/javascript">
-		// var _gaq = _gaq || [];
-		// _gaq.push(['_setAccount', 'UA-31471338-1']);
-		// _gaq.push(['_trackPageview']);
-		// (function() {
-		// 	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		// 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		// 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		// })();
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-31471338-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
 	</script>
 
 </head>
@@ -72,6 +72,21 @@
 		</div>
 
 	</div>
+
+<!--
+
+___________________________________________________________________________________________________________________________________________________
+ ___________________________________________________________________________________________________________________________________________________
+  __________________________________________________/\\\_________________/\\\\\\\\___________________________________________________________________
+   _____/\\\\\\\\_____/\\\\\_______/\\\\\__/\\\\\___\///___/\\/\\\\\\____/\\\////\\\____________/\\\\\\\\\\_____/\\\\\________/\\\\\_____/\\/\\\\\\___
+    ___/\\\//////____/\\\///\\\___/\\\///\\\\\///\\\__/\\\_\/\\\////\\\__\//\\\\\\\\\___________\/\\\//////____/\\\///\\\____/\\\///\\\__\/\\\////\\\__
+     __/\\\__________/\\\__\//\\\_\/\\\_\//\\\__\/\\\_\/\\\_\/\\\__\//\\\__\///////\\\___________\/\\\\\\\\\\__/\\\__\//\\\__/\\\__\//\\\_\/\\\__\//\\\_
+      _\//\\\________\//\\\__/\\\__\/\\\__\/\\\__\/\\\_\/\\\_\/\\\___\/\\\__/\\_____\\\___________\////////\\\_\//\\\__/\\\__\//\\\__/\\\__\/\\\___\/\\\_
+       __\///\\\\\\\\__\///\\\\\/___\/\\\__\/\\\__\/\\\_\/\\\_\/\\\___\/\\\_\//\\\\\\\\_____________/\\\\\\\\\\__\///\\\\\/____\///\\\\\/___\/\\\___\/\\\_
+        ____\////////_____\/////_____\///___\///___\///__\///__\///____\///___\////////_____________\//////////_____\/////________\/////_____\///____\///__
+
+
+-->
 
 </body>
 </html>
