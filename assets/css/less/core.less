@@ -129,7 +129,7 @@ a:focus {}
 }
 
 .spinner {
-    width: @d-spinner;
+    width: @d-spinner*2;
     height: @d-spinner;
     margin: auto;
     // position: absolute;
@@ -238,41 +238,51 @@ a:focus {}
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg);
+        -webkit-transform-origin: @d-spinner @d-spinner/2;
     }
     100% {
-        -webkit-transform: rotateY(360deg) rotateZ(720deg) rotateX(720deg);
+        -webkit-transform: rotateY(360deg) rotateZ(360deg) rotateX(360deg);
+        -webkit-transform-origin: @d-spinner @d-spinner/2;
     }
 }
 @-moz-keyframes spin {
     0% {
         -moz-transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg);
+        -moz-transform-origin: @d-spinner @d-spinner/2;
     }
     100% {
-        -moz-transform: rotateY(360deg) rotateZ(720deg) rotateX(720deg);
+        -moz-transform: rotateY(360deg) rotateZ(360deg) rotateX(360deg);
+        -moz-transform-origin: @d-spinner @d-spinner/2;
     }
 }
 @-ms-keyframes spin {
     0% {
         -ms-transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg);
+        -ms-transform-origin: @d-spinner @d-spinner/2;
     }
     100% {
-        -ms-transform: rotateY(360deg) rotateZ(720deg) rotateX(720deg);
+        -ms-transform: rotateY(360deg) rotateZ(360deg) rotateX(360deg);
+        -ms-transform-origin: @d-spinner @d-spinner/2;
     }
 }
 @-o-keyframes spin {
     0% {
         -o-transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg);
+        -webkit-transform-origin: @d-spinner @d-spinner/2;
     }
     100% {
-        -o-transform: rotateY(360deg) rotateZ(720deg) rotateX(720deg);
+        -o-transform: rotateY(360deg) rotateZ(360deg) rotateX(360deg);
+        -o-transform-origin: @d-spinner @d-spinner/2;
     }
 }
 @keyframes spin {
     0% {
         transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg);
+        transform-origin: @d-spinner @d-spinner/2;
     }
     100% {
-        transform: rotateY(360deg) rotateZ(720deg) rotateX(720deg);
+        transform: rotateY(360deg) rotateZ(360deg) rotateX(360deg);
+        transform-origin: @d-spinner @d-spinner/2;
     }
 }
 
