@@ -82,5 +82,9 @@ ________________________________________________________________________________
 
 -->
 
+<script>
+	console.log('%ccoming soon', 'color:#fff;background-color:#2b2b2b;padding:0.1em 0.4em;border-radius:3px;');
+</script>
+
 </body>
 </html>
