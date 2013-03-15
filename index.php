@@ -26,8 +26,6 @@
 
 	<link href="assets/css/core.css" rel="stylesheet">
 
-	<? //<script src="assets/js/libs/modernizr-2.6.2.custom.js"></script> ?>
-
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-31471338-1']);
