@@ -69,20 +69,18 @@
 
 		</nav>
 
-		<section class="project-detail">
-
-		</section>
+		<section class="detail"></section>
 
 		<section class="content">
 
 			<ul class="projectlist">
 
-				<li class="projectlist-item">
+				<li class="projectlist-item" data-project="brewersdroop">
 					<article>
 						<h3 class="projectlist-title">Launchpad</h3>
 					</article>
 				</li>
-				<li class="projectlist-item wide">
+				<li class="projectlist-item wide" data-project="brewersdroop">
 					<article>
 						<h3 class="projectlist-title">Brewers Droop</h3>
 					</article>
@@ -110,6 +108,11 @@
 
 	</div>
 
+	<div>
+		<? include('templates.php'); ?>
+	</div>
+
+	<script src="assets/js/libs/hogan-2.0.0.js"></script>
 	<script src="assets/js/libs/zepto.js"></script>
 	<script src="assets/js/script.js"></script>
 
