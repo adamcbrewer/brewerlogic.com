@@ -42,75 +42,76 @@
 
 	<div class="wrapper">
 
-		<header class="header">
-			<h1 class="logo"><a href="/" title="Brewer Logic">Brewer Logic</a></h1>
-		</header>
+		<nav class="site-nav">
+
+			<header class="header">
+				<h1 class="logo"><a href="/" title="Brewer Logic">Brewer Logic</a></h1>
+			</header>
+
+			<div class="spinner">
+				<div class="cube">
+					<div class="side side-front"></div>
+					<div class="side side-bottom"></div>
+					<div class="side side-back"></div>
+					<div class="side side-top"></div>
+					<div class="side side-left"></div>
+					<div class="side side-right"></div>
+				</div>
+			</div>
+
+			<footer class="elsewhere">
+				<a class="icon icon-twitter" href="http://twitter.com/adamcbrewer" target="_blank" title="Twitter"><span>Twitter</span></a>
+				<a class="icon icon-github-circled" href="http://github.com/adamcbrewer" target="_blank" title="Github"><span>Github</span></a>
+				<a class="icon icon-linkedin" href="http://za.linkedin.com/in/adamcbrewer" target="_blank" title="LinkedIn"><span>LinkedIn</span></a>
+				<a class="icon icon-user" href="http://adamcbrewer.com" target="_blank" title="adamcbrewer.com"><span>adamcbrewer.com</span></a>
+				<a class="icon icon-gplus" href="https://plus.google.com/u/0/109651434155076896860/" target="_blank" title="Google Plus"><span>Google +</span></a>
+			</footer>
+
+		</nav>
+
+		<section class="project-detail">
+
+		</section>
 
 		<section class="content">
 
 			<ul class="projectlist">
 
-				<? for ($i = 0; $i < 13; $i++) : ?>
-
-					<li class="projectlist-item <? if ($i == 1 || $i == 4 || $i == 6) echo 'wide' ?>">
-
-						<article class="project p-<?= $i ?>" data-project-num="<?= $i ?>">
-
-							<figure class="projectlist-bg ri">
-								<img src="http://placecage.com/400/400" alt="Placecage!">
-							</figure>
-
-							<footer class="projectlist-footer">
-								<h3 class="projectlist-title">ProjectList Title</h3>
-							</footer>
-
-						</article>
-
-					</li>
-
-				<? endfor; ?>
+				<li class="projectlist-item">
+					<article>
+						<h3 class="projectlist-title">Launchpad</h3>
+					</article>
+				</li>
+				<li class="projectlist-item wide">
+					<article>
+						<h3 class="projectlist-title">Brewers Droop</h3>
+					</article>
+				</li>
+				<li class="projectlist-item wide">
+					<article>
+						<h3 class="projectlist-title">Somethting else</h3>
+					</article>
+				</li>
+				<li class="projectlist-item"></li>
+				<li class="projectlist-item"></li>
+				<li class="projectlist-item wide"></li>
+				<li class="projectlist-item"></li>
+				<li class="projectlist-item"></li>
+				<li class="projectlist-item"></li>
+				<li class="projectlist-item wide"></li>
+				<li class="projectlist-item"></li>
+				<li class="projectlist-item wide"></li>
+				<li class="projectlist-item"></li>
+				<li class="projectlist-item"></li>
 
 			</ul>
 
 		</section>
 
-		<div class="spinner">
-			<div class="cube">
-				<div class="side side-front"></div>
-				<div class="side side-bottom"></div>
-				<div class="side side-back"></div>
-				<div class="side side-top"></div>
-				<div class="side side-left"></div>
-				<div class="side side-right"></div>
-			</div>
-		</div>
-
-		<div class="push"></div>
-
 	</div>
 
-	<footer class="footer">
-		<a class="icon icon-twitter" href="http://twitter.com/adamcbrewer" target="_blank" title="Twitter"><span>Twitter</span></a>
-		<a class="icon icon-github-circled" href="http://github.com/adamcbrewer" target="_blank" title="Github"><span>Github</span></a>
-		<a class="icon icon-linkedin" href="http://za.linkedin.com/in/adamcbrewer" target="_blank" title="LinkedIn"><span>LinkedIn</span></a>
-		<a class="icon icon-user" href="http://adamcbrewer.com" target="_blank" title="adamcbrewer.com"><span>adamcbrewer.com</span></a>
-		<a class="icon icon-gplus" href="https://plus.google.com/u/0/109651434155076896860/" target="_blank" title="Google Plus"><span>Google +</span></a>
-	</footer>
-
-<!--
-
-___________________________________________________________________________________________________________________________________________________
- ___________________________________________________________________________________________________________________________________________________
-  __________________________________________________/\\\_________________/\\\\\\\\___________________________________________________________________
-   _____/\\\\\\\\_____/\\\\\_______/\\\\\__/\\\\\___\///___/\\/\\\\\\____/\\\////\\\____________/\\\\\\\\\\_____/\\\\\________/\\\\\_____/\\/\\\\\\___
-    ___/\\\//////____/\\\///\\\___/\\\///\\\\\///\\\__/\\\_\/\\\////\\\__\//\\\\\\\\\___________\/\\\//////____/\\\///\\\____/\\\///\\\__\/\\\////\\\__
-     __/\\\__________/\\\__\//\\\_\/\\\_\//\\\__\/\\\_\/\\\_\/\\\__\//\\\__\///////\\\___________\/\\\\\\\\\\__/\\\__\//\\\__/\\\__\//\\\_\/\\\__\//\\\_
-      _\//\\\________\//\\\__/\\\__\/\\\__\/\\\__\/\\\_\/\\\_\/\\\___\/\\\__/\\_____\\\___________\////////\\\_\//\\\__/\\\__\//\\\__/\\\__\/\\\___\/\\\_
-       __\///\\\\\\\\__\///\\\\\/___\/\\\__\/\\\__\/\\\_\/\\\_\/\\\___\/\\\_\//\\\\\\\\_____________/\\\\\\\\\\__\///\\\\\/____\///\\\\\/___\/\\\___\/\\\_
-        ____\////////_____\/////_____\///___\///___\///__\///__\///____\///___\////////_____________\//////////_____\/////________\/////_____\///____\///__
-
-
--->
+	<script src="assets/js/libs/zepto.js"></script>
+	<script src="assets/js/script.js"></script>
 
 </body>
 </html>

@@ -21,9 +21,10 @@
 @c-main: #3468c5; // blue
 
 @d-spinner: 20px;
-@d-sticky-footer-height: 60px;
-@d-project-grid: 200px;
+@d-project-grid: 240px;
 @d-project-grid-gap: 4px;
+@d-sitenav: @d-project-grid;
+@d-sitenav-sml: @d-sitenav*0.8;
 
 /* ====================================================
     BASE STYLES
@@ -75,42 +76,56 @@ a:focus {}
 ==================================================== */
 .wrapper {
     font-size: 1.6em;
-    margin-bottom: -@d-sticky-footer-height;
     height: 100%;
 }
-.header {
-    padding: 2em 2%;
-    margin-bottom: 2em;
+.site-nav {
+    width: @d-sitenav;
+    height: 100%;
     background-color: @c-bgmain;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .logo {
-    width: 120px;
-    height: 45px;
+    max-width: 120px;
+    width: 80%;
+    margin: 2em auto 4em;
     > a {
         width: 100%;
-        height: 100%;
+        height: 0;
+        padding-bottom: 35.7142%;
         background: transparent url(../img/logo_a.png) no-repeat 0 0 scroll;
         background-size: 100%;
         display: inline-block;
         text-indent: -9999em;
     }
 }
-.content {
-    padding: 0 2%;
-}
-.footer, .push {
-    height: @d-sticky-footer-height;
-}
-.footer {
-    text-align: left;
-    font-size: 1.2rem;
-    padding: 1em 2%;
+
+.elsewhere {
+    margin: 2em auto;
+    text-align: center;
     .icon {
         color: #555;
         &:hover {
             color: #bbb;
         }
     }
+}
+
+.content {
+    width: auto;
+    padding: 0;
+    overflow: auto;
+}
+.project-detail {
+    width: 0;
+    overflow: hidden;
+    height: 0;
+    background: -webkit-linear-gradient(top, hotpink 0%, skyblue 100%);
+}
+.content,
+.project-detail {
+    margin-left: @d-sitenav;
 }
 .icon > span {
     display: none;
@@ -130,44 +145,60 @@ a:focus {}
 }
 
 .projectlist-item {
-    display: inline-block;
+    display: table;
     float: left;
     position: relative;
     margin: 0 @d-project-grid-gap @d-project-grid-gap 0;
     width: @d-project-grid;
     height: @d-project-grid;
-    background-color: hotpink;
+    background-color: darken(@c-bglight, 10%);
     background-position: center center;
     background-size: 100%;
-    overflow: hidden;
+    position: relative;
+
+    &:hover {
+        background-color: darken(@c-bglight, 12%);
+    }
 
     &.wide {
         width: ( @d-project-grid * 2 ) + @d-project-grid-gap;
         margin-right: @d-project-grid-gap;
     }
+
+    > article {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0 0 0.6em;
+    }
 }
 
-.projectlist-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+.projectlist-title {
+    font-family: Arial;
+    font-size: 1.4em;
+    color: darken(@c-bglight, 30%);
+    font-weight: normal;
+    text-shadow: 1px 1px 1px #e9e9e9;
+    padding: 0 0.4em 0.6em;
+    border-bottom: 1px solid darken(@c-bglight, 20%);
+    box-shadow: 0px 1px 0px #e9e9e9;
+    display: inline;
 }
 
-.projectlist-footer {
-    background: @c-bg;
-    color: @c-copylight;
-    font-size: 0.8em;
-    margin: 1em auto;
-}
+
+
+
+
+/*
+    Spinner stuff
+ */
 
 .spinner {
     width: @d-spinner*2;
     height: @d-spinner;
-    position: absolute;
-    top: 3em;
-    right: 1.4em;
+    margin: 0 auto 4em;
 
-    .active,
+    &.active,
     &:hover {
         .side {
             outline: 1px solid #fff;
@@ -267,6 +298,41 @@ a:focus {}
     They are also about describing how a module might look in different
     views like the home page or the inside page.
 ==================================================== */
+.detail-open {
+    .site-nav {
+        width: @d-sitenav-sml;
+    }
+    .content {
+        margin-left: @d-sitenav-sml;
+        width: 0;
+    }
+    .project-detail {
+        width: 80%;
+        height: 1400px;
+        margin-left: @d-sitenav-sml;
+    }
+}
+
+
+
+
+
+
+/* ====================================================
+    KEYFRAMES and ANIMATIONS
+==================================================== */
+
+.content {
+    -webkit-transition: 0.2s margin-left ease 0s,
+                        0.2s width ease 0s;
+}
+.site-nav {
+    -webkit-transition: 0.2s width ease 0s;
+}
+.project-detail {
+    -webkit-transition: 0.2s width ease 0s;
+}
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg);
