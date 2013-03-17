@@ -2,7 +2,8 @@
 // My portfolio
 $brewerlogic = array(
 	'work' => array(
-		'brewersdroop' => array(
+		array(
+			'key' => 'brewersdroop',
 			'title' => "The Brewer&#8217;s Droop",
 			'meta' => '',
 			'description' => "Lorem ipsum dolor <a href='http://adamcbrewer.com' target='_blank'>adamcbrewer.com</a> sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br /><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
@@ -31,6 +32,60 @@ $brewerlogic = array(
 					'src' => 'work/brewersdroop/brewersdroop_05_contact.jpg',
 					'alt' => 'Contact',
 					'title' => 'Contact'
+				)
+			)
+		),
+		array(
+			'key' => 'testproject1',
+			'title' => "Test Project 1",
+			'meta' => '',
+			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
+			'img' => array(
+				array(
+					'src' => 'http://fillmurray.com/1000/1800',
+					'alt' => 'Homepage',
+					'title' => 'The homepage'
+				),
+				array(
+					'src' => 'http://fillmurray.com/1000/1400',
+					'alt' => 'Single page',
+					'title' => 'A single page'
+				)
+			)
+		),
+		array(
+			'key' => 'testproject2',
+			'title' => "Test Project 2",
+			'meta' => '',
+			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
+			'img' => array(
+				array(
+					'src' => 'http://fillmurray.com/1000/1800',
+					'alt' => 'Homepage',
+					'title' => 'The homepage'
+				),
+				array(
+					'src' => 'http://fillmurray.com/1000/1400',
+					'alt' => 'Single page',
+					'title' => 'A single page'
+				)
+			)
+		),
+		array(
+			'key' => 'testproject3',
+			'title' => "Test Project 3",
+			'meta' => '',
+			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
+			'img' => array(
+				array(
+					'src' => 'http://fillmurray.com/1000/1500',
+					'alt' => 'Homepage',
+					'title' => 'The homepage'
+				),
+				array(
+					'src' => 'http://fillmurray.com/1000/600',
+					'alt' => 'Single page',
+					'title' => 'A single page'
 				)
 			)
 		)

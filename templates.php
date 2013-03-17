@@ -1,5 +1,11 @@
 <script type="text/html" id="tProject">
 	<article class="project hide">
+		{{# pagination }}
+			<nav class="pagination">
+				{{# prev }}<a rel="prev" data-project="{{ prev.key }}" title="{{ prev.title }}" href="?project={{ prev.key }}">&#9664;</a>{{/ prev }}
+				{{# next }}<a rel="next" data-project="{{ next.key }}" title="{{ next.title }}" href="?project={{ next.key }}">&#9654;</a>{{/ next }}
+			</nav>
+		{{/ pagination }}
 		<header>
 		    <h2 class="project-title">{{& title }}</h2>
 	    	<p class="project-description">{{& description }}</p>
@@ -27,4 +33,11 @@
 		<h3 class="about-blurb">{{& blurb }}</h3>
 		<div class="about-description">{{& description }}</div>
 	</article>
+</script>
+
+<script type="text/html" id="tPagination">
+	<nav class="pagination">
+		{{# prev }}<a data-project="{{ prev }}" href="">◀</a>{{/ prev }}
+		{{# next }}<a data-project="{{ next }}" href="">▶</a>{{/ next }}
+	</nav>
 </script>

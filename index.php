@@ -50,21 +50,10 @@
 
 			<nav class="nav">
 				<ol>
-					<li><a data-open-page="work" class="nav-link" href="?page=work"><i class="icon icon-suitcase"></i><span>work</span></a></li>
+					<li><a data-open-page="work" class="nav-link current" href="?page=work"><i class="icon icon-suitcase"></i><span>work</span></a></li>
 					<li><a data-open-page="about" class="nav-link" href="?page=about"><i class="icon icon-vcard"></i><span>about</span></a></li>
 				</ol>
 			</nav>
-
-			<div class="spinner">
-				<div class="cube">
-					<div class="side side-front"></div>
-					<div class="side side-bottom"></div>
-					<div class="side side-back"></div>
-					<div class="side side-top"></div>
-					<div class="side side-left"></div>
-					<div class="side side-right"></div>
-				</div>
-			</div>
 
 			<footer class="elsewhere">
 				<a class="icon icon-twitter-1" href="http://twitter.com/adamcbrewer" target="_blank" title="Twitter"><span>Twitter</span></a>
@@ -112,6 +101,17 @@
 			</ul>
 
 		</section>
+
+		<div class="spinner">
+			<div class="cube">
+				<div class="side side-front"></div>
+				<div class="side side-bottom"></div>
+				<div class="side side-back"></div>
+				<div class="side side-top"></div>
+				<div class="side side-left"></div>
+				<div class="side side-right"></div>
+			</div>
+		</div>
 
 	</div>
 

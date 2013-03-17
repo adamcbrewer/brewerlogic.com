@@ -163,24 +163,40 @@
 
 
 		/**
-		 * Simmier down now. Whatevs.
+		 * Simmer down now.
 		 *
 		 */
 		relax: function () {
 			this.$body.removeClass('busy');
 		},
 
+
+		/**
+		 * Opening a project...start to finish
+		 */
 		openProject: function (projectName) {
 
 			this.busy();
 
 			var that = this,
-				project = this.work[projectName],
-				html = '';
+				project,
+				html = '',
+				pagination = {},
+				pagingHtml = false;
+
+			if ( this.currentProject && ( projectName === 'prev' || projectName === 'next' ) ) {
+				// TODO - breaks if there's no prev/next item
+				if (projectName === 'prev' && this.currentProject.pagination.prev) this.openProject(this.currentProject.pagination.prev.key);
+				if (projectName === 'next' && this.currentProject.pagination.next) this.openProject(this.currentProject.pagination.next.key);
+				return;
+			} else {
+				project = this.findProject(projectName);
+			}
 
 			if (project) {
 				html = this.projectTmpl.render(project);
 				this.pushState('project', projectName);
+				this.currentProject = project;
 			} else {
 				var num = Math.floor(Math.random() * this['404'].length);
 				html = this.fourZeroFourTmpl.render(this['404'][num]);
@@ -189,13 +205,62 @@
 
 			this.$detail.html(html);
 
-			that.$body.addClass('detail-open');
+			if (!that.$body.hasClass('detail-open')) {
+				that.$body.addClass('detail-open');
+			}
 			imagesLoaded(this.$detail[0], function () {
 				that.relax();
 				that.$detail.find('.project').removeClass('hide');
 			});
 
 		},
+
+
+		/**
+		 * find the paginated projects
+		 *
+		 */
+		paginate: function (i) {
+
+			var pagination = {},
+				prev, next;
+
+			if (typeof i === 'number') {
+				prev = this.work[i - 1];
+				next = this.work[i + 1];
+			}
+			if (prev) pagination.prev = prev;
+			if (next) pagination.next = next;
+
+			return pagination;
+
+		},
+
+
+		/**
+		 * Yer
+		 *
+		 */
+		findProject: function (key) {
+
+			var i = 0,
+				projects = this.work,
+				project = {};
+
+			loop:
+			for (i; i < projects.length; i++) {
+				if (projects[i].key === key) {
+					project = projects[i];
+					break loop;
+				}
+			}
+
+			project.pagination = this.paginate(i);
+
+			return project;
+
+		},
+
 
 		/**
 		 * Open specic sections within the site
@@ -214,7 +279,7 @@
 				this.close(); // return to the default state
 				this.pushState(false);
 			} else if (page === '404') {
-				this.openProject('wat');
+				this.openProject(null);
 				this.pushState(false);
 			} else {
 				if (page === 'about') {
@@ -228,16 +293,41 @@
 
 			this.relax();
 
+			this.updatePageNav(page);
+
 		},
 
 
+		/**
+		 * The site page-nav. Here be the logic that updates it.
+		 *
+		 */
+		updatePageNav: function (page) {
+
+			var links = this.$pageNav.find('a');
+			links.removeClass('current');
+			if (typeof page === 'string') {
+				links.filter('[data-open-page="'+page+'"]').addClass('current');
+			} else {
+				links.filter('[data-open-page="work"]').addClass('current');
+			}
+
+		},
+
+
+		/**
+		 * Close all states and clean up
+		 *
+		 */
 		close: function () {
 			this.$body.removeClass('detail-open');
 			this.$detail.find('.project').addClass('hide');
 			this.$detail.html('');
 			this.pushState(false);
+			this.updatePageNav(false);
 			window.scrollTo(0, 0);
 		},
+
 
 		/**
 		 * Swtiching between view layouts
@@ -249,7 +339,12 @@
 
 
 		parseSearch: function (search) {
-			var searchObj = search.queryToObj('?');
+			var searchObj;
+			if (typeof search === 'string') {
+				searchObj = search.queryToObj('?');
+			} else {
+				searchObj = search;
+			}
 			return searchObj;
 		},
 
@@ -308,9 +403,12 @@
 
 			this.$body = args.body;
 			this.$detail = args.detail;
+			this.$pageNav = args.pageNav;
+
 			this.projectTmpl = Hogan.compile(args.projectTmpl);
 			this.fourZeroFourTmpl = Hogan.compile(args.fourZeroFourTmpl);
 			this.aboutTmpl = Hogan.compile(args.aboutTmpl);
+			this.paginationTmpl = Hogan.compile(args.paginationTmpl);
 
 			this.hazWork = false;
 			this.hazGit = false;
@@ -334,15 +432,30 @@
 			var $body = this.$body;
 
 			// Events
-			$body.on('click', '.projectlist-item', function (evt) {
+			$body.on('click', '[data-project]', function (evt) {
+				evt.preventDefault();
 				var target = this,
 					projectName = target.getAttribute('data-project');
 				B.openProject(projectName);
 			});
+
+			// Fun times
+			// Konami code with jQuery.
+			// Source: http://paulirish.com/2009/cornify-easter-egg-with-jquery/
+			var kkeys = [],
+				konami = "38,38,40,40,37,39,37,39,66,65";
+
 			$body.on('keydown', function (evt) {
 				var keycode = evt.keyCode;
+				kkeys.push( evt.keyCode );
+				if ( kkeys.toString().indexOf( konami ) >= 0 ) {
+					$(document).unbind('keydown', arguments.callee);
+					console.log('KONAMI!');
+				}
 				if (keycode === 27) B.close();
 				if (keycode === 9) B.toggleView();
+				if (keycode === 37) B.openProject('prev');
+				if (keycode === 39) B.openProject('next');
 			});
 			$body.on('click', '[data-open-page]', function (evt) {
 				evt.preventDefault();
@@ -388,16 +501,18 @@
 		// Otherwise we can perform an advanced lookup for something
 		} else {
 			if (windowSearch.length) {
-				search = windowSearch;//.queryToObj('?');
+				search = windowSearch;
 			}
 		}
 
 		B.vroom({
 			body: $('body'),
 			detail: $('.detail'),
+			pageNav: $('.nav'),
 			projectTmpl: $('#tProject').html(),
 			fourZeroFourTmpl: $('#tFourZeroFour').html(),
 			aboutTmpl: $('#tAbout').html(),
+			paginationTmpl: $('#tPagination').html(),
 			deeplink: deeplink,
 			search: search
 		});
