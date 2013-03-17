@@ -1,9 +1,9 @@
 <script type="text/html" id="tProject">
 	<article class="project hide">
-		<aside class="project-description">
-		    <h2 class="project-title">{{ title }}</h2>
-	    	<p>{{ description }}</p>
-	    </aside>
+		<header>
+		    <h2 class="project-title">{{& title }}</h2>
+	    	<p class="project-description">{{& description }}</p>
+	    </header>
 	    <section class="project-imgs">
 		    {{# img }}
 		        <figure class="ri project-img">
@@ -16,9 +16,15 @@
 
 <script type="text/html" id="tFourZeroFour">
 	<article class="project notfound hide">
-		<h2 class="notfound-title">404</h2>
-		<cite class="notfound-cite">Empty your mind, be formless, shapeless &mdash; like water. Now you put water in a cup, it becomes the cup; You put water into a bottle it becomes the bottle; You put it in a teapot it becomes the teapot. Now water can flow or it can crash. <strong>Be water, my friend</strong>.<br />
-			<br />
-			&mdash; <a href='http://en.wikiquote.org/wiki/Bruce_Lee' target='_blank'>Bruce Lee</a></cite>
+		<h2 class="notfound-title">{{ title }}</h2>
+		<cite class="notfound-cite">{{& cite }}</cite>
+	</article>
+</script>
+
+<script type="text/html" id="tAbout">
+	<article class="project about hide">
+		<h2 class="about-title">{{& title }}</h2>
+		<h3 class="about-blurb">{{& blurb }}</h3>
+		<div class="about-description">{{& description }}</div>
 	</article>
 </script>

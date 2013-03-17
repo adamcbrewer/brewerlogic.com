@@ -42,11 +42,18 @@
 
 	<div class="wrapper">
 
-		<nav class="site-nav">
+		<header class="site-nav">
 
 			<header class="header">
 				<h1 class="logo"><a href="/" title="Brewer Logic">Brewer Logic</a></h1>
 			</header>
+
+			<nav class="nav">
+				<ol>
+					<li><a data-open-page="work" class="nav-link" href="?page=work"><i class="icon icon-suitcase"></i><span>work</span></a></li>
+					<li><a data-open-page="about" class="nav-link" href="?page=about"><i class="icon icon-vcard"></i><span>about</span></a></li>
+				</ol>
+			</nav>
 
 			<div class="spinner">
 				<div class="cube">
@@ -60,14 +67,14 @@
 			</div>
 
 			<footer class="elsewhere">
-				<a class="icon icon-twitter" href="http://twitter.com/adamcbrewer" target="_blank" title="Twitter"><span>Twitter</span></a>
+				<a class="icon icon-twitter-1" href="http://twitter.com/adamcbrewer" target="_blank" title="Twitter"><span>Twitter</span></a>
 				<a class="icon icon-github-circled" href="http://github.com/adamcbrewer" target="_blank" title="Github"><span>Github</span></a>
 				<a class="icon icon-linkedin" href="http://za.linkedin.com/in/adamcbrewer" target="_blank" title="LinkedIn"><span>LinkedIn</span></a>
 				<a class="icon icon-user" href="http://adamcbrewer.com" target="_blank" title="adamcbrewer.com"><span>adamcbrewer.com</span></a>
 				<a class="icon icon-gplus" href="https://plus.google.com/u/0/109651434155076896860/" target="_blank" title="Google Plus"><span>Google +</span></a>
 			</footer>
 
-		</nav>
+		</header>
 
 		<section class="detail"></section>
 

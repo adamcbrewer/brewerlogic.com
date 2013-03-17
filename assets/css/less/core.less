@@ -21,10 +21,19 @@
 @c-main: #3468c5; // blue
 
 @d-spinner: 20px;
+@d-project-list: 100%;
 @d-project-grid: 140px;
 @d-project-grid-gap: 4px;
 @d-sitenav: 240px; //@d-project-grid;
-@d-sitenav-sml: @d-sitenav*0.8;
+@d-sitenav-sml: @d-sitenav*0.4;
+
+.sans {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.sansserif {
+    font-family: Georgia, Times, serif;
+}
+
 
 /* ====================================================
     BASE STYLES
@@ -52,7 +61,7 @@ html, body {
     height: 100%;
 }
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    .sans;
     font-size: 62.5%;
     line-height: 1.5;
     color: @c-copy;
@@ -61,7 +70,10 @@ body {
 
 a {
     color: @c-copy;
-    .transition(0.4s color ease);
+    .transition(~"0.2s color ease, 0.2s background-color ease");
+
+    &::-moz-selection { background: @c-bgmain; color: @c-main; text-shadow: none; }
+    &::selection { background: @c-bgmain; color: @c-main; text-shadow: none; }
 }
 a:link {}
 a:visited {}
@@ -107,6 +119,7 @@ a:focus {}
     text-align: center;
     .icon {
         color: #555;
+        margin-bottom: 0.4em;
         &:hover {
             color: #bbb;
         }
@@ -117,13 +130,16 @@ a:focus {}
     width: auto;
     padding: 0;
     overflow: auto;
+    padding-left: @d-project-grid-gap;
 }
 .detail {
     width: 0;
     overflow: hidden;
     height: 0;
     opacity: 1;
-    // background: -webkit-linear-gradient(top, hotpink 0%, skyblue 100%);
+    // a {
+    //     color: desaturate(@c-main, 25%);
+    // }
 }
 .content,
 .detail {
@@ -132,6 +148,11 @@ a:focus {}
 .icon > span {
     display: none;
 }
+.nav {
+    margin: 1em 0 3em;
+    text-align: center;
+}
+
 
 /* ====================================================
     MODULES STYLES
@@ -147,6 +168,64 @@ a:focus {}
 }
 .ri {
     > img { max-width: 100%; }
+}
+
+.nav-link {
+    color: lighten(@c-copy, 20%);
+    display: block;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 0.6em 0.4em;
+
+    &.current,
+    &:hover {
+        color: @c-bgmain;
+        background-color: @c-bglight;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    // &[data-open] {
+    //     &:after, &:before {
+    //         display: inline;
+    //     }
+    //     &:before {
+    //         margin-right: 0.2em;
+    //     }
+    //     &:after {
+    //         margin-left: 0.2em;
+    //     }
+    // }
+    // &[data-open*="work"] {
+    //     &:after, &:before {
+    //         display: inline;
+    //     }
+    //     &:before {
+    //         content: "{";
+    //     }
+    //     &:after {
+    //         content: "}";
+    //     }
+    // }
+    // &[data-open*="blog"] {
+    //     &:after, &:before {
+    //         display: inline;
+    //     }
+    //     &:before {
+    //         content: "[";
+    //     }
+    //     &:after {
+    //         content: "]";
+    //     }
+    // }
+
+}
+.nav-inner {
+    // width: 70px;
+    // overflow: hidden;
+    // display: inline-block;
 }
 
 .projectlist-item {
@@ -180,7 +259,7 @@ a:focus {}
 
 .projectlist-title {
     font-family: Arial;
-    font-size: 1.4em;
+    font-size: 1.2em;
     color: darken(@c-bglight, 30%);
     font-weight: normal;
     text-shadow: 1px 1px 1px #e9e9e9;
@@ -191,22 +270,23 @@ a:focus {}
 }
 
 .project {
-    margin: 0 1em;
+    margin: 1em;
 }
 
 .project-imgs {
-    width: 60%;
-    float: left;
+    max-width: 80%;
 }
 
 .project-title {
-    margin: 0 0 2em;
+    margin: 0 0 0.4em;
+    font-size: 3em;
 }
 
 .project-description {
-    width: 40%;
-    float: right;
-    padding: 4em 1em 2em;
+    margin: 2em 0em 4em;
+    font-size: 1.2em;
+    color: lighten(@c-copy, 10%);
+    .sansserif;
 }
 
 
@@ -214,13 +294,34 @@ a:focus {}
     text-align: center;
     margin: 2em auto 2em;
     padding: 0 2em;
+    max-width: 30em;
 }
 .notfound-title {
     font-size: 8em;
     margin-bottom: 0.4em;
 }
 .notfound-cite {
-    font-family: Georgia;
+    .sansserif;
+    font-size: 1.2em;
+}
+.about {
+    text-align: center;
+    margin: 2em auto 2em;
+    padding: 0 2em;
+}
+.about-title {
+    font-size: 4em;
+    margin-bottom: 0em;
+}
+.about-blurb {
+    font-size: 2em;
+    margin-bottom: 2em;
+}
+.about-description {
+    .sansserif;
+    font-size: 1.2em;
+    max-width: 30em;
+    margin: auto;
 }
 
 
@@ -263,7 +364,7 @@ a:focus {}
 
 .speedUp {
     .cube {
-        .animation(1s spinfaster linear 0s infinite);
+        .animation(0.4s spinfaster linear 0s infinite);
     }
 }
 
@@ -286,11 +387,7 @@ a:focus {}
        -moz-transform-style: preserve-3d;
         -ms-transform-style: preserve-3d;
             transform-style: preserve-3d;
-    -webkit-animation: 40s spin linear 0s infinite;
-       -moz-animation: 40s spin linear 0s infinite;
-        -ms-animation: 40s spin linear 0s infinite;
-         -o-animation: 40s spin linear 0s infinite;
-            animation: 40s spin linear 0s infinite;
+    .animation(40s spin linear 0s infinite);
 }
 .side {
     background: transparent;
@@ -351,21 +448,43 @@ a:focus {}
     .content {
         margin-left: @d-sitenav-sml;
         width: 0;
+        height: 0;
+        overflow: hidden;
     }
     .detail {
         width: 80%;
         height: auto;
         margin-left: @d-sitenav-sml;
     }
-    // .spinner {
-    //     .spread;
-    // }
+    .elsewhere {
+        font-size: 1.2em;
+        .icon { display: block; }
+    }
+    .nav-inner {
+        // width: 0;
+    }
+    .nav-link {
+        .icon {
+            display: inline-block;
+        }
+        span {
+            display: none;
+        }
+    }
 }
 
 .busy {
     .spinner {
-        .spread;
+        // .spread;
         .speedUp;
+    }
+}
+
+.listview {
+    .projectlist-item,
+    .projectlist-item.wide {
+        width: @d-project-list;
+        float: none;
     }
 }
 
@@ -381,12 +500,17 @@ a:focus {}
 .content {
     .transition(~"0.2s margin-left ease 0s, 0.2s width ease 0s");
 }
-.site-nav {
+.site-nav,
+.nav-inner {
     .transition(0.2s width ease 0s);
 }
 .project {
-    .transition(~"0.6s opacity ease 0s");
+    .transition(0.6s opacity ease 0s);
 }
+.elsewhere {
+    .transition(0.2s font-size ease 0s);
+}
+
 
 @-webkit-keyframes spin {
     0% {
