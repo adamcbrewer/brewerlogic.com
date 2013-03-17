@@ -132,7 +132,13 @@
          -o-transition-duration: @transition-duration;
             transition-duration: @transition-duration;
 }
-
+.animation(@animation) {
+    -webkit-animation: @animation;
+       -moz-animation: @animation;
+        -ms-animation: @animation;
+         -o-animation: @animation;
+            animation: @animation;
+}
 
 //============================================================
 // Gradients

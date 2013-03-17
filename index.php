@@ -38,7 +38,7 @@
 	</script>
 
 </head>
-<body data-base-url="<?= $site_url; ?>">
+<body data-base-url="<?= $site_url; ?>" class="busy">
 
 	<div class="wrapper">
 
@@ -75,7 +75,7 @@
 
 			<ul class="projectlist">
 
-				<li class="projectlist-item" data-project="brewersdroop">
+				<li class="projectlist-item">
 					<article>
 						<h3 class="projectlist-title">Launchpad</h3>
 					</article>
@@ -114,6 +114,7 @@
 
 	<script src="assets/js/libs/hogan-2.0.0.js"></script>
 	<script src="assets/js/libs/zepto.js"></script>
+	<script src="assets/js/libs/imagesloaded.js"></script>
 	<script src="assets/js/script.js"></script>
 
 </body>

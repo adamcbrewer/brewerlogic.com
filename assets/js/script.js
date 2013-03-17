@@ -11,6 +11,32 @@
 	b.setAttribute("data-platform", Site.platform);
 
 
+	// function getVendorPrefix() {
+	// 	var regex = /^(Moz|Webkit|Khtml|O|ms|Icab)(?=[A-Z])/;
+	// 	var someScript = document.getElementsByTagName('script')[0],
+	// 		prop;
+	// 	for (prop in someScript.style) {
+	// 		if (regex.test(prop)) {
+	// 			// test is faster than match, so it's better to perform
+	// 			// that on the lot and match only when necessary
+	// 			return prop.match(regex)[0];
+	// 		}
+	// 	}
+
+	// 	// Nothing found so far?
+	// 	return '';
+	// }
+
+	// var transEndEventNames = {
+	// 	'WebkitTransition' : 'webkitTransitionEnd',
+	// 	'MozTransition'    : 'transitionend',
+	// 	'OTransition'      : 'oTransitionEnd',
+	// 	'msTransition'     : 'MSTransitionEnd',
+	// 	'transition'       : 'transitionend'
+	// },
+	// transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
+
+
 	/**
 	 * Your functions here
 	 *
@@ -46,6 +72,7 @@
 
 		readyWork: function (data) {
 			B.work = data.work;
+			B['404'] = data['404'];
 			B.hazWork = true;
 			B.checkReadyState();
 		},
@@ -54,6 +81,7 @@
 			// TODO
 			B.hazGit = true;
 			B.checkReadyState();
+			B.relax();
 		},
 
 		checkReadyState: function () {
@@ -63,14 +91,35 @@
 
 		},
 
+		busy: function () {
+			this.$body.addClass('busy');
+		},
+
+		relax: function () {
+			this.$body.removeClass('busy');
+		},
+
 		open: function (projectName) {
 
-			var project = this.work[projectName],
+			this.busy();
+
+			var that = this,
+				project = this.work[projectName],
+				html = '';
+			if (project) {
 				html = this.projectTmpl.render(project);
+			} else {
+				var num = Math.floor(Math.random() * this['404'].length);
+				html = this.fourZeroFourTmpl.render();//(this['404'][num]);
+			}
 
 			this.$detail.html(html);
-
-			this.$body.addClass('detail-open');
+			// this.$detail.find('.project').html(html);
+			that.$body.addClass('detail-open');
+			imagesLoaded(this.$detail[0], function () {
+				that.relax();
+				that.$detail.find('.project').removeClass('hide');
+			});
 
 		},
 
@@ -89,6 +138,7 @@
 			this.$body = args.body;
 			this.$detail = args.detail;
 			this.projectTmpl = Hogan.compile(args.projectTmpl);
+			this.fourZeroFourTmpl = Hogan.compile(args.fourZeroFourTmpl);
 
 			this.hazWork = false;
 			this.hazGit = false;
@@ -130,7 +180,8 @@
 		B.vroom({
 			body: $('body'),
 			detail: $('.detail'),
-			projectTmpl: $('#tProject').html()
+			projectTmpl: $('#tProject').html(),
+			fourZeroFourTmpl: $('#tFourZeroFour').html()
 		});
 
 
