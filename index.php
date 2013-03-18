@@ -44,12 +44,15 @@
 
 		<header class="site-nav">
 
-			<header class="header">
-				<h1 class="logo"><a href="/" title="Brewer Logic">Brewer Logic</a></h1>
-			</header>
+			<h1 class="logo"><a href="/" title="Brewer Logic">Brewer Logic</a></h1>
 
 			<nav class="nav">
-				<ol>
+				<select class="nav-select">
+					<option selected="selected" disabled="disabled">&#9776;</option>
+					<option data-open-page="work" value="work">work</option>
+					<option data-open-page="about" value="about">about</option>
+				</select>
+				<ol class="nav-links">
 					<li><a data-open-page="work" class="nav-link current" href="?page=work"><i class="icon icon-suitcase"></i><span>work</span></a></li>
 					<li><a data-open-page="about" class="nav-link" href="?page=about"><i class="icon icon-vcard"></i><span>about</span></a></li>
 				</ol>

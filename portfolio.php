@@ -92,7 +92,7 @@ $brewerlogic = array(
 		)
 	),
 	'about' => array(
-		'title' => 'Brewer Logic',
+		'title' => 'Lorem Ipsum',
 		'blurb' => 'The porfolio of webmaker and developer, <a href="http://adamcbrewer.com" target="_blank">Adam Brewer</a>',
 		'description' => 'This is a showcase of all my development work. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.<br /></br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.'
 	),
