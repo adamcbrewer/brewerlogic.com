@@ -98,11 +98,12 @@ a:focus {}
     position: fixed;
     top: 0;
     left: 0;
+    padding-top: 2em;
 }
 .logo {
     max-width: 120px;
     width: 80%;
-    margin: 2em auto 4em;
+    margin: 0 auto 4em;
     > a {
         width: 100%;
         height: 0;
@@ -297,8 +298,16 @@ a:focus {}
     font-size: 3em;
 }
 
+.project-intro {
+    margin: 1em 0 1em;
+}
+
+.project-img {
+    margin-bottom: 1em;
+}
+
 .project-description {
-    margin: 2em 0em 4em;
+    margin: 1em 0em 4em;
     font-size: 1.2em;
     max-width: 30em;
     color: lighten(@c-copy, 10%);
@@ -530,8 +539,7 @@ a:focus {}
 .content {
     .transition(~"0.2s margin-left ease 0s, 0.2s width ease 0s");
 }
-.site-nav,
-.nav-inner {
+.site-nav {
     .transition(0.2s width ease 0s);
 }
 .project {
@@ -645,6 +653,21 @@ a:focus {}
 
     Never set breakpoints for devices, only when the design requires it.
 ========================================================================== */
+
+@media (max-width: 44em) {
+    .site-nav {
+        position: inherit;
+        left: auto;
+        top: auto;
+        height: auto;
+        width: 100%;
+        .transition(none);
+    }
+    .logo {
+        margin: 0 2em;
+        max-width: 140px;
+    }
+}
 
 
 

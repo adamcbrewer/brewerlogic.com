@@ -5,7 +5,8 @@ $brewerlogic = array(
 		array(
 			'key' => 'brewersdroop',
 			'title' => "The Brewer&#8217;s Droop",
-			'meta' => '',
+			'intro' => 'This is some addition introduction text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+			'website' => 'htp://brewersdroop.co.za',
 			'description' => "Lorem ipsum dolor <a href='http://adamcbrewer.com' target='_blank'>adamcbrewer.com</a> sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br /><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 			'img' => array(
 				array(
@@ -38,7 +39,7 @@ $brewerlogic = array(
 		array(
 			'key' => 'testproject1',
 			'title' => "Test Project 1",
-			'meta' => '',
+			'intro' => '',
 			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
 			'img' => array(
 				array(
@@ -56,7 +57,7 @@ $brewerlogic = array(
 		array(
 			'key' => 'testproject2',
 			'title' => "Test Project 2",
-			'meta' => '',
+			'intro' => '',
 			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
 			'img' => array(
 				array(
@@ -73,7 +74,7 @@ $brewerlogic = array(
 		),
 		array(
 			'key' => 'testproject3',
-			'title' => "Test Project 3",
+			'intro' => "Test Project 3",
 			'meta' => '',
 			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
 			'img' => array(
