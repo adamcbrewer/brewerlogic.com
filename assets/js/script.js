@@ -109,8 +109,17 @@
 			B.work = data.work;
 			B.about = data.about;
 			B['404'] = data['404'];
+			B.renderWork(data);
 			B.hazWork = true;
 			B.checkReadyState();
+		},
+
+		renderWork: function (data) {
+
+			data.type = 'wide';
+			var html = this.projectlistItemTmpl.render(data);
+			this.$projectList.append(html);
+
 		},
 
 
@@ -404,11 +413,12 @@
 			this.$body = args.body;
 			this.$detail = args.detail;
 			this.$pageNav = args.pageNav;
+			this.$projectList = args.projectList;
 
 			this.projectTmpl = Hogan.compile(args.projectTmpl);
 			this.fourZeroFourTmpl = Hogan.compile(args.fourZeroFourTmpl);
 			this.aboutTmpl = Hogan.compile(args.aboutTmpl);
-			this.paginationTmpl = Hogan.compile(args.paginationTmpl);
+			this.projectlistItemTmpl = Hogan.compile(args.projectlistItemTmpl);
 
 			this.hazWork = false;
 			this.hazGit = false;
@@ -437,6 +447,11 @@
 				var target = this,
 					projectName = target.getAttribute('data-project');
 				B.openProject(projectName);
+			});
+			this.$pageNav.find('.nav-select').on('change', function(evt) {
+				var i = this.selectedIndex,
+					page = this.options[i].getAttribute('data-open-page');
+				B.openPage(page);
 			});
 
 			// Fun times
@@ -505,14 +520,16 @@
 			}
 		}
 
+
 		B.vroom({
 			body: $('body'),
 			detail: $('.detail'),
+			projectList: $('.projectlist'),
 			pageNav: $('.nav'),
 			projectTmpl: $('#tProject').html(),
 			fourZeroFourTmpl: $('#tFourZeroFour').html(),
 			aboutTmpl: $('#tAbout').html(),
-			paginationTmpl: $('#tPagination').html(),
+			projectlistItemTmpl: $('#tProjectlistItem').html(),
 			deeplink: deeplink,
 			search: search
 		});

@@ -74,6 +74,7 @@
 
 			<ul class="projectlist">
 
+				<? /*
 				<li class="projectlist-item">
 					<article>
 						<h3 class="projectlist-title">Launchpad</h3>
@@ -100,6 +101,8 @@
 				<li class="projectlist-item wide"></li>
 				<li class="projectlist-item"></li>
 				<li class="projectlist-item"></li>
+
+				*/ ?>
 
 			</ul>
 

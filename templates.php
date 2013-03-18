@@ -37,9 +37,12 @@
 	</article>
 </script>
 
-<script type="text/html" id="tPagination">
-	<nav class="pagination">
-		{{# prev }}<a data-project="{{ prev }}" href="">◀</a>{{/ prev }}
-		{{# next }}<a data-project="{{ next }}" href="">▶</a>{{/ next }}
-	</nav>
+<script type="text/html" id="tProjectlistItem">
+	{{# work }}
+		<li class="projectlist-item {{ type }}" data-project="{{ key }}">
+			<article>
+				<h3 class="projectlist-title">{{{ title }}}</h3>
+			</article>
+		</li>
+	{{/ work }}
 </script>
