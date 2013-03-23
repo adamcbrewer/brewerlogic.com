@@ -254,17 +254,16 @@
 
 			var i = 0,
 				projects = this.work,
-				project = {};
+				project = false;
 
 			loop:
 			for (i; i < projects.length; i++) {
 				if (projects[i].key === key) {
 					project = projects[i];
+					project.pagination = this.paginate(i);
 					break loop;
 				}
 			}
-
-			project.pagination = this.paginate(i);
 
 			return project;
 

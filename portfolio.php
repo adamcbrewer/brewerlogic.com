@@ -74,7 +74,8 @@ $brewerlogic = array(
 		),
 		array(
 			'key' => 'testproject3',
-			'intro' => "Test Project 3",
+			'title' => "Test Project 3",
+			'intro' => "",
 			'meta' => '',
 			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
 			'img' => array(
