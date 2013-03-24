@@ -2,14 +2,13 @@
 	<article class="project hide">
 		{{# pagination }}
 			<nav class="pagination">
-				{{# prev }}<a rel="prev" data-project="{{ prev.key }}" title="{{{ prev.title }}}" href="?project={{ prev.key }}">&#9664; {{{ prev.title }}}</a>{{/ prev }}
-				{{# next }}<a rel="next" data-project="{{ next.key }}" title="{{{ next.title }}}" href="?project={{ next.key }}">{{{ next.title }}} &#9654;</a>{{/ next }}
+				{{# prev }}<a rel="prev" data-project="{{ prev.key }}" title="{{{ prev.title }}}" href="?project={{ prev.key }}">&#9664;</a>{{/ prev }}
+				{{# next }}<a rel="next" data-project="{{ next.key }}" title="{{{ next.title }}}" href="?project={{ next.key }}">&#9654;</a>{{/ next }}
 			</nav>
 		{{/ pagination }}
 		<header>
 		    <h2 class="project-title">{{& title }}</h2>
 		    {{# intro }}<h3 class="project-intro">{{& intro }}</h3>{{/ intro }}
-		    <p class="project-website"><a href="{{ website }}" target="_blank">{{& title }}</a></p>
 	    	<p class="project-description">{{& description }}</p>
 	    </header>
 	    <section class="project-imgs">
@@ -39,7 +38,7 @@
 
 <script type="text/html" id="tProjectlistItem">
 	{{# work }}
-		<li class="projectlist-item {{ type }}" data-project="{{ key }}">
+		<li class="projectlist-item" title="{{{ title }}}" data-project="{{ key }}" style="background-image:url({{ thumb }})">
 			<article>
 				<h3 class="projectlist-title">{{{ title }}}</h3>
 			</article>

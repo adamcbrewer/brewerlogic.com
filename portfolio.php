@@ -5,9 +5,9 @@ $brewerlogic = array(
 		array(
 			'key' => 'brewersdroop',
 			'title' => "The Brewer&#8217;s Droop",
-			'intro' => 'This is some addition introduction text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-			'website' => 'htp://brewersdroop.co.za',
+			'intro' => 'March 2010',
 			'description' => "Lorem ipsum dolor <a href='http://adamcbrewer.com' target='_blank'>adamcbrewer.com</a> sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br /><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+			'thumb' => 'http://fillmurray.com/320/320',
 			'img' => array(
 				array(
 					'src' => 'http://fillmurray.com/1000/1800',
@@ -41,6 +41,7 @@ $brewerlogic = array(
 			'title' => "Test Project 1",
 			'intro' => '',
 			'description' => "shdfk jshdf kj shdkf jhskdfjh sdfkhs dkjsk dfhskdj fkjh",
+			'thumb' => 'http://placecage.com/320/320',
 			'img' => array(
 				array(
 					'src' => 'http://fillmurray.com/1000/1800',

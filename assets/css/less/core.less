@@ -22,10 +22,10 @@
 
 @d-spinner: 20px;
 @d-project-list: 100%;
-@d-project-grid: 140px;
+@d-project-grid: 240px;
 @d-project-grid-gap: 4px;
 @d-sitenav: 240px; //@d-project-grid;
-@d-sitenav-sml: @d-sitenav*0.4;
+@d-sitenav-sml: @d-sitenav*0.8;
 
 .sans {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -135,8 +135,8 @@ a:focus {}
     width: auto;
     padding: 0;
     overflow: auto;
-    padding-top: @d-project-grid-gap;
-    padding-left: @d-project-grid-gap;
+    // padding-top: @d-project-grid-gap;
+    // padding-left: @d-project-grid-gap;
 
 }
 .detail {
@@ -198,40 +198,6 @@ a:focus {}
         display: none;
     }
 
-    // &[data-open] {
-    //     &:after, &:before {
-    //         display: inline;
-    //     }
-    //     &:before {
-    //         margin-right: 0.2em;
-    //     }
-    //     &:after {
-    //         margin-left: 0.2em;
-    //     }
-    // }
-    // &[data-open*="work"] {
-    //     &:after, &:before {
-    //         display: inline;
-    //     }
-    //     &:before {
-    //         content: "{";
-    //     }
-    //     &:after {
-    //         content: "}";
-    //     }
-    // }
-    // &[data-open*="blog"] {
-    //     &:after, &:before {
-    //         display: inline;
-    //     }
-    //     &:before {
-    //         content: "[";
-    //     }
-    //     &:after {
-    //         content: "]";
-    //     }
-    // }
-
 }
 .nav-inner {
     // width: 70px;
@@ -240,14 +206,17 @@ a:focus {}
 }
 
 .pagination {
-    margin: 1em auto;
+    margin: 0.6em auto;
     overflow: auto;
-    font-size: 0.8em;
+    font-size: 1.2em;
+    position: absolute;
+    right: 10px;
+    top: 0;
     [rel="prev"] {
 
     }
     [rel="next"] {
-        float: right;
+        // float: right;
     }
 }
 
@@ -255,16 +224,20 @@ a:focus {}
     display: table;
     float: left;
     position: relative;
-    margin: 0 @d-project-grid-gap @d-project-grid-gap 0;
+    // margin: 0 @d-project-grid-gap @d-project-grid-gap 0;
+    margin: 0;
     width: @d-project-grid;
     height: @d-project-grid;
     background-color: darken(@c-bglight, 10%);
     background-position: center center;
     background-size: 100%;
     position: relative;
+    -webkit-filter: grayscale(0.9);
+    .transition(0.4s * ease);
 
     &:hover {
-        background-color: darken(@c-bglight, 12%);
+        background-color: darken(@c-bglight, 16%);
+        -webkit-filter: grayscale(0.2);
     }
 
     &.wide {
@@ -289,11 +262,12 @@ a:focus {}
     padding: 0 0.4em 0.6em;
     border-bottom: 1px solid darken(@c-bglight, 20%);
     box-shadow: 0px 1px 0px #e9e9e9;
-    display: inline;
+    display: none; //inline;
 }
 
 .project {
     margin: 1em;
+    position: relative;
 }
 
 .project-imgs {
@@ -301,12 +275,12 @@ a:focus {}
 }
 
 .project-title {
-    margin: 0 0 0.4em;
-    font-size: 3em;
+    margin: 0 0 -0.6em;
+    font-size: 2em;
 }
 
 .project-intro {
-    margin: 1em 0 1em;
+    margin: 1em 0 2em;
 }
 
 .project-img {
@@ -315,10 +289,10 @@ a:focus {}
 
 .project-description {
     margin: 1em 0em 4em;
-    font-size: 1.2em;
+    font-size: 0.9em;
     max-width: 30em;
     color: lighten(@c-copy, 10%);
-    .sansserif;
+    // .sansserif;
 }
 
 
@@ -364,11 +338,11 @@ a:focus {}
 .spread {
     .side {
         // outline: 1px solid #999;
-        -webkit-backface-visibility: hidden;
-           -moz-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-             -o-backface-visibility: hidden;
-                backface-visibility: hidden;
+        -webkit-backface-visibility: visible;
+           -moz-backface-visibility: visible;
+            -ms-backface-visibility: visible;
+             -o-backface-visibility: visible;
+                backface-visibility: visible;
 
         .transition(0.4s * ease 0s);
         .scale(2);
@@ -406,8 +380,13 @@ a:focus {}
     // margin: 0 auto 4em;
 
     position: absolute;
-    bottom: 2em;
-    right: 1em;
+    // bottom: 2em;
+    // right: 1em;
+    top: 40px;
+    left: (@d-sitenav + 20px);
+
+    .transition(~"0.2s left ease, 0.8 opacity ease");
+    opacity: 0;
 
     &.active,
     &:hover {
@@ -478,6 +457,9 @@ a:focus {}
     views like the home page or the inside page.
 ==================================================== */
 .detail-open {
+    .spinner {
+        left: (@d-sitenav-sml + 40px);
+    }
     .site-nav {
         width: @d-sitenav-sml;
     }
@@ -493,8 +475,8 @@ a:focus {}
         margin-left: @d-sitenav-sml;
     }
     .elsewhere {
-        font-size: 1.2em;
-        .icon { display: block; }
+        // font-size: 1.2em;
+        // .icon { display: block; }
     }
     .nav-inner {
         // width: 0;
@@ -522,6 +504,7 @@ a:focus {}
     .spinner {
         // .spread;
         .speedUp;
+        opacity: 1;
     }
 }
 
@@ -721,7 +704,13 @@ a:focus {}
             width: auto;
         }
     }
-
+    .elsewhere {
+        display: none;
+    }
+    .spinner {
+        top: 140px;
+        left: 40px !important;
+    }
 }
 
 
