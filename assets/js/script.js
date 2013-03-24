@@ -186,7 +186,7 @@
 		openProject: function (projectName) {
 
 			this.busy();
-
+			// return;
 			var that = this,
 				project,
 				html = '',

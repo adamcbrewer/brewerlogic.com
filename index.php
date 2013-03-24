@@ -74,35 +74,7 @@
 
 			<ul class="projectlist">
 
-				<? /*
-				<li class="projectlist-item">
-					<article>
-						<h3 class="projectlist-title">Launchpad</h3>
-					</article>
-				</li>
-				<li class="projectlist-item wide" data-project="brewersdroop">
-					<article>
-						<h3 class="projectlist-title">Brewers Droop</h3>
-					</article>
-				</li>
-				<li class="projectlist-item wide">
-					<article>
-						<h3 class="projectlist-title">Somethting else</h3>
-					</article>
-				</li>
-				<li class="projectlist-item"></li>
-				<li class="projectlist-item"></li>
-				<li class="projectlist-item wide"></li>
-				<li class="projectlist-item"></li>
-				<li class="projectlist-item"></li>
-				<li class="projectlist-item"></li>
-				<li class="projectlist-item wide"></li>
-				<li class="projectlist-item"></li>
-				<li class="projectlist-item wide"></li>
-				<li class="projectlist-item"></li>
-				<li class="projectlist-item"></li>
-
-				*/ ?>
+				<? // the payload  ?>
 
 			</ul>
 
