@@ -16,7 +16,7 @@
 @c-copy: #ffffff;
 @c-main: #3468c5; // blue
 
-@d-spinner: 30px;
+@d-spinner: 15px;
 
 
 /* ====================================================
@@ -43,7 +43,10 @@
 ::-moz-selection{ background: @c-main; color: #fff; text-shadow: none; }
 ::selection { background: @c-main; color: #fff; text-shadow: none; }
 
-html, body { -web-font-smoothing: antialiased; }
+html, body {
+    height: 100%;
+    -web-font-smoothing: antialiased;
+}
 body {
     width: 100%;
     height: 100%;
@@ -71,7 +74,13 @@ a:focus {}
 ==================================================== */
 .wrapper {
     font-size: 1.6em;
-    padding: 1em 2%;
+    // padding: 1em 2%;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -2em;
+    max-width: 1000px;
+
 }
 .logo {
     width: 160px;
@@ -85,22 +94,27 @@ a:focus {}
         display: inline-block;
         text-indent: -9999em;
     }
-    margin-bottom: 4.6em;
+    margin-bottom: 1.6em;
+}
+.subdomain {
+    font-size: 1.6rem;
+    color: #ddd;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
 }
 .content {
-    max-width: 200px;
-    max-height: 22em;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
+    padding: 2em 0;
+}
+.footer, .push {
+    height: 2em;
 }
 .footer {
+    text-align: center;
+    font-size: 0.8rem;
     .icon {
-        font-size: 1.2em;
+        font-size: 1.6em;
         color: #555;
         &:hover {
             color: #bbb;
@@ -109,15 +123,6 @@ a:focus {}
 }
 .icon > span {
     display: none;
-}
-.intro {
-    color: #ddd;
-    margin-top: 5em;
-    margin-bottom: 4em;
-    font-size: 1em;
-    text-transform: uppercase;
-    text-shadow: 0 0 40px rgba(255,255,255,0.2);
-    .rotate(13deg)
 }
 
 /* ====================================================
@@ -129,15 +134,97 @@ a:focus {}
 .highlight {
     color: @c-main;
 }
+dl {
+    overflow: auto;
+}
+dt {
+    display: inline-block;
+    float: left;
+    clear: left;
+    margin-right: 0.5em;
+    min-width: 30px;
+}
+dd {
+    display: inline-block;
+    float: left;
+    margin-bottom: 0.5em;
+}
+
+.lab-interface {
+    margin: 2em 2% 1em;
+    overflow: auto;
+}
+.lab-list {
+
+}
+.lab-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 32.9%;
+    margin: 1em 0 1em;
+}
+.lab {
+    margin: 0 4%;
+    padding: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    color: #777;
+    text-shadow: 1px 1px 0px #222;
+
+    .transition(0.4s * ease);
+    .box-shadow(~"0 0 20px rgba(255, 255, 255, 0.01),  inset 0 0 20px rgba(255, 255, 255, 0.01)");
+
+    &:hover {
+        color: #aaa;
+        border-color: rgba(255, 255, 255, 0.2);
+        .box-shadow(~"0 0 20px rgba(255, 255, 255, 0.03),  inset 0 0 40px rgba(255, 255, 255, 0.02)");
+    }
+}
+.lab-title {
+    margin-bottom: 1em;
+}
+.lab-desc {
+    text-transform: lowercase;
+    margin-bottom: 2em;
+    font-size: 0.8rem;
+}
+.lab-time {
+    text-transform: lowercase;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+.lab-access {
+    margin-bottom: 2em;
+    text-transform: lowercase;
+    font-size: 0.8rem;
+}
+
+.offline,
+.online {
+    .transition(0.4s * ease);
+}
+.offline {
+    color: rgba(238, 29, 29, 0.6);
+    // &:hover {
+    //     color: rgba(238, 29, 29, 1);
+    // }
+}
+.online {
+    color: rgba(26, 226, 26, 0.8);
+    &:hover {
+        color: rgba(26, 226, 26, 1);
+    }
+}
+
 
 .spinner {
     width: @d-spinner*2;
     height: @d-spinner;
     margin: auto;
-    // position: absolute;
-    // top: 1em;
-    // right: 1em;
-    // margin: auto;
+    position: absolute;
+    top: 2em;
+    right: 1.4em;
+    margin: auto;
     &:hover {
         .side {
             outline: 1px solid #fff;
@@ -302,6 +389,12 @@ a:focus {}
     Never set breakpoints for devices, only when the design requires it.
 ========================================================================== */
 
+@media all and (max-width: 570px) {
+    .lab-item { width: 49%; }
+}
+@media all and (max-width: 400px) {
+    .lab-item { width: 100%; }
+}
 
 
 
