@@ -3,7 +3,7 @@
 ==================================================== */
 
 @import "libs/helpers.less";
-@import "libs/reset.less";
+@import "libs/normalize.less";
 @import "fontello.less";
 
 
@@ -15,6 +15,7 @@
 @c-bg: #f8f8f8;
 @c-copy: #494949;
 @c-main: #3468c5; // blue
+@c-slate: #2b2b2b;
 
 @d-spinner: 30px;
 
@@ -57,17 +58,26 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 62.5%;
     color: @c-copy;
-    background-color: @c-bg;
+    background-color: @c-slate;
 }
 
 a {
-    .transition(0.1s color ease 0s);
+    color: #777;
+    text-decoration: none;
+    .transition(0.3s color ease 0s);
 }
 a:link {}
 a:visited {}
 a:hover { color: #fff; text-decoration: none; }
 a:active {}
 a:focus {}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+li { margin-bottom: 0.4em; }
 
 /* ====================================================
     LAYOUT STYLES
@@ -78,7 +88,7 @@ a:focus {}
 
 .wrapper {
     font-size: 1.6em;
-    background-color: @c-bg;
+    // background-color: @c-bg;
 
     /* stuicky footer stuff */
     min-height: 100%;
@@ -92,7 +102,7 @@ a:focus {}
 }
 
 .header {
-    background-color: #2b2b2b;
+    // background-color: #2b2b2b;
     padding: 30px 4% 20px;
     .logo {
         float: left;
@@ -134,16 +144,16 @@ a:focus {}
 }
 
 .work-item {
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 0.7em;
 }
 .work-item-header {
     font-weight: bold;
 }
 .work-link {
-    color: #444;
+    // color: #444;
     &:hover {
-        color: #888
+        // color: #888
     }
 }
 
