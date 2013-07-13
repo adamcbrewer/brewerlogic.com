@@ -13,13 +13,17 @@
     LESS VARIABLES
 ==================================================== */
 @c-bg: #f8f8f8;
-@c-copy: #494949;
+@c-copy: #797979;
 @c-main: #3468c5; // blue
 @c-slate: #2b2b2b;
 
+@f-serif: "Baskerville", "utopia-std", "Hoefler Text", Georgia, Times, serif;
+@f-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 @d-spinner: 30px;
 
-@stickyFooterH: 60px;
+
+@d-stickyFooterH: 540px;
 
 
 /* ====================================================
@@ -55,20 +59,20 @@ html {
 body {
     width: 100%;
     height: 100%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: @f-sans;
     font-size: 62.5%;
     color: @c-copy;
     background-color: @c-slate;
 }
 
 a {
-    color: #777;
+    color: @c-copy;
     text-decoration: none;
     .transition(0.3s color ease 0s);
 }
 a:link {}
 a:visited {}
-a:hover { color: #fff; text-decoration: none; }
+a:hover { color: #ddd; text-decoration: none; }
 a:active {}
 a:focus {}
 
@@ -94,11 +98,11 @@ li { margin-bottom: 0.4em; }
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -@stickyFooterH;
+    margin: 0 auto -@d-stickyFooterH;
 }
 
 .content {
-    padding: 3em 4%;
+    padding: 0 4% 3em;
 }
 
 .header {
@@ -117,16 +121,37 @@ li { margin-bottom: 0.4em; }
 }
 .footer,
 .push {
-    height: @stickyFooterH;
+    height: @d-stickyFooterH;
 }
 .footer {
-    padding: 20px 4%;
+    font-size: 3em;
+    font-family: @f-serif;
+    text-align: center;
+    border-top: 1px solid #333;
+    padding: 3em 4% 3em;
+    .inner {
+        max-width: 400px;
+        margin: auto;
+    }
     .icon {
-        font-size: 1.8em;
-        color: #555;
+        // font-size: em;
+        color: #888;
         &:hover {
             color: #bbb;
         }
+    }
+}
+.profile {
+    margin: auto;
+    max-width: 180px;
+    img {
+        border: 1px solid #222;
+        .border-radius(4px);
+    }
+}
+.social-links {
+    li {
+        display: inline;
     }
 }
 .icon > span {
@@ -144,19 +169,24 @@ li { margin-bottom: 0.4em; }
 }
 
 .work-item {
-    font-size: 2em;
-    margin-bottom: 0.7em;
 }
 .work-item-header {
-    font-weight: bold;
+    font-size: 4.6em;
+    margin-bottom: 0;
+}
+.work-item-footer {
+    font-size: 0.9em;
+    .transition(0.3s all ease 0s);
 }
 .work-link {
-    // color: #444;
+
     &:hover {
-        // color: #888
+
     }
 }
-
+.ri {
+    img { max-width: 100%; }
+}
 .logo {
     width: 160px;
     height: 65px;
@@ -276,6 +306,22 @@ li { margin-bottom: 0.4em; }
     They are about describing how a module or layout looks on screens that are smaller or bigger.
     They are also about describing how a module might look in different
     views like the home page or the inside page.
+==================================================== */
+.no-touch {
+    .work-item-footer {
+        opacity: 0;
+    }
+    .work-item:hover {
+        .work-item-footer {
+            opacity: 1;
+            .transform(translateX(10px));
+        }
+    }
+}
+
+
+/* ====================================================
+    ANIMATIONS
 ==================================================== */
 @-webkit-keyframes spin {
     0% {

@@ -25,6 +25,8 @@
 
 	<link href="<?= $config->site_url; ?>/assets/css/core.css" rel="stylesheet">
 
+	<script src="<?= $config->site_url; ?>/assets/js/libs/modernizr.js"></script>
+
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "<?= $config->ga ?>"]);
@@ -42,16 +44,7 @@
 	<div class="wrapper">
 
 		<header class="header cf">
-			<div class="spinner">
-				<div class="cube">
-					<div class="side side-front"></div>
-					<div class="side side-bottom"></div>
-					<div class="side side-back"></div>
-					<div class="side side-top"></div>
-					<div class="side side-left"></div>
-					<div class="side side-right"></div>
-				</div>
-			</div>
+
 			<h1 class="logo"><a href="<?= $config->site_url ?>" title="Brewer Logic">Brewer Logic</a></h1>
 		</header>
 
