@@ -174,14 +174,26 @@ li { margin-bottom: 0.4em; }
     font-size: 4.6em;
     margin-bottom: 0;
 }
-.work-item-footer {
+.work-item-meta {
     font-size: 0.9em;
     .transition(0.3s all ease 0s);
+}
+.work-desc {
+    line-height: 1.4;
+    max-width: 24em;
+    font-size: 1.4em;
+    font-family: @f-serif;
 }
 .work-link {
 
     &:hover {
 
+    }
+}
+.work-pics {
+    .ri {
+        max-width: 800px;
+        margin: 2em 0;
     }
 }
 .ri {
@@ -308,11 +320,11 @@ li { margin-bottom: 0.4em; }
     views like the home page or the inside page.
 ==================================================== */
 .no-touch {
-    .work-item-footer {
+    .work-item-meta {
         opacity: 0;
     }
     .work-item:hover {
-        .work-item-footer {
+        .work-item-meta {
             opacity: 1;
             .transform(translateX(10px));
         }

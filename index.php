@@ -1,8 +1,8 @@
 <? include($_SERVER['DOCUMENT_ROOT'] . "/partials/header.php"); ?>
 	<ul>
 		<li class="work-item">
-			<h2 class="work-item-header"><a class="work-link" href="<?= $config->work ?>/brewers-droop">Brewers Droop</a></h2>
-			<footer class="work-item-footer">
+			<h2 class="work-item-header"><a class="work-link" href="<?= $config->work ?>/brewersdroop">Brewers Droop</a></h2>
+			<footer class="work-item-meta">
 				<time>August 2011</time>
 			</footer>
 		</li>
