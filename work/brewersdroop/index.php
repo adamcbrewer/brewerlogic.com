@@ -1,7 +1,11 @@
 <? include($_SERVER['DOCUMENT_ROOT'] . "/partials/header.php"); ?>
-	<article>
-		<header>
-			<h1 class="work-item-header">Brewers Droop</h1>
+	<article class="work-item-single">
+		<header class="work-item-header">
+			<h1 class="work-item-title">Brewers Droop</h1>
+			<footer>
+				<time>August 2011</time><br />
+				<a target="_blank" title="brewersdroop.co.za" href="http://brewersdroop.co.za">brewersdroop.co.za</a>
+			</footer>
 		</header>
 		<section class="work-desc">
 			<p>
@@ -16,17 +20,14 @@
 				be going through a MooTools phase at the time.
 			</p>
 			<p>
-				My older bother designed the site and we launched it over may pints of Guinness
+				<a target="_blank" title="Studio Brewer" href="http://studiobrewer.com">My older bother</a> designed the site and we launched it over may pints of Guinness
 				and several bottles of wine.
 			</p>
 		</section>
-		<footer>
-			<time>&mdash; August 2011</time>
-		</footer>
 
 		<section class="work-pics">
 			<figure class="ri">
-				<img src="<?= $config->work ?>/brewersdroop/devices.png" alt="Devices">
+				<img src="<?= $config->work ?>/brewersdroop/devices.jpg" alt="Devices">
 			</figure>
 			<figure class="ri">
 				<img src="<?= $config->work ?>/brewersdroop/home.jpg" alt="Home page">
