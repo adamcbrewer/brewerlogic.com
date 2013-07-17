@@ -1,7 +1,7 @@
 <? include($_SERVER['DOCUMENT_ROOT'] . "/partials/header.php"); ?>
 	<section class="section portfolio">
 		<header class="section-header">
-			<h1>Work</h1>
+			<h2>Work</h2>
 		</header>
 		<ul>
 			<li class="work-item">

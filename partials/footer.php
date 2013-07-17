@@ -1,6 +1,6 @@
 			<section class="section who">
 				<section class="section-header">
-					<h1>Who</h1>
+					<h2>About</h2>
 				</section>
 				<figure class="profile ri">
 					<img src="<?= $config->site_url; ?>/assets/img/me.png" alt="Adam Brewer">
