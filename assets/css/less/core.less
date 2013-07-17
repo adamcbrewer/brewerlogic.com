@@ -23,7 +23,7 @@
 @d-spinner: 30px;
 
 
-@d-stickyFooterH: 540px;
+@d-stickyFooterH: 100px;
 
 
 /* ====================================================
@@ -80,7 +80,6 @@ ul {
     padding: 0;
     margin: 0;
 }
-li { margin-bottom: 0.4em; }
 
 /* ====================================================
     LAYOUT STYLES
@@ -107,7 +106,7 @@ li { margin-bottom: 0.4em; }
 
 .header {
     // background-color: #2b2b2b;
-    padding: 30px 4% 20px;
+    padding: 3em 4% 2em;
     .logo {
         float: left;
     }
@@ -127,14 +126,13 @@ li { margin-bottom: 0.4em; }
     font-size: 3em;
     font-family: @f-serif;
     text-align: center;
-    border-top: 1px solid #333;
     padding: 3em 4% 3em;
     .inner {
         max-width: 400px;
         margin: auto;
     }
     .icon {
-        // font-size: em;
+        text-decoration: none;
         color: #888;
         &:hover {
             color: #bbb;
@@ -142,7 +140,7 @@ li { margin-bottom: 0.4em; }
     }
 }
 .profile {
-    margin: auto;
+    // margin: auto;
     max-width: 180px;
     img {
         border: 1px solid #222;
@@ -157,6 +155,9 @@ li { margin-bottom: 0.4em; }
 .icon > span {
     display: none;
 }
+.portfolio {
+
+}
 
 /* ====================================================
     MODULES STYLES
@@ -167,14 +168,30 @@ li { margin-bottom: 0.4em; }
 .highlight {
     color: @c-main;
 }
+.section {
+
+}
+.section-header {
+    font-size: 0.6em;
+    font-weight: normal;
+    font-family: arial;
+    text-transform: uppercase;
+    border-bottom: 1px solid darken(@c-copy, 50%);
+    .box-shadow(0 1px 0 darken(@c-copy, 60%));
+    // text-align: right;
+    margin-bottom: 4em;
+    padding: 1em 0;
+    color: darken(@c-copy, 40%);
+}
 
 .work-item {
     position: relative;
+    margin-bottom: 4.2em;
     .work-item-meta {
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -0.7em;
+        bottom: -1.4em;
         margin: auto;
     }
 }
@@ -182,6 +199,7 @@ li { margin-bottom: 0.4em; }
     margin-bottom: 5em;
 }
 .work-item-title {
+    line-height: 1.2;
     font-size: 4.6em;
     margin: 0.6em auto;
     a {
@@ -231,6 +249,9 @@ li { margin-bottom: 0.4em; }
         background-size: 100%;
         display: inline-block;
         text-indent: -9999em;
+        &:focus {
+            outline: none;
+        }
     }
 }
 .spinner {

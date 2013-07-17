@@ -44,7 +44,6 @@
 	<div class="wrapper">
 
 		<header class="header cf">
-
 			<h1 class="logo"><a href="<?= $config->site_url ?>" title="Brewer Logic">Brewer Logic</a></h1>
 		</header>
 
