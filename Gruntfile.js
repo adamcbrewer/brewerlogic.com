@@ -22,15 +22,11 @@ module.exports = function (grunt) {
         tasks: ['develop', 'delayed-livereload']
       },
       js: {
-        files: ['public/javascripts/*.js'],
+        files: ['public/js/*.js'],
         options: { livereload: true},
       },
       css: {
-        files: ['public/stylesheets/*.css'],
-        options: { livereload: true},
-      },
-      jade: {
-        files: ['views/*.jade'],
+        files: ['public/css/less/*.less'],
         options: { livereload: true},
       }
     }

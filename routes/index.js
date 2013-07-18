@@ -4,9 +4,13 @@
  */
 
 exports.index = function(req, res) {
-	var config = req.app.get('config');
+	var app = req.app,
+		config = app.get('config');
+
 	res.render('index.html', {
 		title: 'Brewer Logic',
 		ga: config.ga
 	});
+
+	console.dir(req)
 };
