@@ -35,7 +35,7 @@
 }
 
 
-@d-stickyFooterH: 540px;
+@d-stickyFooterH: 100px;
 
 
 /* ====================================================
@@ -88,7 +88,6 @@ ul {
     padding: 0;
     margin: 0;
 }
-li { margin-bottom: 0.4em; }
 
 /* ====================================================
     LAYOUT STYLES
@@ -115,7 +114,7 @@ li { margin-bottom: 0.4em; }
 
 .header {
     // background-color: #2b2b2b;
-    padding: 30px 4% 20px;
+    padding: 3em 4% 2em;
     .logo {
         float: left;
     }
@@ -135,14 +134,13 @@ li { margin-bottom: 0.4em; }
     font-size: 3em;
     font-family: @f-serif;
     text-align: center;
-    border-top: 1px solid #333;
     padding: 3em 4% 3em;
     .inner {
         max-width: 400px;
         margin: auto;
     }
     .icon {
-        // font-size: em;
+        text-decoration: none;
         color: #888;
         &:hover {
             color: #bbb;
@@ -150,7 +148,7 @@ li { margin-bottom: 0.4em; }
     }
 }
 .profile {
-    margin: auto;
+    // margin: auto;
     max-width: 180px;
     img {
         border: 1px solid #222;
@@ -165,6 +163,9 @@ li { margin-bottom: 0.4em; }
 .icon > span {
     display: none;
 }
+.portfolio {
+
+}
 
 
 /* ====================================================
@@ -176,214 +177,30 @@ li { margin-bottom: 0.4em; }
 .highlight {
     color: @c-main;
 }
-.hide {
-    opacity: 0;
-}
-.ri {
-    > img { max-width: 100%; }
-}
+.section {
 
-.nav-link {
-    color: lighten(@c-copy, 20%);
-    display: block;
-    text-transform: uppercase;
+}
+.section-header {
     font-size: 0.8em;
-    letter-spacing: 0.16em;
-    padding: 0.6em 0.4em;
-
-    &.current,
-    &:hover {
-        color: @c-bgmain;
-        background-color: @c-bglight;
-    }
-
-    .icon {
-        display: none;
-    }
-
-}
-.nav-inner {
-    // width: 70px;
-    // overflow: hidden;
-    // display: inline-block;
-}
-
-.pagination {
-    margin: 0.6em auto;
-    overflow: auto;
-    font-size: 1.2em;
-    position: absolute;
-    right: 10px;
-    top: 0;
-    [rel="prev"] {
-
-    }
-    [rel="next"] {
-        // float: right;
-    }
-}
-
-.projectlist-item {
-    display: table;
-    float: left;
-    position: relative;
-    // margin: 0 @d-project-grid-gap @d-project-grid-gap 0;
-    margin: 0;
-    width: @d-project-grid;
-    height: @d-project-grid;
-    background-color: darken(@c-bglight, 10%);
-    background-position: center center;
-    background-size: 100%;
-    position: relative;
-    -webkit-filter: grayscale(0.9);
-    .transition(0.4s * ease);
-
-    &:hover {
-        background-color: darken(@c-bglight, 16%);
-        -webkit-filter: grayscale(0.2);
-    }
-
-    &.wide {
-        width: ( @d-project-grid * 2 ) + @d-project-grid-gap;
-        margin-right: @d-project-grid-gap;
-    }
-
-    > article {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-        padding: 0 0 0.6em;
-    }
-}
-
-.projectlist-title {
-    font-family: Arial;
-    font-size: 1.2em;
-    color: darken(@c-bglight, 30%);
     font-weight: normal;
-    text-shadow: 1px 1px 1px #e9e9e9;
-    padding: 0 0.4em 0.6em;
-    border-bottom: 1px solid darken(@c-bglight, 20%);
-    box-shadow: 0px 1px 0px #e9e9e9;
-    display: none; //inline;
-}
-
-.project {
-    margin: 1em;
-    position: relative;
-}
-
-.project-imgs {
-    max-width: 80%;
-}
-
-.project-title {
-    margin: 0 0 -0.6em;
-    font-size: 2em;
-}
-
-.project-intro {
-    margin: 1em 0 2em;
-}
-
-.project-img {
-    margin-bottom: 1em;
-}
-
-.project-description {
-    margin: 1em 0em 4em;
-    font-size: 0.9em;
-    max-width: 30em;
-    color: lighten(@c-copy, 10%);
-    // .sansserif;
-}
-
-
-.notfound {
-    text-align: center;
-    margin: 2em auto 2em;
-    padding: 0 2em;
-    max-width: 30em;
-}
-.notfound-title {
-    font-size: 8em;
-    margin-bottom: 0.4em;
-}
-.notfound-cite {
-    .sansserif;
-    font-size: 1.2em;
-}
-.about {
-    text-align: center;
-    margin: 2em auto 2em;
-    padding: 0 2em;
-}
-.about-title {
-    font-size: 4em;
-    margin-bottom: 0em;
-}
-.about-blurb {
-    font-size: 2em;
-    margin-bottom: 2em;
-}
-.about-description {
-    .sansserif;
-    font-size: 1.2em;
-    max-width: 30em;
-    margin: auto;
-}
-
-
-/*
-    Spinner stuff
- */
-
-.spread {
-    .side {
-        // outline: 1px solid #999;
-        -webkit-backface-visibility: visible;
-           -moz-backface-visibility: visible;
-            -ms-backface-visibility: visible;
-             -o-backface-visibility: visible;
-                backface-visibility: visible;
-
-        .transition(0.4s * ease 0s);
-        .scale(2);
-
-        &.side-front {
-            .transform( rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, (@d-spinner*2)) );
-        }
-        &.side-bottom {
-            .transform( rotate3d(1, 0, 0, -90deg) translate3d(0px, 0px, (@d-spinner*2)) );
-        }
-        &.side-back {
-            .transform( rotate3d(1, 0, 0, 90deg) translate3d(0px, 0px, (@d-spinner*2)) );
-        }
-        &.side-top {
-            .transform( rotate3d(1, 0, 0, 180deg) translate3d(0px, 0px, (@d-spinner*2)) );
-        }
-        &.side-left {
-            .transform( rotate3d(0, 1, 0, -90deg) translate3d(0px, 0px, (@d-spinner*2)) );
-        }
-        &.side-right {
-            .transform( rotate3d(0, 1, 0, 90deg) translate3d(0px, 0px, (@d-spinner*2)) );
-        }
-    }
-}
-
-.speedUp {
-    .cube {
-        .animation(1s spinfaster linear 0s infinite);
-    }
+    font-family: arial;
+    text-transform: uppercase;
+    border-bottom: 1px solid darken(@c-copy, 50%);
+    .box-shadow(0 1px 0 darken(@c-copy, 60%));
+    // text-align: right;
+    margin-bottom: 4em;
+    padding: 1em 0;
+    color: darken(@c-copy, 40%);
 }
 
 .work-item {
     position: relative;
+    margin-bottom: 4.2em;
     .work-item-meta {
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -0.7em;
+        bottom: -1.4em;
         margin: auto;
     }
 }
@@ -391,6 +208,7 @@ li { margin-bottom: 0.4em; }
     margin-bottom: 5em;
 }
 .work-item-title {
+    line-height: 1.2;
     font-size: 4.6em;
     margin: 0.6em auto;
     a {
@@ -440,6 +258,9 @@ li { margin-bottom: 0.4em; }
         background-size: 100%;
         display: inline-block;
         text-indent: -9999em;
+        &:focus {
+            outline: none;
+        }
     }
 }
 .spinner {
