@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         files: ['public/js/*.js'],
         options: { livereload: true},
       },
-      css: {
+      less: {
         files: ['public/css/less/*.less'],
         options: { livereload: true},
       }

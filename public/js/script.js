@@ -23,11 +23,12 @@
 		return document.querySelectorAll.apply(document, arguments);
 	}
 
-	var toggles = $$('[data-toggle-target]'),
+	var toggles = $$('[data-toggle]'),
 		i = 0;
 	for ( i; i < toggles.length; i++ ) {
 		toggles[i].addEventListener('click', function (evt) {
-			console.log(evt.target);
+			var target = this.getAttribute('data-toggle');
+			$$('[data-toggle-target="'+target+'"]')[0].classList.toggle('closed');
 		});
 	}
 

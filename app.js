@@ -32,7 +32,7 @@ app.configure(function(){
 	// Templating engine
 	app.engine('html', require('ejs').renderFile);
 
-	app.use(express.favicon());
+	// app.use(express.favicon());
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);

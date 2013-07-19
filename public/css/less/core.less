@@ -2,6 +2,7 @@
     LESS IMPORTS
 ==================================================== */
 
+@import "animations.less";
 @import "libs/helpers.less";
 @import "libs/normalize.less";
 @import "fontello.less";
@@ -13,12 +14,13 @@
     LESS VARIABLES
 ==================================================== */
 @c-bg: #f8f8f8;
+@c-bgmain: #2B2B2B;
 @c-copy: #bbb;
 @c-main: #3468c5; // blue
 @c-slate: #2b2b2b;
 
 @f-serif: "Baskerville", "utopia-std", "Hoefler Text", Georgia, Times, serif;
-@f-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@f-sans: "Open Sans", "Helvetica Neue", Arial, sans-serif;
 
 @d-spinner: 20px;
 @d-project-list: 100%;
@@ -27,12 +29,12 @@
 @d-sitenav: 240px; //@d-project-grid;
 @d-sitenav-sml: @d-sitenav*0.8;
 
-.sans {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.sansserif {
-    font-family: Georgia, Times, serif;
-}
+// .sans {
+    // font-family: @f-sans;
+// }
+// .sansserif {
+    // font-family: Georgia, Times, serif;
+// }
 
 
 @d-stickyFooterH: 100px;
@@ -182,35 +184,38 @@ ul {
 }
 .section-header {
     font-size: 0.8em;
-    font-weight: normal;
-    font-family: arial;
     text-transform: uppercase;
     border-bottom: 1px solid darken(@c-copy, 50%);
     .box-shadow(0 1px 0 darken(@c-copy, 60%));
     // text-align: right;
     margin-bottom: 4em;
     padding: 1em 0;
-    color: darken(@c-copy, 40%);
+    color: darken(@c-copy, 20%);
+    > h2 {
+        font-weight: 300;
+    }
 }
 
 .work-item {
-    position: relative;
     margin-bottom: 4.2em;
-    .work-item-meta {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -1.4em;
-        margin: auto;
+    .work-detail {
+        .moveIn;
+    }
+
+    &.closed {
+        .work-detail {
+            .moveOut;
+        }
     }
 }
+
 .work-item-header {
-    margin-bottom: 5em;
+    // margin-bottom: 5em;
 }
 .work-item-title {
     line-height: 1.2;
     font-size: 4.6em;
-    margin: 0.6em auto;
+    margin: 0.6em auto 0;
     a {
         .transition(0.1s all ease 0s);
         text-decoration: none;
@@ -224,10 +229,11 @@ ul {
 
 .work-item-meta {
     font-size: 0.9em;
+    color: darken(@c-copy, 20%);
     .transition(0.2s all ease 0s);
 }
 .work-desc {
-    max-width: 24em;
+    max-width: 30em;
     font-size: 1.4em;
     font-family: @f-serif;
     margin: 2em 0 4em;
@@ -280,7 +286,7 @@ ul {
     &.active,
     &:hover {
         // .spread;
-        .speedUp;
+        // .speedUp;
     }
 }
 .cube {
@@ -345,114 +351,6 @@ ul {
     They are also about describing how a module might look in different
     views like the home page or the inside page.
 ==================================================== */
-.no-touch {
-    .work-item-meta {
-        opacity: 0;
-        .transform(translateY(-0.8em));
-    }
-    .work-item:hover {
-        .work-item-meta {
-            opacity: 1;
-            .transform(translateY(0));
-        }
-    }
-}
-
-
-/* ====================================================
-    ANIMATIONS
-==================================================== */
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-        // -webkit-transform-origin: @d-spinner @d-spinner/2;
-    }
-    100% {
-        -webkit-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-        // -webkit-transform-origin: @d-spinner @d-spinner/2;
-    }
-}
-@-moz-keyframes spin {
-    0% {
-        -moz-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-        // -moz-transform-origin: @d-spinner @d-spinner/2;
-    }
-    100% {
-        -moz-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-        // -moz-transform-origin: @d-spinner @d-spinner/2;
-    }
-}
-@-ms-keyframes spin {
-    0% {
-        -ms-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-        // -ms-transform-origin: @d-spinner @d-spinner/2;
-    }
-    100% {
-        -ms-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-        // -ms-transform-origin: @d-spinner @d-spinner/2;
-    }
-}
-@-o-keyframes spin {
-    0% {
-        -o-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-        // -webkit-transform-origin: @d-spinner @d-spinner/2;
-    }
-    100% {
-        -o-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-        // -o-transform-origin: @d-spinner @d-spinner/2;
-    }
-}
-@keyframes spin {
-    0% {
-        transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-        // transform-origin: @d-spinner @d-spinner/2;
-    }
-    100% {
-        transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-        // transform-origin: @d-spinner @d-spinner/2;
-    }
-}
-
-@-webkit-keyframes spinfaster {
-    0% {
-        -webkit-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-    }
-    100% {
-        -webkit-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-    }
-}
-@-moz-keyframes spinfaster {
-    0% {
-        -moz-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-    }
-    100% {
-        -moz-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-    }
-}
-@-ms-keyframes spinfaster {
-    0% {
-        -ms-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-    }
-    100% {
-        -ms-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-    }
-}
-@-o-keyframes spinfaster {
-    0% {
-        -o-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-    }
-    100% {
-        -o-transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-    }
-}
-@keyframes spinfaster {
-    0% {
-        transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
-    }
-    100% {
-        transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
-    }
-}
 
 
 /* ==|== Media Queries ======================================================
@@ -465,76 +363,6 @@ ul {
 
     Never set breakpoints for devices, only when the design requires it.
 ========================================================================== */
-
-@media (max-width: 44em) {
-    .site-nav {
-        position: inherit;
-        left: auto;
-        top: auto;
-        height: auto;
-        width: 100%;
-        overflow: auto;
-        padding-bottom: 1.2em;
-        .transition(none);
-    }
-    .nav {
-        margin: 0;
-    }
-    .nav-links {
-        display: none;
-    }
-    .nav-select {
-        display: inline-block;
-        float: right;
-        margin-right: 1em;
-        font-size: 1em;
-        padding: 0.4em 0.6em;
-        background: #fff;
-        border: 1px solid #333;
-        -webkit-appearance: button;
-        -moz-appearance: none;
-        -ms-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-    }
-    .mobile-nav {
-        display: inline-block;
-    }
-    .logo {
-        margin: 0 2em;
-        max-width: 140px;
-        float: left;
-    }
-    .project-imgs {
-        max-width: 100%;
-    }
-    .projectlist-item,
-    .projectlist-item.wide {
-        width: @d-project-list;
-        float: none;
-    }
-    .content {
-        margin-left: 0;
-    }
-
-    .detail-open {
-        .site-nav {
-            width: 100%;
-        }
-        .detail {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    .elsewhere {
-        display: none;
-    }
-    .spinner {
-        top: 140px;
-        left: 40px !important;
-    }
-}
-
 
 
 
