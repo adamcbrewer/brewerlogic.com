@@ -101,16 +101,16 @@ module.exports = function (grunt) {
                     preserveComments: true,
                     mangle: false,
                     beautify: true,
-                    report: 'min'
+                    // report: 'min'
                 },
                 files: [
                     {
                         src: [
-                            'assets/js/libs/jquery.js',
-                            'assets/js/plugins.js',
-                            'assets/js/script.js',
+                            // 'public/js/libs/jquery.js',
+                            // 'public/js/plugins.js',
+                            'public/js/script.js',
                         ],
-                        dest: 'assets/js/min/script.development.min.js'
+                        dest: 'public/js/min/script.development.min.js'
                     }
                 ]
             },

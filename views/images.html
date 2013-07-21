@@ -1,0 +1,9 @@
+<ul class="work-images-list">
+	<% images.forEach(function(img) { %>
+		<li class="work-image">
+			<figure class="ri">
+				<img src="<%= img.url %>" alt="<%= img.alt %>">
+			</figure>
+		</li>
+	<% }) %>
+</ul>

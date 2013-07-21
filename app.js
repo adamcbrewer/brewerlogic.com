@@ -9,7 +9,9 @@ var express = require('express'),
 	path = require('path'),
 	fs = require('fs'),
 
-	config = require('./config');
+	config = require('./config'),
+	Projects = require('./models/projects'),
+	projects = new Projects();
 
 var app = express();
 
@@ -27,7 +29,7 @@ app.configure(function(){
 
 	// views and directories
 	app.set('views', __dirname + '/views');
-	app.set('work', __dirname + '/work');
+	app.set('projects', projects);
 
 	// Templating engine
 	app.engine('html', require('ejs').renderFile);
@@ -40,6 +42,12 @@ app.configure(function(){
 });
 
 app.get('/', routes.index);
+
+app.get('/projects/:project', function (req, res) {
+	res.render('images.html', {
+		images: projects[req.params.project].images
+	});
+});
 
 http.createServer(app).listen(app.get('port'), function() {
 	console.log("Express server listening on port " + app.get('port'));

@@ -4,7 +4,7 @@
 
 @import "libs/helpers.less";
 @import "libs/normalize.less";
-@import "fontello.less";
+// @import "fontello.less";
 @import "animations.less";
 // @import "cube.less";
 
@@ -20,11 +20,12 @@
 @c-copy: #bbb;
 
 @f-serif: "Baskerville", "utopia-std", "Hoefler Text", Georgia, Times, serif;
-@f-sans: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+@f-sans: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+@f-sans2: "Archivo Narrow", "Helvetica Neue", Arial, sans-serif;
 
 @d-spinner: 20px;
-@d-stickyFooterH: 100px;
-
+@d-stickyFooterH: 6em;
+@d-padd: 6%;
 
 /* ====================================================
     BASE STYLES
@@ -64,12 +65,17 @@ body {
 
 a {
     color: @c-copy;
+    .transition(0.2s ease all);
 }
 a:link {}
 a:visited {}
 a:hover { color: #fff; text-decoration: none; }
 a:active {}
 a:focus {}
+
+p:nth-child(+1) {
+    margin-top: 0;
+}
 
 ul {
     list-style-type: none;
@@ -96,13 +102,14 @@ ul {
 }
 
 .content {
-    padding: 0 4% 3em;
-    // text-align: center;
+    padding: 0 0 0;
+    margin-top: 10em;
+    margin-bottom: 5em;
 }
 
 .header {
     // background-color: #2b2b2b;
-    padding: 3em 4% 2em;
+    padding: 2em @d-padd;
     .logo {
         float: left;
     }
@@ -119,10 +126,9 @@ ul {
     height: @d-stickyFooterH;
 }
 .footer {
-    font-size: 3em;
-    font-family: @f-serif;
-    text-align: center;
-    padding: 3em 4% 3em;
+    font-size: 1.6em;
+    // text-align: center;
+    padding: 3em @d-padd 3em;
     .inner {
         max-width: 400px;
         margin: auto;
@@ -136,7 +142,6 @@ ul {
     }
 }
 .profile {
-    // margin: auto;
     max-width: 180px;
     img {
         border: 1px solid #222;
@@ -151,11 +156,30 @@ ul {
 .icon > span {
     display: none;
 }
-.portfolio {
-
+.about {
+    .fadeIn;
+    .inner {
+        overflow: hidden;
+        padding: 1em @d-padd;
+    }
+    &.closed {
+        .fadeOut;
+    }
+    .ri {
+        float: left;
+        margin: 0 2em 2em 0;
+        max-width: 300px;
+    }
+    .copy {
+        float: left;
+        max-width: 500px
+    }
 }
-
-
+.arnie {
+    position: fixed;
+    bottom: 0;
+    right: @d-padd;
+}
 /* ====================================================
     MODULES STYLES
 
@@ -168,42 +192,58 @@ ul {
 .section {
 
 }
-.section-header {
-    font-size: 0.8em;
-    text-transform: uppercase;
-    border-bottom: 1px solid darken(@c-copy, 50%);
-    .box-shadow(0 1px 0 darken(@c-copy, 60%));
-    // text-align: right;
-    margin-bottom: 4em;
-    padding: 1em 0;
-    color: darken(@c-copy, 20%);
-    > h2 {
-        font-weight: 300;
-    }
-}
-
-
 .work-item {
-    margin-bottom: 4.2em;
+    position: relative;
+    border-bottom: 1px solid #333;
     .work-detail {
-        // .moveIn;
+        .fadeIn;
     }
-
     &.closed {
         .work-detail {
-            // .moveOut;
+            display: none;
+            .fadeOut;
         }
     }
+    &.loading {
+        .work-pics:before {
+            content: "";
+            width: 0;
+            height: 0;
+            margin: 1em 0 0 0;
+            padding: 0.6em;
+            display: inline-block;
+            font-size: 1em;
+            border-top: 3px solid #bbb;
+            border-right: 3px solid transparent;
+            border-bottom: 3px solid #BBB;
+            border-left: 3px solid transparent;
+            position: absolute;
+            top: 2em;
+            left: @d-padd;
+            .border-radius(50%);
+            .transition(0.2s ease all 0s);
+            .spin;
+        }
+    }
+
 }
 
 .work-item-header {
-    // margin-bottom: 5em;
-    &:hover { color: #fff; }
+    padding: 1.8em @d-padd 2.8em;
+    .transition(0.2s linear all 0s);
+    &:hover {
+        color: #fff;
+        a,
+        .work-item-meta {
+            color: #fff;
+        }
+    }
 }
 .work-item-title {
     line-height: 1.2;
-    font-size: 4.6em;
-    margin: 0.6em auto 0;
+    font-size: 4.2em;
+    margin: 0 auto 0;
+    font-family: @f-sans2;
 }
 .work-item-single {
     .work-item-title {
@@ -212,15 +252,10 @@ ul {
 }
 
 .work-item-meta {
-    font-size: 0.9em;
-    // color: darken(@c-copy, 20%);
-    // .transition(0.2s all ease 0s);
-}
-.work-desc {
-    max-width: 30em;
-    font-size: 1.4em;
-    font-family: @f-serif;
-    margin: 0;
+    color: darken(@c-copy, 30%);
+    a {
+        text-decoration: none;
+    }
 }
 .work-link {
 
@@ -228,22 +263,33 @@ ul {
 
     }
 }
-.work-pics {
-    .ri {
-        max-width: 800px;
-        margin: 2em 0 0;
+.work-detail {
+    position: relative;
+    .inner {
+        padding: 2em @d-padd;
     }
+}
+.work-desc {
+    font-size: 1em;
+    float: right;
+    width: 42%;
+    padding-left: 4em;
+}
+.work-pics {
+    width: 58%;
+}
+.work-image {
+    margin: 0 0 2em;
 }
 .ri {
     img { max-width: 100%; }
 }
 .logo {
-    width: 160px;
-    height: 65px;
     margin: auto;
     > a {
-        width: 100%;
-        height: 100%;
+        width: 140px;
+        height: 0;
+        padding-bottom: 34%;
         background: transparent url(../img/logo_a.png) no-repeat 0 0 scroll;
         background-size: 100%;
         display: inline-block;
@@ -252,6 +298,14 @@ ul {
             outline: none;
         }
     }
+}
+.nav {
+    float: right;
+}
+.nav-link {
+    text-decoration: none;
+    margin-left: 1em;
+    // text-transform: uppercase;
 }
 
 /* ====================================================
@@ -264,7 +318,45 @@ ul {
     They are also about describing how a module might look in different
     views like the home page or the inside page.
 ==================================================== */
+[data-toggle="lovecravendale"] {
+    &:hover {
+        background-color: #2388CC;
+    }
+}
+[data-toggle="toyotapositive"] {
+    &:hover {
+        background-color: #059CD7;
+    }
+}
+[data-toggle="cravendaleepicstraws"] {
+    &:hover {
+        background-color: #4AC13D;
+    }
+}
+[data-toggle="brewersdroop"] {
+    &:hover {
+        background-color: #944D39;
+    }
+}
+[data-toggle="virgingalactic"] {
+    &:hover {
+        background-color: #0A556A;
+    }
+}
 
+// .touch {
+//     .work-item-header {
+//         position: relative;
+//         &:after {
+//             content: "tap to toggle";
+//             position: absolute;
+//             top: 3em;
+//             right: 4%;
+//             opacity: 0.3;
+//             font-size: 0.9em;
+//         }
+//     }
+// }
 
 /* ==|== Media Queries ======================================================
     PLACEHOLDER Media Queries for Responsive Design.
@@ -276,8 +368,62 @@ ul {
 
     Never set breakpoints for devices, only when the design requires it.
 ========================================================================== */
+@media screen and (max-width: 1000px) {
+    .content {
+        margin-top: 6em;
+    }
+    .work-desc {
+        float: right;
+        width: 50%;
+        padding-left: 2em;
+    }
+    .work-pics {
+        width: 50%;
+    }
+}
 
+@media screen and (max-width: 710px) {
+    .content {
+        margin-top: 2em;
+    }
+    .work-desc {
+        float: none;
+        width: auto;
+        padding-left: 0;
+        margin-bottom: 4em;
+        .loading & {
+            margin-bottom: 0;
+        }
+    }
+    .work-pics {
+        width: auto;
+        &:before {
+            position: relative !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+    }
+    .work-item-title {
+        font-size: 2em;
+    }
+}
 
+@media screen and (max-width: 480px) {
+    .nav {
+        float: none;
+        clear: left;
+        padding-top: 3em;
+        text-align: justify;
+    }
+    .nav-link {
+        margin: 0;
+    }
+    .nav-link:last-child:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+}
 
 /* ==|== print styles =======================================================
     Print styles.

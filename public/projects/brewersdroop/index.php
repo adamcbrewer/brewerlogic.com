@@ -8,21 +8,7 @@
 			</footer>
 		</header>
 		<section class="work-desc">
-			<p>
-				The Brewers Droop is a blog of tales and quips of Chris Brewer
-				whose origins started as a monthly letter sent out to subscribers
-				by mail.
-			</p>
-			<p>
-				I built the site for my Dad to stop him pestering me for a blog. It
-				was purely coincedental that at the time I wanted to learn how to use WordPress
-				properly and also experiment with building a responsive site. I also seemed to
-				be going through a MooTools phase at the time.
-			</p>
-			<p>
-				<a target="_blank" title="Studio Brewer" href="http://studiobrewer.com">My older bother</a> designed the site and we launched it over may pints of Guinness
-				and several bottles of wine.
-			</p>
+
 		</section>
 
 		<section class="work-pics">

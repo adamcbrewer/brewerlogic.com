@@ -94,6 +94,58 @@
     }
 }
 
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes spin {
+    0% { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); }
+}
+@-o-keyframes spin {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@-webkit-keyframes moveIn {
+    to { opacity: 1; -webkit-transform: translateX(0); }
+}
+@-webkit-keyframes moveOut {
+    to { opacity: 0; -webkit-transform: translateX(-500px); }
+}
+@-webkit-keyframes FlipIn {
+    0% { -webkit-transform: perspective(300px) rotateX(90deg); opacity: 0; }
+    100% { -webkit-transform: perspective(300px) rotateX(0deg); opacity: 1; }
+}
+@-webkit-keyframes FlipOut {
+    0% { -webkit-transform: perspective(400px) rotateX(0deg); opacity: 1; }
+    100% { -webkit-transform: perspective(400px) rotateX(90deg); opacity: 0; }
+}
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@-webkit-keyframes openSpace {
+    to { max-height: 10000px; }
+}
+@-webkit-keyframes closeSpace {
+    to { max-height: 0px; }
+    from { max-height: 10000px; }
+}
+
 .moveIn {
     max-height: 0;
     opacity: 0;
@@ -103,11 +155,25 @@
         moveIn 0.3s 0.2s ease forwards;
 }
 .moveOut {
-    max-height: 1000px;
+    max-height: 10000px;
     opacity: 1;
     -webkit-animation:
         moveOut 0.3s 0s ease forwards,
         closeSpace 0.2s ease forwards 0.4s;
+}
+.fadeIn {
+    max-height: 0;
+    opacity: 0;
+    -webkit-animation:
+        openSpace 2s  ease forwards,
+        fadeIn 0.6s 0.2s ease forwards;
+}
+.fadeOut {
+    max-height: 10000px;
+    opacity: 1;
+    -webkit-animation:
+        fadeOut 0.2s 0s ease forwards,
+        closeSpace 0.2s 0.1s ease forwards;
 }
 .flipIn {
     overflow: hidden;
@@ -126,49 +192,6 @@
         closeSpace 0.6s ease forwards;
 }
 
-@-webkit-keyframes moveIn {
-  to {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-@-webkit-keyframes moveOut {
-  to {
-    opacity: 0;
-    -webkit-transform: translateX(-500px);
-  }
-}
-
-@-webkit-keyframes FlipIn {
-  0% {
-    -webkit-transform: perspective(300px) rotateX(90deg);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: perspective(300px) rotateX(0deg);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes FlipOut {
-  0% {
-    -webkit-transform: perspective(400px) rotateX(0deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: perspective(400px) rotateX(90deg);
-    opacity: 0;
-  }
-}
-@-webkit-keyframes openSpace {
-  to {
-    max-height: 1000px;
-  }
-}
-@-webkit-keyframes closeSpace {
-  to {
-    max-height: 0px;
-  }
-  from {
-    max-height: 1000px;
-  }
+.spin {
+    .animation(spin 0.6s 0s linear infinite forwards);
 }
