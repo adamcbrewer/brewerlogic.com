@@ -177,8 +177,12 @@ ul {
 }
 .arnie {
     position: fixed;
-    bottom: 0;
+    bottom: -400px;
     right: @d-padd;
+    .transition(0.4s 0.8s ease all);
+    &.show {
+        bottom: 0;
+    }
 }
 /* ====================================================
     MODULES STYLES

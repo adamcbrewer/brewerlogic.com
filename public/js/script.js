@@ -136,6 +136,9 @@
 		arnie.img.src = Site.basePath + "/img/arnie.png";
 		arnie.img.classList.add('arnie');
 		document.body.appendChild(arnie.img);
+		setTimeout(function () {
+			arnie.img.classList.add('show');
+		}, 200);
 	});
 
 	console.log('↑ ↑ ↓ ↓ ← → ← → B A … It\'s showtime!');
