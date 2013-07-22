@@ -94,7 +94,7 @@ module.exports = function (grunt) {
                 options: {
                     banner: '/*!\n' +
                         ' * <%= pkg.name %> - <%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd H:MM:ss") %>\n' +
-                        ' * Development\n' +
+                        ' * Development Build\n' +
                         ' * https://github.com/brewerlogic.com\n *\n' +
                         ' */\n',
                     compress: false,
@@ -106,8 +106,6 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            // 'public/js/libs/jquery.js',
-                            // 'public/js/plugins.js',
                             'public/js/script.js',
                         ],
                         dest: 'public/js/min/script.development.min.js'
@@ -120,7 +118,7 @@ module.exports = function (grunt) {
                 options: {
                     banner: '/*!\n' +
                         ' * <%= pkg.name %> - <%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd H:MM:ss") %>\n' +
-                        ' * Production\n' +
+                        ' * Production Build\n' +
                         ' * https://github.com/brewerlogic.com\n *\n' +
                         ' */\n',
                     compress: true,
@@ -131,11 +129,11 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'assets/js/libs/jquery.js',
-                            'assets/js/plugins.js',
-                            'assets/js/script.js',
+                            'public/js/libs/min/zepto.build.min.js',
+                            'public/js/libs/imagesloaded.js',
+                            'public/js/script.js'
                         ],
-                        dest: 'assets/js/min/script.production.min.js'
+                        dest: 'public/js/min/script.production.min.js'
                     }
                 ]
             }

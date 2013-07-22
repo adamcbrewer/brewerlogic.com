@@ -127,7 +127,7 @@ ul {
 }
 .footer {
     font-size: 1.6em;
-    // text-align: center;
+    color: #666;
     padding: 3em @d-padd 3em;
     .inner {
         max-width: 400px;
@@ -172,7 +172,7 @@ ul {
     }
     .copy {
         float: left;
-        max-width: 500px
+        max-width: 600px
     }
 }
 .arnie {
@@ -180,6 +180,7 @@ ul {
     bottom: -400px;
     right: @d-padd;
     .transition(0.4s 0.8s ease all);
+    .animation(12s walk linear 0s infinite forwards);
     &.show {
         bottom: 0;
     }

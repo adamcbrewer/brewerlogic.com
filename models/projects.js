@@ -95,6 +95,40 @@ module.exports = function() {
 				}
 			]
 		},
+		virgingalactic: {
+			title: "Virgin Galactic",
+			date: "November 2012",
+			website: "virgingalactic.com/mobile",
+			intro: "Mobile website",
+			description: [
+				'Virgin Galactic is running a campaign in orer to sell relatively affordable tickets for a seat for a ride into space. Having a very comprehensive site already, I was tasked with building a site to reach their mobile customers.',
+				'A standalone mobile site was agreed upon, as well as a modest amount of parallax elements to accompany the flight information and registration form.',
+				'In order to achieve the parallax effect and still maniplulate elements on the page, the native touch-scroll was removed and replaced with a third party library to simulate it. Having said that, navigating form elements while native functionality has been replaced is a nightmare, not to mention encountering several edge case issues.',
+				'While I wouldn\'t personally agree with a standalone site, or parallax features for touch devices, the build was fun and I learnt a hell of a lot concerning mobile interaction and caveats.'
+			],
+			images: [
+				{
+					url: "/projects/virgin-galactic/ipad_2x_01.jpg",
+					alt: "iPad - Intro and Experience"
+				},
+				{
+					url: "/projects/virgin-galactic/ipad_2x_02.jpg",
+					alt: "iPad - Book and the SpacePort"
+				},
+				{
+					url: "/projects/virgin-galactic/mobile_2x_01.jpg",
+					alt: "Mobile - Intro and Experience"
+				},
+				{
+					url: "/projects/virgin-galactic/mobile_2x_02.jpg",
+					alt: "Mobile - News and Space Ship Two"
+				},
+				{
+					url: "/projects/virgin-galactic/mobile_2x_03.jpg",
+					alt: "Mobile - Booking"
+				}
+			]
+		},
 		brewersdroop: {
 			title: "Brewers Droop",
 			date: "August 2011",
@@ -124,22 +158,6 @@ module.exports = function() {
 				}
 			]
 		}
-		// ,
-		// virgingalactic: {
-		// 	title: "Virgin Galactic",
-		// 	date: "November 2012",
-		// 	website: "virgingalactic.com/mobile",
-		// 	intro: "Mobile website",
-		// 	description: [
-		// 		'Virgin Galactic is running a campaign in orer to sell relatively affordable tickets for a seat for a ride into space. Having a very comprehensive site already, I was tasked with building a site to reach their mobile customers.',
-		// 		'A standalone mobile site was agreed upon, as well as a modest amount of parallax elements to accompany the flight information and registration form.',
-		// 		'In order to achieve the parallax effect and still maniplulate elements on the page, the native touch-scroll was removed and replaced with a third party library to simulate it. Having said that, navigating form elements while native functionality has been replaced is a nightmare, not to mention encountering several edge case issues.',
-		// 		'While I wouldn\'t personally agree with a standalone site, or parallax features for touch devices, the build was fun and I learnt a hell of a lot concerning mobile interaction and caveats.'
-		// 	],
-		// 	images: [
-
-		// 	]
-		// }
 	};
 
 };
