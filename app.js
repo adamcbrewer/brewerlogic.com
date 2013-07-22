@@ -18,7 +18,7 @@ var app = express();
 app.configure('development', function() {
 	console.log('DEVELOPMENT');
 	app.use(express.errorHandler());
-	app.use(express.logger('dev'));
+	// app.use(express.logger('dev'));
 });
 
 app.configure(function(){
