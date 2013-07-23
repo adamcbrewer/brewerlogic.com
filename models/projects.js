@@ -5,11 +5,11 @@ module.exports = function() {
 			title: "Love Cravendale",
 			date: "June 2013",
 			website: "lovecravendale.co.uk",
-			intro: "Loyalty scheme web app.",
+			intro: "Loyalty scheme web app",
 			description: [
 				'I had a great time working alongside <a href="http://lovecravendale.co.uk/humans.txt" title="humans" target="_blank">several developers</a> for this project while enjoying my time working for Saatchi &amp; Saatchi in London.',
-				'The site is a loyalty scheme encouraging users to collect codes printed on bottle labels purchased in-store and exchanged for various prizes and promotions on the site. The value of the prizes increasing the number of codes required.',
-				'I had the privilage of building the code redemption part of the site, working closely with the back-end developer and the UX designer to create an easy to use and interesting process for users collect codes and redeem them for prizes.',
+				'The site is a loyalty scheme encouraging users to collect codes printed on bottle labels purchased in-store and exchanged for various prizes and promotions on the site. The value of the prizes increases the number of codes required to redeem it.',
+				'I had the privilege of building the code redemption part of the site, working closely with the back-end developer and the UX designer to create an easy to use and interesting process for users to collect codes and redeem them for prizes.',
 				'My favourite part was playing around with loads of little subtle animations and transitions, all through the use of CSS and controlling those animation states with Javascript when required.'
 			],
 			images: [
@@ -31,10 +31,10 @@ module.exports = function() {
 			title: "Toyota Positive",
 			date: "January 2013",
 			website: "toyotapositive.com",
-			intro: "Inspiring uplifting gestures and selfless acts.",
+			intro: "Inspiring uplifting gestures and selfless acts",
 			description: [
 				'Toyota Positive was a site built to promote the positive influence their new car was bringing to the environment.',
-				'It was a fun site to make which was to showcase the individual stories from people who used the car to perform positive deeds. It was built to stand as both a web app and as an embedded YouTube gadget. The video player/carousel widget was the core feature of the site and the trickiest to implement. The video playlist in the main widget can be controlled through the images in the gallery, with each story able to be individually	shared on both Twitter and Facebook as it cycles through.',
+				'It was a site to showcase the individual stories from people who used the car to perform positive deeds &mdash; and was fun to make. It was built to stand as both a web app and as an embedded YouTube gadget. The video player/carousel widget was the core feature of the site and the trickiest to implement. The video playlist in the main widget can be controlled through the images in the gallery, with each story able to be individually	shared on both Twitter and Facebook as it cycles through.',
 				'It was the first time I\'d gotten my hands dirty with an iterative design/build process, not to mention integrating language support for multiple countries as well.'
 			],
 			images: [
@@ -66,10 +66,10 @@ module.exports = function() {
 			website: "epicstraws.co.uk",
 			intro: "Loyalty app/scheme",
 			description: [
-				'This site was vastly different than anything I had made before while working at Outside Line. The size of the assets, the traffic generated and the experience we tried to deliver was a massive challange. I was excited from day one!',
-				'The site was very image heavy and the designer\'s intention was to deliver a skeuomorphic expereince following the brands\' guidelines for the promotional straw sets that Cravendale were offering in exchange for colecting codes, which were printed and sold on bottles across the UK.',
-				'Both the designer and I came up with an idea to simulate a 3 dimentional display of the straw sets using a series of images of each set, themselves modeled and rendered in 3D. The result was a combination of simple, 2D image replacement which gave an impressive, realistic 3D effect.',
-				'Everything had to be built to give a complete expereince, meaning even the YouTube player UI had to be built from scratch. In our workflow we ran our images through PunyPNG image compression and used CodeKit to minify and compress all our Javascript and CSS, all of which was served through an Amazon S3 CDN.',
+				'This site was vastly different to anything I had made before while working at Outside Line. The size of the assets, the traffic generated and the experience we tried to deliver was a massive challange. I was excited from day one!',
+				'The site was very image heavy and the designer\'s intention was to deliver a skeuomorphic experience following the brand\'s guidelines for the promotional straw sets that Cravendale were offering in exchange for collecting codes, which were printed and sold on bottles across the UK.',
+				'Both the designer and I came up with an idea to simulate a 3-dimentional display of the straw sets using a series of images of each set, themselves modelled and rendered in 3D. The result was a combination of simple, 2D image replacement which gave an impressive, realistic 3D effect.',
+				'Everything had to be built to give a complete experience, meaning even the YouTube player UI had to be built from scratch. In our workflow we ran our images through PunyPNG image compression and used CodeKit to minify and compress all our Javascript and CSS, all of which was served through an Amazon S3 CDN.',
 				'It was the biggest site, with regards to traffic, that I had the pleasure in working on, not to mention celebratory drinks afterwards.'
 			],
 			images: [
@@ -101,7 +101,7 @@ module.exports = function() {
 			website: "virgingalactic.com/mobile",
 			intro: "Mobile website",
 			description: [
-				'Virgin Galactic is running a campaign in orer to sell relatively affordable tickets for a seat for a ride into space. Having a very comprehensive site already, I was tasked with building a site to reach their mobile customers.',
+				'Virgin Galactic is running a campaign in order to sell relatively affordable tickets for a seat for a ride into space. Having a very comprehensive site already, I was tasked with building a site to reach their mobile customers.',
 				'A standalone mobile site was agreed upon, as well as a modest amount of parallax elements to accompany the flight information and registration form.',
 				'In order to achieve the parallax effect and still maniplulate elements on the page, the native touch-scroll was removed and replaced with a third party library to simulate it. Having said that, navigating form elements while native functionality has been replaced is a nightmare, not to mention encountering several edge case issues.',
 				'While I wouldn\'t personally agree with a standalone site, or parallax features for touch devices, the build was fun and I learnt a hell of a lot concerning mobile interaction and caveats.'
@@ -136,8 +136,8 @@ module.exports = function() {
 			intro: "Resposive Blog",
 			description: [
 				'The Brewers Droop is a blog of tales and quips of Chris Brewer whose origins started as a monthly letter sent out to subscribers by mail.',
-				'I built the site for my Dad to stop him pestering me for a blog. It was purely coincedental that at the time I wanted to learn how to use WordPress properly and also experiment with building a responsive site. I also seemed to be going through a MooTools phase at the time.',
-				'<a target="_blank" title="Studio Brewer" href="http://studiobrewer.com">My older bother</a> designed the site and we launched it over may pints of Guinness and several bottles of wine.'
+				'I built the site for my Dad to stop him pestering me for a blog. It was purely coincidental that at the time I wanted to learn how to use WordPress properly and also experiment with building a responsive site. I also seemed to be going through a MooTools phase at the time.',
+				'<a target="_blank" title="Studio Brewer" href="http://studiobrewer.com">My older brother</a> designed the site and we launched it over many pints of Guinness and several bottles of wine.'
 			],
 			images: [
 				{
