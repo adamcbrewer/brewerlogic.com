@@ -1,0 +1,57 @@
+<% include inc/header.html %>
+
+	<section data-target="about" class="section about closed">
+		<article class="inner">
+			<figure class="ri">
+				<img src="/img/me.png" alt="Adam Brewer">
+			</figure>
+			<div class="copy">
+				<p>
+					Brewer Logic is the porfolio of web developer Adam Brewer.
+				</p>
+				<p>
+					I'm a fervent front-end Web Developer and Webmaker whose passion lies in
+					all things Javascript, HTML and CSS. I have a fairly comprehensive front-end
+					skill set with some back-end experience as well. I'm always eager to learn
+					anything new.
+				</p>
+				<p>
+					I build semantic, mobile-responsive websites and apps optimised for both speed
+					and performance, utilising good front-end practices and complying with modern
+					web standards and features.
+				</p>
+				<p>
+					My other interests include running, reading, wine and Paleo food. I used to be
+					an Aircraft Technician in the British Army so I have quite a few stories to tell!
+				</p>
+			</div>
+		</article>
+	</section>
+
+	<section class="section portfolio">
+		<ul>
+			<% for ( var project in projects ) { %>
+				<li id="<%= project %>" data-toggle-target="<%= project %>" class="work-item">
+					<article>
+						<header class="work-item-header" data-toggle="<%= project %>">
+							<h2 class="work-item-title"><%= projects[project].title %></h2>
+							<footer class="work-item-meta">
+								// &nbsp;<time datetime="<%= projects[project].date %>"><%= projects[project].date %></time>. <%= projects[project].intro %><br>
+								// &nbsp;<a target="_blank" href="http://<%= projects[project].website %>" title="<%= projects[project].title %>"><%= projects[project].website %></a><br>
+							</footer>
+						</header>
+						<div class="work-detail">
+							<section class="inner cf">
+								<section class="work-desc">
+									<p><%- projects[project].description.join('</p><p>') %></p>
+								</section>
+								<section data-view="images" class="work-pics"></section>
+							</section>
+						</div>
+					</article>
+				</li>
+			<% } %>
+		</ul>
+	</section>
+
+<% include inc/footer.html %>
