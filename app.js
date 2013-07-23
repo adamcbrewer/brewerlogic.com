@@ -9,7 +9,8 @@ var express = require('express'),
 	path = require('path'),
 	fs = require('fs'),
 
-	config = require('./config'),
+	Config = require('./config'),
+	config = new Config(),
 	Projects = require('./models/projects'),
 	projects = new Projects();
 

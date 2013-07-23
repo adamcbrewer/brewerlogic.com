@@ -1,7 +1,7 @@
 module.exports = function() {
 
 	return {
-		gs: "UA-31471338-1"
+		ga: "UA-31471338-1"
 	}
 
 };
