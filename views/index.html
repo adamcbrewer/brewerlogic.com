@@ -21,8 +21,18 @@
 					web standards and features.
 				</p>
 				<p>
-					My other interests include running, reading, wine and Paleo food. I used to be
+					Aside from the Internet, my other interests include running, reading, wine and Paleo food. I used to be
 					an Aircraft Technician in the British Army so I have quite a few stories to tell!
+				</p>
+				<p>
+					This site went through many trials and versions. I had some crazy ideas for it, but in the end
+					I realised its sole purpose is to represent myself and the work I've done, including the web development principles I stand by.
+					Fast, lean and flexible. Simplicity is always a sure thing. <a target="_blank" href="/humans.txt">You can find its more technical stuff here</a>.
+				</p>
+				<p>
+					I have my own ideas about browser support for this site, and using the <a target="_blank" href="http://caniuse.com/classlist">HTML5 classList API</a> rules
+					out <=IE9. I didn't see the value in bloating the dependancies from using a heavy library, however
+					I'll probably find a work around at some point, just to learn how to do it.
 				</p>
 			</div>
 		</article>
@@ -36,8 +46,7 @@
 						<header class="work-item-header" data-toggle="<%= project %>">
 							<h2 class="work-item-title"><%= projects[project].title %></h2>
 							<footer class="work-item-meta">
-								// &nbsp;<time datetime="<%= projects[project].date %>"><%= projects[project].date %></time>. <%= projects[project].intro %><br>
-								// &nbsp;<a target="_blank" href="http://<%= projects[project].website %>" title="<%= projects[project].title %>"><%= projects[project].website %></a><br>
+								// &nbsp; <a target="_blank" href="http://<%= projects[project].website %>" title="<%= projects[project].title %>"><%= projects[project].website %></a>. <time datetime="<%= projects[project].date %>"><%= projects[project].date %></time>. <%= projects[project].intro %><br>
 							</footer>
 						</header>
 						<div class="work-detail">

@@ -13,28 +13,30 @@
 _______________________________________________________________________________
 
 PEOPLE
-Adam Brewer - Developer - @adamcbrewer
+Adam Brewer - Developer
+	@adamcbrewer
+	adamcbrewer.com
 
 _______________________________________________________________________________
 
 TECHNOLOGY
 
-Launchpad
-https://github.com/adamcbrewer/launchpad
-
-HTML5BP, LESS, Modernizr, jQuery, SMACSS
+Launchpad - https://github.com/adamcbrewer/launchpad
+HTML5BP
+Zepto (ajax module only)
+ImagesLoaded - https://github.com/Darsain/imagesloaded (no dependancies)
 
 ______________________________________________________________________________
 
-DEVELOPMENT ENVIRONMENT
+DEVELOPMENT ENVIRONMENT & WORKFLOW
 
-Sublime Text 2, Git, CodeKit
+Sublime Text 2, Git, CodeKit, Grunt, LESS, SMACSS
 
 _______________________________________________________________________________
 
 FONTS
 
-Fontello
+Google Fonts
 
 _______________________________________________________________________________
 
@@ -42,3 +44,5 @@ THANKS TO
 
 Tea
 Bacon
+studiobrewer.com for the design
+Arnie

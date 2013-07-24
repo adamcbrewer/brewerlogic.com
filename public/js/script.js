@@ -155,7 +155,7 @@
 		targetEl.classList.toggle('closed');
 		closeOthers(targetEl);
 		if (supportsHistoryApi()) history.pushState({ target: target }, target, Site.basePath + "?project=" + target);
-	}
+	};
 
 
 	function closeOthers ( avoidEl ) {
@@ -166,6 +166,8 @@
 		}
 		// close the about section
 		targetAbout[0].classList.add('closed');
+
+		if (window.scroll) window.scroll(0, avoidEl.offsetTop);
 	};
 
 
@@ -226,6 +228,8 @@
 		}, 200);
 	});
 
-	console.log('↑ ↑ ↓ ↓ ← → ← → B A … It\'s showtime!');
+	console.info("If you've found this you probably know what you're doing. Be sure to check out the humans.txt file for a technical breakdown of this site.");
+	console.info("Also, give the Konami code a whirl and turn the volume up!");
+	console.info("Konami Code - ↑ ↑ ↓ ↓ ← → ← → B A");
 
 }(window, document));

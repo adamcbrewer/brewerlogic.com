@@ -109,7 +109,7 @@ ul {
 
 .header {
     // background-color: #2b2b2b;
-    padding: 2em @d-padd;
+    padding: 3em @d-padd 2em;
     .logo {
         float: left;
     }
@@ -160,7 +160,8 @@ ul {
     .fadeIn;
     .inner {
         overflow: hidden;
-        padding: 1em @d-padd;
+        padding: 0 @d-padd 2em;
+        // border-bottom: 1px solid #333;
     }
     &.closed {
         .fadeOut;
@@ -172,7 +173,7 @@ ul {
     }
     .copy {
         float: left;
-        max-width: 600px
+        max-width: 24em
     }
 }
 .arnie {
@@ -203,6 +204,9 @@ ul {
     .work-detail {
         .fadeIn;
     }
+    &:first-child {
+        border-top: 1px solid #333;
+    }
     &.closed {
         .work-detail {
             display: none;
@@ -214,7 +218,7 @@ ul {
             content: "";
             width: 0;
             height: 0;
-            margin: 1em 0 0 0;
+            margin: 0 0 0 -2em;
             padding: 0.6em;
             display: inline-block;
             font-size: 1em;
@@ -280,7 +284,7 @@ ul {
     font-size: 1em;
     float: right;
     width: 42%;
-    padding-left: 4em;
+    padding-left: 2.5em;
 }
 .work-pics {
     width: 58%;
