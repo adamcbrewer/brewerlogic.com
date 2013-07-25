@@ -105,6 +105,12 @@ ul {
     padding: 0 0 0;
     margin-top: 10em;
     margin-bottom: 5em;
+    opacity: 0;
+    .js & {
+        .transition(0.6s ease opacity 0.3s);
+        opacity: 1;
+    }
+
 }
 
 .header {
@@ -195,9 +201,7 @@ ul {
 .highlight {
     color: @c-main;
 }
-.section {
 
-}
 .work-item {
     position: relative;
     border-bottom: 1px solid #333;

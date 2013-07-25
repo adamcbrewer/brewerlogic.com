@@ -1,5 +1,7 @@
 ;(function(window, document, undefined){
 
+	(function(h){h.className = h.className.replace('no-js', 'js')})(document.documentElement)
+
 	window.Site = {
 		basePath: document.body.getAttribute('data-base-url'),
 		userAgent: navigator.userAgent,
@@ -197,7 +199,6 @@
 			}
 		}
 	}
-
 
 	/**
 	 * if browser haz History API
