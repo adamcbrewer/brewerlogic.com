@@ -106,11 +106,11 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'public/js/libs/min/zepto.build.min.js',
+                            'public/js/libs/zepto.js',
                             'public/js/libs/imagesloaded.js',
                             'public/js/script.js'
                         ],
-                        dest: 'public/js/min/script.development.min.js'
+                        dest: 'public/js/min/script.min.js'
                     }
                 ]
             },
@@ -131,11 +131,11 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'public/js/libs/min/zepto.build.min.js',
+                            'public/js/libs/zepto.js',
                             'public/js/libs/imagesloaded.js',
                             'public/js/script.js'
                         ],
-                        dest: 'public/js/min/script.production.min.js'
+                        dest: 'public/js/min/script.min.js'
                     }
                 ]
             }

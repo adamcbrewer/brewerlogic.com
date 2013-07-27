@@ -23,7 +23,7 @@ TECHNOLOGY
 
 Launchpad - https://github.com/adamcbrewer/launchpad
 HTML5BP
-Zepto (ajax module only)
+Zepto (ajax & selector modules)
 ImagesLoaded - https://github.com/Darsain/imagesloaded (no dependancies)
 
 ______________________________________________________________________________
