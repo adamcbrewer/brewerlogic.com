@@ -243,6 +243,7 @@ ul {
 .work-item-header {
     padding: 1.8em @d-padd 2.8em;
     .transition(0.2s linear all 0s);
+
     &:hover {
         color: #fff;
         cursor: pointer;
@@ -335,6 +336,16 @@ ul {
 [data-toggle="lovecravendale"] {
     &:hover {
         background-color: #2388CC;
+    }
+}
+[data-toggle="studiobrewer"] {
+    &:hover {
+        background-color: #eee;
+        .work-item-title,
+        .work-item-meta,
+        .work-item-meta a {
+            color: #333;
+        }
     }
 }
 [data-toggle="toyotapositive"] {

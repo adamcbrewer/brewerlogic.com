@@ -161,4 +161,5 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('default', ['develop', 'watch']);
+    grunt.registerTask('build', ['uglify:production', 'less:production']);
 };

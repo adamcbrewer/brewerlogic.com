@@ -27,6 +27,37 @@ module.exports = function() {
 				}
 			]
 		},
+		studiobrewer: {
+			title: "Studio Brewer",
+			date: "February 2013",
+			website: "studiobrewer.com",
+			intro: "The creative practice of Jake Brewer; Designer, Art Director and Illustrator",
+			description: [
+				"<a target='_blank' title='studiobrewer.com' href='http://studiobrewer.com'>Studio Brewer</a> is the creative practive of my older brother, Jake Brewer.",
+				"We're fortunate enough to have complimentary skills; we're often working on projects together or trading services with one another.",
+				"Following my brother's designs, I wanted to focus on something that would show speed, responsiveness and soft transitions between views. Jake's a designer &mdash; meaning we're talking designer quality images here &mdash; so I decided to reduce the amount of inital asset requests (to improve overall speed) and conditionally load them for selected projects. This method meant that the core application needed quite a bit of asynchronous thinking.",
+				"Because of the planning involved between the two of us &mdash; regarding performance and the number of requests &mdash; the site was a natural fit to make responsive and device agnostic; great attention to detail was paid to mobile usability. The perceived speed is amazing, in terms of both load times and interface feedback, on any device.",
+				"The code for the site <a title='source code' target='_blank' href='http://github.com/adamcbrewer/studiobrewer.com'>can be found on github</a>."
+			],
+			images: [
+				{
+					url: "/projects/studiobrewer/intro.jpg",
+					alt: "Intro page"
+				},
+				{
+					url: "/projects/studiobrewer/projects_grid.jpg",
+					alt: "Projects view: grid"
+				},
+				{
+					url: "/projects/studiobrewer/projects_list.jpg",
+					alt: "Projects view: list"
+				},
+				{
+					url: "/projects/studiobrewer/project_detail.jpg",
+					alt: "Detailed project view"
+				}
+			]
+		},
 		toyotapositive: {
 			title: "Toyota Positive",
 			date: "January 2013",
