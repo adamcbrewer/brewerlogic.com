@@ -1,6 +1,31 @@
 <% include inc/header.html %>
 
-	<section data-target="about" class="section about closed">
+	<section class="section portfolio">
+		<ul>
+			<% for ( var project in projects ) { %>
+				<li id="<%= project %>" data-toggle-target="<%= project %>" class="work-item">
+					<article>
+						<header class="work-item-header" data-toggle="<%= project %>">
+							<h2 class="work-item-title"><%= projects[project].title %></h2>
+							<footer class="work-item-meta">
+								// &nbsp; <a target="_blank" href="http://<%= projects[project].website %>" title="<%= projects[project].title %>"><%= projects[project].website %></a>. <time datetime="<%= projects[project].date %>"><%= projects[project].date %></time>. <%= projects[project].intro %><br>
+							</footer>
+						</header>
+						<div class="work-detail">
+							<section class="inner cf">
+								<section class="work-desc">
+									<p><%- projects[project].description.join('</p><p>') %></p>
+								</section>
+								<section data-view="images" class="work-pics"></section>
+							</section>
+						</div>
+					</article>
+				</li>
+			<% } %>
+		</ul>
+	</section>
+
+	<section id="about" data-target="about" class="section about">
 		<article class="inner">
 			<figure class="ri">
 				<img src="/img/me.png" alt="Adam Brewer">
@@ -30,31 +55,6 @@
 				</p>
 			</div>
 		</article>
-	</section>
-
-	<section class="section portfolio">
-		<ul>
-			<% for ( var project in projects ) { %>
-				<li id="<%= project %>" data-toggle-target="<%= project %>" class="work-item">
-					<article>
-						<header class="work-item-header" data-toggle="<%= project %>">
-							<h2 class="work-item-title"><%= projects[project].title %></h2>
-							<footer class="work-item-meta">
-								// &nbsp; <a target="_blank" href="http://<%= projects[project].website %>" title="<%= projects[project].title %>"><%= projects[project].website %></a>. <time datetime="<%= projects[project].date %>"><%= projects[project].date %></time>. <%= projects[project].intro %><br>
-							</footer>
-						</header>
-						<div class="work-detail">
-							<section class="inner cf">
-								<section class="work-desc">
-									<p><%- projects[project].description.join('</p><p>') %></p>
-								</section>
-								<section data-view="images" class="work-pics"></section>
-							</section>
-						</div>
-					</article>
-				</li>
-			<% } %>
-		</ul>
 	</section>
 
 <% include inc/footer.html %>

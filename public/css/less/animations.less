@@ -236,18 +236,23 @@
 
 @-webkit-keyframes openSpace {
     to { max-height: 10000px; }
+    from { max-height: 0px; }
 }
 @-moz-keyframes openSpace {
     to { max-height: 10000px; }
+    from { max-height: 0px; }
 }
 @-ms-keyframes openSpace {
     to { max-height: 10000px; }
+    from { max-height: 0px; }
 }
 @-o-keyframes openSpace {
     to { max-height: 10000px; }
+    from { max-height: 0px; }
 }
 @keyframes openSpace {
     to { max-height: 10000px; }
+    from { max-height: 0px; }
 }
 
 @-webkit-keyframes closeSpace {
@@ -359,11 +364,10 @@
         fadeIn 0.6s 0.2s ease forwards;
 }
 .fadeOut {
-    max-height: 10000px;
     opacity: 1;
     -webkit-animation:
-        fadeOut 0.2s 0s ease forwards,
-        closeSpace 0.2s 0.1s ease forwards;
+        fadeOut 0s 0s ease forwards,
+        closeSpace 0s 0s ease forwards;
     -moz-animation:
         fadeOut 0.2s 0s ease forwards,
         closeSpace 0.2s 0.1s ease forwards;

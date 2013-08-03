@@ -76,11 +76,12 @@
 		 * Toggling the about section
 		 *
 		 */
-		toggleAbout.on('click', function (evt) {
-			evt.preventDefault();
-			targetAbout.toggleClass('closed');
-			if ( targetAbout.hasClass('closed') ) closeOthers(null);
-		});
+		// toggleAbout.on('click', function (evt) {
+		// 	evt.preventDefault();
+		// 	targetAbout.toggleClass('closed');
+		// 	if ( targetAbout.hasClass('closed') ) closeOthers(null);
+		// 	window.scroll(0, targetAbout[0].offsetTop);
+		// });
 
 
 		/**
@@ -118,7 +119,8 @@
 		 */
 		function openProject ( evt ) {
 
-			var target = evt;
+			var target = evt,
+				wasClosed = true;
 			if ( evt.target ) {
 				if ( evt.target.href ) return; // don't do anything if we're clikcing links
 				evt.preventDefault();
@@ -137,12 +139,14 @@
 				});
 			}
 
+			if ( ! targetEl.hasClass('closed') ) wasClosed = false;
+
 			targetEl.toggleClass('closed');
 			closeOthers(targetEl);
 
 			if (supportsHistoryApi()) history.pushState({ target: target }, target, Site.basePath + "?project=" + target);
 
-			window.scroll(0, targetEl[0].offsetTop);
+			if ( wasClosed ) window.scroll(0, targetEl[0].offsetTop);
 
 		};
 
@@ -154,7 +158,7 @@
 				toggleTargets.addClass('closed');
 			}
 			// close the about section
-			targetAbout.addClass('closed');
+			// targetAbout.addClass('closed');
 		};
 
 

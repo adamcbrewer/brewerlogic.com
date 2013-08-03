@@ -101,7 +101,7 @@ module.exports = function (grunt) {
                     preserveComments: true,
                     mangle: false,
                     beautify: true,
-                    // report: 'min'
+                    report: 'min'
                 },
                 files: [
                     {
