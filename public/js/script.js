@@ -1,6 +1,9 @@
 ;(function(window, document, undefined){
 
-	(function(h){h.className = h.className.replace('no-js', 'js')})(document.documentElement)
+	(function(h) {
+		h.className = h.className.replace('no-js', 'js');
+		if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) h.className += ' touch';
+	})(document.documentElement);
 
 	window.Site = {
 		basePath: document.body.getAttribute('data-base-url'),
@@ -14,7 +17,8 @@
 
 
 	// Better (faster) touch event handling
-	var clickEventType = 'click';//('ontouchstart' in window ? 'touchend' : 'click');
+	// issues with scrolling and replacing the click event type
+	var clickEventType = 'click'; // ('ontouchstart' in window ? 'touchend' : 'click');
 
 
 	/**
@@ -50,6 +54,7 @@
 		 */
 		var toggles = $('[data-toggle]'),
 			toggleTargets = $('[data-toggle-target]'),
+			toggleImgs = $('[data-toggle-img]'),
 			toggleAbout = $('[data-toggle-about]'),
 			targetAbout = $('[data-target="about"]'),
 			workItems = $('.work-item'),
@@ -220,7 +225,7 @@
 			}, 200);
 		});
 
-		console.info("If you've found this you probably know what you're doing. Be sure to check out the humans.txt file for a technical breakdown of this site, or feel free to peruse the source: http://github.com/adamcbrewer/brewerlogic.com");
+		console.info("If you've found this you probably know what you're doing :). Be sure to check out the humans.txt file for a technical breakdown of this site, or feel free to peruse the source: http://github.com/adamcbrewer/brewerlogic.com");
 		console.info("Also, give the Konami code a whirl and turn the volume up!");
 		console.info("Konami Code - ↑ ↑ ↓ ↓ ← → ← → B A");
 	});

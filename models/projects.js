@@ -15,15 +15,15 @@ module.exports = function() {
 			images: [
 				{
 					url: "/projects/lovecravendale/themagic-01.jpg",
-					alt: "The Magic - step 1"
+					alt: "A successfully entered code"
 				},
 				{
 					url: "/projects/lovecravendale/themagic-02.jpg",
-					alt: "The Magic - step 1"
+					alt: "The Magic begins"
 				},
 				{
 					url: "/projects/lovecravendale/themagic-03.jpg",
-					alt: "The Magic - step 1"
+					alt: "Total heart count shown to user"
 				}
 			]
 		},
@@ -41,16 +41,20 @@ module.exports = function() {
 			],
 			images: [
 				{
+					url: "/projects/studiobrewer/responsive.jpg",
+					alt: "Responsive views"
+				},
+				{
 					url: "/projects/studiobrewer/intro.jpg",
 					alt: "Intro page"
 				},
 				{
 					url: "/projects/studiobrewer/projects_grid.jpg",
-					alt: "Projects view: grid"
+					alt: "Projects view – grid"
 				},
 				{
 					url: "/projects/studiobrewer/projects_list.jpg",
-					alt: "Projects view: list"
+					alt: "Projects view – list"
 				},
 				{
 					url: "/projects/studiobrewer/project_detail.jpg",
@@ -75,11 +79,11 @@ module.exports = function() {
 				},
 				{
 					url: "/projects/toyota-positive/home02.jpg",
-					alt: "Homepage, video playing"
+					alt: "Homepage – video playing"
 				},
 				{
 					url: "/projects/toyota-positive/stories.jpg",
-					alt: "The Positive stories"
+					alt: "The Positive stories page"
 				},
 				{
 					url: "/projects/toyota-positive/video.jpg",
@@ -87,7 +91,7 @@ module.exports = function() {
 				},
 				{
 					url: "/projects/toyota-positive/form.jpg",
-					alt: "The form"
+					alt: "The form for users to sumbit their own stories"
 				}
 			]
 		},
@@ -106,23 +110,23 @@ module.exports = function() {
 			images: [
 				{
 					url: "/projects/cravendale-epic-straws/homepage.jpg",
-					alt: "Homepage"
+					alt: "Home page"
 				},
 				{
 					url: "/projects/cravendale-epic-straws/products.jpg",
-					alt: "Products"
+					alt: "Products page displaying the faux 3D spinning disc"
 				},
 				{
 					url: "/projects/cravendale-epic-straws/redemption.jpg",
-					alt: "Redemption"
+					alt: "A successfully redeemed code on the redemption page"
 				},
 				{
 					url: "/projects/cravendale-epic-straws/redemption2.jpg",
-					alt: "Redemption page deux"
+					alt: "Collection form after entering 10 valid bottle codes"
 				},
 				{
 					url: "/projects/cravendale-epic-straws/faq.jpg",
-					alt: "FAQ"
+					alt: "FAQ page"
 				}
 			]
 		},
@@ -156,7 +160,7 @@ module.exports = function() {
 				},
 				{
 					url: "/projects/virgin-galactic/mobile_2x_03.jpg",
-					alt: "Mobile - Booking"
+					alt: "Mobile - Booking form"
 				}
 			]
 		},
@@ -173,19 +177,19 @@ module.exports = function() {
 			images: [
 				{
 					url: "/projects/brewersdroop/devices.jpg",
-					alt: "Devices"
+					alt: "Resposive overview from a selection of devices"
 				},
 				{
 					url: "/projects/brewersdroop/home.jpg",
-					alt: "Homepage"
+					alt: "Home page"
 				},
 				{
 					url: "/projects/brewersdroop/singledroop.jpg",
-					alt: "Single post"
+					alt: "Single post page"
 				},
 				{
 					url: "/projects/brewersdroop/about.jpg",
-					alt: "About"
+					alt: "About page"
 				}
 			]
 		}

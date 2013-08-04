@@ -57,6 +57,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: @f-sans;
+    font-weight: 300;
     font-size: 62.5%;
     line-height: 1.4;
     color: @c-copy;
@@ -289,6 +290,7 @@ ul {
 
 .work-desc {
     font-size: 1em;
+    line-height: 1.8;
     float: right;
     width: 42%;
     padding-left: 2.5em;
@@ -309,6 +311,29 @@ ul {
 }
 .work-image {
     margin: 0 0 2em;
+    position: relative;
+    overflow: hidden;
+    figcaption {
+        position: absolute;
+        bottom: -50%;
+        width: 100%;
+        left: 0;
+        background: @c-slate;
+        color: @c-copy;
+        padding: 1em 1em 1.2em;
+        opacity: 0.8;
+        .transition(0.6s ease bottom 0s);
+
+        .touch & {
+            bottom: 0%;
+        }
+    }
+    &:hover {
+        figcaption {
+            bottom: 0%;
+            .transition(0.2s ease bottom 0s);
+        }
+    }
 }
 .ri {
     img { max-width: 100%; }
@@ -334,7 +359,10 @@ ul {
 .nav-link {
     text-decoration: none;
     margin-left: 1em;
-    // text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    &:hover {
+        border-bottom-color: #fff;
+    }
 }
 
 /* ====================================================
@@ -382,20 +410,6 @@ ul {
         background-color: #0A556A;
     }
 }
-
-// .touch {
-//     .work-item-header {
-//         position: relative;
-//         &:after {
-//             content: "tap to toggle";
-//             position: absolute;
-//             top: 3em;
-//             right: 4%;
-//             opacity: 0.3;
-//             font-size: 0.9em;
-//         }
-//     }
-// }
 
 /* ==|== Media Queries ======================================================
     PLACEHOLDER Media Queries for Responsive Design.
