@@ -7,6 +7,7 @@ module.exports = function() {
 			website: "lovecravendale.co.uk",
 			intro: "Loyalty scheme web app",
 			description: [
+				'<a title="lovecravendale.co.uk" href="http://lovecravendale.co.uk" target="_blank">lovecravendale.co.uk</a>',
 				'I had a great time working alongside <a href="http://lovecravendale.co.uk/humans.txt" title="humans" target="_blank">several developers</a> for this project while enjoying my time working for Saatchi &amp; Saatchi in London.',
 				'The site is a loyalty scheme encouraging users to collect codes printed on bottle labels purchased in-store and exchanged for various prizes and promotions on the site. The value of the prizes increases the number of codes required to redeem it.',
 				'I had the privilege of building the code redemption part of the site, working closely with the back-end developer and the UX designer to create an easy to use and interesting process for users to collect codes and redeem them for prizes.',
@@ -33,11 +34,11 @@ module.exports = function() {
 			website: "studiobrewer.com",
 			intro: "The creative practice of Jake Brewer; Designer, Art Director and Illustrator",
 			description: [
-				"<a target='_blank' title='studiobrewer.com' href='http://studiobrewer.com'>Studio Brewer</a> is the creative practive of my older brother, Jake Brewer.",
+				'<a target="_blank" title="studiobrewer.com" href="http://studiobrewer.com">studiobrewer.com</a> · <a href="http://github.com/adamcbrewer/studiobrewer.com" target="_blank" title="studiobrewer.com on gihub">github</a>',
+				"Studio Brewer is the creative practive of my older brother, Jake Brewer.",
 				"We're fortunate enough to have complimentary skills; we're often working on projects together or trading services with one another.",
 				"Following my brother's designs, I wanted to focus on something that would show speed, responsiveness and soft transitions between views. Jake's a designer &mdash; meaning we're talking designer quality images here &mdash; so I decided to reduce the amount of inital asset requests (to improve overall speed) and conditionally load them for selected projects. This method meant that the core application needed quite a bit of asynchronous thinking.",
-				"Because of the planning involved between the two of us &mdash; regarding performance and the number of requests &mdash; the site was a natural fit to make responsive and device agnostic; great attention to detail was paid to mobile usability. The perceived speed is amazing, in terms of both load times and interface feedback, on any device.",
-				"The code for the site <a title='source code' target='_blank' href='http://github.com/adamcbrewer/studiobrewer.com'>can be found on github</a>."
+				"Because of the planning involved between the two of us &mdash; regarding performance and the number of requests &mdash; the site was a natural fit to make responsive and device agnostic; great attention to detail was paid to mobile usability. The perceived speed is amazing, in terms of both load times and interface feedback, on any device."
 			],
 			images: [
 				{
@@ -68,6 +69,7 @@ module.exports = function() {
 			website: "toyotapositive.com",
 			intro: "Inspiring uplifting gestures and selfless acts",
 			description: [
+				'<a href="http://toyotapositive.com" title="toyotapositive.com" target="_blank">toyotapositive.com</a>',
 				'Toyota Positive was a site built to promote the positive influence their new car was bringing to the environment.',
 				'It was a site to showcase the individual stories from people who used the car to perform positive deeds &mdash; and was fun to make. It was built to stand as both a web app and as an embedded YouTube gadget. The video player/carousel widget was the core feature of the site and the trickiest to implement. The video playlist in the main widget can be controlled through the images in the gallery, with each story able to be individually	shared on both Twitter and Facebook as it cycles through.',
 				'It was the first time I\'d gotten my hands dirty with an iterative design/build process, not to mention integrating language support for multiple countries as well.'
@@ -101,6 +103,7 @@ module.exports = function() {
 			website: "epicstraws.co.uk",
 			intro: "Loyalty app/scheme",
 			description: [
+				'<a href="http://epicstraws.co.uk" title="epicstraws.co.uk" target="_blank">epicstraws.co.uk</a>',
 				'This site was vastly different to anything I had made before while working at Outside Line. The size of the assets, the traffic generated and the experience we tried to deliver was a massive challange. I was excited from day one!',
 				'The site was very image heavy and the designer\'s intention was to deliver a skeuomorphic experience following the brand\'s guidelines for the promotional straw sets that Cravendale were offering in exchange for collecting codes, which were printed and sold on bottles across the UK.',
 				'Both the designer and I came up with an idea to simulate a 3-dimentional display of the straw sets using a series of images of each set, themselves modelled and rendered in 3D. The result was a combination of simple, 2D image replacement which gave an impressive, realistic 3D effect.',
@@ -136,6 +139,7 @@ module.exports = function() {
 			website: "virgingalactic.com/mobile",
 			intro: "Mobile website",
 			description: [
+				'<a href="http://virgingalactic.com/mobile" target="_blank" title="virgingalactic.com/mobile">virgingalactic.com/mobile</a>',
 				'Virgin Galactic is running a campaign in order to sell relatively affordable tickets for a seat for a ride into space. Having a very comprehensive site already, I was tasked with building a site to reach their mobile customers.',
 				'A standalone mobile site was agreed upon, as well as a modest amount of parallax elements to accompany the flight information and registration form.',
 				'In order to achieve the parallax effect and still maniplulate elements on the page, the native touch-scroll was removed and replaced with a third party library to simulate it. Having said that, navigating form elements while native functionality has been replaced is a nightmare, not to mention encountering several edge case issues.',
@@ -164,12 +168,47 @@ module.exports = function() {
 				}
 			]
 		},
+		jenniferhulley: {
+			title: "Jennifer Hulley Photography",
+			date: "June 2012",
+			website: "jenniferhulley.com",
+			intro: "Portfolio of a photographer",
+			description: [
+				'<a href="http://jenniferhulley.com" target="_blank" title="jenniferhulley.com">jenniferhulley.com</a>',
+				'This site was built for wedding and events photographer, Jennifer Hulley to showcase her portfolio.',
+				'I worked alongside my <a href="http://studiobrewer.com" target="_blank">brother</a> to create a very smooth and transitioned expereince for browsing through the categories of photographs.',
+				'The site has since been redesigned and converted to a new SquareSpace them, but it was built pixel perfect to these designs, conforming to my brother\'s high standard of design.'
+			],
+			images: [
+				{
+					url: "/projects/jenniferhulley/welcome.jpg",
+					alt: "The welcome page"
+				},
+				{
+					url: "/projects/jenniferhulley/section_view.jpg",
+					alt: "Viewing shots within a category"
+				},
+				{
+					url: "/projects/jenniferhulley/rollover.jpg",
+					alt: "Thumbnail rollover (hover) effect"
+				},
+				{
+					url: "/projects/jenniferhulley/lightbox.jpg",
+					alt: "Browsing through high resolution shots"
+				},
+				{
+					url: "/projects/jenniferhulley/about.jpg",
+					alt: "The About page depicting hover states"
+				}
+			]
+		},
 		brewersdroop: {
 			title: "Brewers Droop",
 			date: "August 2011",
 			website: "brewersdroop.co.za",
 			intro: "Resposive Blog",
 			description: [
+				'<a href="http://brewersdroop.co.za" target="_blank" title="brewersdroop.co.za">brewersdroop.co.za</a>',
 				'The Brewers Droop is a blog of tales and quips of Chris Brewer whose origins started as a monthly letter sent out to subscribers by mail.',
 				'I built the site for my Dad to stop him pestering me for a blog. It was purely coincidental that at the time I wanted to learn how to use WordPress properly and also experiment with building a responsive site. I also seemed to be going through a MooTools phase at the time.',
 				'<a target="_blank" title="Studio Brewer" href="http://studiobrewer.com">My older brother</a> designed the site and we launched it over many pints of Guinness and several bottles of wine.'
