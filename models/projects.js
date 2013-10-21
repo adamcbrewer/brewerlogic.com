@@ -1,6 +1,46 @@
 module.exports = function() {
 
 	return {
+		gatherly: {
+			title: "Gather.ly",
+			date: "September 2013",
+			website: "gather.ly",
+			intro: "Create, or find, interest-based communities. Part of The Interest Network",
+			description: [
+				'<a title="gather.ly" href="http://gather.ly" target="_blank">gather.ly</a>',
+				"Gather.ly – or Iam150/ previously – was the first client I had the privilage of working with soon after deciding to go freelance. Andy, Nick, Sophie and Gavin were some of the nicest people I've had the good fortune of working with.",
+				"I was hired to oversee the responsibility of the front-end side of things, which involved addressing performance, responsiveness and overall design improvements, across both dektop and mobile/touch devices – all in aid of their big out-of-beta launch.",
+				"Most of the features I worked on and helped implement – such as user @mentioning, embedded content previews, Mandrill & MailChimp integration, likes and new post notifications – we're already structurally built server-side, but needed new Javascript modules to be written to help pull though their content and handle their respective actions.",
+				"I also decided a modern front-end workflow would be essential to manage compiling, building and deploying between different environments; local, development and production. For this Grunt.js was my choice, along with Sass to modularise the CSS development. The application runs off Node.js, MongoDB (Mongoose), express.js and uses additional technologies such as Mandrill & MailChimp APIs, Handlebars, Embed.ly, as well as Facebook and Twitter oAuth Node libraries.",
+				"In my eyes, it's a unique take on the concept of sharing within interest-driven groups – definitely <a target='_blank' href='http://gather.ly' title='gather.ly'>worth checking out</a>, even on your mobile ;)"
+			],
+			images: [
+				{
+					url: "/projects/gatherly/my-feed.jpg",
+					alt: "The My Feed page"
+				},
+				{
+					url: "/projects/gatherly/discover.jpg",
+					alt: "The Dicover page, showing groups still recruiting members"
+				},
+				{
+					url: "/projects/gatherly/content-preview.jpg",
+					alt: "Preview of remote content to be shared, using embeddly's API"
+				},
+				{
+					url: "/projects/gatherly/likes.jpg",
+					alt: "A popup modal displaying the number of likes for a post"
+				},
+				{
+					url: "/projects/gatherly/members.jpg",
+					alt: "The members page"
+				},
+				{
+					url: "/projects/gatherly/mentioning.jpg",
+					alt: "The @mentioning widget, showing autocompeted suggestions of members within a group."
+				}
+			]
+		},
 		lovecravendale: {
 			title: "Love Cravendale",
 			date: "June 2013",
