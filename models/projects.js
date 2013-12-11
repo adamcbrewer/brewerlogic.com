@@ -1,11 +1,68 @@
 module.exports = function() {
 
 	return {
+		googleprivacyweek: {
+			title: "Google Privacy Week",
+			date: "October/November 2013",
+			website: "privacyweek.googleplex.com",
+			intro: "Internal site for Google's Privacy Week 2013",
+			description: [
+				"This is a project I worked on with Toaster, creating an internal site for Google personnel to browse and share their thoughts about what privacy means to them during Google's Privacy Week, 11 - 15 November 2013.",
+				"Everything on the front end was done in modular components, such as the one to manage fetching the quotes, another to handle the fullscreen functionality (and triggering autoplay), the lightbox as well as the map page.",
+				"The hopper module was the central handler for fetching quotes from the server and handled pagination. Google Closure's PubSub component was used to push quotes from the server to both the gallery page – for infinite scroll functionality – and to the lightbox carousel. Similarly to the infinite scroll functionality, the carousel module triggered the the hopper module to fetch quotes when reaching the last couple of slides, creating an looped gallery both through scrolling and watching the carousel play through.",
+				"Building the quotes themselves was something I wasn't sure was possible with just CSS, and there were talks of using canvas. However, I was playing around with pseudo elements for quite a bit and came out with what looked pretty close to the design (you can see the resulting HTML output by viewing the page source). It made me happier knowing we could build them all in HTML & CSS, meaning the heavy logic of the quotes only had to be when the line should break, the size/character count ratio and the keyword matching (for this I used a simple regex pattern).",
+				"The 'quote engine' module was built to take in a plain string and do all the calculations about the words per line, when the line should break, when to 'expose' a keyword, where to place the highlighting and the overall size of the quote (which depended on the total character count).",
+				"For the carousel I decided to use CSS classes to give us more options to manipulate it, as we had no idea of how it was going to animate. Alberto – the project's tech lead – suggested the synced/rippled rotation of the lines and from there I just applied some CSS transitions, using :nth-child() selectors (for the staggered effect) – needless to say I was very happy with the results! We did have an issue with scaling the quotes while fullscreen was enabled, due to the CSS3 effect we were applying to them, so we had to change the animation slightly to avoid rasterizing the elements; scaling it up while still keeping it crisp.",
+				"It's projects like these that make me love what I do!"
+			],
+			images: [
+				{
+					url: "/projects/google-privacy-week/lightbox.jpg",
+					alt: "The opened lightbox on the gallery page"
+				},
+				{
+					url: "/projects/google-privacy-week/animation.gif",
+					alt: "Carousel animation"
+				},
+				{
+					url: "/projects/google-privacy-week/gallery-small.jpg",
+					alt: "Close-up on the gallery"
+				},
+				{
+					url: "/projects/google-privacy-week/gallery-large.jpg",
+					alt: "The gallery – extended"
+				},
+				{
+					url: "/projects/google-privacy-week/map.jpg",
+					alt: "Throughts around the world, grouped by Google office locations"
+				},
+				{
+					url: "/projects/google-privacy-week/schedule-day.jpg",
+					alt: "A single day event listing"
+				},
+				{
+					url: "/projects/google-privacy-week/schedule-week.jpg",
+					alt: "Event schedule for the week"
+				},
+				{
+					url: "/projects/google-privacy-week/schedule-week-filtered.jpg",
+					alt: "The weekly schedule, filtered by region"
+				},
+				{
+					url: "/projects/google-privacy-week/submission-input.jpg",
+					alt: "User input when sharing a thought on privacy"
+				},
+				{
+					url: "/projects/google-privacy-week/submission-final.jpg",
+					alt: "Highlight colour and other options before submission"
+				}
+			]
+		},
 		gatherly: {
 			title: "Gather.ly",
 			date: "September 2013",
 			website: "gather.ly",
-			intro: "Create, or find, interest-based communities. Part of The Interest Network",
+			intro: "Create, or find, interest-based communities. Part of The Interest Network.",
 			description: [
 				'<a title="gather.ly" href="http://gather.ly" target="_blank">gather.ly</a>',
 				"Gather.ly – or Iam150/ previously – was the first client I had the privilage of working with soon after deciding to go freelance. Andy, Nick, Sophie and Gavin were some of the nicest people I've had the good fortune of working with.",
