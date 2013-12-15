@@ -240,7 +240,8 @@ ul {
     padding: 1.8em @d-padd 2.8em;
     .transition(0.2s linear all 0s);
 
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         color: #fff;
         cursor: pointer;
         a,
@@ -376,28 +377,38 @@ ul {
     views like the home page or the inside page.
 ==================================================== */
 
+[data-toggle="brewers"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #3989CF;
+    }
+}
 [data-toggle="googleprivacyweek"] {
-    &:hover {
-        background-color: #f0d800;
-        .work-item-title,
-        .work-item-meta,
-        .work-item-meta a {
-            color: #333;
-        }
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #F53D6E;
+        // .work-item-title,
+        // .work-item-meta,
+        // .work-item-meta a {
+        //     color: #333;
+        // }
     }
 }
 [data-toggle="gatherly"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #A74A3F;
     }
 }
 [data-toggle="lovecravendale"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #2388CC;
     }
 }
 [data-toggle="studiobrewer"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #eee;
         .work-item-title,
         .work-item-meta,
@@ -407,27 +418,32 @@ ul {
     }
 }
 [data-toggle="toyotapositive"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #059CD7;
     }
 }
 [data-toggle="cravendaleepicstraws"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #4AC13D;
     }
 }
 [data-toggle="brewersdroop"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #944D39;
     }
 }
 [data-toggle="jenniferhulley"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #4DBCCD;
     }
 }
 [data-toggle="virgingalactic"] {
-    &:hover {
+    &:hover,
+    .work-item:not(.closed) & {
         background-color: #0A556A;
     }
 }

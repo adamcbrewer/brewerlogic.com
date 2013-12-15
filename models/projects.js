@@ -1,12 +1,34 @@
 module.exports = function() {
 
 	return {
+		brewers: {
+			title: "Brewer's Advertising Data",
+			date: 'November 2013',
+			intro: "Website for Brewer's Apps in South Africa.",
+			description: [
+				"<a title='brewers.co.za' target='_blank' href='http://brewers.co.za'>brewers.co.za</a> · <a href='https://github.com/adamcbrewer/brewers.co.za' title='Source code for brewers.co.za' target='_blank'>github</a>",
+				"Originally launched mid-year 2010, Brewer's Advertising Data is a central exchange of advertising and marketing data within South Africa.",
+				"This is the new website for the webapp which my brother <a href='http://studiobrewer.co.za' title='studiobrewer.com' target='_blank'>Jake</a> and I worked on together and are currently in the process of overhauling in terms of design, functionality, mobile usability and performance.",
+				"The new direction of the Brewer's app shows a simplification of what the aims and features of the softwear are hoping to achieve, including a free initial trial on sign-up and having a more social presence with regards to changes and happenings within the industry.",
+				"The source code can be found on <a href='https://github.com/adamcbrewer/brewers.co.za' title='Source code for brewers.co.za' target='_blank'>GitHub</a>."
+			],
+			images: [
+				{
+					url: "/projects/brewers/full.jpg",
+					alt: "The large-scale version of the site website"
+				},
+				{
+					url: "/projects/brewers/mobile.jpg",
+					alt: "Responsive breakpoints - applied as needed and device agnostic"
+				}
+			]
+		},
 		googleprivacyweek: {
 			title: "Google Privacy Week",
 			date: "October/November 2013",
 			intro: "Internal site for Google's Privacy Week 2013",
 			description: [
-				"This is a project I worked on with Toaster, creating an internal site for Google personnel to browse and share their thoughts about what privacy means to them during Google's Privacy Week, 11 - 15 November 2013.",
+				"Google Privacy Week was a project I worked on with <a href='http://toasterltd.com' title='toasterltd.com' target='_blank'>Toaster</a>, creating an internal site for Google personnel to browse and share their thoughts about what privacy means to them during Google's Privacy Week, 11 - 15 November 2013.",
 				"Everything on the front end was done in modular components, such as the one to manage fetching the quotes, another to handle the fullscreen functionality (and triggering autoplay), the lightbox as well as the map page.",
 				"The hopper module was the central handler for fetching quotes from the server and handled pagination. Google Closure's PubSub component was used to push quotes from the server to both the gallery page – for infinite scroll functionality – and to the lightbox carousel. Similarly to the infinite scroll functionality, the carousel module triggered the the hopper module to fetch quotes when reaching the last couple of slides, creating an looped gallery both through scrolling and watching the carousel play through.",
 				"Building the quotes themselves was something I wasn't sure was possible with just CSS, and there were talks of using canvas. However, I was playing around with pseudo elements for quite a bit and came out with what looked pretty close to the design (you can see the resulting HTML output by viewing the page source). It made me happier knowing we could build them all in HTML & CSS, meaning the heavy logic of the quotes only had to be when the line should break, the size/character count ratio and the keyword matching (for this I used a simple regex pattern).",
