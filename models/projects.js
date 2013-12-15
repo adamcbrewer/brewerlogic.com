@@ -4,7 +4,6 @@ module.exports = function() {
 		googleprivacyweek: {
 			title: "Google Privacy Week",
 			date: "October/November 2013",
-			website: "privacyweek.googleplex.com",
 			intro: "Internal site for Google's Privacy Week 2013",
 			description: [
 				"This is a project I worked on with Toaster, creating an internal site for Google personnel to browse and share their thoughts about what privacy means to them during Google's Privacy Week, 11 - 15 November 2013.",

@@ -8,7 +8,7 @@
 						<header class="work-item-header" data-toggle="<%= project %>">
 							<h2 class="work-item-title"><%= projects[project].title %></h2>
 							<footer class="work-item-meta">
-								// &nbsp; <a target="_blank" href="http://<%= projects[project].website %>" title="<%= projects[project].title %>"><%= projects[project].website %></a>. <time datetime="<%= projects[project].date %>"><%= projects[project].date %></time>. <%= projects[project].intro %><br>
+								// &nbsp; <% if (projects[project].website) { %><%= projects[project].website %>. <% } %><time datetime="<%= projects[project].date %>"><%= projects[project].date %></time>. <%= projects[project].intro %><br>
 							</footer>
 						</header>
 						<div class="work-detail">
