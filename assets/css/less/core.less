@@ -1,0 +1,542 @@
+/* ====================================================
+    LESS IMPORTS
+==================================================== */
+
+@import "libs/helpers.less";
+@import "libs/normalize.less";
+// @import "fontello.less";
+@import "animations.less";
+// @import "cube.less";
+
+
+
+
+/* ====================================================
+    LESS VARIABLES
+==================================================== */
+@c-main: #3468c5; // blue
+@c-slate: #2b2b2b;
+@c-bg: #f8f8f8;
+@c-copy: #bbb;
+
+@f-serif: "Baskerville", "utopia-std", "Hoefler Text", Georgia, Times, serif;
+@f-sans: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+@f-sans2: "Archivo Narrow", "Helvetica Neue", Arial, sans-serif;
+
+@d-spinner: 20px;
+@d-stickyFooterH: 6em;
+@d-padd: 6%;
+
+/* ====================================================
+    BASE STYLES
+
+    Base rules are the defaults. They are almost exclusively
+    single element selectors but it could include attribute selectors,
+    pseudo-class selectors, child selectors or sibling selectors.
+    Essentially, a base style says that wherever this element is on the page,
+    it should look like...
+==================================================== */
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+::-moz-selection{ background: @c-main; color: #fff; text-shadow: none; }
+::selection { background: @c-main; color: #fff; text-shadow: none; }
+
+html, body {
+    -web-font-smoothing: antialiased;
+}
+html {
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    font-family: @f-sans;
+    font-weight: 300;
+    font-size: 62.5%;
+    line-height: 1.4;
+    color: @c-copy;
+    background-color: @c-slate;
+}
+
+a {
+    color: @c-copy;
+    .transition(0.2s ease all);
+}
+a:link {}
+a:visited {}
+a:hover { color: #fff; text-decoration: none; }
+a:active {}
+a:focus {}
+
+p:nth-child(+1) {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ====================================================
+    LAYOUT STYLES
+
+    Layout rules divide the page into sections.
+    Layouts hold one or more modules together.
+==================================================== */
+
+.wrapper {
+    font-size: 1.6em;
+    // background-color: @c-bg;
+
+    /* stuicky footer stuff */
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -@d-stickyFooterH;
+}
+
+.content {
+    padding: 0 0 0;
+    margin-top: 10em;
+    margin-bottom: 2em;
+    opacity: 0;
+    .js & {
+        .transition(0.6s ease opacity 0.3s);
+        opacity: 1;
+    }
+
+}
+
+.header {
+    // background-color: #2b2b2b;
+    padding: 3em @d-padd 2em;
+    .logo {
+        float: left;
+    }
+    .spinner {
+        opacity: 0.6;
+        float: right;
+        position: relative;
+        right: -1%;
+        top: 8px;
+    }
+}
+.footer,
+.push {
+    height: @d-stickyFooterH;
+}
+.footer {
+    font-size: 1.6em;
+    padding: 3em @d-padd 3em;
+    color: #999;
+    .inner {
+        max-width: 400px;
+        margin: auto;
+    }
+    .icon {
+        text-decoration: none;
+        color: #888;
+        &:hover {
+            color: #bbb;
+        }
+    }
+}
+.profile {
+    max-width: 180px;
+    img {
+        border: 1px solid #222;
+        .border-radius(4px);
+    }
+}
+.social-links {
+    li {
+        display: inline;
+    }
+}
+.icon > span {
+    display: none;
+}
+.about {
+    .fadeIn;
+    overflow: hidden;
+    .inner {
+        overflow: hidden;
+        padding: 4em @d-padd 0;
+    }
+    &.closed {
+        .fadeOut;
+    }
+    .ri {
+        float: left;
+        margin: 0 2em 2em 0;
+        max-width: 300px;
+    }
+    .copy {
+        float: left;
+        max-width: 24em
+    }
+}
+.arnie {
+    position: fixed;
+    bottom: -400px;
+    right: @d-padd;
+    .transition(0.4s 0.8s ease all);
+    .animation(12s walk linear 0s infinite forwards);
+    &.show {
+        bottom: 0;
+    }
+}
+/* ====================================================
+    MODULES STYLES
+
+    Modules are the reusable, modular parts of our design.
+    They are the callouts, the sidebar sections, the product lists and so on.
+==================================================== */
+.highlight {
+    color: @c-main;
+}
+
+.work-item {
+    position: relative;
+    border-bottom: 1px solid #333;
+    &:first-child {
+        border-top: 1px solid #333;
+    }
+    &.loading {
+        .work-pics:before {
+            content: "";
+            width: 0;
+            height: 0;
+            margin: 0 0 0 -2em;
+            padding: 0.6em;
+            display: inline-block;
+            font-size: 1em;
+            border-top: 3px solid #bbb;
+            border-right: 3px solid transparent;
+            border-bottom: 3px solid #BBB;
+            border-left: 3px solid transparent;
+            position: absolute;
+            top: 2em;
+            left: @d-padd;
+            .border-radius(50%);
+            .transition(0.2s ease all 0s);
+            .spin;
+        }
+        .work-pics {
+            opacity: 0.5;
+        }
+    }
+
+}
+
+.work-item-header {
+    padding: 1.8em @d-padd 2.8em;
+    .transition(0.2s linear all 0s);
+
+    &:hover,
+    .work-item:not(.closed) & {
+        color: #fff;
+        cursor: pointer;
+        a,
+        .work-item-meta {
+            color: #fff;
+        }
+    }
+}
+.work-item-title {
+    line-height: 1.2;
+    font-size: 4.2em;
+    margin: 0 auto 0;
+    font-family: @f-sans2;
+}
+.work-item-single {
+    .work-item-title {
+        margin-bottom: 0.2em;
+    }
+}
+
+.work-item-meta {
+    color: darken(@c-copy, 30%);
+    a {
+        text-decoration: none;
+    }
+}
+.work-link {
+
+    &:hover {
+
+    }
+}
+.work-detail {
+    position: relative;
+    overflow: hidden;
+    .fadeIn;
+
+    .inner {
+        padding: 2em @d-padd;
+        max-width: 1700px;
+    }
+
+    .closed & {
+        .fadeOut;
+    }
+}
+
+.work-desc {
+    font-size: 1em;
+    line-height: 1.8;
+    float: right;
+    width: 42%;
+    padding-left: 2.5em;
+    position: relative;
+    right: 0;
+    top: 0;
+    .transition(0.4s ease all 0.2s);
+
+    .closed & {
+        top: 0;
+        right: -100%;
+    }
+}
+.work-pics {
+    width: 58%;
+    opacity: 1;
+    .transition(0.2s ease opacity 0s)
+}
+.work-image {
+    margin: 0 0 2em;
+    position: relative;
+    overflow: hidden;
+    figcaption {
+        position: absolute;
+        bottom: -50%;
+        width: 100%;
+        left: 0;
+        background: @c-slate;
+        color: @c-copy;
+        padding: 1em 1em 1.2em;
+        opacity: 0.8;
+        .transition(0.6s ease bottom 0s);
+
+        .touch & {
+            bottom: 0%;
+        }
+    }
+    &:hover {
+        figcaption {
+            bottom: 0%;
+            .transition(0.2s ease bottom 0s);
+        }
+    }
+}
+.ri {
+    img { max-width: 100%; }
+}
+.logo {
+    margin: auto;
+    > a {
+        width: 140px;
+        height: 0;
+        padding-bottom: 34%;
+        background: transparent url(../img/logo_a.png) no-repeat 0 0 scroll;
+        background-size: 100%;
+        display: inline-block;
+        text-indent: -9999em;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+.nav {
+    float: right;
+}
+.nav-link {
+    text-decoration: none;
+    margin-left: 1em;
+    border-bottom: 2px solid transparent;
+    &:hover {
+        border-bottom-color: #fff;
+    }
+}
+
+/* ====================================================
+    STATES STYLES
+
+    State rules are ways to describe how our modules or layouts will
+    look when in a particular state.
+    Is it hidden or expanded? Is it active or inactive?
+    They are about describing how a module or layout looks on screens that are smaller or bigger.
+    They are also about describing how a module might look in different
+    views like the home page or the inside page.
+==================================================== */
+
+[data-toggle="brewers"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #3989CF;
+    }
+}
+[data-toggle="googleprivacyweek"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #F53D6E;
+        // .work-item-title,
+        // .work-item-meta,
+        // .work-item-meta a {
+        //     color: #333;
+        // }
+    }
+}
+[data-toggle="gatherly"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #A74A3F;
+    }
+}
+[data-toggle="lovecravendale"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #2388CC;
+    }
+}
+[data-toggle="studiobrewer"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #eee;
+        .work-item-title,
+        .work-item-meta,
+        .work-item-meta a {
+            color: #333;
+        }
+    }
+}
+[data-toggle="toyotapositive"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #059CD7;
+    }
+}
+[data-toggle="cravendaleepicstraws"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #4AC13D;
+    }
+}
+[data-toggle="brewersdroop"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #944D39;
+    }
+}
+[data-toggle="jenniferhulley"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #4DBCCD;
+    }
+}
+[data-toggle="virgingalactic"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #0A556A;
+    }
+}
+
+/* ==|== Media Queries ======================================================
+    PLACEHOLDER Media Queries for Responsive Design.
+    Modify as content requires.
+
+    Notes:
+    MOBILE FIRST - use min-width (lowest first) and style upwards
+    MOBILE RESPONSIVE - use max-width (highest first) and style downwards
+
+    Never set breakpoints for devices, only when the design requires it.
+========================================================================== */
+@media screen and (max-width: 1000px) {
+    .content {
+        margin-top: 6em;
+    }
+    .work-desc {
+        float: right;
+        width: 50%;
+        padding-left: 2em;
+    }
+    .work-pics {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .content {
+        margin-top: 2em;
+    }
+    .work-desc {
+        float: none;
+        width: auto;
+        padding-left: 0;
+        margin-bottom: 4em;
+        position: relative;
+        top: 0;
+        .loading & {
+            margin-bottom: 0;
+        }
+        .closed & {
+            top: 0;
+            right: 0;
+        }
+    }
+    .work-pics {
+        width: auto;
+        &:before {
+            position: relative !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+    }
+    .work-item-title {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .nav {
+        float: none;
+        clear: left;
+        padding-top: 3em;
+        text-align: justify;
+    }
+    .nav-link {
+        margin: 0;
+    }
+    .nav-link:last-child:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+/* ==|== print styles =======================================================
+    Print styles.
+    Inlined to avoid required HTTP connection: h5bp.com/r
+========================================================================== */
+
+@media print {
+    * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+    a, a:visited { text-decoration: underline; }
+    a[href]:after { content: " (" attr(href) ")"; }
+    abbr[title]:after { content: " (" attr(title) ")"; }
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+    pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+    thead { display: table-header-group; } /* h5bp.com/t */
+    tr, img { page-break-inside: avoid; }
+    img { max-width: 100% !important; }
+    @page { margin: 0.5cm; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3 { page-break-after: avoid; }
+}
