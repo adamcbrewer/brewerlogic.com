@@ -202,7 +202,6 @@
 				$ul.append($li);
 			}
 			$imgCont.append($ul);
-			console.log($ul);
 			ImagesLoaded( $imgCont[0] ).done(callback);
 
 		}

@@ -121,9 +121,7 @@
 		<span>&copy; Adam Brewer 2013</span>
 	</footer>
 
-	<script src="/assets/js/libs/imagesloaded.js"></script>
-	<script src="/assets/js/libs/Zepto.js"></script>
-	<script src="/assets/js/script.js"></script>
+	<script src="/assets/js/build.min.js"></script>
 </body>
 </html>
 

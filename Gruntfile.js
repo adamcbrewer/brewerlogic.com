@@ -66,29 +66,6 @@ module.exports = function (grunt) {
         },
         uglify: {
 
-            // Compile all plugins into a single file.
-            // Run this each time a file is added to the directory.
-            plugins: {
-                options: {
-                    banner: '/*!\n' +
-                        ' * Plugins - <%= grunt.template.today("yyyy-mm-dd H:MM:ss") %>\n' +
-                        ' */\n',
-                    compress: false,
-                    preserveComments: 'all',
-                    beautify: true,
-                    mangle: false,
-                    report: 'min'
-                },
-                files: [
-                    {
-                        src: [
-                            'assets/js/plugins/*.js'
-                        ],
-                        dest: 'assets/js/plugins.js'
-                    }
-                ]
-            },
-
             // Development-level code
             development: {
                 options: {
@@ -106,11 +83,11 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'public/js/libs/zepto.js',
-                            'public/js/libs/imagesloaded.js',
-                            'public/js/script.js'
+                            'assets/js/libs/zepto.js',
+                            'assets/js/libs/imagesloaded.js',
+                            'assets/js/script.js'
                         ],
-                        dest: 'public/js/min/script.min.js'
+                        dest: 'assets/js/build.js'
                     }
                 ]
             },
@@ -131,11 +108,11 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'public/js/libs/zepto.js',
-                            'public/js/libs/imagesloaded.js',
-                            'public/js/script.js'
+                            'assets/js/libs/zepto.js',
+                            'assets/js/libs/imagesloaded.js',
+                            'assets/js/script.js'
                         ],
-                        dest: 'public/js/min/script.min.js'
+                        dest: 'assets/js/build.min.js'
                     }
                 ]
             }
@@ -160,6 +137,12 @@ module.exports = function (grunt) {
         }, 500);
     });
 
-    grunt.registerTask('default', ['develop', 'watch']);
-    grunt.registerTask('build', ['uglify:production', 'less:production']);
+    grunt.registerTask('default', [
+        // 'develop',
+        'watch'
+    ]);
+    grunt.registerTask('build', [
+        'uglify:production',
+        'less:production'
+    ]);
 };
