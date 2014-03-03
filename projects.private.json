@@ -7,8 +7,8 @@
 		"description": [
 			"<a title='getbrewer.com' target='_blank' href='http://getbrewer.com'>getbrewer.com</a> · <a href='https://github.com/adamcbrewer/getbrewer.com' title='full source' target='_blank'>source on github</a>",
 			"The design and development partnership of my brother, Jake, and I. Having complementary web skills, we work on a lot of projects together so this site is a single entry point for clients and agencies to get in touch and get an overview of our abilities.",
-			"This site is a responsive, single-page site with terse, to-the-point copy. I also wanted this site to protray my skills and what I consider important with regards to development. I've used touch feature detection (from the Modernizr source) to enhance the navbar, which I'm using both affix and scrollspy modules from Twitter Bootstrap to enhance.",
-			"I used my own yeoman generator – <a href='https://github.com/adamcbrewer/getbrewer.com' target='_blank'>generator-launchpad</a> – to handle the workflow, the details of which can be found in the source on GitHub as well as the <a href='http://getbrewer.com/humans.txt' target='_blank'>humans.txt</a>.",
+			"This site is a responsive, single-page site with terse, to-the-point copy. I also wanted this site to portray my skills and what I consider important with regards to development. I've used touch feature detection (from the Modernizr source) to enhance the navbar, which I'm using both affix and scrollspy modules from Twitter Bootstrap to enhance.",
+			"I used my own yeoman generator – <a href='https://github.com/adamcbrewer/getbrewer.com' target='_blank'>generator-launchpad</a> – to handle the work flow, the details of which can be found in the source on GitHub as well as the <a href='http://getbrewer.com/humans.txt' target='_blank'>humans.txt</a>.",
 			"All images were compressed using Grunt.js and <a href='http://kraken.io' target='_blank'>Kraken Image Optimizer</a> and both CSS & Javascript were minified and compressed.",
 			"Simply put, we make websites… with a little extra. #getbrewer."
 		],
