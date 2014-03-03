@@ -1,5 +1,36 @@
 
 {
+	"googlesearchindi": {
+		"title": "Google Search Indonesia",
+		"date": "January 2014",
+		"intro": "Google's mobile Search App: Indonesia.",
+		"description": [
+			"<a title='brewers.co.za' target='_blank' href='http://www.google.co.id/insidesearch/landing/searchonindonesia/'>Google Search Indonesia</a>",
+			"Google Search Indonesia was a Google-branded promotional page for encouraging mobile users in Indonesia to try out Google's Search App",
+			"I worked on this project on behalf of <a href='http://toasterltd.com' target='_blank'>Toaster</a> towards the end of 2013. The aim was to take Google's style conventions and to incorporate an interesting way to browse videos and highlight the main features of the App.",
+			"Both myself and the designer worked to a very agile development process, taking a lot of inspiration from the <a href='https://www.google.co.uk/nexus/7' target='_blank'>Google UK Nexus 7 site</a>, but deciding on a 'paging' effect rather than parallax.",
+			"The site is responsive an incorporates swipe gestures for touch devices. The initial module I wrote to handle the paging was later enhanced by <a href='https://github.com/cheeseen' target='_blank'>another developer, Howard</a>, to enable continuous, 'finger-down' dragging backwards and forwards. Both <a href='http://www.linkedin.com/in/albertogiorgi' target='_blank'>the tech lead at Toaster</a> and I spent quite a bit of time making the swiping and dragging as performant as possible for lower-powered devices.",
+			"All animations and effects, aside from dragging and swiping, use CSS transitions governed by Javascript hooks to toggle the relevant class-name states. Google's Goro engine was used for deploying."
+		],
+		"images": [
+			{
+				"url": "/projects/google-search-indonesia/all-devices.jpg",
+				"alt": "Responsive overview."
+			},
+			{
+				"url": "/projects/google-search-indonesia/landing.jpg",
+				"alt": "The first slide."
+			},
+			{
+				"url": "/projects/google-search-indonesia/paging-screen-two.jpg",
+				"alt": "A slide displaying the App content."
+			},
+			{
+				"url": "/projects/google-search-indonesia/mobile.jpg",
+				"alt": "Mobile focused view with open navigation."
+			}
+		]
+	},
 	"brewers": {
 		"title": "Brewer's Advertising Data",
 		"date": "November 2013",
@@ -19,62 +50,6 @@
 			{
 				"url": "/projects/brewers/mobile.jpg",
 				"alt": "Responsive breakpoints - applied as needed and device agnostic"
-			}
-		]
-	},
-	"googleprivacyweek": {
-		"title": "Google Privacy Week",
-		"date": "October/November 2013",
-		"intro": "Internal site for Google's Privacy Week 2013",
-		"description": [
-			"Google Privacy Week was a project I worked on with <a href='http://toasterltd.com' title='toasterltd.com' target='_blank'>Toaster</a>, creating an internal site for Google personnel to browse and share their thoughts about what privacy means to them during Google's Privacy Week, 11 - 15 November 2013.",
-			"Everything on the front end was done in modular components, such as the one to manage fetching the quotes, another to handle the fullscreen functionality (and triggering autoplay), the lightbox as well as the map page.",
-			"The hopper module was the central handler for fetching quotes from the server and handled pagination. Google Closure's PubSub component was used to push quotes from the server to both the gallery page – for infinite scroll functionality – and to the lightbox carousel. Similarly to the infinite scroll functionality, the carousel module triggered the the hopper module to fetch quotes when reaching the last couple of slides, creating an looped gallery both through scrolling and watching the carousel play through.",
-			"Building the quotes themselves was something I wasn't sure was possible with just CSS, and there were talks of using canvas. However, I was playing around with pseudo elements for quite a bit and came out with what looked pretty close to the design (you can see the resulting HTML output by viewing the page source). It made me happier knowing we could build them all in HTML & CSS, meaning the heavy logic of the quotes only had to be when the line should break, the size/character count ratio and the keyword matching (for this I used a simple regex pattern).",
-			"The 'quote engine' module was built to take in a plain string and do all the calculations about the words per line, when the line should break, when to 'expose' a keyword, where to place the highlighting and the overall size of the quote (which depended on the total character count).",
-			"For the carousel I decided to use CSS classes to give us more options to manipulate it, as we had no idea of how it was going to animate. Alberto – the project's tech lead – suggested the synced/rippled rotation of the lines and from there I just applied some CSS transitions, using :nth-child() selectors (for the staggered effect) – needless to say I was very happy with the results! We did have an issue with scaling the quotes while fullscreen was enabled, due to the CSS3 effect we were applying to them, so we had to change the animation slightly to avoid rasterizing the elements; scaling it up while still keeping it crisp.",
-			"It's projects like these that make me love what I do!"
-		],
-		"images": [
-			{
-				"url": "/projects/google-privacy-week/lightbox.jpg",
-				"alt": "The opened lightbox on the gallery page"
-			},
-			{
-				"url": "/projects/google-privacy-week/animation.gif",
-				"alt": "Carousel animation"
-			},
-			{
-				"url": "/projects/google-privacy-week/gallery-small.jpg",
-				"alt": "Close-up on the gallery"
-			},
-			{
-				"url": "/projects/google-privacy-week/gallery-large.jpg",
-				"alt": "The gallery – extended"
-			},
-			{
-				"url": "/projects/google-privacy-week/map.jpg",
-				"alt": "Throughts around the world, grouped by Google office locations"
-			},
-			{
-				"url": "/projects/google-privacy-week/schedule-day.jpg",
-				"alt": "A single day event listing"
-			},
-			{
-				"url": "/projects/google-privacy-week/schedule-week.jpg",
-				"alt": "Event schedule for the week"
-			},
-			{
-				"url": "/projects/google-privacy-week/schedule-week-filtered.jpg",
-				"alt": "The weekly schedule, filtered by region"
-			},
-			{
-				"url": "/projects/google-privacy-week/submission-input.jpg",
-				"alt": "User input when sharing a thought on privacy"
-			},
-			{
-				"url": "/projects/google-privacy-week/submission-final.jpg",
-				"alt": "Highlight colour and other options before submission"
 			}
 		]
 	},

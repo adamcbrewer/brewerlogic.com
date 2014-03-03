@@ -28,12 +28,12 @@ module.exports = function (grunt) {
                 tasks: ['develop', 'delayed-livereload']
             },
             js: {
-                files: ['public/js/*.js'],
+                files: ['assets/js/*.js'],
                 options: { livereload: true },
                 tasks: ['uglify:development']
             },
             less: {
-                files: ['public/css/less/*.less'],
+                files: ['assets/css/less/*.less'],
                 options: { livereload: true },
                 tasks: ['less:development']
             }
@@ -46,8 +46,8 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: ['public/css/less/core.less'],
-                        dest: 'public/css/core.css'
+                        src: ['assets/css/less/core.less'],
+                        dest: 'assets/css/core.css'
                     }
                 ]
             },
@@ -58,8 +58,8 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: ['public/css/less/core.less'],
-                        dest: 'public/css/core.css'
+                        src: ['assets/css/less/core.less'],
+                        dest: 'assets/css/core.css'
                     }
                 ]
             }

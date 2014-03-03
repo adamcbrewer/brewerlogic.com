@@ -240,11 +240,11 @@
 		konami(function () {
 			var arnie = window.arnie = {};
 			arnie.audio = document.createElement('audio');
-			arnie.audio.src = Site.basePath + "/audio/arnie.mp3";
+			arnie.audio.src = Site.basePath + "/assets/audio/arnie.mp3";
 			document.body.appendChild(arnie.audio);
 			arnie.audio.play();
 			arnie.img = document.createElement('img');
-			arnie.img.src = Site.basePath + "/img/arnie.png";
+			arnie.img.src = Site.basePath + "/assets/img/arnie.png";
 			arnie.img.classList.add('arnie');
 			document.body.appendChild(arnie.img);
 			setTimeout(function () {
