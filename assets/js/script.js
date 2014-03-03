@@ -252,7 +252,7 @@
 			}, 200);
 		});
 
-		console.info("Hi developers! Source @ http://github.com/adamcbrewer/brewerlogic.com");
+		console.info("@source: http://github.com/adamcbrewer/brewerlogic.com");
 		console.info("This site is Konami code friendly");
 	});
 
