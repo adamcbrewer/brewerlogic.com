@@ -1,11 +1,34 @@
 
 {
+	"getbrewer": {
+		"title": "Get Brewer",
+		"date": "February/March 2014",
+		"intro": "Web design and development with some brotherly love.",
+		"description": [
+			"<a title='getbrewer.com' target='_blank' href='http://getbrewer.com'>getbrewer.com</a> · <a href='https://github.com/adamcbrewer/getbrewer.com' title='full source' target='_blank'>source on github</a>",
+			"The design and development partnership of my brother, Jake, and I. Having complementary web skills, we work on a lot of projects together so this site is a single entry point for clients and agencies to get in touch and get an overview of our abilities.",
+			"This site is a responsive, single-page site with terse, to-the-point copy. I also wanted this site to protray my skills and what I consider important with regards to development. I've used touch feature detection (from the Modernizr source) to enhance the navbar, which I'm using both affix and scrollspy modules from Twitter Bootstrap to enhance.",
+			"I used my own yeoman generator – <a href='https://github.com/adamcbrewer/getbrewer.com' target='_blank'>generator-launchpad</a> – to handle the workflow, the details of which can be found in the source on GitHub as well as the <a href='http://getbrewer.com/humans.txt' target='_blank'>humans.txt</a>.",
+			"All images were compressed using Grunt.js and <a href='http://kraken.io' target='_blank'>Kraken Image Optimizer</a> and both CSS & Javascript were minified and compressed.",
+			"Simply put, we make websites… with a little extra. #getbrewer."
+		],
+		"images": [
+			{
+				"url": "/projects/getbrewer/landing.jpg",
+				"alt": "The front view"
+			},
+			{
+				"url": "/projects/getbrewer/devices.jpg",
+				"alt": "Responsive overview"
+			}
+		]
+	},
 	"googlesearchindi": {
 		"title": "Google Search Indonesia",
 		"date": "January 2014",
 		"intro": "Google's mobile Search App: Indonesia.",
 		"description": [
-			"<a title='brewers.co.za' target='_blank' href='http://www.google.co.id/insidesearch/landing/searchonindonesia/'>Google Search Indonesia</a>",
+			"<a title='Google Search Indonesia' target='_blank' href='http://www.google.co.id/insidesearch/landing/searchonindonesia/'>Google Search Indonesia</a>",
 			"Google Search Indonesia was a Google-branded promotional page for encouraging mobile users in Indonesia to try out Google's Search App",
 			"I worked on this project on behalf of <a href='http://toasterltd.com' target='_blank'>Toaster</a> towards the end of 2013. The aim was to take Google's style conventions and to incorporate an interesting way to browse videos and highlight the main features of the App.",
 			"Both myself and the designer worked to a very agile development process, taking a lot of inspiration from the <a href='https://www.google.co.uk/nexus/7' target='_blank'>Google UK Nexus 7 site</a>, but deciding on a 'paging' effect rather than parallax.",

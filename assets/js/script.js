@@ -252,9 +252,8 @@
 			}, 200);
 		});
 
-		console.info("If you've found this you probably know what you're doing :). Be sure to check out the humans.txt file for a technical breakdown of this site, or feel free to peruse the source: http://github.com/adamcbrewer/brewerlogic.com");
-		console.info("Also, give the Konami code a whirl and turn the volume up!");
-		console.info("Konami Code - ↑ ↑ ↓ ↓ ← → ← → B A");
+		console.info("Hi developers! Source @ http://github.com/adamcbrewer/brewerlogic.com");
+		console.info("This site is Konami code friendly");
 	});
 
 }(window, document));

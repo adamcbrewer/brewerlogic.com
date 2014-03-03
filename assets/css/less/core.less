@@ -377,16 +377,33 @@ ul {
     views like the home page or the inside page.
 ==================================================== */
 
+[data-toggle="getbrewer"] {
+    &:hover,
+    .work-item:not(.closed) & {
+        background-color: #286ac8;
+        background: -webkit-linear-gradient(left, #c42f07 0%, #c42f07 28%, #286ac8 72%, #286ac8 100%);
+        background: linear-gradient(to right, #c42f07 0%, #c42f07 28%, #286ac8 72%, #286ac8 100%);
+    }
+}
 [data-toggle="googlesearchindi"] {
     &:hover,
     .work-item:not(.closed) & {
-        background-color: #D94531;
+        background-color: #0083F8;
+        background: -webkit-linear-gradient(right, #fff 0%, #fff 50%, #0083F8 72%, #0083F8 100%);
+        background: linear-gradient(to right, #fff 0%, #fff 50%, #0083F8 72%, #0083F8 100%);
+        .work-item-title,
+        .work-item-meta,
+        .work-item-meta a {
+            color: #333;
+        }
     }
 }
 [data-toggle="brewers"] {
     &:hover,
     .work-item:not(.closed) & {
         background-color: #3989CF;
+        background: -webkit-linear-gradient(left, #3989CF 0%, #3989CF 28%, #FFB95E 72%, #FFB95E 100%);
+        background: linear-gradient(to right, #3989CF 0%, #3989CF 28%, #FFB95E 72%, #FFB95E 100%);
     }
 }
 [data-toggle="googleprivacyweek"] {
@@ -410,6 +427,8 @@ ul {
     &:hover,
     .work-item:not(.closed) & {
         background-color: #2388CC;
+        background: -webkit-linear-gradient(left, #2388CC 0%, #2388CC 28%, #4FC309 72%, #4FC309 100%);
+        background: linear-gradient(to right, #2388CC 0%, #2388CC 28%, #4FC309 72%, #4FC309 100%);
     }
 }
 [data-toggle="studiobrewer"] {
@@ -439,6 +458,8 @@ ul {
     &:hover,
     .work-item:not(.closed) & {
         background-color: #944D39;
+        background: -webkit-linear-gradient(left, #944D39 0%, #944D39 28%, #533432 72%, #533432 100%);
+        background: linear-gradient(to right, #944D39 0%, #944D39 28%, #533432 72%, #533432 100%);
     }
 }
 [data-toggle="jenniferhulley"] {
