@@ -1,79 +1,104 @@
-'use strict';
+module.exports = function(grunt) {
 
-var request = require('request');
+    // Load the all the plugins that Grunt requires
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-module.exports = function (grunt) {
-    var reloadPort = 35729, files;
 
-    grunt.loadNpmTasks('grunt-develop');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    /**
+     * Grunt config vars
+     *
+     */
+    var config = {};
+    config.assetsDir = 'assets/';
+    config.cssFilenameOutput = 'styles.css';
+    config.jsFilenameOutput = 'main.min.js';
+
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        develop: {
-            server: {
-                file: 'app.js'
+        config: config,
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+            ' Licensed <%= props.license %> */\n',
+        meta: {
+            version: '0.1.0'
+        },
+        notify: {
+            watch: {
+                options: {
+                    title: 'Watching…',
+                    message: '…all the files'
+                }
+            },
+            build: {
+                options: {
+                    title: 'Build',
+                    message: 'Completed'
+                }
             }
         },
         watch: {
             options: { nospawn: true },
-            // runs the node server in development mode
-            server: {
+            env: {
+                // Sstatic and environment files
                 files: [
-                    'app.js',
-                    'routes/*.js'
+                    "Gruntfile.js",
+                    "*.html"
                 ],
-                tasks: ['develop', 'delayed-livereload']
+                options: { livereload: true },
+                tasks: [
+                    // 'notify:watch'
+                ]
             },
             js: {
-                files: ['assets/js/*.js'],
+                files: [
+                    '<%= config.assetsDir %>js/*.js',
+                    '<%= config.assetsDir %>js/**/*.js'
+                ],
                 options: { livereload: true },
-                tasks: ['uglify:development']
+                tasks: [
+                    'uglify:development'
+                ]
             },
-            less: {
-                files: ['assets/css/less/*.less'],
+            sass: {
+                files: [
+                    '<%= config.assetsDir %>css/sass/*.scss',
+                    '<%= config.assetsDir %>css/sass/libs/*.scss',
+                    '<%= config.assetsDir %>css/sass/vendor/*.scss'
+                ],
                 options: { livereload: true },
-                tasks: ['less:development']
+                tasks: [
+                    'sass:development'
+                ]
             }
         },
-        less: {
+        sass: {
             development: {
                 options: {
-                    yuicompress: false,
-                    compress: false
+                    style: 'expanded',
+                    trace: true,
+                    noCache: true
                 },
-                files: [
-                    {
-                        src: ['assets/css/less/core.less'],
-                        dest: 'assets/css/core.css'
-                    }
-                ]
+                files: {
+                    '<%= config.assetsDir %>css/<%= config.cssFilenameOutput %>': '<%= config.assetsDir %>css/sass/main.scss'
+                }
             },
             production: {
                 options: {
-                    yuicompress: true,
-                    compress: true
+                    style: 'compressed',
+                    trace: false,
+                    noCache: true
                 },
-                files: [
-                    {
-                        src: ['assets/css/less/core.less'],
-                        dest: 'assets/css/core.css'
-                    }
-                ]
+                files: {
+                    '<%= config.assetsDir %>css/<%= config.cssFilenameOutput %>': '<%= config.assetsDir %>css/sass/main.scss'
+                }
             }
         },
         uglify: {
-
-            // Development-level code
             development: {
                 options: {
-                    banner: '/*!\n' +
-                        ' * <%= pkg.name %> - <%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd H:MM:ss") %>\n' +
-                        ' * Development Build\n' +
-                        ' * https://github.com/brewerlogic.com\n *\n' +
-                        ' */\n',
                     compress: false,
                     preserveComments: true,
                     mangle: false,
@@ -83,66 +108,108 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'assets/js/libs/zepto.js',
-                            'assets/js/libs/imagesloaded.js',
-                            'assets/js/script.js'
+                            '<%= config.assetsDir %>js/libs/jquery.js',
+                            '<%= config.assetsDir %>js/libs/slick.js',
+                            '<%= config.assetsDir %>js/libs/jquery.easing.js',
+                            '<%= config.assetsDir %>js/libs/jquery.smoothscroll.js',
+                            '<%= config.assetsDir %>js/script.js'
                         ],
-                        dest: 'assets/js/build.js'
+                        dest: '<%= config.assetsDir %>js/<%= config.jsFilenameOutput %>'
                     }
                 ]
             },
-
-            // Production-level code
             production: {
                 options: {
-                    banner: '/*!\n' +
-                        ' * <%= pkg.name %> - <%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd H:MM:ss") %>\n' +
-                        ' * Production Build\n' +
-                        ' * https://github.com/brewerlogic.com\n *\n' +
-                        ' */\n',
                     compress: true,
                     preserveComments: false,
                     mangle: false,
+                    beautify: false,
                     report: 'min'
                 },
                 files: [
                     {
                         src: [
-                            'assets/js/libs/zepto.js',
-                            'assets/js/libs/imagesloaded.js',
-                            'assets/js/script.js'
+                            '<%= config.assetsDir %>js/libs/jquery.js',
+                            '<%= config.assetsDir %>js/libs/slick.js',
+                            '<%= config.assetsDir %>js/libs/jquery.easing.js',
+                            '<%= config.assetsDir %>js/libs/jquery.smoothscroll.js',
+                            '<%= config.assetsDir %>js/script.js'
                         ],
-                        dest: 'assets/js/build.min.js'
+                        dest: '<%= config.assetsDir %>js/<%= config.jsFilenameOutput %>'
                     }
+                ]
+            }
+        },
+        stylestats: {
+            src: ['<%= config.assetsDir %>css/<%= config.cssFilenameOutput %>']
+        },
+        imagemin: {
+            production: {
+                options: {
+                    optimizationLevel: 4,
+                    progressive: true,
+                    pngquant: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.assetsDir %>img/',
+                    src: [
+                        '*.{png,jpg,gif}',
+                        '**/*.{png,jpg,gif}',
+                        '!min/*'
+                    ],
+                    dest: '<%= config.assetsDir %>img/min/'
+                }]
+            }
+        },
+        copy: {
+            init: {
+                files: [
+                    {
+                        src: 'bower_components/jquery/jquery.js',
+                        dest: '<%= config.assetsDir %>js/libs/jquery.js'
+                    },
                 ]
             }
         }
     });
 
-    grunt.config.requires('watch.server.files');
-    files = grunt.config('watch.server.files');
-    files = grunt.file.expand(files);
+    // Run this after a fresh generation/installation
+    grunt.registerTask('init', [
+        'copy:init',
+    ]);
 
-    grunt.registerTask('delayed-livereload', 'Live reload after the node server has restarted.', function () {
-        var done = this.async();
-        setTimeout(function () {
-            request.get('http://localhost:' + reloadPort + '/changed?files=' + files.join(','),  function(err, res) {
-                var reloaded = !err && res.statusCode === 200;
-                if (reloaded)
-                    grunt.log.ok('Delayed live reload successful.');
-                else
-                    grunt.log.error('Unable to make a delayed live reload.');
-                done(reloaded);
-            });
-        }, 500);
-    });
-
+    // For local developing
     grunt.registerTask('default', [
-        // 'develop',
         'watch'
     ]);
-    grunt.registerTask('build', [
-        'uglify:production',
-        'less:production'
+
+    // only process javascript files
+    grunt.registerTask('js', [
+        'uglify:development'
     ]);
+
+    // only process images
+    grunt.registerTask('img', [
+        'imagemin:production'
+    ]);
+
+    // only process css files
+    grunt.registerTask('css', [
+        'sass:development'
+    ]);
+
+    grunt.registerTask('stats', [
+        'stylestats'
+    ]);
+
+    // prep files for production
+    grunt.registerTask('build', [
+        'sass:production',
+        'uglify:production',
+        'imagemin:production',
+        'stats',
+        'notify:build',
+    ]);
+
 };

@@ -1,0 +1,25 @@
+/**
+ * Layout components
+ *
+ * Non-reusable.
+ * Naming can be indicative of the content
+ * being represented/styled if required.
+ *
+ * ================
+ */
+
+.wrapper {
+    padding: 0 $d-measure/2;
+    max-width: $d-maxwidth;
+    margin: auto;
+}
+.header {
+    padding: $d-measure 0;
+    margin-bottom: $d-measure*4;
+}
+
+.footer {
+    color: #444;
+    @include font-size(1.4);
+    padding: 40px $d-measure/2;
+}

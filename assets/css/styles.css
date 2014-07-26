@@ -1,0 +1,947 @@
+/**
+ * Imports
+ *
+ * ================
+ */
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+.slick-loading .slick-list {
+  background: white url("./../img/ajax-loader.gif") center center no-repeat;
+}
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide img {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  zoom: 1;
+}
+.slick-track:before, .slick-track:after {
+  content: "";
+  display: table;
+}
+.slick-track:after {
+  clear: both;
+}
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+.slick-slide img {
+  display: inline-block;
+  opacity: 1;
+  transition: 1s;
+}
+.slick-slide img.slick-loading {
+  opacity: 0;
+}
+.slick-slide.slick-loading img {
+  display: none;
+}
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .slick-slide {
+  display: block;
+}
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url("./fonts/slick.eot");
+  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Arrows */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0;
+  font-size: 0;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  transition: 0.15s;
+  top: 50%;
+  margin-top: -10px;
+  padding: 0;
+  border: none;
+  outline: none;
+  z-index: 1;
+}
+.slick-prev:focus,
+.slick-next:focus {
+  outline: none;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  display: none;
+}
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  color: #2a6ac0 !important;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.85;
+  transition: 0.15s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -25px;
+}
+.slick-prev:before {
+  content: "\2190";
+}
+
+.slick-next {
+  right: -25px;
+}
+.slick-next:before {
+  content: "\2192";
+}
+
+/* Dots */
+.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 0;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0px;
+  width: 100%;
+}
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0px 5px;
+  padding: 0px;
+  cursor: pointer;
+}
+.slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  height: 20px;
+  width: 20px;
+  outline: 0;
+  line-height: 0;
+  font-size: 0;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.slick-dots li button:focus {
+  outline: 0;
+}
+.slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "\2022";
+  width: 20px;
+  height: 20px;
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  text-align: center;
+  color: white;
+  opacity: 0.25;
+  transition: 0.15s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li button:hover:before {
+  opacity: 1;
+  color: #2a6ac0;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+/**
+ * Mixins
+ *
+ * ================
+ */
+/**
+ * Typography
+ *
+ */
+/**
+ * Transforms
+ *
+ */
+/**
+ * Animations
+ *
+ */
+/**
+ * Gradients
+ *
+ */
+/**
+ * Structure
+ *
+ */
+/**
+ * Layout
+ *
+ */
+/**
+ * Placeholders
+ *
+ * ================
+ */
+.u-cf {
+  *zoom: 1;
+  /* IE 6/7 fallback */
+}
+.u-cf:before, .u-cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.u-cf:after {
+  line-height: 0;
+  clear: both;
+}
+
+.u-ir {
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+.u-ri {
+  display: inline-block;
+}
+.u-ri > img {
+  max-width: 100%;
+}
+
+/*
+ * http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+ * Modified with h5bp.com/css
+ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  vertical-align: top;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 0;
+}
+
+/* Improve readability of pre-formatted text in all browsers */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+small {
+  font-size: 85%;
+}
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Improve image quality when scaled in IE7: h5bp.com/d & Remove the gap between images and borders on image containers: h5bp.com/e */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+label {
+  cursor: pointer;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+/* Remove inner padding and border in FF3/4: h5bp.com/l */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Remove default vertical scrollbar in IE6/7/8/9 & Allow only vertical resizing */
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+/* HTML5 stuff */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+figure {
+  margin: 0px;
+}
+
+/**
+ * Fonts
+ *
+ * ================
+ */
+/**
+ * Project Variables
+ *
+ * ================
+ */
+/**
+ * Project specific vars
+ *
+ */
+/**
+ * Easing
+ *
+ * @see http://robertpenner.com/
+ * @see http://matthewlein.com/ceaser/
+ *
+ */
+/**
+ * Base style modifications
+ *
+ * ================
+ */
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: always;
+}
+
+html {
+  font-size: 62.5%;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #2b2b2b;
+  color: #f8f8f8;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+[type=search] {
+  /* resets webkit styling on search inputs */
+  -webkit-appearance: none;
+}
+
+/* Style the webkit validation message for forms */
+::-webkit-validation-bubble-message {
+  padding: 40px;
+}
+
+a {
+  color: #f8f8f8;
+  transition: 0.15s;
+}
+
+a:hover {
+  color: #2a6ac0;
+}
+a:hover:hover {
+  text-decoration: none;
+}
+
+/* un-selected radio buttons :) */
+/**
+ * Layout components
+ *
+ * Non-reusable.
+ * Naming can be indicative of the content
+ * being represented/styled if required.
+ *
+ * ================
+ */
+.wrapper {
+  padding: 0 20px;
+  max-width: 1240px;
+  margin: auto;
+}
+
+.header {
+  padding: 40px 0;
+  margin-bottom: 160px;
+}
+
+.footer {
+  color: #444;
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: 40px 20px;
+}
+
+/**
+ * Modules
+ *
+ * Reusable: all.
+ * Naming should not indicated the content it's
+ * representing/styling.
+ *
+ * ================
+ */
+/**
+ * Utilities
+ *
+ */
+/**
+ * Navigation and logo
+ *
+ */
+.logo {
+  max-width: 160px;
+  float: left;
+}
+
+.nav {
+  float: right;
+}
+
+.nav-link {
+  display: inline-block;
+  margin-left: 1.6em;
+}
+.nav-link:first-child {
+  margin-left: 0;
+}
+
+/**
+ * Year Dividers/Separators
+ *
+ */
+.yearDivider {
+  text-align: right;
+  padding: 40px 0;
+  position: relative;
+}
+.yearDivider:before {
+  content: "";
+  display: block;
+  width: calc(100% - 80px);
+  position: absolute;
+  height: 1px;
+  top: 2px;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: #515151;
+  z-index: -1;
+}
+
+.yearNumber {
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #919191;
+  letter-spacing: -0.06em;
+  background-color: #2b2b2b;
+  padding: 0 0 0 1em;
+}
+
+/**
+ * Projects
+ *
+ */
+.project {
+  margin: 40px 80px 40px 0;
+}
+.project:before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: transparent;
+  margin-bottom: 6px;
+}
+
+.project-header {
+  margin-bottom: 40px;
+}
+
+.project-title {
+  font-size: 50px;
+  font-size: 5rem;
+  font-family: "Archivo Narrow";
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0.2em 0 40px;
+}
+
+.project-subtitle {
+  font-weight: 300;
+  color: #c5c5c5;
+}
+
+.project-images {
+  margin: 0 auto 40px;
+}
+.project-images.js-slick {
+  text-align: center;
+}
+
+.project-image {
+  margin-bottom: 40px;
+}
+.project-image:last-child {
+  margin-bottom: 0;
+}
+
+.project-copy {
+  -webkit-columns: 2;
+  -webkit-column-gap: 80px;
+  font-weight: 300;
+}
+.project-copy > p {
+  margin-bottom: 1em;
+  -webkit-column-break-before: avoid;
+  display: inline-block;
+}
+.project-copy a {
+  font-weight: 400;
+}
+
+/**
+ * Project Colours
+ *
+ */
+.project--ashthorp:before {
+  background-color: #286ac8;
+  background: -webkit-linear-gradient(left, #ebebeb 0%, black 70%, black 100%);
+  background: linear-gradient(to right, #ebebeb 0%, black 70%, black 100%);
+}
+
+.project--mpc:before {
+  background-color: #46E1F2;
+  background: -webkit-linear-gradient(left, #46e1f2 0%, #46e1f2 40%, #ffde9a 60%, #ffde9a 100%);
+  background: linear-gradient(to right, #46e1f2 0%, #46e1f2 40%, #ffde9a 60%, #ffde9a 100%);
+}
+
+.project--getbrewer:before {
+  background-color: #286ac8;
+  background: -webkit-linear-gradient(left, #c42f07 0%, #c42f07 28%, #286ac8 72%, #286ac8 100%);
+  background: linear-gradient(to right, #c42f07 0%, #c42f07 28%, #286ac8 72%, #286ac8 100%);
+}
+
+.project--googlesearchindi:before {
+  background-color: #0083F8;
+  background: -webkit-linear-gradient(right, white 0%, white 30%, #0083f8 100%);
+  background: linear-gradient(to right, white 0%, white 30%, #0083f8 100%);
+}
+
+.project--googleprivacyweek:before {
+  background-color: #F53D6E;
+}
+
+.project--brewersapps:before {
+  background-color: #3989CF;
+  background: -webkit-linear-gradient(left, #3989cf 0%, #3989cf 20%, #ffb95e 100%);
+  background: linear-gradient(to right, #3989cf 0%, #3989cf 20%, #ffb95e 100%);
+}
+
+.project--gatherly:before {
+  background-color: #A74A3F;
+  background: -webkit-linear-gradient(left, #a74a3f 0%, #a74a3f 40%, #71c5d3 60%, #71c5d3 100%);
+  background: linear-gradient(to right, #a74a3f 0%, #a74a3f 40%, #71c5d3 60%, #71c5d3 100%);
+}
+
+.project--lovecravendale:before {
+  background-color: #2388CC;
+  background: -webkit-linear-gradient(left, #2388cc 0%, #2388cc 40%, #4fc309 100%);
+  background: linear-gradient(to right, #2388cc 0%, #2388cc 40%, #4fc309 100%);
+}
+
+.project--studiobrewer:before {
+  background-color: #363636;
+  background: -webkit-linear-gradient(left, #363636 0%, #363636 40%, #dd3710 100%);
+  background: linear-gradient(to right, #363636 0%, #363636 40%, #dd3710 100%);
+}
+
+.project--toyotapositive:before {
+  background-color: #059CD7;
+  background: -webkit-linear-gradient(left, #059cd7 0%, #059cd7 40%, #ebfd3b 100%);
+  background: linear-gradient(to right, #059cd7 0%, #059cd7 40%, #ebfd3b 100%);
+}
+
+.project--cravendaleepicstraws:before {
+  background-color: #4AC13D;
+  background: -webkit-linear-gradient(left, #4ac13d 0%, #4ac13d 20%, #015193 100%);
+  background: linear-gradient(to right, #4ac13d 0%, #4ac13d 20%, #015193 100%);
+}
+
+.project--virgingalactic:before {
+  background-color: #0A556A;
+  background: -webkit-linear-gradient(left, #0a556a 0%, #0a556a 20%, #be1f24 100%);
+  background: linear-gradient(to right, #0a556a 0%, #0a556a 20%, #be1f24 100%);
+}
+
+.project--brewersdroop:before {
+  background-color: #944D39;
+  background: -webkit-linear-gradient(left, #944d39 0%, #944d39 40%, #533432 60%, #533432 100%);
+  background: linear-gradient(to right, #944d39 0%, #944d39 40%, #533432 60%, #533432 100%);
+}
+
+.project--jenniferhulley:before {
+  background-color: #4DBCCD;
+  background: -webkit-linear-gradient(left, #4dbccd 0%, #4dbccd 40%, white 100%);
+  background: linear-gradient(to right, #4dbccd 0%, #4dbccd 40%, white 100%);
+}
+
+/**
+ * Aminations
+ *
+ */
+@-webkit-keyframes walk {
+  to {
+    right: 110%;
+  }
+
+  from {
+    right: -20%;
+  }
+}
+@-moz-keyframes walk {
+  to {
+    right: 110%;
+  }
+
+  from {
+    right: -20%;
+  }
+}
+@-ms-keyframes walk {
+  to {
+    right: 110%;
+  }
+
+  from {
+    right: -20%;
+  }
+}
+@-o-keyframes walk {
+  to {
+    right: 110%;
+  }
+
+  from {
+    right: -20%;
+  }
+}
+@keyframes walk {
+  to {
+    right: 110%;
+  }
+
+  from {
+    right: -20%;
+  }
+}
+.arnie {
+  position: fixed;
+  bottom: -400px;
+  right: -100px;
+  transition: 0.4s 0.8s ease;
+  -webkit-animation: 12s walk linear 0s infinite forwards;
+  animation: 12s walk linear 0s infinite forwards;
+}
+.arnie.show {
+  bottom: 0;
+}
+
+/**
+ * Media Queries
+ *
+ * ================
+ */
+@media screen and (max-width: 1256px) {
+  .project {
+    margin-right: 0;
+  }
+
+  .slick-prev,
+  .slick-next {
+    top: auto;
+    bottom: 0;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    right: 0;
+  }
+}
+@media screen and (max-width: 760px) {
+  .project-copy {
+    -webkit-columns: 1;
+    -webkit-column-gap: 0;
+    column: 1;
+    column-gap: 0;
+  }
+}
+@media screen and (max-width: 620px) {
+  .header {
+    margin-bottom: 0;
+  }
+
+  .logo {
+    display: block;
+    text-align: center;
+    float: none;
+    margin: 0 auto 2em;
+  }
+
+  .nav {
+    float: none;
+    text-align: justify;
+  }
+
+  .nav-link {
+    display: inline;
+    margin: 0 0 1em;
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
+
+  .nav-link:last-child:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+}
+/**
+ * Retina.
+ * Currently only set to 'double' retina, meaning,
+ * assets only have to be twice the normal size,
+ * @reference http://www.brettjankord.com/2012/11/28/cross-browser-retinahigh-resolution-media-queries/
+ *
+ */
+/**
+ * Print styles - h5bp.com/r
+ *
+ */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  /* Black prints faster: h5bp.com/s */
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: "";
+  }
+
+  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* h5bp.com/t */
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: .5cm;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}

@@ -1,0 +1,92 @@
+/**
+ * Media Queries
+ *
+ * ================
+ */
+@media screen and (max-width: 1256px) {
+    .project {
+        margin-right: 0;
+    }
+    .slick-prev,
+    .slick-next {
+        top: auto;
+        bottom: 0;
+    }
+    .slick-prev {
+        left: 0;
+    }
+    .slick-next {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .project-copy {
+        -webkit-columns: 1;
+        -webkit-column-gap: 0;
+        column: 1;
+        column-gap: 0;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .header {
+        margin-bottom: 0;
+    }
+    .logo {
+        // max-width: none;
+        display: block;
+        text-align: center;
+        float: none;
+        margin: 0 auto 2em;
+    }
+    .nav {
+        float: none;
+        text-align: justify;
+    }
+    .nav-link {
+        display: inline;
+        margin: 0 0 1em;
+        @include font-size(1.4);
+    }
+    .nav-link:last-child:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+/**
+ * Retina.
+ * Currently only set to 'double' retina, meaning,
+ * assets only have to be twice the normal size,
+ * @reference http://www.brettjankord.com/2012/11/28/cross-browser-retinahigh-resolution-media-queries/
+ *
+ */
+@media (-webkit-min-device-pixel-ratio: 2),
+        (min--moz-min-device-pixel-ratio: 2),
+        (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+
+}
+
+
+/**
+ * Print styles - h5bp.com/r
+ *
+ */
+@media print {
+    * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+    a, a:visited { text-decoration: underline; }
+    a[href]:after { content: " (" attr(href) ")"; }
+    abbr[title]:after { content: " (" attr(title) ")"; }
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+    pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+    thead { display: table-header-group; } /* h5bp.com/t */
+    tr, img { page-break-inside: avoid; }
+    img { max-width: 100% !important; }
+    @page { margin: .5cm; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3 { page-break-after: avoid; }
+}
