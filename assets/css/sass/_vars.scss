@@ -21,7 +21,8 @@ $d-maxwidth: 1200px + $d-measure;
 // Fonts
 $ff: Arial, sans-serif;
 $ff-roboto: 'Roboto', sans-serif;
-$ff-archivo: 'Archivo Narrow';
+// $ff-archivo: 'Archivo Narrow';
+$ff-montserrat: "Montserrat";
 
 // Image directory. Change this to the optimised path when deploying
 $img: "../img/";

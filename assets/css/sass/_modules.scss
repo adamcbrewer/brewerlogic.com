@@ -91,8 +91,8 @@
 }
 .project-title {
     @include font-size(5);
-    font-family: $ff-archivo;
-    font-weight: 600;
+    font-family: $ff-montserrat;
+    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1.1;
     margin: 0.2em 0 $d-measure;

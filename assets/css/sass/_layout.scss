@@ -14,7 +14,7 @@
     margin: auto;
 }
 .header {
-    padding: $d-measure 0;
+    padding: $d-measure $d-measure*2 $d-measure 0;
     margin-bottom: $d-measure*4;
 }
 
