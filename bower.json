@@ -1,8 +1,6 @@
 {
-  "name": "brewer-logic",
-  "version": "0.0.1",
+  "name": "brewerlogic.com",
   "dependencies": {
-    "jquery": "~2.0.3"
+    "modernizr": "~2.8.3"
   }
 }
-

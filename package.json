@@ -1,17 +1,25 @@
 {
-  "name": "brewer-logic",
-  "version": "0.1.0",
+  "name": "brewerlogic.com",
+  "url": "https://github.com/adamcbrewer/brewerlogic.com",
   "author": "Adam Brewer",
-  "dependencies": {},
+  "copyright": "2014",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/adamcbrewer/brewerlogic.com.git"
+  },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-sass": "~0.5.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-copy": "~0.4.1",
+    "grunt": "~0.4.1",
+    "grunt-autoprefixer": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-imagemin": "~0.4.0",
-    "grunt-notify": "~0.2.16",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-modernizr": "^0.5.2",
     "grunt-stylestats": "~0.1.2",
-    "matchdep": "~0.3.0"
+    "matchdep": "~0.1.2",
+    "time-grunt": "^1.0.0"
   }
 }
