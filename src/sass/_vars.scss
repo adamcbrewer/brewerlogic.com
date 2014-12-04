@@ -1,17 +1,22 @@
-// Colours
-$c-bg: #fff;
-$c-text: #444;
-
+// Special Colours
 $c-alpha: #ff8301; // orange
 $c-bravo: #f3245b; // pink
 $c-charlie: #1d161f; // purple
 $c-delta: #261d29; // light purple
+$c-echo: #473A4B; // Almost too-light purple
+
+// Common Colours
+$c-white: #fff;
+
+$c-bg: $c-charlie;
+$c-text: $c-echo;
 
 // Dimentions
-$d-maxwidth: 1400px;
+$d-maxWidth: 1000px;
 
 // Fonts
 $ff: 'Helvetica Neue', Helvetica, Arial;
+$fw: 400;
 
 // EASING
 //

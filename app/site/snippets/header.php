@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js">
 <head>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title><?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?></title>
-  <meta name="description" content="<?php echo $site->description()->html() ?>">
-  <meta name="keywords" content="<?php echo $site->keywords()->html() ?>">
+    <title><?= $site->title() ?></title>
 
-  <?php echo css('assets/css/main.css') ?>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+    <meta name="author" content="Adam Brewer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="<?= $site->description()->html() ?>">
+    <meta name="keywords" content="<?= $site->keywords()->html() ?>">
+
+    <?= css('assets/css/styles.unprefixed.css') ?>
+
+    <?= js('assets/js/modernizr.build.js') ?>
 
 </head>
 <body>
 
-  <header class="header cf" role="banner">
-    <a class="logo" href="<?php echo url() ?>">
-      <img src="<?php echo url('assets/images/logo.svg') ?>" alt="<?php echo $site->title()->html() ?>" />
-    </a>
-    <?php snippet('menu') ?>
-  </header>
+    <section class="wrapper">
+

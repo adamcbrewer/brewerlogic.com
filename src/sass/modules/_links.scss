@@ -1,6 +1,13 @@
-a {}
+a {
+    color: $c-bravo;
+    text-decoration: none;
+    border-bottom: 1px solid $c-bravo;
+    transition: 0.15s ease;
+}
 a:link {}
 a:visited {}
-a:hover {}
+a:hover {
+    border-color: transparent;
+}
 a:active {}
 a:focus {}

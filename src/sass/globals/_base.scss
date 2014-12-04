@@ -26,6 +26,6 @@ body {
     background-color: $c-bg;
     color: $c-text;
     @include font-size(1.4);
-    font-weight: 300;
+    font-weight: $fw;
     line-height: 1.6;
 }

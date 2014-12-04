@@ -12,3 +12,9 @@ html {
     vertical-align: middle;
     text-align: center;
 }
+
+.footer {
+    min-height: 10px;
+    background-image: linear-gradient(to right, $c-alpha, $c-bravo 80%);
+    background-size: 100% 10px;
+}
