@@ -1,6 +1,23 @@
+
     </section>
 
     <footer class="footer">
+
+        <div class="footer-inner">
+            <nav class="nav nav--footer">
+                <?php foreach($pages->find('work', 'contact', 'about')->sortBy('num')->visible() as $page): ?>
+                    <a class="nav-link" href="<?= $page->url() ?>"><?= $page->title()->html() ?></a>
+                <?php endforeach; ?>
+                <?php $external_links = array_slice($site->externallinks()->yaml(), 0, 3); ?>
+                <?php foreach($external_links as $external_link) : ?>
+                    <a class="nav-link" href="<?= $external_link['url'] ?>"><?= $external_link['title'] ?></a>
+                <?php endforeach; ?>
+            </nav>
+
+            <aside>
+                <?= $site->copyright()->kirbytext(); ?>
+            </aside>
+        </div>
 
     </footer>
 

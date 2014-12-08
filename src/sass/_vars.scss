@@ -11,6 +11,9 @@ $c-white: #fff;
 $c-bg: $c-charlie;
 $c-text: $c-echo;
 
+// Gradients
+$c-mainGradient: linear-gradient(to right, $c-alpha, $c-bravo 80%);
+
 // Dimentions
 $d-siteWidth: 1220px;
 $d-imgWidthMax: 1300px;

@@ -1,11 +1,9 @@
-.nav {
-    display: flex;
-    align-self: center;
-}
-.nav--pages {
-}
-.nav--external {
-    text-align: right;
+.nav {}
+
+.nav--pages {}
+.nav--external { text-align: right; }
+.nav--footer {
+    padding: 1rem 0 5rem;
 }
 
 .nav-link {
@@ -14,6 +12,10 @@
     font-style: italic;
     border-color: transparent;
     text-transform: uppercase;
+
+    &.is-active {
+        color: $c-white;
+    }
 
     $space: 60px;
     .nav--pages & {
@@ -27,6 +29,16 @@
     .nav--external & {
         margin-left: $space;
         &:hover { border-color: $c-bravo; }
-        &:first-child { margin-right: 0; }
+        &:first-child { margin-left: 0; }
+    }
+
+    $space: 25px;
+    .nav--footer & {
+        margin: 0 $space;
+        color: $c-text;
+
+        &:hover {
+            color: $c-bravo;
+        }
     }
 }

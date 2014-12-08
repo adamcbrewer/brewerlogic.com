@@ -1,28 +1,54 @@
 body,
 html {
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .wrapper {
-    height: 100%;
+    // min-height: 100%;
+    // margin: 0 auto -350px; /* the bottom margin is the negative value of the footer's height */
+    width: 100%;
     max-width: $d-siteWidth;
     margin: auto;
+    padding: 0 2%;
+    display: flex;
+    flex: 1;
 }
 
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: stretch;
     height: 180px;
-}
+    flex: 1;
 
-.footer {
-    min-height: 10px;
-    background-image: linear-gradient(to right, $c-alpha, $c-bravo 80%);
-    background-size: 100% 10px;
+    .nav {
+        display: flex;
+        align-self: center;
+    }
 }
 
 .logo {
     max-width: 200px;
     align-self: center;
+}
+
+
+.footer {
+    text-align: center;
+    min-height: 10px;
+
+    &:after {
+        content: "";
+        height: 10px;
+        display: block;
+        background-image: $c-mainGradient;
+        background-size: 100% 10px;
+
+    }
+}
+
+.footer-inner {
+    padding: 6rem 2%;
 }
