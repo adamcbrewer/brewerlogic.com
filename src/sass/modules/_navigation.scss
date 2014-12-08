@@ -1,0 +1,32 @@
+.nav {
+    display: flex;
+    align-self: center;
+}
+.nav--pages {
+}
+.nav--external {
+    text-align: right;
+}
+
+.nav-link {
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-style: italic;
+    border-color: transparent;
+    text-transform: uppercase;
+
+    $space: 60px;
+    .nav--pages & {
+        margin-right: $space;
+        color: $c-alpha;
+        &:hover {
+            border-color: $c-alpha;
+        }
+        &:last-child { margin-right: 0; }
+    }
+    .nav--external & {
+        margin-left: $space;
+        &:hover { border-color: $c-bravo; }
+        &:first-child { margin-right: 0; }
+    }
+}

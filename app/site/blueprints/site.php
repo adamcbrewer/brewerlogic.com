@@ -2,9 +2,8 @@
 
 title: Site
 pages:
-  sortable: false
+  sortable: true
   max: 5
-  hide: true
 fields:
   _pageSettingsOne:
     label: Site Configuration
@@ -39,44 +38,43 @@ fields:
   _pageSettingsTwo:
     label: Social Links
     type: headline
-  twitter:
-    label: Twitter
-    type: url
-    icon: twitter
-    width: 1/2
-  github:
-    label: Github
-    type: url
-    icon: github
-    width: 1/2
-  linkedin:
-    label: LinkedIn
-    type: url
-    icon: linkedin
-    width: 1/2
+  _infoOne:
+    label: &nbsp;
+    type: info
+    text: >
+      Only the first three will be displayed. Arrange them in the order you'd like them to appear.
+  externallinks:
+      label: Social Links
+      type: structure
+      entry: >
+        {{title}} <br>
+        <em><a href="{{url}}">{{url}}</a></em>
+      fields:
+        title:
+          label: Title
+          type: text
+        url:
+          label: URL
+          type: url
 
   _pageSettingsThree:
     label: Twitter Settings
     type: headline
+  _infoTwo:
+    label: &nbsp;
+    type: info
+    text: >
+      Turning off the stream will not display any tweets, anywhere on the site, from your account.
   showTweets:
     label: Show Twitter Stream?
     type: toggle
     text: yes/no
-    width: 1/2
-  _infoOne:
+  _infoThree:
     label: &nbsp;
     type: info
-    width: 1/2
-    text: >
-      Turning off the stream will not display any tweets, anywhere on the site, from your account.
-  tweetFilter:
-    label: Tweet-Filter Keyword
-    type: text
-    width: 1/2
-  _infoTwo:
-    label: &nbsp;
-    type: info
-    width: 1/2
     text: >
       Only tweets with this hashtag will be displayed. If it's left blank all your tweets will
       be displayed by default.
+  tweetFilter:
+    label: Tweet-Filter Keyword
+    type: text

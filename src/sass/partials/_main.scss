@@ -3,18 +3,26 @@ html {
     height: 100%;
 }
 .wrapper {
-    display: table;
     height: 100%;
-    width: 100%;
+    max-width: $d-siteWidth;
+    margin: auto;
 }
-.logo {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 180px;
 }
 
 .footer {
     min-height: 10px;
     background-image: linear-gradient(to right, $c-alpha, $c-bravo 80%);
     background-size: 100% 10px;
+}
+
+.logo {
+    max-width: 200px;
+    align-self: center;
 }
