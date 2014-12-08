@@ -2,11 +2,16 @@
 
 title: Home
 pages: false
+files: false
 fields:
   title:
-    label: Title
+    label: Page Title
     type:  text
+
+  _pageSettingsOne:
+    label: About Page
+    type: headline
   text:
-    label: Text
+    label: Intro Text
     type:  textarea
     size:  large

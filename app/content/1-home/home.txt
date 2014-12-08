@@ -1,0 +1,5 @@
+Title: Home
+
+----
+
+Text: Brewer Logic is the practice of Adam Brewer, a freelance Web Developer based in London, UK.
