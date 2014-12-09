@@ -14,7 +14,7 @@ Keywords: brewerlogic,adamcbrewer,brewer logic,front-end developer,front end dev
 
 ----
 
-Copyright: 
+Copyright:
 
 Copyright © Adam Brewer (date: Year). All rights reserved.
 Please do not reproduce without permission; I will find you.
@@ -37,14 +37,14 @@ Showtweets: true
 
 ----
 
-Externallinks: 
+Externallinks:
 
-- 
+-
   title: Twitter
   url: https://twitter.com/adamcbrewer
-- 
+-
   title: Github
   url: https://github.com/adamcbrewer
-- 
+-
   title: LinkedIn
   url: https://linkedin.com/in/adamcbrewer
