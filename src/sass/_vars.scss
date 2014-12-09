@@ -22,8 +22,11 @@ $d-thumbWidth: 380px;
 // $d-thumbHeight: 320px; // not needed?
 
 // Fonts
-$ff: 'Helvetica Neue', Helvetica, Arial;
 $fw: 400;
+
+$ff-prox: "proxima-nova", 'Helvetica Neue', Helvetica, Arial;
+$ff-futura: "futura-pt";
+$ff: $ff-prox;
 
 // EASING
 //

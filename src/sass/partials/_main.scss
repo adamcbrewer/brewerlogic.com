@@ -51,9 +51,10 @@ html {
     padding-bottom: 6rem;
 }
 
-.grad-hero {
+.header-hero {
     background-image: $c-gradientHero;
     min-height: 200px;
     color: $c-white;
+    padding: 2em;
 }
 

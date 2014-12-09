@@ -13,5 +13,4 @@ fields:
     type: headline
   text:
     label: Intro Text
-    type:  textarea
-    size:  large
+    type:  text

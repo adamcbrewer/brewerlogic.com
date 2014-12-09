@@ -18,10 +18,13 @@
     <?= css('assets/css/styles.unprefixed.css') ?>
     <?= js('assets/js/modernizr.build.js') ?>
 
+    <script src="//use.typekit.net/qwc7wds.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
 </head>
 <body>
 
-    <header class="header contain">
+    <header class="header contain f-futura">
         <nav class="nav nav--pages">
             <?php foreach($pages->find('work', 'contact', 'about')->sortBy('num')->visible() as $page): ?>
                 <a class="nav-link<?php if ($page->isOpen()) : ?> is-active<?php endif; ?>" href="<?= $page->url() ?>"><?= $page->title()->html() ?></a>
