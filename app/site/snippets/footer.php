@@ -3,7 +3,7 @@
 
     <footer class="footer">
 
-        <div class="footer-inner">
+        <div class="footer-inner contain">
             <nav class="nav nav--footer">
                 <?php foreach($pages->find('work', 'contact', 'about')->sortBy('num')->visible() as $page): ?>
                     <a class="nav-link" href="<?= $page->url() ?>"><?= $page->title()->html() ?></a>

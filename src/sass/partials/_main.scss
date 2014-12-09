@@ -5,13 +5,10 @@ html {
     flex-direction: column;
 }
 .wrapper {
-    // min-height: 100%;
-    // margin: 0 auto -350px; /* the bottom margin is the negative value of the footer's height */
     width: 100%;
-    max-width: $d-siteWidth;
     margin: auto;
-    padding: 0 2%;
     display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
@@ -20,7 +17,7 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    height: 180px;
+    max-height: 180px;
     flex: 1;
 
     .nav {
@@ -43,12 +40,20 @@ html {
         content: "";
         height: 10px;
         display: block;
-        background-image: $c-mainGradient;
+        background-image: $c-gradientFooter;
         background-size: 100% 10px;
 
     }
 }
 
 .footer-inner {
-    padding: 6rem 2%;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
+
+.grad-hero {
+    background-image: $c-gradientHero;
+    min-height: 200px;
+    color: $c-white;
+}
+

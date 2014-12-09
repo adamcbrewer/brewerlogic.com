@@ -16,28 +16,27 @@
     <meta name="keywords" content="<?= $site->keywords()->html() ?>">
 
     <?= css('assets/css/styles.unprefixed.css') ?>
-
     <?= js('assets/js/modernizr.build.js') ?>
 
 </head>
 <body>
 
-    <section class="wrapper">
+    <header class="header contain">
+        <nav class="nav nav--pages">
+            <?php foreach($pages->find('work', 'contact', 'about')->sortBy('num')->visible() as $page): ?>
+                <a class="nav-link<?php if ($page->isOpen()) : ?> is-active<?php endif; ?>" href="<?= $page->url() ?>"><?= $page->title()->html() ?></a>
+            <?php endforeach ?>
+        </nav>
+        <figure class="logo logo-main">
+            <img src="<?= url('/assets/img/logo.png') ?>" alt="Brewer Logic">
+        </figure>
+        <nav class="nav nav--external">
+            <?php $external_links = array_slice($site->externallinks()->yaml(), 0, 3); ?>
+            <?php foreach($external_links as $external_link) : ?>
+                <a class="nav-link" href="<?= $external_link['url'] ?>"><?= $external_link['title'] ?></a>
+            <?php endforeach; ?>
+        </nav>
+    </header>
 
-        <header class="header">
-            <nav class="nav nav--pages">
-                <?php foreach($pages->find('work', 'contact', 'about')->sortBy('num')->visible() as $page): ?>
-                    <a class="nav-link<?php if ($page->isOpen()) : ?> is-active<?php endif; ?>" href="<?= $page->url() ?>"><?= $page->title()->html() ?></a>
-                <?php endforeach ?>
-            </nav>
-            <figure class="logo logo-main">
-                <img src="<?= url('/assets/img/logo.png') ?>" alt="Brewer Logic">
-            </figure>
-            <nav class="nav nav--external">
-                <?php $external_links = array_slice($site->externallinks()->yaml(), 0, 3); ?>
-                <?php foreach($external_links as $external_link) : ?>
-                    <a class="nav-link" href="<?= $external_link['url'] ?>"><?= $external_link['title'] ?></a>
-                <?php endforeach; ?>
-            </nav>
-        </header>
+    <section class="wrapper">
 
