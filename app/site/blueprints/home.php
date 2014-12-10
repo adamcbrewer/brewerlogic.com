@@ -5,12 +5,26 @@ pages: false
 files: false
 fields:
   title:
-    label: Page Title
+    label: Title
     type:  text
 
-  _pageSettingsOne:
-    label: Home Page
+  _headerOne:
+    label: Secion - Hero
     type: headline
   text:
     label: Intro Text
     type:  text
+
+  _headerTwo:
+    label: Section - Featured Work
+    type: headline
+  sectionTitleTwo:
+    label: Section Title
+    type: text
+
+  _headerThree:
+    label: Section - Twitter
+    type: headline
+  sectionTitleThree:
+    label: Section Title
+    type: text

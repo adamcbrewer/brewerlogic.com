@@ -6,3 +6,32 @@
     padding-left: 2%;
     padding-right: 2%;
 }
+
+
+.section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.section--hero {
+    background-image: $c-gradientHero;
+    min-height: 200px;
+    color: $c-white;
+    padding: 2em;
+
+    .inner {
+        margin: 5em auto;
+    }
+}
+
+.section--alternate {
+    background-color: $c-delta;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-family: $ff-futura;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 600;
+}

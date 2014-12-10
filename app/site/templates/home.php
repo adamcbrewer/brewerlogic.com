@@ -1,12 +1,11 @@
 <?php snippet('header') ?>
 
-        <header class="section-hero">
+        <header class="section--hero">
 
             <div class="inner">
                 <h1 class="title-hero">
                     <?= $page->text()->html(); ?>
                 </h1>
-
                 <div class="btn-group">
                     <a href="#" class="btn">View projects</a>
                     <a href="#" class="btn">Tell me more</a>
@@ -15,7 +14,11 @@
 
         </header>
 
-        <section class="contain">
+        <section class="section contain">
+
+            <header class="section-title">
+                <h2><?= $page->sectionTitleTwo() ?></h2>
+            </header>
 
             <ol class="featured-projects">
 
@@ -28,9 +31,9 @@
                             <figure class="feature-figure">
                                 <img src="<?= $img->url() ?>" alt="<?= html($project->title()) ?>">
                             </figure>
-                            <h2 class="feature-name">
+                            <h3 class="feature-name">
                                 <?= html($project->title()) ?>
-                            </h2>
+                            </h3>
                         </li>
 
                     <? endif ;?>
@@ -39,6 +42,12 @@
 
             </ol>
 
+        </section>
+
+        <section class="section section--alternate">
+            <header class="section-title">
+                <h2><?= $page->sectionTitleThree() ?></h2>
+            </header>
         </section>
 
     </section>

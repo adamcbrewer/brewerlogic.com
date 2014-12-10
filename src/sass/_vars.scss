@@ -16,9 +16,11 @@ $c-gradientHero: linear-gradient(to top right, $c-alpha, $c-bravo 50%, #87329f 9
 $c-gradientFooter: linear-gradient(to right, $c-alpha, $c-bravo 80%);
 
 // Dimentions
-$d-siteWidth: 1220px;
-$d-imgWidthMax: 1300px;
+$d-siteWidth: 1290px;
 $d-thumbWidth: 380px;
+
+$d-gutter: 32px;
+$d-column: 80px;
 // $d-thumbHeight: 320px; // not needed?
 
 // Fonts

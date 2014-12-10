@@ -14,8 +14,8 @@ fields:
     label: Page Title
     type:  text
 
-  _pageSettingsOne:
-    label: Introduction
+  _headerOne:
+    label: Section - Introduction
     type: headline
   sectionTitleOne:
     label: Section Title
@@ -27,8 +27,8 @@ fields:
     label: About You
     type:  textarea
 
-  _pageSettingsTwo:
-    label: Client Branding
+  _headerTwo:
+    label: Section - Client Branding
     type: headline
   sectionTitleTwo:
     label: Section Title
@@ -40,8 +40,8 @@ fields:
       Images for client brands can be uploaded under the files section on the left,
       where you'll be able to arrange and sort them.
 
-  _pageSettingsThree:
-    label: Skills
+  _headerThree:
+    label: Section - Skills
     type: headline
   sectionTitleThree:
     label: Section Title
@@ -56,8 +56,8 @@ fields:
     label: Workflow
     type: tags
 
-  _pageSettingsFour:
-    label: Sign-off
+  _headerFour:
+    label: Section - Sign-off
     type: headline
   sectionTitleFour:
     label: Section Title

@@ -5,7 +5,7 @@ pages:
   sortable: true
   max: 5
 fields:
-  _pageSettingsOne:
+  _headerOne:
     label: Site Configuration
     type: headline
   title:
@@ -35,7 +35,7 @@ fields:
     label: Copyright
     type:  textarea
 
-  _pageSettingsTwo:
+  _headerTwo:
     label: Social Links
     type: headline
   _infoOne:
@@ -57,7 +57,7 @@ fields:
           label: URL
           type: url
 
-  _pageSettingsThree:
+  _headerThree:
     label: Twitter Settings
     type: headline
   _infoTwo:

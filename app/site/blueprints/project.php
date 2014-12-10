@@ -13,8 +13,8 @@ files:
       type: textarea
 fields:
 
-  _pageSettingsOne:
-    label: Project Information
+  _headerOne:
+    label: Section - Project Information
     type: headline
   _infoOne:
     label: Please Note
@@ -43,7 +43,6 @@ fields:
   sign-off:
     label: Sign-off (optional)
     type:  textarea
-
   homepage:
     label: Display this project on the Home page?
     type: toggle

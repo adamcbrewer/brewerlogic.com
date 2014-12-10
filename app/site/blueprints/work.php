@@ -10,8 +10,8 @@ fields:
     label: Title
     type:  text
 
-  _pageSettingsOne:
-    label: Work
+  _headerOne:
+    label: Section - Work
     type: headline
   sectionTitleOne:
     label: Section Title

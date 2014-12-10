@@ -8,8 +8,8 @@ fields:
     label: Page Title
     type:  text
 
-  _pageSettingsOne:
-    label: Contact Email
+  _headerOne:
+    label: Section - Contact Email
     type: headline
   sectionTitleOne:
     label: Section Title
@@ -18,8 +18,8 @@ fields:
     label: Text
     type:  textarea
 
-  _pageSettingsTwo:
-    label: Social Links
+  _headerTwo:
+    label: Section - Social Links
     type: headline
   sectionTitleTwo:
     label: Section Title
