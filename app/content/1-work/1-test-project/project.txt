@@ -19,3 +19,7 @@ Sign-off: Cheesy grin cottage cheese babybel. Red leicester rubber cheese jarlsb
 ----
 
 Summary: Project management website
+
+----
+
+Homepage: true

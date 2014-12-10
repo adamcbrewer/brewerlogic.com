@@ -51,10 +51,14 @@ html {
     padding-bottom: 6rem;
 }
 
-.header-hero {
+.section-hero {
     background-image: $c-gradientHero;
     min-height: 200px;
     color: $c-white;
     padding: 2em;
+
+    .inner {
+        margin: 5em auto;
+    }
 }
 

@@ -9,7 +9,7 @@ fields:
     type:  text
 
   _pageSettingsOne:
-    label: About Page
+    label: Home Page
     type: headline
   text:
     label: Intro Text

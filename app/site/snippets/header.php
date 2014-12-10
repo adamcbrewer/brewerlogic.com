@@ -43,3 +43,5 @@
 
     <section class="wrapper">
 
+        <section class="content">
+
