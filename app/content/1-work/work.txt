@@ -1,9 +1,0 @@
-Title: Work
-
-----
-
-Sectiontitleone: Work
-
-----
-
-Header: A selection of my latest projects

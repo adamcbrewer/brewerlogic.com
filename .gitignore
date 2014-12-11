@@ -45,3 +45,5 @@ app/assets/avatars/*
 app/thumbs/*
 !app/thumbs/.gitignore*
 app/site/config/config.*.php
+app/content/*
+!app/content/.gitkeep

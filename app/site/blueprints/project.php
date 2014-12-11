@@ -20,9 +20,7 @@ fields:
     label: Please Note
     type: info
     text: >
-      Make sure the project thumbnail is named _thumb.jpg_, otherwise the first project image will be used and likely cropped.
-
-      If you want to feature this project on the Home page, please make sure to upload an appropriately sized image name _feature.jpg_.
+      Make sure the project thumbnail is named _thumb.jpg_, otherwise the first project image will be used and likely cropped. If you want to feature this project on the Home page, please make sure to upload an appropriately sized image name _feature.jpg_.
   title:
     label: Title
     type:  text
