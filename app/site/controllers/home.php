@@ -8,7 +8,7 @@ return function($site, $pages, $page) {
     $projects = $pages->find('work')
         ->children()
         ->visible()
-        ->filterBy('homepage', true);
+        ->filterBy('homepage', 'true');
 
     $data['projects'] = $projects;
 

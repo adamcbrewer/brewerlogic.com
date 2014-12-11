@@ -20,20 +20,21 @@
                 <h2><?= $page->sectionTitleTwo() ?></h2>
             </header>
 
-            <ol class="featured-projects">
+            <ol class="features">
 
                 <? foreach ($projects as $key => $project) : ?>
 
                     <? $img = $project->image('feature.jpg'); ?>
                     <? if ($img) : ?>
 
-                        <li class="feature-item">
+                        <li class="feature">
                             <figure class="feature-figure">
                                 <img src="<?= $img->url() ?>" alt="<?= html($project->title()) ?>">
                             </figure>
-                            <h3 class="feature-name">
-                                <?= html($project->title()) ?>
-                            </h3>
+                            <div>
+                                <h3 class="feature-title"><?= html($project->title()) ?></h3>
+                                <p class="feature-summary"><?= html($project->summary()) ?></p>
+                            </div>
                         </li>
 
                     <? endif ;?>

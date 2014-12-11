@@ -27,7 +27,7 @@ fields:
     width: 1/2
   description:
     label: Site Description (SEO meta)
-    type:  textarea
+    type:  text
   keywords:
     label: Site Keywords (SEO meta)
     type:  tags

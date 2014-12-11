@@ -2,7 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: $d-siteWidth;
+    max-width: calc($d-siteWidth + 4%);
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -34,4 +34,32 @@
     font-style: italic;
     text-transform: uppercase;
     font-weight: 600;
+    margin-bottom: 5em;
+}
+
+.features {
+    margin: 5em 0;
+    padding: 0;
+}
+
+.feature {
+    margin-bottom: 5em;
+}
+
+.feature-figure {
+    margin-bottom: 1.8em;
+}
+
+.feature-title {
+    font-family: $ff-futura;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $c-white;
+    margin: 0 0 0.4em;
+    line-height: 1;
+}
+
+.feature-summary {
+    margin: 0;
+    font-size: 2rem;
 }
