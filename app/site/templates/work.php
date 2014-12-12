@@ -11,7 +11,7 @@
             <?php foreach ($page->children()->visible() as $project) : ?>
             <li>
                 <figure>
-                    <img src="<?php echo $project->image('thumb.jpg')->url() ?>" alt="<?php echo $project->title(); ?>">
+                    <img src="<?php echo $project->images()->findBy('name', 'thumb')->url() ?>" alt="<?php echo $project->title(); ?>">
                 </figure>
                 <h3><?php echo $project->title(); ?></h3>
             </li>

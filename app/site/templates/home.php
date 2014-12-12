@@ -24,20 +24,15 @@
 
                 <? foreach ($projects as $key => $project) : ?>
 
-                    <? $img = $project->image('feature.jpg'); ?>
-                    <? if ($img) : ?>
-
-                        <li class="feature">
-                            <figure class="feature-figure">
-                                <img src="<?php echo $img->url() ?>" alt="<?php echo html($project->title()) ?>">
-                            </figure>
-                            <div>
-                                <h3 class="feature-title"><?php echo html($project->title()) ?></h3>
-                                <p class="feature-summary"><?php echo html($project->summary()) ?></p>
-                            </div>
-                        </li>
-
-                    <? endif ;?>
+                    <li class="feature">
+                        <figure class="feature-figure">
+                            <img src="<?php echo $project->images()->findBy('name', 'feature')->url() ?>" alt="<?php echo html($project->title()) ?>">
+                        </figure>
+                        <div>
+                            <h3 class="feature-title"><?php echo html($project->title()) ?></h3>
+                            <p class="feature-summary"><?php echo html($project->summary()) ?></p>
+                        </div>
+                    </li>
 
                 <? endforeach; ?>
 
