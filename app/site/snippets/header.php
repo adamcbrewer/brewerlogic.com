@@ -26,18 +26,15 @@
 
     <header class="header contain f-futura">
         <nav class="nav nav--pages">
-            <?php foreach($pages->find('work', 'contact', 'about')->sortBy('num')->visible() as $page): ?>
-                <a class="nav-link<?php if ($page->isOpen()) : ?> is-active<?php endif; ?>" href="<?= $page->url() ?>"><?= $page->title()->html() ?></a>
-            <?php endforeach ?>
+            <?php snippet('nav-internal'); ?>
         </nav>
         <figure class="logo logo-main">
-            <img src="<?= url('/assets/img/logo.png') ?>" alt="Brewer Logic">
+            <a href="<?= $site->url() ?>">
+                <img src="<?= url('/assets/img/logo.png') ?>" alt="Brewer Logic">
+            </a>
         </figure>
         <nav class="nav nav--external">
-            <?php $external_links = array_slice($site->externallinks()->yaml(), 0, 3); ?>
-            <?php foreach($external_links as $external_link) : ?>
-                <a class="nav-link" href="<?= $external_link['url'] ?>"><?= $external_link['title'] ?></a>
-            <?php endforeach; ?>
+            <?php snippet('nav-external'); ?>
         </nav>
     </header>
 

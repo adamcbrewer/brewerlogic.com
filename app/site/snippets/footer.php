@@ -6,13 +6,8 @@
 
         <div class="footer-inner contain">
             <nav class="nav nav--footer f-futura">
-                <?php foreach($pages->find('work', 'contact', 'about')->sortBy('num')->visible() as $page): ?>
-                    <a class="nav-link" href="<?= $page->url() ?>"><?= $page->title()->html() ?></a>
-                <?php endforeach; ?>
-                <?php $external_links = array_slice($site->externallinks()->yaml(), 0, 3); ?>
-                <?php foreach($external_links as $external_link) : ?>
-                    <a class="nav-link" href="<?= $external_link['url'] ?>"><?= $external_link['title'] ?></a>
-                <?php endforeach; ?>
+                <?php snippet('nav-internal'); ?>
+                <?php snippet('nav-external'); ?>
             </nav>
 
             <aside>

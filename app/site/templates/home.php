@@ -7,8 +7,8 @@
                     <?= $page->text()->html(); ?>
                 </h1>
                 <div class="btn-group">
-                    <a href="#" class="btn">View projects</a>
-                    <a href="#" class="btn">Tell me more</a>
+                    <a href="<?= $site->find('/work')->url() ?>" class="btn">View projects</a>
+                    <a href="<?= $site->find('/about')->url() ?>" class="btn">Tell me more</a>
                 </div>
             </div>
 
@@ -42,6 +42,10 @@
                 <? endforeach; ?>
 
             </ol>
+
+            <div class="btn-group">
+                <a href="<?= $site->find('/work')->url() ?>" class="btn btn--primary">View all projects</a>
+            </div>
 
         </section>
 

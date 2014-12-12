@@ -10,9 +10,12 @@
     padding: 1em 2.2em;
     min-width: 220px;
     text-align: center;
+    background: transparent;
 
     &:hover {
         border-color: $c-white;
+        background: $c-white;
+        color: $c-bravo;
     }
 }
 
@@ -22,5 +25,14 @@
 
     .btn {
         margin: 0 0.8em;
+    }
+}
+.btn--primary {
+    color: $c-bravo;
+
+    &:hover {
+        border-color: $c-bravo;
+        background: $c-bravo;
+        color: $c-white;
     }
 }
