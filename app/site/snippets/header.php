@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><?= $site->title() ?></title>
+    <title><?php echo $site->title() ?></title>
 
     <link rel="dns-prefetch" href="//www.google-analytics.com">
 
     <meta name="author" content="Adam Brewer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="<?= $site->description()->html() ?>">
-    <meta name="keywords" content="<?= $site->keywords()->html() ?>">
+    <meta name="description" content="<?php echo $site->description()->html() ?>">
+    <meta name="keywords" content="<?php echo $site->keywords()->html() ?>">
 
-    <?= css('assets/css/styles.unprefixed.css') ?>
-    <?= js('assets/js/modernizr.build.js') ?>
+    <?php echo css('assets/css/styles.unprefixed.css') ?>
+    <?php echo js('assets/js/modernizr.build.js') ?>
 
     <script src="//use.typekit.net/qwc7wds.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
@@ -29,8 +29,8 @@
             <?php snippet('nav-internal'); ?>
         </nav>
         <figure class="logo logo-main">
-            <a href="<?= $site->url() ?>">
-                <img src="<?= url('/assets/img/logo.png') ?>" alt="Brewer Logic">
+            <a href="<?php echo $site->url() ?>">
+                <img src="<?php echo url('/assets/img/logo.png') ?>" alt="Brewer Logic">
             </a>
         </figure>
         <nav class="nav nav--external">

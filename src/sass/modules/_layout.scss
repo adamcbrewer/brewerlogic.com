@@ -28,13 +28,17 @@
     background-color: $c-delta;
 }
 
+.section-header {
+    margin-bottom: 5em;
+}
+
 .section-title {
     font-size: 1.6rem;
     font-family: $ff-futura;
     font-style: italic;
     text-transform: uppercase;
     font-weight: 600;
-    margin-bottom: 5em;
+    margin-bottom: 1em;
 }
 
 .features {

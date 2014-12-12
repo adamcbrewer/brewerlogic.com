@@ -4,11 +4,11 @@
 
             <div class="inner">
                 <h1 class="title-hero">
-                    <?= $page->text()->html(); ?>
+                    <?php echo $page->text()->html(); ?>
                 </h1>
                 <div class="btn-group">
-                    <a href="<?= $site->find('/work')->url() ?>" class="btn">View projects</a>
-                    <a href="<?= $site->find('/about')->url() ?>" class="btn">Tell me more</a>
+                    <a href="<?php echo $site->find('/work')->url() ?>" class="btn">View projects</a>
+                    <a href="<?php echo $site->find('/about')->url() ?>" class="btn">Tell me more</a>
                 </div>
             </div>
 
@@ -16,8 +16,8 @@
 
         <section class="section contain">
 
-            <header class="section-title">
-                <h2><?= $page->sectionTitleTwo() ?></h2>
+            <header class="section-header">
+                <h2 class="section-title"><?php echo $page->sectionTitleTwo() ?></h2>
             </header>
 
             <ol class="features">
@@ -29,11 +29,11 @@
 
                         <li class="feature">
                             <figure class="feature-figure">
-                                <img src="<?= $img->url() ?>" alt="<?= html($project->title()) ?>">
+                                <img src="<?php echo $img->url() ?>" alt="<?php echo html($project->title()) ?>">
                             </figure>
                             <div>
-                                <h3 class="feature-title"><?= html($project->title()) ?></h3>
-                                <p class="feature-summary"><?= html($project->summary()) ?></p>
+                                <h3 class="feature-title"><?php echo html($project->title()) ?></h3>
+                                <p class="feature-summary"><?php echo html($project->summary()) ?></p>
                             </div>
                         </li>
 
@@ -44,14 +44,14 @@
             </ol>
 
             <div class="btn-group">
-                <a href="<?= $site->find('/work')->url() ?>" class="btn btn--primary">View all projects</a>
+                <a href="<?php echo $site->find('/work')->url() ?>" class="btn btn--primary">View all projects</a>
             </div>
 
         </section>
 
         <section class="section section--alternate">
-            <header class="section-title">
-                <h2><?= $page->sectionTitleThree() ?></h2>
+            <header class="section-header contain">
+                <h2 class="section-title"><?php echo $page->sectionTitleThree() ?></h2>
             </header>
         </section>
 

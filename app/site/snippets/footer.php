@@ -11,7 +11,7 @@
             </nav>
 
             <aside>
-                <?= $site->copyright()->kirbytext(); ?>
+                <?php echo $site->copyright()->kirbytext(); ?>
             </aside>
         </div>
 
