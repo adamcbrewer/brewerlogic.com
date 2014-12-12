@@ -7,13 +7,19 @@
             <h1 class="title-main"><?php echo $page->header() ?></h1>
         </header>
 
-        <ol>
+        <ol class="works contain">
             <?php foreach ($page->children()->visible() as $project) : ?>
-            <li>
-                <figure>
-                    <img src="<?php echo $project->images()->findBy('name', 'thumb')->url() ?>" alt="<?php echo $project->title(); ?>">
+            <li class="work">
+                <figure class="work-thumb">
+                    <a href="<?php echo $project->url() ?>">
+                        <img src="<?php echo $project->images()->findBy('name', 'thumb')->url() ?>" alt="<?php echo $project->title(); ?>">
+                    </a>
                 </figure>
-                <h3><?php echo $project->title(); ?></h3>
+                <section class="work-details">
+                    <h3 class="work-title"><a href="<?php echo $project-url() ?>"><?php echo $project->title(); ?></a></h3>
+                    <p class="work-summary"><?php echo $project->summary(); ?></p>
+                    <p class="work-when"><?php echo $project->when(); ?></p>
+                </section>
             </li>
             <?php endforeach; ?>
         </ol>

@@ -4,7 +4,7 @@ a {
     border-bottom: 1px solid $c-bravo;
     transition: 0.15s ease;
 
-    .logo & {
+    figure & {
         border: none;
     }
 }

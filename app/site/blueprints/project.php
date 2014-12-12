@@ -34,7 +34,7 @@ fields:
     label: Website (optional)
     type: url
     width: 1/2
-  year:
+  when:
     label: Date
     type:  text
     width: 1/2
