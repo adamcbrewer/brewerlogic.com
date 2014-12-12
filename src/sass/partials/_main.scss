@@ -1,9 +1,3 @@
-body,
-html {
-    // height: 100%;
-    // display: flex;
-    // flex-direction: column;
-}
 .wrapper {
     width: 100%;
     margin: auto;
@@ -31,7 +25,6 @@ html {
     align-self: center;
 }
 
-
 .footer {
     text-align: center;
     min-height: 10px;
@@ -49,4 +42,13 @@ html {
 .footer-inner {
     padding-top: 6rem;
     padding-bottom: 6rem;
+}
+
+.contain {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: calc(#{$d-siteWidth} + 4%);
+    padding-left: 2%;
+    padding-right: 2%;
 }

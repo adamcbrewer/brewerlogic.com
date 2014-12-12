@@ -1,0 +1,32 @@
+.section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.section--hero {
+    background-image: $c-gradientHero;
+    min-height: 200px;
+    color: $c-white;
+    padding: 2em;
+
+    .inner {
+        margin: 5em auto;
+    }
+}
+
+.section--alternate {
+    background-color: $c-delta;
+}
+
+.section-header {
+    margin-bottom: 5em;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-family: $ff-futura;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
