@@ -14,7 +14,7 @@
                 <?php echo markdown($page->intro()) ?>
             </header>
             <aside>
-                <a href="<?php echo $page->website() ?>" class="project-website" title="<?php echo $page->title() ?>">View the website</a>
+                <a href="<?php echo $page->website() ?>" class="project-website" target="_blank">View the website</a>
             </aside>
         </section>
 
