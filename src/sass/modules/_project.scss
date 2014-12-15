@@ -1,5 +1,8 @@
 .project {
     font-size: 2rem;
+    strong {
+        color: $c-white;
+    }
 }
 
 .project-intro {
@@ -27,11 +30,18 @@
 }
 .project-image {
     margin: 0 0 5em;
+
+    .layout--half &,
+    .layout--third &,
+    .layout--twothirds & {
+        margin-bottom: 0;
+    }
 }
 .project-figure-caption {
     margin: 1em 0;
     font-style: italic;
     font-size: 1.6rem;
+    padding: 0 3em;
 }
 .project-figure-description {
 
@@ -39,4 +49,32 @@
 
 .project-footer {
 
+}
+
+$gutter-gap: ($d-gutter/2);
+.layout--half {
+    float: left;
+    $width: (($d-gutter*5) + ($d-column*6)) / $d-siteWidth * 100%;
+    max-width: calc(#{$width} - #{$gutter-gap});
+    & + .layout--half {
+        float: right;
+    }
+}
+
+.layout--third {
+    float: left;
+    $width: (($d-gutter*3) + ($d-column*4)) / $d-siteWidth * 100%;
+    max-width: calc(#{$width} - #{$gutter-gap});
+    & + .layout--twothirds {
+        float: right;
+    }
+}
+
+.layout--twothirds {
+    float: left;
+    $width: (($d-gutter*7) + ($d-column*8)) / $d-siteWidth * 100%;
+    max-width: calc(#{$width} - #{$gutter-gap});
+    & + .layout--third {
+        float: right;
+    }
 }

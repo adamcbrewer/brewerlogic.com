@@ -11,16 +11,32 @@ files:
     description:
       label: Description (optional)
       type: textarea
+    _lineOne:
+      type: line
+    _infoOne:
+      label: Choosing your layout
+      type: info
+      text: >
+        Project images are full width by default. Selecting one of the options below will float the images according to the size shown, but remember to pair one ratio with another. For example: half-size images should be ordered next to each other and likewise for third and two-thirds images.
+    layout:
+      label: Layout Options/Ratios
+      type: radio
+      default: full
+      options:
+        full: Full width
+        half: Half size
+        third: One third
+        twothirds: Two thirds
 fields:
 
   _headerOne:
     label: Section - Project Information
     type: headline
-  _infoOne:
+  _infoTwo:
     label: Please Note
     type: info
     text: >
-      Make sure the project thumbnail is named _thumb.jpg_, otherwise the first project image will be used and likely cropped. If you want to feature this project on the Home page, please make sure to upload an appropriately sized image name _feature.jpg_.
+      Make sure the project thumbnail is named _thumb_, otherwise the first project image will be used and likely cropped. If you want to feature this project on the Home page, please make sure to upload an appropriately sized image name _feature_.
   title:
     label: Title
     type:  text
@@ -47,7 +63,7 @@ fields:
     text: yes/no
     default: no
     width: 1/2
-  _infoTwo:
+  _infoThree:
     label: &nbsp;
     type: info
     width: 1/2

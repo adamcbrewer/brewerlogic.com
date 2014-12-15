@@ -21,7 +21,7 @@
         <section class="contain project-images">
 
             <?php foreach ($page->images()->sortBy('sort', 'asc')->not('thumb.jpg', 'thumb.png', 'feature.jpg', 'feature.png') as $image) : ?>
-                <article class="project-figure">
+                <article class="project-figure layout layout--<?php echo $image->layout() ?>">
                     <figure class="project-image">
                         <img src="<?php echo $image->url() ?>" alt="<?php echo $image->filename() ?>">
                         <?php if ($image->caption()) : ?>
