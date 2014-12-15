@@ -1,11 +1,11 @@
 * { box-sizing: border-box; }
 
 ::-moz-selection {
-    background: $c-white;
+    background: $c-indigo;
     color: $c-bg;
 }
 ::selection {
-    background: $c-white;
+    background: $c-indigo;
     color: $c-bg;
 }
 a::-moz-selection {}

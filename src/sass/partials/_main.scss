@@ -11,7 +11,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    max-height: 180px;
+    height: 145px;
+    max-height: 145px;
     flex: 1;
 
     .nav {
@@ -23,11 +24,28 @@
 .logo {
     max-width: 200px;
     align-self: center;
+
+    // lighting
+    &:before {
+        // content: "";
+        position: absolute;
+        display: inline-block;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 5px;
+        height: 5px;
+        margin: auto;
+        transform: translateY(-50%);
+        background-image: radial-gradient(circle at center, $c-indigo, transparent);
+    }
 }
 
 .footer {
     text-align: center;
     min-height: 10px;
+    color: $c-echo;
 
     &:after {
         content: "";
@@ -40,8 +58,8 @@
 }
 
 .footer-inner {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
 }
 
 .contain {
@@ -51,4 +69,8 @@
     max-width: calc(#{$d-siteWidth} + 4%);
     padding-left: 2%;
     padding-right: 2%;
+}
+
+.contain--text {
+    max-width: 42em;
 }

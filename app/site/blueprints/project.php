@@ -38,7 +38,7 @@ fields:
     label: Date
     type:  text
     width: 1/2
-  sign-off:
+  signoff:
     label: Sign-off (optional)
     type:  textarea
   homepage:

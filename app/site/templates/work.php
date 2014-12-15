@@ -18,7 +18,6 @@
                 <section class="work-details">
                     <h3 class="work-title"><a href="<?php echo $project-url() ?>"><?php echo $project->title(); ?></a></h3>
                     <p class="work-summary"><?php echo $project->summary(); ?></p>
-                    <p class="work-when"><?php echo $project->when(); ?></p>
                 </section>
             </li>
             <?php endforeach; ?>

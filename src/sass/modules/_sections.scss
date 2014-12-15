@@ -19,13 +19,30 @@
 }
 
 .section-header {
-    margin-bottom: 5em;
+    margin-bottom: 3em;
+    padding-bottom: 3em;
+}
+
+.section-header--stroked {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid $c-echo;
+        display: block;
+        margin: auto;
+        max-width: $d-column/2;
+    }
 }
 
 .section-title {
     font-size: 1.6rem;
     font-family: $ff-futura;
     font-style: italic;
+    color: $c-echo;
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 1em;

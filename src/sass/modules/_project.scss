@@ -1,0 +1,42 @@
+.project {
+    font-size: 2rem;
+}
+
+.project-intro {
+    font-weight: 400;
+    margin-bottom: 3em;
+}
+
+.project-website {
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 600;
+    font-family: $ff-futura;
+    border-color: transparent;
+
+    &:hover {
+        border-color: currentcolor;
+    }
+}
+
+.project-figure {
+    margin: 0 0 6em;
+}
+.project-images {
+    margin: 5em;
+}
+.project-image {
+    margin: 0 0 5em;
+}
+.project-figure-caption {
+    margin: 1em 0;
+    font-style: italic;
+    font-size: 1.6rem;
+}
+.project-figure-description {
+
+}
+
+.project-footer {
+
+}
