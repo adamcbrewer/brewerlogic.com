@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-    <article class="section section--alternate project">
+    <article class="section section--alt project">
 
         <header class="section-header section-header--stroked contain">
             <p class="section-title"><?php echo $page->when() ?></p>

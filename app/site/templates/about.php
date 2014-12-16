@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-    <article class="section section--alternate section--yank">
+    <article class="section section--alt section--yank">
 
         <header class="section-header section-header--stroked contain">
             <p class="section-title"><?php echo $page->sectionTitleOne() ?></p>
@@ -26,7 +26,7 @@
 
     </section>
 
-    <section class="section section--alternate">
+    <section class="section section--alt">
         <header class="section-header contain">
             <p class="section-title"><?php echo $page->sectionTitleTwo() ?></p>
         </header>
@@ -73,7 +73,7 @@
         </section>
     </section>
 
-    <section class="section section--alternate">
+    <section class="section section--alt">
         <header class="section-header contain">
             <p class="section-title"><?php echo $page->sectionTitleFour() ?></p>
         </header>

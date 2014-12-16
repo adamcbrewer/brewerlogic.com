@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-    <section class="section section--alternate">
+    <section class="section section--alt">
 
         <header class="section-header contain">
             <h2 class="section-title"><?php echo $page->sectionTitleOne() ?></h2>

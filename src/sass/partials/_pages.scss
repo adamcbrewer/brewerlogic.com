@@ -1,0 +1,19 @@
+// About page
+.clients {
+    list-style-type: none;
+}
+.client {
+    margin: 1em 0;
+    width: calc(100%/5);
+}
+
+// Contact page
+.contact-email {
+    border-color: transparent;
+    color: $c-alpha;
+    letter-spacing: 2px;
+
+    &:hover {
+        border-color: currentcolor;
+    }
+}

@@ -19,8 +19,12 @@
     margin-bottom: -10em;
 }
 
-.section--alternate {
+.section--alt {
     background-color: $c-delta;
+}
+
+.section--alt-lighter {
+    background-color: lighten($c-delta, 1.8%);
 }
 
 .section-header {

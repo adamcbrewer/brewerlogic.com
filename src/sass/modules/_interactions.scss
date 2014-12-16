@@ -16,8 +16,6 @@ input {
     &:checked {}
     &:indeterminate {} // un-selected radio buttons
 }
-
-
 .btn {
     font-family: $ff-futura;
     font-size: 1.6rem;
@@ -38,7 +36,6 @@ input {
         color: $c-bravo;
     }
 }
-
 .btn-group {
     text-align: center;
     margin: 1em auto;
