@@ -43,10 +43,17 @@
     }
 }
 
+.content {
+    strong {
+        color: $c-white;
+    }
+}
+
 .footer {
     text-align: center;
     min-height: 10px;
     color: $c-echo;
+    font-size: 1.6rem;
 
     &:after {
         content: "";
@@ -74,4 +81,11 @@
 
 .contain--text {
     max-width: 42em;
+}
+.contain--narrow {
+    max-width: ($d-gutter*5) + ($d-column*6);
+}
+
+.contain--features {
+    max-width: ($d-gutter*9) + ($d-column*10);
 }

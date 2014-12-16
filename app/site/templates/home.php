@@ -14,7 +14,7 @@
 
     </header>
 
-    <section class="section contain">
+    <section class="section contain contain--features">
 
         <header class="section-header">
             <h2 class="section-title"><?php echo $page->sectionTitleTwo() ?></h2>

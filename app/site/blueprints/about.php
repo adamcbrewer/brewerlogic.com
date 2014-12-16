@@ -2,13 +2,15 @@
 
 title: About
 pages: false
-files: true
-  title:
-    label: Image Title (used on the image 'alt' attribute and will show when image is hovered over)
-    type: text
-  caption:
-    label: Caption (displayed below the image)
-    type: text
+files:
+  sortable: true
+  fields:
+    client:
+      label: Name of the client or brand
+      type: text
+    caption:
+      label: Caption (optional - not used on client brands)
+      type: text
 fields:
   title:
     label: Page Title
@@ -20,26 +22,29 @@ fields:
   sectionTitleOne:
     label: Section Title
     type: text
+  _infoTwo:
+    label: Your Profile photo
+    type: info
+    text: >
+      Make sure to name your profile photo _me_, in either .jpg of .png format.
   header:
     label: Main Header
     type: text
   about:
     label: About You
     type:  textarea
-
   _headerTwo:
     label: Section - Client Branding
     type: headline
   sectionTitleTwo:
     label: Section Title
     type: text
-  _infoTwo:
+  _infoThree:
     label: Client Brands
     type: info
     text: >
       Images for client brands can be uploaded under the files section on the left,
       where you'll be able to arrange and sort them.
-
   _headerThree:
     label: Section - Skills
     type: headline

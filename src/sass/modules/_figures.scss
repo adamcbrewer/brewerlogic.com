@@ -1,0 +1,23 @@
+.figure {
+    margin: 0 0 6em;
+}
+.figure--alt {
+    margin-bottom: 3em;
+}
+.figure-caption {
+    margin: 0.8em 0;
+    font-style: italic;
+    font-size: 1.6rem;
+    padding: 0 3em;
+
+    .figure--alt & {
+        text-align: left;
+        padding: 0;
+        color: $c-echo;
+        margin-top: 0.2em;
+    }
+}
+.figure-description {
+
+}
+

@@ -13,23 +13,25 @@
             <header class="project-intro">
                 <?php echo markdown($page->intro()) ?>
             </header>
+            <?php if ($page->website() != "") : ?>
             <aside>
                 <a href="<?php echo $page->website() ?>" class="project-website" target="_blank">View the website</a>
             </aside>
+            <?php endif; ?>
         </section>
 
         <section class="contain project-images">
 
             <?php foreach ($page->images()->sortBy('sort', 'asc')->not('thumb.jpg', 'thumb.png', 'feature.jpg', 'feature.png') as $image) : ?>
-                <article class="project-figure layout layout--<?php echo $image->layout() ?>">
+                <article class="figure layout layout--<?php echo $image->layout() ?>">
                     <figure class="project-image">
                         <img src="<?php echo $image->url() ?>" alt="<?php echo $image->filename() ?>">
                         <?php if ($image->caption()) : ?>
-                        <figcaption class="project-figure-caption"><?php echo $image->caption() ?></figcaption>
+                        <figcaption class="figure-caption"><?php echo $image->caption() ?></figcaption>
                         <?php endif; ?>
                     </figure>
                     <?php if ($image->description()) : ?>
-                    <figcaption class="contain contain--text project-figure-description"><?php echo $image->description() ?></figcaption>
+                    <div class="contain contain--text figure-description"><?php echo $image->description() ?></div>
                     <?php endif; ?>
                 </article>
             <?php endforeach; ?>

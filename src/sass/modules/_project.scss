@@ -1,10 +1,3 @@
-.project {
-    font-size: 2rem;
-    strong {
-        color: $c-white;
-    }
-}
-
 .project-intro {
     font-weight: 400;
     margin-bottom: 3em;
@@ -21,10 +14,6 @@
         border-color: currentcolor;
     }
 }
-
-.project-figure {
-    margin: 0 0 6em;
-}
 .project-images {
     margin: 5em;
 }
@@ -37,19 +26,8 @@
         margin-bottom: 0;
     }
 }
-.project-figure-caption {
-    margin: 1em 0;
-    font-style: italic;
-    font-size: 1.6rem;
-    padding: 0 3em;
-}
-.project-figure-description {
-
-}
-
-.project-footer {
-
-}
+.project-figure-description {}
+.project-footer {}
 
 $gutter-gap: ($d-gutter/2);
 .layout--half {
