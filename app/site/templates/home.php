@@ -48,6 +48,8 @@
 
     </section>
 
+    <?php if ($site->showtweets() == 'true') : ?>
+
     <section class="section section--alt">
         <header class="section-header contain">
             <h2 class="section-title"><?php echo $page->sectionTitleThree() ?></h2>
@@ -81,6 +83,8 @@
         </div>
 
     </section>
+
+    <?php endif; ?>
 
 <?php snippet('footer') ?>
 

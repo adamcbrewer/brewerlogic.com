@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js no-font">
+<html class="no-js no-font <?php e($site->showtweets() == 'true', 'tweets-on', 'tweets-off') ?>">
 <head>
 
     <meta charset="utf-8">
@@ -19,7 +19,7 @@
     <?php echo js('assets/js/modernizr.build.js') ?>
 
 </head>
-<body>
+<body data-basepath="<?php echo $site->url() ?>">
 
     <header class="header contain f-futura">
         <nav class="nav nav--pages">

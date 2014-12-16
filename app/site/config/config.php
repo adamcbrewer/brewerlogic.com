@@ -54,10 +54,10 @@ c::set('routes', array(
         'method' => 'GET',
         'action' => function () {
 
-            if(!r::ajax()) {
-                header::notfound();
-                return;
-            }
+            // if(!r::ajax()) {
+            //     header::notfound();
+            //     return;
+            // }
 
             $response = array(
                 'status' => false,

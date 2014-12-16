@@ -6,10 +6,43 @@
      * Name-spacing
      */
     window.Site = {
-        basePath: document.body.getAttribute('data-base-url'),
+        basePath: document.body.getAttribute('data-basepath'),
         userAgent: navigator.userAgent,
         platform: navigator.platform
     };
+
+
+    /**
+     * Twitter Updates
+     *
+     */
+    var request = new XMLHttpRequest();
+    request.open('GET', Site.basePath + '/api/twitter', true);
+
+    request.onload = function() {
+      if (request.status >= 200 && request.status < 400){
+        // Success!
+        var resp = JSON.parse(request.responseText);
+        console.log(resp)
+      } else {
+        // We reached our target server, but it returned an error
+
+      }
+    };
+
+    request.onerror = function() {
+      // There was a connection error of some sort
+    };
+    var tweetsOn = false;
+    var htmlEl = document.documentElement;
+    if (htmlEl.classList && htmlEl.classList.toString().indexOf('tweets-on') != -1) {
+        tweetsOn = true;
+    }
+    if (tweetsOn) {
+        request.send();
+    }
+
+
 
     /**
      * Typekit loading
