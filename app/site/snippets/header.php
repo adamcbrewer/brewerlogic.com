@@ -18,9 +18,6 @@
     <?php echo css('assets/css/styles.unprefixed.css') ?>
     <?php echo js('assets/js/modernizr.build.js') ?>
 
-    <script src="//use.typekit.net/qwc7wds.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
-
 </head>
 <body>
 

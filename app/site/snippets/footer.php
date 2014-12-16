@@ -18,7 +18,7 @@
     </footer>
 
     <div id="scripts">
-        <!-- // <script src="assets/js/script.min.js"></script> -->
+        <script src="assets/js/script.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
