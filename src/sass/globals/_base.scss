@@ -8,8 +8,14 @@
     background: $c-indigo;
     color: $c-bg;
 }
-a::-moz-selection {}
-a::selection {}
+a::-moz-selection {
+    background: $c-alpha;
+    color: $c-white;
+}
+a::selection {
+    background: $c-alpha;
+    color: $c-white;
+}
 
 html, body {
     -webkit-font-smoothing: antialiased;
@@ -44,4 +50,8 @@ body {
 
 img {
     max-width: 100%;
+}
+
+p:last-child {
+    margin-bottom: 0;
 }

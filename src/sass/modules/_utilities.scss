@@ -54,6 +54,12 @@
     justify-content: space-around;
     align-items: flex-start;
 }
+.u-flex--spacebetween {
+    justify-content: space-between;
+}
+.u-flex--stretch {
+    align-items: stretch;
+}
 .u-flex--center-v {
     align-items: center;
 }

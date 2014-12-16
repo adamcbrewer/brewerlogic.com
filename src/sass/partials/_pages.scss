@@ -1,3 +1,26 @@
+// Home page
+.tweets {
+
+}
+.tweet {
+    $width: (($d-column*4) + ($d-gutter*3)) / $d-siteWidth * 100%;
+    width: $width;
+    padding: 2.4em;
+    text-align: left;
+    background-color: lighten($c-bg, 1%);
+}
+.tweet-header {
+    margin-bottom: 1.6em;
+}
+.tweet-time {
+    font-size: 1.6rem;
+    font-style: italic;
+    color: $c-echo;
+}
+.tweet-body {
+    color: $c-white;
+}
+
 // About page
 .clients {
     list-style-type: none;

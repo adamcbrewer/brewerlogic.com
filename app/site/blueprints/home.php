@@ -14,14 +14,15 @@ fields:
   text:
     label: Intro Text
     type:  text
-
+  status:
+    label: Current Status
+    type: text
   _headerTwo:
     label: Section - Featured Work
     type: headline
   sectionTitleTwo:
     label: Section Title
     type: text
-
   _headerThree:
     label: Section - Twitter
     type: headline
