@@ -78,9 +78,9 @@ c::set('routes', array(
             $twitter = new Twitter($twitter_config);
 
             if ($filter) {
-                $tweets = $twitter->search(20, 'from:' . $twitter_config['screen_name'] . ' ' . $filter);
+                $tweets = $twitter->search(3, 'from:' . $twitter_config['screen_name'] . ' ' . $filter);
             } else {
-                $tweets = $twitter->get(20);
+                $tweets = $twitter->get(3);
             }
 
             $response['filter'] = $filter;

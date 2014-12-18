@@ -10,12 +10,13 @@
     background-color: lighten($c-bg, 1%);
 }
 .tweet-header {
-    margin-bottom: 1.6em;
+    margin-bottom: 1.2em;
 }
 .tweet-time {
     font-size: 1.6rem;
     font-style: italic;
     color: $c-echo;
+    font-style: italic;
 }
 .tweet-body {
     color: $c-white;
