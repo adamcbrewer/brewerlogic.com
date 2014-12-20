@@ -29,11 +29,34 @@ input {
     min-width: 220px;
     text-align: center;
     background: transparent;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.2s 0.02s ease;
+
+    &:after {
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        margin: auto;
+        background-color: $c-white;
+        position: absolute;
+        z-index: -1;
+        transition: 0.2s $easeOutExpo;
+    }
 
     &:hover {
         border-color: $c-white;
-        background: $c-white;
+        // background: $c-white;
         color: $c-bravo;
+
+        &:after {
+            width: 100%;
+        }
     }
 }
 .btn-group {
@@ -47,9 +70,13 @@ input {
 .btn--primary {
     color: $c-bravo;
 
+    &:after {
+        background-color: $c-bravo;
+    }
+
     &:hover {
         border-color: $c-bravo;
-        background: $c-bravo;
+        // background: $c-bravo;
         color: $c-white;
     }
 }

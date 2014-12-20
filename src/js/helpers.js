@@ -66,6 +66,7 @@ Tweet.prototype.insertHyperlinks = function () {
     this.stripFilterHash()
         .linkUrls()
         .linkMentions()
+        .linkMedia()
         .linkHashTags();
     return this;
 
@@ -97,6 +98,18 @@ Tweet.prototype.linkMentions = function () {
     var x = mentions.length;
     while (x--) {
         this.text = this.text.replace('@' + mentions[x].screen_name, '<a title="'+ mentions[x].name +'" target="_blank" href="https://twitter.com/'+ mentions[x].screen_name +'">@'+ mentions[x].screen_name +'</a>');
+    }
+    return this;
+
+};
+
+Tweet.prototype.linkMedia = function () {
+
+    var media = this.tweet.entities.media;
+    if (!media) return this;
+    var x = media.length;
+    while (x--) {
+        this.text = this.text.replace(media[x].url, '<a target="_blank" href="'+ media[x].url +'">'+ media[x].url +'</a>');
     }
     return this;
 
