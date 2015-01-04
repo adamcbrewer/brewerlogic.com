@@ -30,13 +30,13 @@
 
                 <li class="feature">
                     <figure class="feature-figure">
-                        <a href="<?php echo html($project->title()) ?>">
+                        <a href="<?php echo $project->url() ?>">
                             <img src="<?php echo $project->images()->findBy('name', 'feature')->url() ?>" alt="<?php echo html($project->title()) ?>">
                         </a>
                     </figure>
                     <div>
                         <h3 class="feature-title">
-                            <a href="<?php echo html($project->url()) ?>"><?php echo html($project->title()) ?></a>
+                            <a href="<?php echo $project->url() ?>"><?php echo html($project->title()) ?></a>
                         </h3>
                         <p class="feature-summary"><?php echo html($project->summary()) ?></p>
                     </div>
