@@ -19,6 +19,10 @@
     color: $c-white;
     margin: 0 0 0.4em;
     line-height: 1;
+    a {
+        color: inherit;
+        border: none;
+    }
 }
 
 .feature-summary {
