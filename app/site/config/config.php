@@ -67,6 +67,10 @@ c::set('routes', array(
 
             $site = site();
             $filter = null;
+            // max tweets fetched before filtering out replies etc
+            $limit_up_to = 12;
+            // the maximun number of tweets returned to the front-end
+            $limit_shown = 3;
 
             $vendor = $site->kirby()->roots()->index() . DS . 'vendor';
             require($vendor . DS . 'tmhOAuth.php');
@@ -78,20 +82,32 @@ c::set('routes', array(
             $twitter = new Twitter($twitter_config);
 
             if ($filter) {
-                $tweets = $twitter->search(3, 'from:' . $twitter_config['screen_name'] . ' ' . $filter);
+                $tweets = $twitter->search($limit_up_to, 'from:' . $twitter_config['screen_name'] . ' ' . $filter);
             } else {
-                $tweets = $twitter->get(3);
+                $tweets = $twitter->get($limit_up_to);
             }
 
             $response['filter'] = $filter;
             if ($tweets) {
                 $response['status'] = true;
+                $tweets_filtered = array();
 
                 if (isset($tweets->statuses)) {
                     $tweets = $tweets->statuses;
                 }
 
-                $response['tweets'] = $tweets;
+                foreach ($tweets as $tweet) {
+
+                    // Exclude direct replies
+                    if ($tweet->in_reply_to_status_id === null) {
+                        $tweets_filtered[] = $tweet;
+                    }
+                    if (count($tweets_filtered) === $limit_shown) {
+                        break;
+                    }
+                }
+
+                $response['tweets'] = $tweets_filtered;
             }
 
             header::contentType('application/json');
