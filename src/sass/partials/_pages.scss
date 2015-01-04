@@ -1,6 +1,26 @@
 // Home page
 .tweets {
+    position: relative;
 
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 8px;
+        height: 20px;
+        background-color: white;
+        transition: 0.2s;
+        opacity: 0;
+        animation: none;
+    }
+
+    &.is-busy {
+        &:before {
+            animation: blink 0.25s 0s ease infinite alternate;
+            opacity: 1;
+        }
+    }
 }
 .tweet {
     $width: (($d-column*4) + ($d-gutter*3)) / $d-siteWidth * 100%;
@@ -8,6 +28,14 @@
     padding: 2.4em;
     text-align: left;
     background-color: lighten($c-bg, 1%);
+
+    transition: 0.2s;
+    opacity: 1;
+
+    .is-busy & {
+        opacity: 0;
+    }
+
 }
 .tweet-header {
     margin-bottom: 1.2em;

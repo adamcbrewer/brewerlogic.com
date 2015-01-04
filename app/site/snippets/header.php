@@ -44,7 +44,7 @@
         })();
     </script>
 
-    <?php echo css('assets/css/styles.unprefixed.css') ?>
+    <?php echo css('assets/css/styles.prefixed.css') ?>
     <?php echo js('assets/js/modernizr.build.js') ?>
 
 </head>

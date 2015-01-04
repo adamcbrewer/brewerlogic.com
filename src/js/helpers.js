@@ -41,7 +41,9 @@ Tweet.prototype.createTweetNode = function () {
     this.$tweet = this.$template.cloneNode(true);
     this.$tweet.id = this.tweet.id_str;
 
-    this.insertTime().insertText();
+    this
+        .insertTime()
+        .insertText();
 
 };
 
@@ -139,7 +141,7 @@ Tweet.prototype.createHumanDate = function () {
 
     if (day < 10) day = '0' + day;
 
-    day += this._getDaySuffix(day);
+    day += this.getDaySuffix(day);
 
     return [day, month].join(' ');
 
@@ -151,7 +153,7 @@ Tweet.prototype.createFullDate = function () {
 
 };
 
-Tweet.prototype._getDaySuffix = function (day) {
+Tweet.prototype.getDaySuffix = function (day) {
 
     var suffix = 'th';
 

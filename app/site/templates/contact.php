@@ -17,7 +17,7 @@
 
     <section class="section section--alt-lighter">
 
-        <header class="section-header">
+        <header class="section-header section-header--halfgap">
             <p class="section-title"><?php echo $page->sectionTitleTwo() ?></p>
         </header>
 
@@ -25,6 +25,9 @@
             <?php $external_links = array_slice($site->externallinks()->yaml(), 0, 3); ?>
             <?php foreach($external_links as $external_link) : ?>
                 <div class="btn-group">
+                    <div class="icon icon--github icon--block">
+                        <?php snippet('icons/' . $external_link['title']) ?>
+                    </div>
                     <a target="_blank" href="<?php echo $external_link['url'] ?>" class="btn btn--primary"><?php echo $external_link['title'] ?></a>
                 </div>
             <?php endforeach; ?>
