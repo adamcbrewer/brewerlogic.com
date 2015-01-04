@@ -47,7 +47,12 @@ Tweet.prototype.createTweetNode = function () {
 
 Tweet.prototype.insertTime = function () {
 
-    this.$tweet.querySelectorAll('.tweet-time')[0].innerHTML = this.createDate(this.tweet.created_at);
+    var fullDate = this.createFullDate(this.tweet.created_at);
+    var humanDate = this.createHumanDate(this.tweet.created_at);
+
+    this.$tweet.querySelectorAll('.tweet-time')[0].innerHTML = humanDate;
+    this.$tweet.querySelectorAll('.tweet-time')[0].setAttribute('datetime', fullDate);
+    this.$tweet.querySelectorAll('.tweet-time')[0].title = fullDate;
     return this;
 
 };
@@ -126,14 +131,41 @@ Tweet.prototype.linkUrls = function (text) {
 
 };
 
-Tweet.prototype.createDate = function () {
+Tweet.prototype.createHumanDate = function () {
 
     var date = new Date(this.tweet.created_at);
     var month = this.months.short[date.getMonth()]
-    var day = date.getDay();
+    var day = date.getDate();
 
     if (day < 10) day = '0' + day;
 
+    day += this._getDaySuffix(day);
+
     return [day, month].join(' ');
+
+};
+
+Tweet.prototype.createFullDate = function () {
+
+    return new Date(this.tweet.created_at);;
+
+};
+
+Tweet.prototype._getDaySuffix = function (day) {
+
+    var suffix = 'th';
+
+    switch (day) {
+        case 01:
+            suffix = 'st';
+        case 02:
+            suffix = 'nd';
+        case 03:
+            suffix = 'rd';
+        default:
+            break;
+    }
+
+    return '<sup>' + suffix + '</sup>';
 
 };
