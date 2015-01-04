@@ -69,6 +69,10 @@
             <section class="tweet-body"></section>
         </article>
 
+        <noscript>
+            You need javascript to display this page correctly.
+        </noscript>
+
     </section>
 
     <?php endif; ?>

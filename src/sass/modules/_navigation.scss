@@ -1,15 +1,35 @@
 a {
     color: $c-bravo;
     text-decoration: none;
-    border-bottom: 1px solid currentcolor;
     transition: 0.15s ease;
+    position: relative;
 
     figure & {
         border: none;
+        &:after {
+            content: none;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 1px;
+        width: 0%;
+        background-color: currentcolor;
+        content: "";
+        transition:
+            0.15s $easeOutExpo width,
+            0.15s 0s $easeOutExpo background-color;
     }
 }
 a:hover {
-    border-color: transparent;
+    &:after {
+        width: 100%;
+    }
 }
 a:active {}
 a:focus {}
@@ -27,12 +47,20 @@ a:focus {}
     font-size: 1.6rem;
     font-weight: 400;
     font-style: italic;
-    border-color: transparent;
+    border-bottom: none;
     text-transform: uppercase;
     color: $c-alpha;
+    position: relative;
+
+    &:after {
+        bottom: -2px;
+        height: 2px;
+    }
 
     &:hover {
-        border-color: currentcolor;
+        &:after {
+            width: 100%;
+        }
     }
     &.is-active {
         color: $c-white;

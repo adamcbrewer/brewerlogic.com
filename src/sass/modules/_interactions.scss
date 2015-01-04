@@ -33,7 +33,7 @@ input {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    transition: 0.2s 0.02s ease;
+    transition: 0.15s 0.02s ease;
 
     &:before,
     &:after {
@@ -45,15 +45,15 @@ input {
         margin: auto;
         position: absolute;
         z-index: -1;
-        transition: 0.2s $easeOutExpo;
+        transition: 0.15s $easeOutExpo;
         background-color: $c-white;
         opacity: 1;
     }
 
     &:before {
         transition:
-            0.2s 0s $easeOutExpo background-color,
-            0.2s 0.21s $easeOutExpo height;
+            0.15s 0s $easeOutExpo background-color,
+            0.2s 0.16s $easeOutExpo height;
         width: 100%;
         height: 0%;
     }

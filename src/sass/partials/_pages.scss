@@ -1,4 +1,7 @@
 // Home page
+.no-js #tweet-template {
+    display: none;
+}
 .tweets {
     position: relative;
 
@@ -29,7 +32,7 @@
     text-align: left;
     background-color: lighten($c-bg, 1%);
 
-    transition: 0.2s;
+    transition: 0.4s;
     opacity: 1;
 
     .is-busy & {
