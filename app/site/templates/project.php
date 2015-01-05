@@ -14,8 +14,8 @@
                 <?php echo markdown($page->intro()) ?>
             </header>
             <?php if ($page->website() != "") : ?>
-            <aside>
-                <a href="<?php echo $page->website() ?>" class="project-website" target="_blank">View the website</a>
+            <aside class="btn-group">
+                <a href="<?php echo $page->website() ?>" class="btn btn--primary" target="_blank">View the website</a>
             </aside>
             <?php endif; ?>
         </section>

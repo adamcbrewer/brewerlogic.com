@@ -9,7 +9,7 @@ files:
       label: Caption (optional)
       type: text
     description:
-      label: Description (optional)
+      label: Description (optional - shown below the image)
       type: textarea
     _lineOne:
       type: line
@@ -18,6 +18,9 @@ files:
       type: info
       text: >
         Project images are full width by default. Selecting one of the options below will float the images according to the size shown, but remember to pair one ratio with another. For example: half-size images should be ordered next to each other and likewise for third and two-thirds images.
+
+
+        Layout ratios do not affect thumbnails or homepage feature images.
     layout:
       label: Layout Options/Ratios
       type: radio
@@ -37,6 +40,15 @@ fields:
     type: info
     text: >
       Make sure the project thumbnail is named _thumb_, otherwise the first project image will be used and likely cropped. If you want to feature this project on the Home page, please make sure to upload an appropriately sized image name _feature_.
+
+
+      **Images sizes:**
+
+      Thumbnail: 410x320
+
+      Feature: 994xXXX
+
+      All others: 1300xXXX (full), 615xYYY (1/2), 395xZZZ (1/3), 835xZZZ (2/3)
   title:
     label: Title
     type:  text

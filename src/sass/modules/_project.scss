@@ -27,15 +27,21 @@
     }
 }
 .project-figure-description {}
-.project-footer {}
+.project-footer {
+    clear: both;
+}
 
 $gutter-gap: ($d-gutter/2);
+
 .layout--half {
     float: left;
     $width: (($d-gutter*5) + ($d-column*6)) / $d-siteWidth * 100%;
     max-width: calc(#{$width} - #{$gutter-gap});
     & + .layout--half {
         float: right;
+        & + * {
+            clear: both;
+        }
     }
 }
 
@@ -45,6 +51,9 @@ $gutter-gap: ($d-gutter/2);
     max-width: calc(#{$width} - #{$gutter-gap});
     & + .layout--twothirds {
         float: right;
+        & + * {
+            clear: both;
+        }
     }
 }
 
@@ -54,5 +63,8 @@ $gutter-gap: ($d-gutter/2);
     max-width: calc(#{$width} - #{$gutter-gap});
     & + .layout--third {
         float: right;
+        & + * {
+            clear: both;
+        }
     }
 }
