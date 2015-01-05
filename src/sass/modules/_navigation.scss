@@ -1,35 +1,15 @@
 a {
     color: $c-bravo;
     text-decoration: none;
-    transition: 0.15s ease;
-    position: relative;
+    transition: 0.2s ease border-color;
+    border-bottom: 1px solid transparent;
 
     figure & {
         border: none;
-        &:after {
-            content: none;
-        }
-    }
-
-    &:after {
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        right: 0;
-        margin: auto;
-        height: 1px;
-        width: 0%;
-        background-color: currentcolor;
-        content: "";
-        transition:
-            0.15s $easeOutExpo width,
-            0.15s 0s $easeOutExpo background-color;
     }
 }
 a:hover {
-    &:after {
-        width: 100%;
-    }
+    border-bottom-color: currentcolor;
 }
 a:active {}
 a:focus {}
@@ -55,6 +35,16 @@ a:focus {}
     &:after {
         bottom: -2px;
         height: 2px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0%;
+        background-color: currentcolor;
+        content: "";
+        transition:
+            0.15s $easeOutExpo width,
+            0.15s 0s $easeOutExpo background-color;
     }
 
     &:hover {
