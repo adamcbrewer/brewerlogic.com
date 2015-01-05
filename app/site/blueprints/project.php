@@ -48,7 +48,7 @@ fields:
 
       Feature: 994xXXX
 
-      All others: 1300xXXX (full), 615xYYY (1/2), 395xZZZ (1/3), 835xZZZ (2/3)
+      All others: 1300xXXX (full), 615xYYY (half), 395xZZZ (one third), 835xZZZ (two thirds)
   title:
     label: Title
     type:  text

@@ -31,7 +31,7 @@
                         <?php endif; ?>
                     </figure>
                     <?php if ($image->description()) : ?>
-                    <div class="contain contain--text figure-description"><?php echo $image->description() ?></div>
+                    <div class="contain contain--text figure-description"><?php echo kirbyText($image->description()) ?></div>
                     <?php endif; ?>
                 </article>
             <?php endforeach; ?>
