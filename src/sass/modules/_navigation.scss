@@ -27,14 +27,14 @@ a:focus {}
     font-size: 1.6rem;
     font-weight: 400;
     font-style: italic;
-    border-bottom: none;
+    border: none;
     text-transform: uppercase;
     color: $c-alpha;
     position: relative;
 
     &:after {
         bottom: -2px;
-        height: 2px;
+        height: 3px;
         position: absolute;
         left: 0;
         right: 0;
@@ -42,6 +42,7 @@ a:focus {}
         width: 0%;
         background-color: currentcolor;
         content: "";
+        transform: skew(-25deg);
         transition:
             0.15s $easeOutExpo width,
             0.15s 0s $easeOutExpo background-color;
@@ -71,6 +72,11 @@ a:focus {}
     .nav--footer & {
         margin: 0 $space;
         color: $c-echo;
+
+        &:after {
+            bottom: -4px;
+        }
+
         &:hover {
             color: $c-bravo;
         }

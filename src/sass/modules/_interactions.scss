@@ -33,32 +33,23 @@ input {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    transition: 0.15s 0.02s ease;
+    transition: 0.2s 0.02s ease;
 
-    &:before,
     &:after {
         content: "";
         top: 0;
-        right: 0;
         bottom: 0;
-        left: 0;
+        left: -15px;
         margin: auto;
         position: absolute;
         z-index: -1;
-        transition: 0.15s $easeOutExpo;
+        transition: 0.4s 0.1s $easeOutExpo;
         background-color: $c-white;
         opacity: 1;
     }
 
-    &:before {
-        transition:
-            0.15s 0s $easeOutExpo background-color,
-            0.2s 0.16s $easeOutExpo height;
-        width: 100%;
-        height: 0%;
-    }
-
     &:after {
+        transform: skew(-25deg);
         width: 0%;
         height: 100%;
     }
@@ -67,12 +58,9 @@ input {
         border-color: $c-white;
         color: $c-bravo;
 
-        &:before {
-            height: 100%;
-        }
-
         &:after {
-            width: 100%;
+            transition-delay: 0s;
+            width: 125%;
         }
     }
 }
@@ -87,8 +75,7 @@ input {
 .btn--primary {
     color: $c-bravo;
 
-    &:after,
-    &:before {
+    &:after {
         background-color: $c-bravo;
     }
 
