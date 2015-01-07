@@ -26,7 +26,7 @@
             <?php foreach($external_links as $external_link) : ?>
                 <div class="btn-group">
                     <div class="icon icon--github icon--block">
-                        <?php snippet('icons/' . $external_link['title']) ?>
+                        <?php echo snippet('icons/' . $external_link['title']) ?>
                     </div>
                     <a target="_blank" href="<?php echo $external_link['url'] ?>" class="btn btn--primary"><?php echo $external_link['title'] ?></a>
                 </div>

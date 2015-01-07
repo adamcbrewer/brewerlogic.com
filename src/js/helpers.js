@@ -168,6 +168,6 @@ Tweet.prototype.getDaySuffix = function (day) {
             break;
     }
 
-    return '<sup>' + suffix + '</sup>';
+    return suffix;
 
 };
