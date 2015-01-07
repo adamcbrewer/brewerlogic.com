@@ -107,7 +107,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;
@@ -134,7 +134,7 @@ class Twitter {
         $code = static::api()->response['code'];
 
         if ($code === 200) {
-            return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+            return json_decode($response, false, 512);
         }
 
         return false;
@@ -160,7 +160,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;
@@ -185,7 +185,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			$response = json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			$response = json_decode($response, false, 512);
 			if ($list === TRUE) {
 				return static::users($response->ids);
 			} else {
@@ -221,7 +221,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;
@@ -247,7 +247,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;
@@ -274,7 +274,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;
@@ -307,7 +307,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			$mentions = json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			$mentions = json_decode($response, false, 512);
 
 			// We have all replies since the tweet ID we've specified, but
 			// here is where twe pick out only the ones that are specifically
@@ -347,7 +347,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;
@@ -378,7 +378,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;
@@ -413,7 +413,7 @@ class Twitter {
 		$code = static::api()->response['code'];
 
 		if ($code === 200) {
-			return json_decode($response, false, 512, JSON_BIGINT_AS_STRING);
+			return json_decode($response, false, 512);
 		}
 
 		return false;

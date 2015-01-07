@@ -39,8 +39,10 @@ $gutter-gap: ($d-gutter/2);
     max-width: calc(#{$width} - #{$gutter-gap});
     & + .layout--half {
         float: right;
-        & + * {
-            clear: both;
+        & + .layout--half:nth-of-type(2n+1) {
+        // & + *:nth-of-type(2n+1) {
+            clear: left;
+            float: left;
         }
     }
 }

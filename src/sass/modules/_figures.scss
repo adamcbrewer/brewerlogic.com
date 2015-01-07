@@ -17,8 +17,12 @@
         margin-top: 0.2em;
     }
 }
-.figure-description {
+.figure-description {}
 
+.figure-description--above,
+.figure-description--below {
+    clear: both;
+    margin-bottom: 7em;
 }
 
 .icon {

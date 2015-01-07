@@ -39,16 +39,16 @@ input {
         content: "";
         top: 0;
         bottom: 0;
-        left: -15px;
+        right: -15px;
         margin: auto;
         position: absolute;
         z-index: -1;
-        transition: 0.4s 0.1s $easeOutExpo;
+        transition:
+            0.4s 0.1s $easeOutExpo,
+            0s left,
+            0s right;
         background-color: $c-white;
         opacity: 1;
-    }
-
-    &:after {
         transform: skew(-25deg);
         width: 0%;
         height: 100%;
@@ -61,6 +61,8 @@ input {
         &:after {
             transition-delay: 0s;
             width: 125%;
+            left: -15px;
+            right: auto;
         }
     }
 }

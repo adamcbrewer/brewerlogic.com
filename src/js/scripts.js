@@ -43,6 +43,9 @@
 
             var resp = JSON.parse(request.responseText);
             var tweets = resp.tweets;
+
+            if (!tweets) return;
+
             var filter = resp.filter || false;
             var x = 0;
 
