@@ -11,6 +11,14 @@ files:
     description:
       label: Description (optional - shown below the image)
       type: textarea
+    descriptionLocation:
+      label: Location of the image description
+      type: radio
+      default: inside
+      options:
+        inside: Default ('inside' the image container)
+        above: Above
+        below: Below
     _lineOne:
       type: line
     _infoOne:
