@@ -45,8 +45,8 @@
         <header class="section-header">
             <p class="section-title"><?php echo $page->sectionTitleThree() ?></p>
         </header>
-        <section class="u-flex u-flex--row">
-            <div>
+        <section class="skills u-flex u-flex--row">
+            <div class="skill">
                 <h3 class="taglist-title">Languages</h3>
                 <ul class="taglist">
                     <?php foreach(explode(',', $page->languages()) as $value) : ?>
@@ -54,7 +54,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <div>
+            <div class="skill">
                 <h3 class="taglist-title">Frameworks</h3>
                 <ul class="taglist">
                     <?php foreach(explode(',', $page->frameworks()) as $value) : ?>
@@ -62,7 +62,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <div>
+            <div class="skill">
                 <h3 class="taglist-title">Workflow</h3>
                 <ul class="taglist">
                     <?php foreach(explode(',', $page->workflow()) as $value) : ?>
