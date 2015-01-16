@@ -31,7 +31,7 @@
                 <li class="feature">
                     <figure class="feature-figure">
                         <a href="<?php echo $project->url() ?>">
-                            <img src="<?php echo $project->images()->findBy('name', 'feature')->url() ?>" alt="<?php echo html($project->title()) ?>">
+                            <img src="<?php echo $project->feature()->url() ?>" alt="<?php echo html($project->title()) ?>">
                         </a>
                     </figure>
                     <div>

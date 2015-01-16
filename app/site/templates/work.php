@@ -12,7 +12,7 @@
             <li class="work">
                 <figure class="work-thumb">
                     <a href="<?php echo $project->url() ?>">
-                        <img src="<?php echo $project->images()->findBy('name', 'thumb')->url() ?>" alt="<?php echo $project->title(); ?>">
+                        <img src="<?php echo $project->thumb()->url() ?>" alt="<?php echo $project->title(); ?>">
                     </a>
                 </figure>
                 <section class="work-details">
