@@ -61,7 +61,7 @@ fields:
     label: Title
     type:  text
   summary:
-    label: Short Summary (seen when featured on the home page)
+    label: Short Summary (displayed beneath features and thumbnails)
     type:  text
   intro:
     label: Introduction

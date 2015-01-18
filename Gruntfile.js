@@ -191,20 +191,6 @@ module.exports = function (grunt) {
                         dest: '<%= project.src %>/js/libs',
                     }
                 ]
-            },
-            new: {
-                src: [
-                    "app/**/**/*",
-                    "src/**/**/*",
-                    ".editorconfig",
-                    ".gitignore",
-                    ".jshintrc",
-                    "bower.json",
-                    "Gruntfile.js",
-                    "package.json",
-                    "!CHANGELOG.md"
-                ],
-                dest: '',
             }
         },
 

@@ -11,8 +11,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    height: 145px;
-    max-height: 145px;
+    // height: 145px;
+    // max-height: 145px;
+    padding-top: $d-gutter;
+    padding-bottom: $d-gutter;
     flex: 1;
 
     .nav {
@@ -22,7 +24,7 @@
 }
 
 .logo {
-    max-width: 200px;
+    max-width: 130px;
     align-self: center;
     transition: 0.8s;
 
@@ -74,9 +76,9 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: calc(#{$d-siteWidth} + 4%);
-    padding-left: 2%;
-    padding-right: 2%;
+    max-width: calc(#{$d-siteWidth} + #{$d-gutter*2});
+    padding-left: $d-gutter;
+    padding-right: $d-gutter;
 }
 
 .contain--text {

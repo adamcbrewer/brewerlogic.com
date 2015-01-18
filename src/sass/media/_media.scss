@@ -70,6 +70,7 @@
         margin-top: $x;
         margin-bottom: $x;
     }
+    .figure,
     .section-header {
         margin-bottom: $x;
     }
@@ -95,6 +96,11 @@
             margin: 1em;
         }
     }
+    .layout {
+        max-width: none;
+        width: 100%;
+        float: none !important;
+    }
 }
 
 @media screen and (max-width: 680px) {
@@ -112,6 +118,18 @@
     }
     .taglist {
         padding-left: 1em;
+    }
+    .section--hero {
+
+    }
+    .btn-group {
+        width: 100%;
+    }
+    .btn {
+        display: block;
+        .btn-group & {
+            margin-bottom: $d-gutter;
+        }
     }
 }
 

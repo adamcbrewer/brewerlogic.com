@@ -4,6 +4,7 @@ title: Work
 pages:
   template: project
   sortable: true
+  limit: 50
 files: false
 fields:
   title:
