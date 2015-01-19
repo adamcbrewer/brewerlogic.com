@@ -40,6 +40,9 @@ c::set('twitter', array(
     'screen_name'       => ''
 ));
 
+// Custom Panel Stylesheet
+// c::set('panel.stylesheet', 'assets/css/custom-panel.css');
+
 /*
 
 ---------------------------------------
