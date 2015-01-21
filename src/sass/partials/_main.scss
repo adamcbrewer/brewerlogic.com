@@ -28,6 +28,8 @@
     align-self: center;
     transition: 0.8s;
 
+    a { display: block; }
+
     // lighting
     &:before {
         // content: "";
