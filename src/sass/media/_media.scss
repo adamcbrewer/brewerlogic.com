@@ -70,9 +70,12 @@
         margin-top: $x;
         margin-bottom: $x;
     }
-    .figure,
-    .section-header {
+    .figure {
         margin-bottom: $x;
+    }
+
+    .section-header {
+        margin-bottom: 2.8em;
     }
 
     .tweet {
@@ -128,7 +131,8 @@
     .btn {
         display: block;
         .btn-group & {
-            margin-bottom: $d-gutter;
+            margin: 0 0 $d-gutter;
+
         }
     }
 }

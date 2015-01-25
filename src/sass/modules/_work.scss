@@ -9,10 +9,10 @@
     max-width: 410px;
     $width: (($d-column*4) + ($d-gutter*3)) / $d-siteWidth * 100%;
     width: $width;
-    margin: 0 0 4em;
+    margin: 0 0 4.6em;
 }
 .work-thumb {
-    margin-bottom: 1em;
+    margin-bottom: 1.4em;
     overflow: hidden;
 
     img {
@@ -31,7 +31,7 @@
 
 }
 .work-details {
-    padding: 0 1.4em;
+    padding: 0 .6em;
 }
 .work-title,
 .work-summary,
