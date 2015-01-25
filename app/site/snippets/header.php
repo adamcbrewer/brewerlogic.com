@@ -11,7 +11,7 @@
     <link rel="dns-prefetch" href="//ajax.googleapis.com">
 
     <meta name="author" content="Adam Brewer">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <meta name="description" content="<?php echo $site->description()->html() ?>">
     <meta name="keywords" content="<?php echo $site->keywords()->html() ?>">
@@ -21,7 +21,7 @@
         WebFont.load({typekit: { id: 'qwc7wds' }});
     </script>
 
-    <?php echo css('assets/css/styles.prefixed.css') ?>
+    <?php echo css('assets/css/styles.css') ?>
     <?php echo js('assets/js/modernizr.build.js') ?>
 
 </head>
@@ -33,7 +33,9 @@
         </nav>
         <figure class="logo logo-main">
             <a href="<?php echo $site->url() ?>">
-                <img src="<?php echo url('/assets/img/logo.png') ?>" alt="Brewer Logic">
+                <img class="logo-vector" src="<?php echo url('/assets/img/logo-vector.png') ?>" alt="Brewer Logic">
+                <img class="logo-bl" src="<?php echo url('/assets/img/logo-bl.png') ?>" alt="Brewer Logic">
+                <!-- <img src="<?php echo url('/assets/img/logo.png') ?>" alt="Brewer Logic"> -->
             </a>
         </figure>
         <nav class="nav nav--external">

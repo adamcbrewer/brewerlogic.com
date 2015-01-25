@@ -78,6 +78,7 @@ a:focus {}
     .nav--footer & {
         margin: 0 $space;
         color: $c-echo;
+        backface-visibility: hidden;
 
         &:after {
             bottom: -4px;

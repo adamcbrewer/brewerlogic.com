@@ -16,6 +16,7 @@
     padding-top: $d-gutter;
     padding-bottom: $d-gutter;
     flex: 1;
+    background: transparent url(../img/light.png) no-repeat center -85%;
 
     .nav {
         display: flex;
@@ -27,6 +28,7 @@
     max-width: 130px;
     align-self: center;
     transition: 0.8s;
+    position: relative;
 
     a { display: block; }
 
@@ -44,6 +46,34 @@
         margin: auto;
         transform: translateY(-50%);
         background-image: radial-gradient(circle at center, $c-indigo, transparent);
+    }
+
+    &:hover {
+        // filter: grayscale(1);
+    }
+
+}
+
+.logo-vector {
+    position: absolute;
+    top: 0;
+    transition: 1s $easeOutExpo transform;
+
+    .js & {
+        transform: scale(0);
+    }
+    .js.wf-active & {
+        transform: scale(1);
+    }
+}
+
+.logo-bl {
+    transition: 1s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
+    .js & {
+        transform: translateX(-20px);
+    }
+    .js.wf-active & {
+        transform: translateX(0);
     }
 }
 

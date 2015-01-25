@@ -11,14 +11,16 @@
 
     </article>
 
-    <section class="section contain contain--narrow">
-
-        <figure class="figure figure--alt">
+    <div class="contain">
+        <figure class="figure figure--alt figure--about section">
             <img src="<?php echo $page->images()->findBy('name', 'me')->url() ?>" alt="<?php echo $site->author() ?>">
             <?php if ($page->images()->findBy('name', 'me')->caption()) : ?>
             <figcaption class="figure-caption"><?php echo $page->images()->findBy('name', 'me')->caption() ?></figcaption>
             <?php endif; ?>
         </figure>
+    </div>
+
+    <section class="section contain contain--narrow">
 
         <div class="u-textleft">
             <?php echo kirbytext($page->about()) ?>
