@@ -16,6 +16,11 @@
     <meta name="description" content="<?php echo $site->description()->html() ?>">
     <meta name="keywords" content="<?php echo $site->keywords()->html() ?>">
 
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo $site->url() ?>" />
+    <meta property="og:title" content="<?php echo $site->title() ?>" />
+    <meta property="og:image" content="<?php echo url('/assets/img/logo-og.png') ?>" />
+
     <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
     <script>
         WebFont.load({typekit: { id: 'qwc7wds' }});
@@ -35,7 +40,6 @@
             <a href="<?php echo $site->url() ?>">
                 <img class="logo-vector" src="<?php echo url('/assets/img/logo-vector.png') ?>" alt="Brewer Logic">
                 <img class="logo-bl" src="<?php echo url('/assets/img/logo-bl.png') ?>" alt="Brewer Logic">
-                <!-- <img src="<?php echo url('/assets/img/logo.png') ?>" alt="Brewer Logic"> -->
             </a>
         </figure>
         <nav class="nav nav--external">
