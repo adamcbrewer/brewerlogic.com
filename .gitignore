@@ -47,3 +47,4 @@ app/thumbs/*
 app/site/config/config.*.php
 app/content/*
 !app/content/.gitkeep
+app/vendor/**/*

@@ -40,6 +40,11 @@ c::set('twitter', array(
     'screen_name'       => ''
 ));
 
+c::set('tumblr', array(
+    'consumer_key' => '',
+    'consumer_secret' => ''
+));
+
 // Custom Panel Stylesheet
 // c::set('panel.stylesheet', 'assets/css/custom-panel.css');
 
