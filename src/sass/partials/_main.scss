@@ -47,11 +47,6 @@
         transform: translateY(-50%);
         background-image: radial-gradient(circle at center, $c-indigo, transparent);
     }
-
-    &:hover {
-        // filter: grayscale(1);
-    }
-
 }
 
 .logo-vector {
@@ -69,6 +64,7 @@
 
 .logo-bl {
     transition: 1s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
+    animation: 60s linear infinite miamivice 10s forwards;
     .js & {
         transform: translateX(-20px);
     }
