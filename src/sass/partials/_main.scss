@@ -48,8 +48,8 @@
 }
 
 .logo-bl {
-    transition: 1s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
-    animation: $a-time linear infinite miamivice $a-delay alternate;
+    transition: 1.4s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
+    animation: $a-time linear infinite miamivice-logo $a-delay alternate;
     .js & {
         transform: translateX(-20px);
     }
@@ -76,7 +76,7 @@
         display: block;
         background-image: $c-gradientFooter;
         background-size: 100% 10px;
-
+        animation: $a-time linear infinite miamivice $a-delay alternate;
     }
 }
 
