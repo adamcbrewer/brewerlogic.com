@@ -1,12 +1,28 @@
 <?php snippet('header') ?>
 
-    <?php /* style="background-image: url('<?php echo $random_image->original_size->url ?>');" */ ?>
-    <section class="uzi-list">
-    <?php // foreach ($images as $image) : ?>
-        <?php /* <div class="uzi-figure" style="background-image: url('<?php // echo $image->alt_sizes[3]->url ?>');"></div> */ ?>
-    <?php // endforeach; ?>
-    </section>
+    <article class="section section--alt section--yank">
 
-    <h1 class="title-404">404</h1>
+        <header class="section-header section-header--stroked contain">
+            <p class="section-title">Oops, I think we're lost</p>
+            <h1 class="title-main">
+                <?php echo $page->title() ?>
+            </h1>
+        </header>
+
+    </article>
+
+    <div class="contain">
+        <figure class="figure figure--alt figure--about section">
+            <img src="<?php echo $page->images()->findBy('name', 'error')->url() ?>">
+        </figure>
+    </div>
+
+    <section class="section contain contain--narrow">
+
+        <div class="u-textleft">
+            <?php echo kirbytext($page->text()) ?>
+        </div>
+
+    </section>
 
 <?php snippet('footer') ?>
