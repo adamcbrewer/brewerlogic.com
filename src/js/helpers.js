@@ -158,12 +158,19 @@ Tweet.prototype.getDaySuffix = function (day) {
     var suffix = 'th';
 
     switch (day) {
-        case 01:
+        case '01':
+        case '21':
+        case '31':
             suffix = 'st';
-        case 02:
+            break;
+        case '02':
+        case '22':
             suffix = 'nd';
-        case 03:
+            break;
+        case '03':
+        case '23':
             suffix = 'rd';
+            break;
         default:
             break;
     }
