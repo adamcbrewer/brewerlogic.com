@@ -26,7 +26,7 @@
         WebFont.load({typekit: { id: 'qwc7wds' }});
     </script>
 
-    <?php echo css('assets/css/styles.css') ?>
+    <?php if (c::get('debug')) : echo css('assets/css/styles.prefixed.css'); else : echo css('assets/css/styles.css'); endif; ?>
     <?php echo js('assets/js/modernizr.build.js') ?>
 
 </head>

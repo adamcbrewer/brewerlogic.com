@@ -182,6 +182,19 @@ module.exports = function (grunt) {
                     },
                 ]
             },
+            video: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: '<%= project.src %>/video/',
+                        src: [
+                            '{,*/,*/*/}*.{mp4,ogg.ogv,webm}'
+                        ],
+                        dest: '<%= project.assets %>/video',
+                    },
+                ]
+            },
             bower: {
                 files: [
                     {
