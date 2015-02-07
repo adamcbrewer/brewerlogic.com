@@ -6,7 +6,7 @@
         </div>
 
         <footer class="fourohfour-footer">
-            <a href="<?php echo $site->url() ?>" class="btn btn--primary">Continue</a> &nbsp; <a href="<?php echo $site->url() ?>" class="btn">Exit</a>
+            <a href="<?php echo $site->url() ?>" class="btn btn--primary">Continue</a> &nbsp; <a href="http://getbrewer.com" class="btn">Exit</a>
         </footer>
 
     </div>
