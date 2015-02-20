@@ -48,6 +48,10 @@ body {
     .js.wf-active & {
         opacity: 1;
     }
+
+    &.is-konami {
+        animation: 6s linear 1 miamivice-flash 0s forwards;
+    }
 }
 
 img {
