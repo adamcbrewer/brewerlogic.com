@@ -7,8 +7,8 @@
                 <?php echo $page->text()->html(); ?>
             </h1>
             <div class="btn-group">
-                <a href="<?php echo $site->find('/work')->url() ?>" class="btn">View projects</a>
-                <a href="<?php echo $site->find('/about')->url() ?>" class="btn">Tell me more</a>
+                <a href="<?php echo $site->find('/work')->url() ?>" class="btn"><?php echo $page->buttonWork() ?></a>
+                <a href="<?php echo $site->find('/about')->url() ?>" class="btn"><?php echo $page->buttonAbout() ?></a>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                 <li class="feature">
                     <figure class="feature-figure figurelink">
                         <a href="<?php echo $project->url() ?>">
-                            <div class="btn" tabindex="-1">View Project</div>
+                            <div class="btn" tabindex="-1"><?php echo $site->buttonView() ?></div>
                             <img src="<?php echo $project->feature()->url() ?>" alt="<?php echo html($project->title()) ?>">
                         </a>
                     </figure>
@@ -48,7 +48,7 @@
         </ol>
 
         <div class="btn-group">
-            <a href="<?php echo $site->find('/work')->url() ?>" class="btn btn--primary">View all projects</a>
+            <a href="<?php echo $site->find('/work')->url() ?>" class="btn btn--primary"><?php echo $page->buttonFeatured() ?></a>
         </div>
 
     </section>
@@ -77,6 +77,10 @@
         <noscript>
             You need javascript to display this page correctly.
         </noscript>
+
+        <div class="btn-group">
+            <a href="http://twitter.com/adamcbrewer" class="btn btn--primary"><?php echo $page->buttonTwitter() ?></a>
+        </div>
 
     </section>
 

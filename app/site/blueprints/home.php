@@ -14,6 +14,12 @@ fields:
   text:
     label: Intro Text
     type:  text
+  buttonWork:
+    label: Button – Work
+    type: text
+  buttonAbout:
+    label: Button – About
+    type: text
   status:
     label: Current Status
     type: text
@@ -23,9 +29,15 @@ fields:
   sectionTitleTwo:
     label: Section Title
     type: text
+  buttonFeatured:
+    label: Button – Featured
+    type: text
   _headerThree:
     label: Section - Twitter
     type: headline
   sectionTitleThree:
     label: Section Title
+    type: text
+  buttonTwitter:
+    label: Button – Twitter
     type: text

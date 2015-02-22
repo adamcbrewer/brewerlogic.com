@@ -12,7 +12,7 @@
             <li class="work">
                 <figure class="work-thumb figurelink">
                     <a href="<?php echo $project->url() ?>">
-                        <div class="btn" tabindex="-1">View Project</div>
+                        <div class="btn" tabindex="-1"><?php echo $site->buttonView() ?></div>
                         <img src="<?php echo $project->thumb()->url() ?>" alt="<?php echo $project->title(); ?>">
                     </a>
                 </figure>

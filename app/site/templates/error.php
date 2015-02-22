@@ -9,7 +9,9 @@
         <?php endif; ?>
 
         <footer class="fourohfour-footer">
-            <a href="<?php echo $site->url() ?>" class="btn btn--primary">Continue</a> &nbsp; <a href="<?php echo $site->url() ?>" class="btn">Exit</a>
+            <?php foreach ($page->buttons()->yaml() as $button) : ?>
+            <a href="<?php echo $button['url'] ?>" class="btn btn--<?php echo $button['type'] ?>"><?php echo $button['title'] ?></a>&nbsp;
+            <?php endforeach; ?>
         </footer>
 
     </div>

@@ -78,3 +78,10 @@ fields:
   tweetFilter:
     label: Tweet-Filter Keyword
     type: text
+
+  _headerFour:
+    label: Content Stuff
+    type: headline
+  buttonView:
+    label: Button – 'view project'
+    type: text
