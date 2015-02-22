@@ -4,6 +4,7 @@
 }
 .tweets {
     position: relative;
+    margin-bottom: 12rem;
 
     &:before {
         content: "";
@@ -39,6 +40,17 @@
         opacity: 0;
     }
 
+}
+.tweet-link {
+    svg {
+        fill: $c-bravo;
+    }
+    &:hover {
+        border-bottom: transparent;
+        svg {
+            fill: $c-white;
+        }
+    }
 }
 .tweet-header {
     margin-bottom: 1.2em;

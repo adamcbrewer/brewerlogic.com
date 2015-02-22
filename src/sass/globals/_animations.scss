@@ -17,3 +17,9 @@
     0% { filter: hue-rotate(0deg); }
     100% { filter: hue-rotate(-100deg); }
 }
+
+@keyframes miamivice-flash {
+    0%,
+    5%, 7%, 9%, 11%, 13% { filter: hue-rotate(0deg); }
+    6%, 8%, 10%, 12%, 14%, 100% { filter: hue-rotate(-100deg); }
+}
