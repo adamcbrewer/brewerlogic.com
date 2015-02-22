@@ -68,7 +68,7 @@
             var $tweet = document.createElement('div');
 
             for (x; x < tweets.length; x++) {
-                $tweet = new Tweet(tweets[x], $template, filter);
+                $tweet = new Tweet(tweets[x], $template, filter, resp.screen_name);
                 frag.appendChild($tweet);
             }
 

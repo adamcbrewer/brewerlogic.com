@@ -41,6 +41,17 @@
     }
 
 }
+.tweet-link {
+    svg {
+        fill: $c-bravo;
+    }
+    &:hover {
+        border-bottom: transparent;
+        svg {
+            fill: $c-white;
+        }
+    }
+}
 .tweet-header {
     margin-bottom: 1.2em;
 }
