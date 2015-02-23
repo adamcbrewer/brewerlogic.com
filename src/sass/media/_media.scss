@@ -8,7 +8,6 @@
         order: 1;
         width: 100%;
         padding-bottom: 1.4em;
-        // max-width: 120px;
     }
     .header {
         flex-direction: column;
@@ -18,7 +17,6 @@
         max-height: none;
         background-position: 30% -50%;
 
-        // .nav--external,
         .nav--pages {
             order: 2;
             justify-content: space-around;
@@ -33,7 +31,6 @@
     .nav--pages {
         .nav-link {
             margin: 0.4em 0;
-            // width: calc(100%/3);
         }
     }
 
@@ -50,15 +47,7 @@
 @media screen and (max-width: 900px) {
 
     .client {
-
         width: calc(100%/3);
-
-        // Replace brands with
-        // > img { display: none; }
-        // &:before {
-        //     text-transform: capitalize;
-        //     content: attr(data-name);
-        // }
     }
 
     $x: 4em;

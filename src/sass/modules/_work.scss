@@ -7,8 +7,7 @@
 }
 .work {
     max-width: 410px;
-    $width: (($d-column*4) + ($d-gutter*3)) / $d-siteWidth * 100%;
-    width: $width;
+    width: $d-columns-4;
     margin: 0 0 4.6em;
 }
 .work-thumb {

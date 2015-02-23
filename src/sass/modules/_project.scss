@@ -35,12 +35,10 @@ $gutter-gap: ($d-gutter/2);
 
 .layout--half {
     float: left;
-    $width: (($d-gutter*5) + ($d-column*6)) / $d-siteWidth * 100%;
-    max-width: calc(#{$width} - #{$gutter-gap});
+    max-width: calc(#{$d-columns-6} - #{$gutter-gap});
     & + .layout--half {
         float: right;
         & + .layout--half:nth-of-type(2n+1) {
-        // & + *:nth-of-type(2n+1) {
             clear: left;
             float: left;
         }
@@ -49,8 +47,7 @@ $gutter-gap: ($d-gutter/2);
 
 .layout--third {
     float: left;
-    $width: (($d-gutter*3) + ($d-column*4)) / $d-siteWidth * 100%;
-    max-width: calc(#{$width} - #{$gutter-gap});
+    max-width: calc(#{$d-columns-4} - #{$gutter-gap});
     & + .layout--twothirds {
         float: right;
         & + * {
@@ -61,8 +58,7 @@ $gutter-gap: ($d-gutter/2);
 
 .layout--twothirds {
     float: left;
-    $width: (($d-gutter*7) + ($d-column*8)) / $d-siteWidth * 100%;
-    max-width: calc(#{$width} - #{$gutter-gap});
+    max-width: calc(#{$d-columns-8} - #{$gutter-gap});
     & + .layout--third {
         float: right;
         & + * {
