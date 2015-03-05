@@ -26,7 +26,7 @@
         WebFont.load({typekit: { id: 'qwc7wds' }});
     </script>
 
-    <?php if (c::get('debug')) : echo css('assets/css/styles.css'); else : echo css('assets/css/styles.css'); endif; ?>
+    <?php if (c::get('debug')) : echo css('assets/css/styles.prefixed.css'); else : echo css('assets/css/styles.css'); endif; ?>
     <?php echo js('assets/js/modernizr.build.js') ?>
 
 </head>
@@ -38,8 +38,7 @@
         </nav>
         <figure class="logo logo-main">
             <a href="<?php echo $site->url() ?>">
-                <img class="logo-vector" src="<?php echo url('/assets/img/logo-vector.png') ?>" alt="Brewer Logic">
-                <img class="logo-bl" src="<?php echo url('/assets/img/logo-bl.png') ?>" alt="Brewer Logic">
+                <?php snippet('icons/logo'); ?>
             </a>
         </figure>
         <nav class="nav nav--external">

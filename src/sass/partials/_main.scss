@@ -30,13 +30,17 @@
 
     a { display: block; }
 
+    svg {
+        fill: white;
+        height: 100%;
+        width: 100%;
+    }
+
 }
 
 .logo-vector {
-    position: absolute;
-    top: 0;
     transition: 1s $easeOutExpo transform;
-
+    fill: #2CFFFE;
     .js & {
         transform: scale(0);
     }
@@ -45,7 +49,7 @@
     }
 }
 
-.logo-bl {
+.logo-text {
     transition: 1.4s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
     .js & {
         transform: translateX(-20px);
