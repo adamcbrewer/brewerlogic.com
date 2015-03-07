@@ -39,24 +39,25 @@
 }
 
 .logo-vector {
-    transition: 1s $easeOutExpo transform;
+    // transition: 1s $easeOutExpo transform;
     fill: #2CFFFE;
-    .js & {
-        transform: scale(0);
-    }
-    .js.wf-active & {
-        transform: scale(1);
-    }
+    // .js & {
+    //     transform: scale(0);
+    // }
+    // .js.wf-active & {
+    //     transform: scale(1);
+    // }
 }
 
 .logo-text {
-    transition: 1.4s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
-    .js & {
-        transform: translateX(-20px);
-    }
-    .js.wf-active & {
-        transform: translateX(0);
-    }
+    // fill: $c-gradientHero;
+    // transition: 1.4s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
+    // .js & {
+    //     transform: translateX(-20px);
+    // }
+    // .js.wf-active & {
+    //     transform: translateX(0);
+    // }
 }
 
 .content {
