@@ -43,12 +43,13 @@
 }
 .tweet-link {
     svg {
-        fill: $c-bravo;
+        transition: 0.2s ease;
+        fill: $c-alpha;
     }
     &:hover {
         border-bottom: transparent;
         svg {
-            fill: $c-white;
+            fill: $c-bravo;
         }
     }
 }
@@ -77,11 +78,10 @@
 
 // Contact page
 .contact-email {
-    border-color: transparent;
+    border: none;
     color: $c-alpha;
     letter-spacing: 2px;
 
     &:hover {
-        border-color: currentcolor;
     }
 }

@@ -1,20 +1,20 @@
 * { box-sizing: border-box; }
 
 ::-moz-selection {
-    background-color: $c-indigo;
-    color: $c-bg;
+    background-color: $c-bravo;
+    color: $c-white;
 }
 ::selection {
-    background-color: $c-indigo;
-    color: $c-bg;
+    background-color: $c-bravo;
+    color: $c-white;
     animation: 4s 0s test linear alternate infinite;
 }
 a::-moz-selection {
-    background-color: #FF00D5;
+    background-color: $c-alpha;
     color: $c-white;
 }
 a::selection {
-    background-color: #FF00D5;
+    background-color: $c-alpha;
     color: $c-white;
 }
 

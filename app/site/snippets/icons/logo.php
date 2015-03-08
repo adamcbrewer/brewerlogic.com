@@ -1,11 +1,12 @@
-<svg id="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="100 100 200 200" xml:space="preserve">
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="90 100 210 180" xml:space="preserve">
     <!-- Gradients -->
     <linearGradient y2="0" x2="1" id="logo-gradient-text" x1="0" y1="1">
-        <stop stop-color="#1FB7FC" offset=".35"/>
-        <stop stop-color="#F920CB" offset="0.65"/>
-
-        <!-- <stop stop-color="#FC8224" offset="0.25"/>
-        <stop stop-color="#CE26FB" offset="1"/> -->
+        <stop stop-color="#02bcff" offset=".25"></stop>
+        <stop stop-color="#F920CB" offset="0.65"></stop>
+    </linearGradient>
+    <linearGradient y2="0" x2="1" id="logo-gradient-text-hover" x1="0" y1="1">
+        <stop stop-color="#F920CB" offset=".25"></stop>
+        <stop stop-color="#02bcff" offset="0.65"></stop>
     </linearGradient>
 
     <defs>
@@ -51,9 +52,8 @@
     </defs>
 
 
-    <g id="logo-text" class="logo-text">
-        <rect  x="100" y="100" width="200" height="200" clip-path="url(#logo-clip-text)" fill="url(#logo-gradient-text)"></rect>
-    </g>
+    <rect id="logo-text" class="logo-text" x="90" y="100" width="210" height="190" clip-path="url(#logo-clip-text)"></rect>
+
     <g id="logo-vector" class="logo-vector">
         <polygon points="163.4,144.6 169.2,130.2 187.8,144.6 196.9,144.6 166.8,121.4 157.4,144.6"/>
         <polygon points="280,232 302.3,225.9 282.5,210.6 281.7,217 290.1,223.5 280.7,226"/>

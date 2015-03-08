@@ -1,6 +1,6 @@
 // Special Colours
-$c-alpha: #1DAAFC; // orange
-$c-bravo: #FA27F3; // pink
+$c-alpha: #02B2FF; // blue
+$c-bravo: rgba(240, 39, 252, 1); // pink
 $c-charlie: #1d161f; // purple 1 - main BG
 $c-delta: #261d29; // purple 2 - section BGs
 $c-echo: #473A4B; // purple 3
@@ -15,7 +15,6 @@ $c-text: $c-foxtrot;
 
 // Gradients
 $c-gradientHero: linear-gradient(to top right, $c-alpha, $c-bravo 80%);
-$c-gradientAlt: linear-gradient(to top right, #2273BB, #2DFFFE 90%);
 $c-gradientFooter: linear-gradient(to right, $c-alpha, $c-bravo 80%);
 
 // Dimentions

@@ -22,7 +22,7 @@
 }
 
 .logo {
-    max-width: 130px;
+    max-width: 140px;
     align-self: center;
     transition: 0.8s;
     position: relative;
@@ -39,25 +39,31 @@
 }
 
 .logo-vector {
-    // transition: 1s $easeOutExpo transform;
-    fill: #2CFFFE;
-    // .js & {
-    //     transform: scale(0);
-    // }
-    // .js.wf-active & {
-    //     transform: scale(1);
-    // }
+    transition: 1s $easeOutExpo transform;
+    // fill: #2CFFFE;
+    fill: #72EAFF;
+    .js & {
+        transform: scale(0);
+    }
+    .js.wf-active & {
+        transform: scale(1);
+        transform-origin: 50% 50%;
+    }
 }
 
 .logo-text {
-    // fill: $c-gradientHero;
-    // transition: 1.4s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
-    // .js & {
-    //     transform: translateX(-20px);
-    // }
-    // .js.wf-active & {
-    //     transform: translateX(0);
-    // }
+    fill: url(#logo-gradient-text);
+    transition: 1.4s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
+    .js & {
+        transform: translateX(-20px);
+    }
+    .js.wf-active & {
+        transform: translateX(0);
+    }
+
+    #logo:hover & {
+        // fill: url(#logo-gradient-text-hover);
+    }
 }
 
 .content {
