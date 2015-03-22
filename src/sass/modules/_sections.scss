@@ -8,11 +8,19 @@
     background-image: $c-gradientHero;
     min-height: 200px;
     color: $c-white;
-    padding: 1.4em;
+    padding: 1.4em 1.4em 1.4em;
     position: relative;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transition: 1.6s 0.3s ease-out;
+
 
     .inner {
         margin: 5em auto;
+    }
+
+    .js.wf-active & {
+        padding: 1.4em 1.4em 3.4em;
+        -webkit-clip-path: polygon(0% 10%, 100% 0, 100% 90%, 0% 100%);
     }
 }
 
