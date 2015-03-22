@@ -108,8 +108,8 @@ input {
             content: none;
         }
 
-        &:hover {
-            // color: $c-white;
+        .work & {
+            min-width: 0;
         }
 
     }
@@ -117,6 +117,9 @@ input {
     a {
         display: inline-block;
         position: relative;
+        overflow: hidden;
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        transition: 0.2s ease-out;
 
         &:after {
             content: "";
@@ -130,6 +133,12 @@ input {
             transition: 0.4s $easeOutExpo;
         }
         &:hover {
+            -webkit-clip-path: polygon(40% 0%, 100% 65%, 10% 100%, 10% 100%);
+
+            .feature & {
+                -webkit-clip-path: polygon(40% 0%, 100% 60%, 20% 100%, 20% 100%);
+            }
+
             .btn {
                 opacity: 1;
                 transform: translateX(-50%) translateY(-50%) scale3d(1, 1, 1);
