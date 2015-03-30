@@ -13,7 +13,6 @@
     align-items: stretch;
     padding-top: $d-gutter;
     padding-bottom: $d-gutter;
-    background: transparent url(../img/light.png) no-repeat center -85%;
 
     .nav {
         display: flex;
@@ -23,6 +22,7 @@
 
 .logo {
     max-width: 140px;
+    width: 140px;
     align-self: center;
     transition: 0.8s;
     position: relative;
@@ -40,7 +40,6 @@
 
 .logo-vector {
     transition: 1s $easeOutExpo transform;
-    // fill: #2CFFFE;
     fill: #72EAFF;
     .js & {
         transform: scale(0);
@@ -52,17 +51,15 @@
 }
 
 .logo-text {
-    fill: url(#logo-gradient-text);
-    transition: 1.4s $easeOutExpo transform, 0.2s $easeOutExpo opacity;
+    fill: url(/#logo-gradient-text);
+    transition:
+        1.4s $easeOutExpo transform,
+        0.2s $easeOutExpo opacity;
     .js & {
         transform: translateX(-20px);
     }
     .js.wf-active & {
         transform: translateX(0);
-    }
-
-    #logo:hover & {
-        // fill: url(#logo-gradient-text-hover);
     }
 }
 

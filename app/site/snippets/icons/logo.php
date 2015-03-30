@@ -1,15 +1,15 @@
 <svg id="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="147.6 275.7 314.9 242.4" enable-background="new 147.6 275.7 314.9 242.4" xml:space="preserve">
-    <!-- Gradients -->
-    <linearGradient y2="0" x2="1" id="logo-gradient-text" x1="0" y1="1">
-        <stop stop-color="#02bcff" offset=".25"></stop>
-        <stop stop-color="#F920CB" offset="0.65"></stop>
-    </linearGradient>
-    <linearGradient y2="0" x2="1" id="logo-gradient-text-hover" x1="0" y1="1">
-        <stop stop-color="#F920CB" offset=".25"></stop>
-        <stop stop-color="#02bcff" offset="0.65"></stop>
-    </linearGradient>
-
     <defs>
+
+        <!-- Gradients -->
+        <linearGradient y2="0" x2="1" id="logo-gradient-text" x1="0" y1="1">
+            <stop stop-color="#02bcff" offset=".25"></stop>
+            <stop stop-color="#F920CB" offset="0.65"></stop>
+        </linearGradient>
+        <linearGradient y2="0" x2="1" id="logo-gradient-text-hover" x1="0" y1="1">
+            <stop stop-color="#F920CB" offset=".25"></stop>
+            <stop stop-color="#02bcff" offset="0.65"></stop>
+        </linearGradient>
 
         <!-- ClipPath: Text -->
         <clipPath id="logo-clip-text">
@@ -49,7 +49,9 @@
     </defs>
 
 
-    <rect id="logo-text" class="logo-text" x="147.6" y="275.7" width="314.9" height="242.4" clip-path="url(#logo-clip-text)"></rect>
+    <g id="logo-text">
+        <rect  class="logo-text" x="147.6" y="275.7" width="314.9" height="242.4" clip-path="url(#logo-clip-text)"></rect>
+    </g>
 
     <g id="logo-vector" class="logo-vector">
         <polygon points="250,311.2 258.9,289.2 287.3,311.2 301.3,311.2 255.2,275.7 240.8,311.2      "/>

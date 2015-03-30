@@ -118,6 +118,7 @@ input {
         position: relative;
         overflow: hidden;
         -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
         transition: 0.2s $easeOutExpo;
 
         &:after {
@@ -134,9 +135,11 @@ input {
         }
         &:hover {
             -webkit-clip-path: polygon(42% 10%, 90% 60%, 18% 85%, 18% 85%);
+                    clip-path: polygon(42% 10%, 90% 60%, 18% 85%, 18% 85%);
 
             .feature & {
                 -webkit-clip-path: polygon(43% 18%, 76% 56%, 30% 80%, 30% 80%);
+                        clip-path: polygon(43% 18%, 76% 56%, 30% 80%, 30% 80%);
             }
 
             .btn {
