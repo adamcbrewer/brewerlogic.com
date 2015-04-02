@@ -1,4 +1,4 @@
-<svg id="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="147.6 275.7 314.9 242.4" enable-background="new 147.6 275.7 314.9 242.4" xml:space="preserve">
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="147.6 275.7 314.9 242.4" enable-background="new 147.6 275.7 314.9 242.4" xml:space="preserve" preserveAspectRatio="xMidYMid">
     <defs>
 
         <!-- Gradients -->
@@ -50,7 +50,7 @@
 
 
     <g id="logo-text">
-        <rect  class="logo-text" x="147.6" y="275.7" width="314.9" height="242.4" clip-path="url(#logo-clip-text)"></rect>
+        <rect  class="logo-text" x="147.6" y="275.7" width="314.9" height="242.4" clip-path="url(#logo-clip-text)" fill="url(#logo-gradient-text)"></rect>
     </g>
 
     <g id="logo-vector" class="logo-vector">

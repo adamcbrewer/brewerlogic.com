@@ -51,9 +51,9 @@
 }
 
 .logo-text {
-    fill: url(/#logo-gradient-text);
     transition:
         1.4s $easeOutExpo transform,
+        1.4s $easeOutExpo -webkit-transform,
         0.2s $easeOutExpo opacity;
     .js & {
         transform: translateX(-20px);
