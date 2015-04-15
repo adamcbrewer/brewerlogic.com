@@ -1,14 +1,19 @@
+
+.taglist--enhance ul,
 .taglist {
-    padding: 0;
+    position: relative;
+    padding: 0 0 0 1.2em;
     margin: 0;
     list-style-type: none;
     text-align: left;
 }
+.taglist--enhance li,
 .taglist-item {
     &:before {
         content: "–";
         color: $c-alpha;
-        margin-right: 0.3em;
+        position: absolute;
+        left: 0;
     }
 }
 .taglist-title {
