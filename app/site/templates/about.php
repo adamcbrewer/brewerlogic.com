@@ -32,22 +32,16 @@
         <header class="section-header contain">
             <p class="section-title"><?php echo $page->sectionTitleTwo() ?></p>
         </header>
-        <section class="contain">
-            <ul class="clients u-flex u-flex--row u-flex--center-v">
-                <?php foreach ($page->images()->sortBy('sort', 'asc')->not('me.jpg', 'me.png') as $client) : ?>
-                    <li class="client" data-name="<?php e($client->client() != "", $client->client(), $client->name()) ?>">
-                        <img src="<?php echo $client->url() ?>" alt="<?php echo $client->filename() ?>">
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </section>
+        <div class="u-textleft contain contain--narrow taglist--enhance">
+            <?php echo kirbytext($page->sectionTextTwo()) ?>
+        </div>
     </section>
 
-    <section class="section contain">
+    <section class="section">
         <header class="section-header">
-            <p class="section-title"><?php echo $page->sectionTitleThree() ?></p>
+            <p class="section-title"><?php echo $page->sectionTitleFour() ?></p>
         </header>
-        <section class="skills u-flex u-flex--row">
+        <section class="skills u-flex u-flex--row contain">
             <div class="skill">
                 <h3 class="taglist-title">Languages</h3>
                 <ul class="taglist">
@@ -77,10 +71,25 @@
 
     <section class="section section--alt">
         <header class="section-header contain">
-            <p class="section-title"><?php echo $page->sectionTitleFour() ?></p>
+            <p class="section-title"><?php echo $page->sectionTitleThree() ?></p>
+        </header>
+        <section class="contain">
+            <ul class="clients u-flex u-flex--row u-flex--center-v">
+                <?php foreach ($page->images()->sortBy('sort', 'asc')->not('me.jpg', 'me.png') as $client) : ?>
+                    <li class="client" data-name="<?php e($client->client() != "", $client->client(), $client->name()) ?>">
+                        <img src="<?php echo $client->url() ?>" alt="<?php echo $client->filename() ?>">
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+    </section>
+
+    <section class="section">
+        <header class="section-header">
+            <p class="section-title"><?php echo $page->sectionTitleFive() ?></p>
         </header>
         <div class="u-textleft contain contain--narrow">
-            <?php echo kirbytext($page->TextSectionFour()) ?>
+            <?php echo kirbytext($page->TextSectionFive()) ?>
         </div>
     </section>
 

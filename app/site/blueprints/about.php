@@ -22,7 +22,7 @@ fields:
   sectionTitleOne:
     label: Section Title
     type: text
-  _infoTwo:
+  _infoOne:
     label: Your Profile photo
     type: info
     text: >
@@ -31,12 +31,23 @@ fields:
     label: Main Header
     type: text
   about:
-    label: About You
+    label: Content
     type:  textarea
+
   _headerTwo:
-    label: Section - Client Branding
+    label: Section - Sell Yourself
     type: headline
   sectionTitleTwo:
+    label: Section Title
+    type: text
+  sectionTextTwo:
+    label: Content
+    type:  textarea
+
+  _headerThree:
+    label: Section - Client Branding
+    type: headline
+  sectionTitleThree:
     label: Section Title
     type: text
   _infoThree:
@@ -45,10 +56,11 @@ fields:
     text: >
       Images for client brands can be uploaded under the files section on the left,
       where you'll be able to arrange and sort them.
-  _headerThree:
+
+  _headerFour:
     label: Section - Skills
     type: headline
-  sectionTitleThree:
+  sectionTitleFour:
     label: Section Title
     type: text
   languages:
@@ -61,12 +73,12 @@ fields:
     label: Workflow
     type: tags
 
-  _headerFour:
+  _headerFive:
     label: Section - Sign-off
     type: headline
-  sectionTitleFour:
+  sectionTitleFive:
     label: Section Title
     type: text
-  TextSectionFour:
+  TextSectionFive:
     label: Sign-off Copy
     type:  textarea
