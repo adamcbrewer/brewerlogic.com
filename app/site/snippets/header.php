@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <meta name="p:domain_verify" content="29f15f009e351add5ca80ee07f6a3178"/>
+
     <title><?php echo $site->title() ?><?php if (!in_array($page->title(), array('Home'))) : ?> – <?php echo $page->title() ?><?php else : ?> | Web Development<?php endif; ?></title>
 
     <link rel="dns-prefetch" href="//www.google-analytics.com">
