@@ -13,6 +13,14 @@
 
 
     /**
+     * For useragent styling
+     */
+    var b = document.documentElement;
+    b.setAttribute("data-useragent", Site.userAgent);
+    b.setAttribute("data-platform", Site.platform);
+
+
+    /**
      * Detecting if tweets are turned on and creating
      * a template form the original DOM element.
      *
