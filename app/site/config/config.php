@@ -31,6 +31,7 @@ of the system, please check out http://getkirby.com/docs/advanced/options
 
 c::set('debug', false);
 c::set('cache', true);
+c::set('panel.kirbytext', false);
 
 c::set('twitter', array(
     'consumer_key'      => '',
