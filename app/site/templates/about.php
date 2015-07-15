@@ -13,9 +13,9 @@
 
     <div class="contain">
         <figure class="figure figure--alt figure--about section">
-            <img src="<?php echo $page->images()->findBy('name', 'me')->url() ?>" alt="<?php echo $site->author() ?>">
-            <?php if ($page->images()->findBy('name', 'me')->caption()) : ?>
-            <figcaption class="figure-caption"><?php echo $page->images()->findBy('name', 'me')->caption() ?></figcaption>
+            <img src="<?php echo $page->profile_image()->url() ?>" alt="<?php echo $site->author() ?>">
+            <?php if ($page->profile_image()->caption()) : ?>
+            <figcaption class="figure-caption"><?php echo $page->profile_image()->caption() ?></figcaption>
             <?php endif; ?>
         </figure>
     </div>
@@ -75,9 +75,9 @@
         </header>
         <section class="contain">
             <ul class="clients u-flex u-flex--row u-flex--center-v">
-                <?php foreach ($page->images()->sortBy('sort', 'asc')->not('me.jpg', 'me.png') as $client) : ?>
-                    <li class="client" data-name="<?php e($client->client() != "", $client->client(), $client->name()) ?>">
-                        <img src="<?php echo $client->url() ?>" alt="<?php echo $client->filename() ?>">
+                <?php foreach ($page->clients() as $client) : ?>
+                    <li class="client" data-name="<?php echo $client->name(); ?>">
+                        <img src="<?php echo $client->image()->url() ?>" alt="<?php echo $client->name() ?>">
                     </li>
                 <?php endforeach; ?>
             </ul>

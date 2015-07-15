@@ -39,6 +39,12 @@ fields:
   header:
     label: Main Header
     type: text
+    width: 1/2
+  profile_image_filename:
+    label: Your Profile Image
+    type: select
+    options: images
+    width: 1/2
   about:
     label: Content
     type:  textarea
@@ -63,12 +69,21 @@ fields:
   sectionTitleThree:
     label: Section Title
     type: text
-  _infoThree:
-    label: Client Brands
-    type: info
-    text: >
-      Images for client brands can be uploaded under the files section on the left,
-      where you'll be able to arrange and sort them.
+  clients_structure:
+    label: Client Brand Images
+    type: structure
+    width: 1/2
+    entry: >
+      <b>Client Name</b> &nbsp;—&nbsp; <i>{{name}}</i> <br>
+      <b>Image</b> &nbsp;—&nbsp; <i>{{image_filename}}</i>
+    fields:
+      name:
+        label: Client Name
+        type: text
+      image_filename:
+        label: Image
+        type: select
+        options: images
 
   # Section - Skills
   # =============
