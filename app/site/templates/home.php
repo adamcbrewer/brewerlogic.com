@@ -18,34 +18,13 @@
 
     </header>
 
-    <section class="section contain contain--features">
+    <section class="section contain">
 
         <header class="section-header">
             <h2 class="section-title"><?php echo $page->sectionTitleTwo() ?></h2>
         </header>
 
-        <ol class="features">
-
-            <? foreach ($projects as $key => $project) : ?>
-
-                <li class="feature">
-                    <figure class="feature-figure figurelink">
-                        <a href="<?php echo $project->url() ?>">
-                            <div class="btn" tabindex="-1"><?php echo $site->buttonView() ?></div>
-                            <img src="<?php echo $project->feature()->url() ?>" alt="<?php echo html($project->title()) ?>">
-                        </a>
-                    </figure>
-                    <div>
-                        <h3 class="feature-title">
-                            <a href="<?php echo $project->url() ?>"><?php echo html($project->title()) ?></a>
-                        </h3>
-                        <p class="feature-summary"><?php echo html($project->summary()) ?></p>
-                    </div>
-                </li>
-
-            <? endforeach; ?>
-
-        </ol>
+        <?php snippet('work/list', array('projects' => $projects)); ?>
 
         <div class="btn-group">
             <a href="<?php echo $site->find('/work')->url() ?>" class="btn btn--primary"><?php echo $page->buttonFeatured() ?></a>
