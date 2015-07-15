@@ -44,6 +44,22 @@ fields:
   buttonFeatured:
     label: Button – Featured
     type: text
+  featured_project_uids:
+    label: Featured Work
+    type: structure
+    width: 1/2
+    entry: >
+      <b>Project ID</b> &nbsp;–&nbsp; <em>{{ uid }}</em>
+    fields:
+      uid:
+        label: Project ID
+        type: select
+        options: query
+        query:
+          page: work
+          fetch: visibleChildren
+          value: '{{uid}}'
+          text: '{{uid}}'
 
   # Section - Twitter
   # =====================

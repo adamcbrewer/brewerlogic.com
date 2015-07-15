@@ -24,7 +24,7 @@
             <h2 class="section-title"><?php echo $page->sectionTitleTwo() ?></h2>
         </header>
 
-        <?php snippet('work/list', array('projects' => $projects)); ?>
+        <?php snippet('work/list', array('projects' => $page->featured_projects())); ?>
 
         <div class="btn-group">
             <a href="<?php echo $site->find('/work')->url() ?>" class="btn btn--primary"><?php echo $page->buttonFeatured() ?></a>
