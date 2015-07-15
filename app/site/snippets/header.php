@@ -23,6 +23,11 @@
     <meta property="og:title" content="<?php echo $site->title() ?>" />
     <meta property="og:image" content="<?php echo url('/assets/img/logo-og.png') ?>" />
 
+    <?php if ($page->template() == 'project') : ?>
+    <?php if ($page->hasPrevVisible()) : ?><link rel="prev" href="<?php echo $page->prevVisible()->url() ?>"><?php endif; ?>
+    <?php if ($page->hasNextVisible()) : ?><link rel="next" href="<?php echo $page->nextVisible()->url() ?>"><?php endif; ?>
+    <?php endif; ?>
+
     <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
     <script>
         WebFont.load({typekit: { id: 'qwc7wds' }});

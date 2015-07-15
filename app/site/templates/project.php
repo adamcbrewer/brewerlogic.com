@@ -22,7 +22,7 @@
 
         <section class="contain project-images">
 
-            <?php foreach ($page->images()->sortBy('sort', 'asc')->not('thumb.jpg', 'thumb.png', 'feature.jpg', 'feature.png') as $image) : ?>
+            <?php foreach ($page->project_images() as $image) : ?>
 
                 <?php if ($image->description() != "" && $image->descriptionlocation() == 'above') : ?>
                 <div class="contain contain--text figure-description figure-description--above u-textleft"><?php echo kirbyText($image->description()) ?></div>
@@ -31,10 +31,8 @@
                 <article class="figure layout layout--<?php echo $image->layout() ?>">
 
                     <figure class="project-image">
-                        <img src="<?php echo $image->url() ?>" alt="<?php echo $image->filename() ?>">
-
-                        <figcaption class="figure-caption"><?php echo $image->caption() ?></figcaption>
-
+                        <img src="<?php echo $image->image()->url() ?>" alt="<?php echo $image->image()->filename() ?>">
+                        <?php if (!$image->caption()->empty()) : ?><figcaption class="figure-caption"><?php echo $image->caption() ?></figcaption><?php endif; ?>
                     </figure>
 
                     <?php if ($image->description() != "" && !in_array($image->descriptionlocation(), array('above', 'below'))) : ?>
