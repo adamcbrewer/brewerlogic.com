@@ -1,7 +1,13 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# About
+# =====================
+
 title: About
+
 pages: false
+
 files:
   sortable: true
   fields:
@@ -11,11 +17,14 @@ files:
     caption:
       label: Caption (optional - not used on client brands)
       type: text
+
 fields:
   title:
     label: Page Title
     type:  text
 
+  # Section - Meta
+  # =============
   _headerOne:
     label: Section - Introduction
     type: headline
@@ -34,6 +43,8 @@ fields:
     label: Content
     type:  textarea
 
+  # Section - Sales
+  # =============
   _headerTwo:
     label: Section - Sell Yourself
     type: headline
@@ -44,6 +55,8 @@ fields:
     label: Content
     type:  textarea
 
+  # Section - Clients
+  # =============
   _headerThree:
     label: Section - Client Branding
     type: headline
@@ -57,6 +70,8 @@ fields:
       Images for client brands can be uploaded under the files section on the left,
       where you'll be able to arrange and sort them.
 
+  # Section - Skills
+  # =============
   _headerFour:
     label: Section - Skills
     type: headline
@@ -73,6 +88,8 @@ fields:
     label: Workflow
     type: tags
 
+  # Section - Signoff
+  # =============
   _headerFive:
     label: Section - Sign-off
     type: headline

@@ -1,7 +1,13 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# Project
+# =====================
+
 title: Project
+
 pages: false
+
 files:
   sortable: true
   fields:
@@ -38,7 +44,11 @@ files:
         half: Half size
         third: One third
         twothirds: Two thirds
+
 fields:
+
+  # Section - Images
+  # =============
   _headerOne:
     label: Section – Project Images
     type: headline
@@ -57,6 +67,9 @@ fields:
       Thumbnail: 410x320 <br>
       Feature: 994xXXX <br>
       All others: 1300xXXX (full), 615xYYY (half), 395xZZZ (one third), 835xZZZ (two thirds)
+
+  # Section - Information
+  # =============
   _headerTwo:
     label: Section – Project Information
     type: headline
