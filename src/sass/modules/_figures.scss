@@ -33,3 +33,7 @@
     clear: both;
     margin-bottom: 7em;
 }
+
+.figure--half {
+    max-width: calc(#{$d-columns-6} - #{($d-gutter / 2)});
+}

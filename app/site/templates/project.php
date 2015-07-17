@@ -22,30 +22,7 @@
 
         <section class="contain project-images">
 
-            <?php foreach ($page->project_images() as $image) : ?>
-
-                <?php if ($image->description() != "" && $image->descriptionlocation() == 'above') : ?>
-                <div class="contain contain--text figure-description figure-description--above u-textleft"><?php echo kirbyText($image->description()) ?></div>
-                <?php endif; ?>
-
-                <article class="figure layout layout--<?php echo $image->layout() ?>">
-
-                    <figure class="project-image">
-                        <img src="<?php echo $image->image()->url() ?>" alt="<?php echo $image->image()->filename() ?>">
-                        <?php if (!$image->caption()->empty()) : ?><figcaption class="figure-caption"><?php echo $image->caption() ?></figcaption><?php endif; ?>
-                    </figure>
-
-                    <?php if ($image->description() != "" && !in_array($image->descriptionlocation(), array('above', 'below'))) : ?>
-                    <div class="contain contain--text figure-description u-textleft"><?php echo kirbyText($image->description()) ?></div>
-                    <?php endif; ?>
-
-                </article>
-
-                <?php if ($image->description() != "" && $image->descriptionlocation() == 'below') : ?>
-                <div class="contain contain--text figure-description figure-description--below u-textleft"><?php echo kirbyText($image->description()) ?></div>
-                <?php endif; ?>
-
-            <?php endforeach; ?>
+            <?php snippet('project/images', array('images' => $page->project_images())); ?>
 
         </section>
 

@@ -57,7 +57,6 @@
             0.2s $easeOutExpo transform,
             0.2s $easeOutExpo opacity;
         transform: scale(0.9);
-        // opacity: 0;
     }
 }
 
@@ -71,11 +70,6 @@
     }
     .js.wf-active & {
         transform: translateX(0);
-    }
-
-    html:not([data-useragent*="Firefox"]) .logo:hover & {
-        transform: translateX(-5px);
-        transition: 0.2s $easeOutExpo transform;
     }
 }
 
