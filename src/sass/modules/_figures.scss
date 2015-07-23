@@ -1,5 +1,6 @@
 .figure {
     margin: 0 0 6em;
+    img { display: block; }
 }
 .figure--alt {
     margin-bottom: 3em;
@@ -31,4 +32,8 @@
 .figure-description--below {
     clear: both;
     margin-bottom: 7em;
+}
+
+.figure--half {
+    max-width: calc(#{$d-columns-6} - #{($d-gutter / 2)});
 }

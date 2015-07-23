@@ -1,12 +1,25 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# Error Page
+# =====================
+
 title: 404
+
 pages: false
+
 files: true
+
 fields:
   title:
-    label: Title
+    label: Page Title
     type:  text
+
+  # Section - Contact
+  # =====================
+  _headerOne:
+    label: Section – General
+    type: headline
   buttons:
     label: Buttons
     type: structure

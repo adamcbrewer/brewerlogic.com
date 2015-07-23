@@ -1,13 +1,22 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# Home
+# =====================
+
 title: Home
+
 pages: false
+
 files: false
+
 fields:
   title:
-    label: Title
+    label: Page Title
     type:  text
 
+  # Section - Hero
+  # =====================
   _headerOne:
     label: Section - Hero
     type: headline
@@ -22,7 +31,11 @@ fields:
     type: text
   status:
     label: Current Status
-    type: text
+    type: textarea
+    size: small
+
+  # Section - Features
+  # =====================
   _headerTwo:
     label: Section - Featured Work
     type: headline
@@ -32,6 +45,25 @@ fields:
   buttonFeatured:
     label: Button – Featured
     type: text
+  featured_project_uids:
+    label: Featured Work
+    type: structure
+    width: 1/2
+    entry: >
+      <b>Project ID</b> &nbsp;–&nbsp; <em>{{ uid }}</em>
+    fields:
+      uid:
+        label: Project ID
+        type: select
+        options: query
+        query:
+          page: work
+          fetch: visibleChildren
+          value: '{{uid}}'
+          text: '{{uid}}'
+
+  # Section - Twitter
+  # =====================
   _headerThree:
     label: Section - Twitter
     type: headline

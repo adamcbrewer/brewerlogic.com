@@ -1,7 +1,13 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# About
+# =====================
+
 title: About
+
 pages: false
+
 files:
   sortable: true
   fields:
@@ -11,11 +17,14 @@ files:
     caption:
       label: Caption (optional - not used on client brands)
       type: text
+
 fields:
   title:
     label: Page Title
     type:  text
 
+  # Section - Meta
+  # =============
   _headerOne:
     label: Section - Introduction
     type: headline
@@ -30,10 +39,18 @@ fields:
   header:
     label: Main Header
     type: text
+    width: 1/2
+  profile_image_filename:
+    label: Your Profile Image
+    type: select
+    options: images
+    width: 1/2
   about:
     label: Content
     type:  textarea
 
+  # Section - Sales
+  # =============
   _headerTwo:
     label: Section - Sell Yourself
     type: headline
@@ -44,19 +61,32 @@ fields:
     label: Content
     type:  textarea
 
+  # Section - Clients
+  # =============
   _headerThree:
     label: Section - Client Branding
     type: headline
   sectionTitleThree:
     label: Section Title
     type: text
-  _infoThree:
-    label: Client Brands
-    type: info
-    text: >
-      Images for client brands can be uploaded under the files section on the left,
-      where you'll be able to arrange and sort them.
+  clients_structure:
+    label: Client Brand Images
+    type: structure
+    width: 1/2
+    entry: >
+      <b>Client Name</b> &nbsp;—&nbsp; <i>{{name}}</i> <br>
+      <b>Image</b> &nbsp;—&nbsp; <i>{{image_filename}}</i>
+    fields:
+      name:
+        label: Client Name
+        type: text
+      image_filename:
+        label: Image
+        type: select
+        options: images
 
+  # Section - Skills
+  # =============
   _headerFour:
     label: Section - Skills
     type: headline
@@ -73,6 +103,8 @@ fields:
     label: Workflow
     type: tags
 
+  # Section - Signoff
+  # =============
   _headerFive:
     label: Section - Sign-off
     type: headline

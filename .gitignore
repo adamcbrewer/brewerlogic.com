@@ -48,3 +48,4 @@ app/site/config/config.*.php
 app/content/*
 !app/content/.gitkeep
 app/vendor/**/*
+app/_content

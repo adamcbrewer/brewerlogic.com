@@ -1,13 +1,22 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# Contact
+# =====================
+
 title: Contact
+
 pages: false
+
 files: false
+
 fields:
   title:
     label: Page Title
     type:  text
 
+  # Section - Contact
+  # =====================
   _headerOne:
     label: Section - Contact Email
     type: headline
@@ -18,6 +27,8 @@ fields:
     label: Text
     type:  textarea
 
+  # Section - Social
+  # =====================
   _headerTwo:
     label: Section - Social Links
     type: headline

@@ -23,29 +23,36 @@
     <meta property="og:title" content="<?php echo $site->title() ?>" />
     <meta property="og:image" content="<?php echo url('/assets/img/logo-og.png') ?>" />
 
+    <?php if ($page->template() == 'project') : ?>
+    <?php if ($page->hasPrevVisible()) : ?><link rel="prev" href="<?php echo $page->prevVisible()->url() ?>"><?php endif; ?>
+    <?php if ($page->hasNextVisible()) : ?><link rel="next" href="<?php echo $page->nextVisible()->url() ?>"><?php endif; ?>
+    <?php endif; ?>
+
     <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
     <script>
         WebFont.load({typekit: { id: 'qwc7wds' }});
     </script>
 
-    <?php if (c::get('debug')) : echo css('assets/css/styles.prefixed.css'); else : echo css('assets/css/styles.css'); endif; ?>
-    <?php echo js('assets/js/modernizr.build.js') ?>
+    <?php echo css('assets/css/styles.min.css'); ?>
+    <?php echo js('assets/js/modernizr.min.js') ?>
 
 </head>
-<body data-basepath="<?php echo $site->url() ?>">
+<body class="page--<?php echo $page->template(); ?>" data-basepath="<?php echo $site->url() ?>">
 
-    <header class="header contain f-futura">
-        <nav class="nav nav--pages">
-            <?php snippet('nav-internal'); ?>
-        </nav>
-        <figure class="logo logo-main">
-            <a href="<?php echo $site->url() ?>">
-                <?php snippet('icons/logo'); ?>
-            </a>
-        </figure>
-        <nav class="nav nav--external">
-            <?php snippet('nav-external'); ?>
-        </nav>
+    <header class="header f-futura">
+        <div class="inner contain">
+            <nav class="nav nav--pages">
+                <?php snippet('nav-internal'); ?>
+            </nav>
+            <figure class="logo logo-main">
+                <a href="<?php echo $site->url() ?>">
+                    <?php snippet('icons/logo'); ?>
+                </a>
+            </figure>
+            <nav class="nav nav--external">
+                <?php snippet('nav-external'); ?>
+            </nav>
+        </div>
     </header>
 
     <section class="wrapper">

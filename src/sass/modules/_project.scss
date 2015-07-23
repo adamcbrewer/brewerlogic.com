@@ -14,55 +14,20 @@
         border-color: currentcolor;
     }
 }
-.project-images {
-    margin: 5em;
-}
-.project-image {
-    margin: 0 0 5em;
 
-    .layout--half &,
-    .layout--third &,
-    .layout--twothirds & {
-        margin-bottom: 0;
-    }
+.project-images {
+    margin: 5em 5em 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-.project-figure-description {}
+
+.project-image {
+    margin: 0;
+}
+
 .project-footer {
     clear: both;
-}
-
-$gutter-gap: ($d-gutter/2);
-
-.layout--half {
-    float: left;
-    max-width: calc(#{$d-columns-6} - #{$gutter-gap});
-    & + .layout--half {
-        float: right;
-        & + .layout--half:nth-of-type(2n+1) {
-            clear: left;
-            float: left;
-        }
-    }
-}
-
-.layout--third {
-    float: left;
-    max-width: calc(#{$d-columns-4} - #{$gutter-gap});
-    & + .layout--twothirds {
-        float: right;
-        & + * {
-            clear: both;
-        }
-    }
-}
-
-.layout--twothirds {
-    float: left;
-    max-width: calc(#{$d-columns-8} - #{$gutter-gap});
-    & + .layout--third {
-        float: right;
-        & + * {
-            clear: both;
-        }
-    }
 }

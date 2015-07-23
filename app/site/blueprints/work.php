@@ -1,16 +1,25 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# Work
+# =====================
+
 title: Work
+
 pages:
   template: project
   sortable: true
   limit: 50
+
 files: false
+
 fields:
   title:
-    label: Title
+    label: Page Title
     type:  text
 
+  # Section - Work
+  # =============
   _headerOne:
     label: Section - Work
     type: headline

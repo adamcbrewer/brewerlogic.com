@@ -1,15 +1,24 @@
 <?php if(!defined('KIRBY')) exit ?>
 
+# =====================
+# Site
+# =====================
+
 title: Site
+
 pages:
   sortable: true
   max: 5
+
 fields:
+
+  # Section - Meta
+  # =============
   _headerOne:
-    label: Site Configuration
+    label: Site Meta
     type: headline
   title:
-    label: Site Name
+    label: Site Title
     type: text
     width: 1/2
   author:
@@ -35,6 +44,8 @@ fields:
     label: Copyright
     type:  textarea
 
+  # Section - Social
+  # =============
   _headerTwo:
     label: Social Links
     type: headline
@@ -47,8 +58,8 @@ fields:
       label: Social Links
       type: structure
       entry: >
-        {{title}} <br>
-        <em><a href="{{url}}">{{url}}</a></em>
+        <b>Name</b> &nbsp;–&nbsp; <em>{{title}}</em> <br>
+        <b>URL</b> &nbsp;–&nbsp; <em><a target="_blank" href="{{url}}">{{url}}</a></em>
       fields:
         title:
           label: Title
@@ -57,6 +68,8 @@ fields:
           label: URL
           type: url
 
+  # Section - Twitter
+  # =============
   _headerThree:
     label: Twitter Settings
     type: headline
@@ -79,9 +92,11 @@ fields:
     label: Tweet-Filter Keyword
     type: text
 
+  # Section - General Content
+  # =============
   _headerFour:
-    label: Content Stuff
+    label: General Content Stuff
     type: headline
   buttonView:
-    label: Button – 'view project'
+    label: Button &nbsp;–&nbsp; 'view project'
     type: text
