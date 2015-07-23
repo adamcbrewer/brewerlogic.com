@@ -9,12 +9,12 @@
     min-height: 200px;
     color: $c-white;
     position: relative;
-    padding: 1.4em;
+    padding: 2.4em;
+    max-height: none;
 
-    .inner {
+    > .inner {
         margin: 5em auto;
     }
-
 }
 
 .section--yank {

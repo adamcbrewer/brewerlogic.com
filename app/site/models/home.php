@@ -20,7 +20,7 @@ class HomePage extends BasePage {
             $uid = $feature_page['uid'];
             $feature = $work_page->children()->findByUri($uid);
 
-            $no_feature_image = !$feature->feature();
+            $no_feature_image = !$feature->feature() && !$feature->thumb();
 
             if ($no_feature_image) continue;
 

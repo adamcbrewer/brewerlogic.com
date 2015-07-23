@@ -35,6 +35,9 @@ fields:
     label: Date
     type:  text
     width: 1/2
+  signoff:
+    label: Sign-off (optional)
+    type:  textarea
 
   # Section - Images
   # =============
@@ -77,9 +80,3 @@ fields:
         options:
           full: Full width
           half: Half size
-
-  # Section - Footer
-  # =============
-  signoff:
-    label: Sign-off (optional)
-    type:  textarea

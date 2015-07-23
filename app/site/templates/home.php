@@ -12,13 +12,13 @@
             </div>
         </div>
 
-        <aside class="contain contain--narrow">
-            <?php echo $page->status() ?>
+        <aside class="contain contain--narrow status">
+            <?php echo $page->status()->markdown() ?>
         </aside>
 
     </header>
 
-    <section class="section contain">
+    <section class="section">
 
         <header class="section-header">
             <h2 class="section-title"><?php echo $page->sectionTitleTwo() ?></h2>

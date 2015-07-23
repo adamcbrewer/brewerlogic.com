@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "Installing NPM and Bower packages..."
-npm install && bower install && grunt init
+echo "Installing NPM packages..."
+npm install
 echo "Initialising Kirby CMS submodules..."
 git submodule update --init --recursive
 echo "Creating directories..."

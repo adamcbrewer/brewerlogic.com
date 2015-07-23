@@ -37,20 +37,22 @@
     <?php echo js('assets/js/modernizr.min.js') ?>
 
 </head>
-<body data-basepath="<?php echo $site->url() ?>">
+<body class="page--<?php echo $page->template(); ?>" data-basepath="<?php echo $site->url() ?>">
 
-    <header class="header contain f-futura">
-        <nav class="nav nav--pages">
-            <?php snippet('nav-internal'); ?>
-        </nav>
-        <figure class="logo logo-main">
-            <a href="<?php echo $site->url() ?>">
-                <?php snippet('icons/logo'); ?>
-            </a>
-        </figure>
-        <nav class="nav nav--external">
-            <?php snippet('nav-external'); ?>
-        </nav>
+    <header class="header f-futura">
+        <div class="inner contain">
+            <nav class="nav nav--pages">
+                <?php snippet('nav-internal'); ?>
+            </nav>
+            <figure class="logo logo-main">
+                <a href="<?php echo $site->url() ?>">
+                    <?php snippet('icons/logo'); ?>
+                </a>
+            </figure>
+            <nav class="nav nav--external">
+                <?php snippet('nav-external'); ?>
+            </nav>
+        </div>
     </header>
 
     <section class="wrapper">

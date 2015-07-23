@@ -31,7 +31,8 @@ fields:
     type: text
   status:
     label: Current Status
-    type: text
+    type: textarea
+    size: small
 
   # Section - Features
   # =====================
