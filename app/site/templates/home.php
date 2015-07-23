@@ -26,7 +26,7 @@
 
         <?php snippet('work/list', array('projects' => $page->featured_projects())); ?>
 
-        <div class="btn-group">
+        <div class="btn-group contain">
             <a href="<?php echo $site->find('/work')->url() ?>" class="btn btn--primary"><?php echo $page->buttonFeatured() ?></a>
         </div>
 
@@ -59,7 +59,7 @@
             You need javascript to display this page correctly.
         </noscript>
 
-        <div class="btn-group">
+        <div class="btn-group contain">
             <a href="http://twitter.com/adamcbrewer" class="btn btn--primary"><?php echo $page->buttonTwitter() ?></a>
         </div>
 

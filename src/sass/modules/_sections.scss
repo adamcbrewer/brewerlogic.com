@@ -9,7 +9,7 @@
     min-height: 200px;
     color: $c-white;
     position: relative;
-    padding: 2.4em;
+    padding: 2.4em $d-gutter;
     max-height: none;
 
     > .inner {
