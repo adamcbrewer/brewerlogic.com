@@ -28,7 +28,7 @@
     <?php if ($page->hasNextVisible()) : ?><link rel="next" href="<?php echo $page->nextVisible()->url() ?>"><?php endif; ?>
     <?php endif; ?>
 
-    <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
     <script>
         WebFont.load({typekit: { id: 'qwc7wds' }});
     </script>
