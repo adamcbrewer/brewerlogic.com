@@ -1,5 +1,3 @@
-<?php if(!defined('KIRBY')) exit ?>
-
 # =====================
 # Site
 # =====================
@@ -57,9 +55,7 @@ fields:
   externallinks:
       label: Social Links
       type: structure
-      entry: >
-        <b>Name</b> &nbsp;–&nbsp; <em>{{title}}</em> <br>
-        <b>URL</b> &nbsp;–&nbsp; <em><a target="_blank" href="{{url}}">{{url}}</a></em>
+      style: table
       fields:
         title:
           label: Title

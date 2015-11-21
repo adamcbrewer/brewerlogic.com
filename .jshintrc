@@ -21,6 +21,9 @@
   "smarttabs": true,
   "globals" : {
     "jQuery": true,
-    "Modernizr": true
+    "Modernizr": true,
+    "config": true,
+    "gulp": true,
+    "WebFont": true
   }
 }

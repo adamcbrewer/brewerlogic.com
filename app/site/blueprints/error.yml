@@ -1,10 +1,8 @@
-<?php if(!defined('KIRBY')) exit ?>
-
 # =====================
 # Error Page
 # =====================
 
-title: 404
+title: '404'
 
 pages: false
 
@@ -23,8 +21,7 @@ fields:
   buttons:
     label: Buttons
     type: structure
-    entry: >
-      {{title}} ({{type}}) – {{url}}
+    style: table
     fields:
       title:
         label: Title

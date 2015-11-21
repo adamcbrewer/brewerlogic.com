@@ -1,5 +1,3 @@
-<?php if(!defined('KIRBY')) exit ?>
-
 # =====================
 # Home
 # =====================
@@ -48,19 +46,17 @@ fields:
   featured_project_uids:
     label: Featured Work
     type: structure
-    width: 1/2
-    entry: >
-      <b>Project ID</b> &nbsp;–&nbsp; <em>{{ uid }}</em>
+    style: table
     fields:
       uid:
-        label: Project ID
+        label: Project
         type: select
         options: query
         query:
           page: work
           fetch: visibleChildren
           value: '{{uid}}'
-          text: '{{uid}}'
+          text: '{{title}}'
 
   # Section - Twitter
   # =====================
