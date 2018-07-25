@@ -78,10 +78,10 @@
         transition: 0.2s $easeOutExpo;
 
         [data-useragent*="Chrome"] & {
-            mask-image: url('../img/bl-logo.svg');
-            mask-repeat: no-repeat;
-            mask-position:  50% 50%;
-            mask-size: -1%;
+            // mask-image: url('../img/bl-logo.svg');
+            // mask-repeat: no-repeat;
+            // mask-position:  50% 50%;
+            // mask-size: -1%;
 
             // -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
             //         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -104,8 +104,9 @@
         .figure-link__link:hover & {
 
             [data-useragent*="Chrome"] & {
-                mask-image: url('../img/bl-logo.svg');
-                mask-size: 70%;
+                // clip-path: url('../img/bl-logo.svg');
+                // mask-image: url('../img/bl-logo.svg');
+                // mask-size: 70%;
 
                 // -webkit-clip-path: polygon(42% 10%, 90% 60%, 18% 85%, 18% 85%);
                 //     clip-path: polygon(42% 10%, 90% 60%, 18% 85%, 18% 85%);
@@ -134,10 +135,10 @@
                 background: #f901ff;
                 opacity: 0.4;
 
-                html:not([data-useragent*="Chrome"]) & {
+                // html:not([data-useragent*="Chrome"]) & {
                     background-image: $c-gradientHero;
-                    opacity: 0.9;
-                }
+                    opacity: 0.8;
+                // }
             }
         }
     }
