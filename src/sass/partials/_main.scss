@@ -45,7 +45,7 @@
     position: relative;
     z-index: 3;
 
-    a { display: block; }
+    a { display: block; outline: none; }
 
     svg {
         fill: white;
@@ -63,10 +63,11 @@
 
     .js:not([data-useragent*="Firefox"]) & {
         transform: scale(0);
+        transform-origin: 100% 150%;
     }
     .js.wf-active & {
         transform: scale(1);
-        transform-origin: 50% 50%;
+        transform-origin: 100% 150%;
     }
 
     html:not([data-useragent*="Firefox"]) .logo:hover & {
@@ -74,6 +75,7 @@
             0.2s $easeOutExpo transform,
             0.2s $easeOutExpo opacity;
         transform: scale(0.9);
+        transform-origin: 100% 150%;
     }
 }
 
