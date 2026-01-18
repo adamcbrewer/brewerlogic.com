@@ -22,3 +22,6 @@ Desktop.ini
 # Local
 .env
 .env.local
+
+# Testing
+.playwright-mcp/
