@@ -11,14 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="icon" type="image/svg+xml" href="src/img/bl-logo.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/img/bl-logo.svg">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
     <header class="header">
         <nav class="nav">
-            <a href="#" class="nav__logo" aria-label="Home">AB</a>
+            <a href="#" class="nav__logo" aria-label="Home">adam brewer</a>
             <ul class="nav__links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#work">Work</a></li>
@@ -37,11 +37,11 @@
         <section class="hero">
             <div class="container">
                 <p class="hero__greeting">Hi, my name is</p>
-                <h1 class="hero__name">Adam Brewer.</h1>
-                <h2 class="hero__tagline">I build things for the web.</h2>
+                <h1 class="hero__name">Adam Brewer</h1>
+                <h2 class="hero__tagline">I build things for the web</h2>
                 <p class="hero__description">
                     Senior full-stack developer with 12+ years crafting scalable applications.
-                    Former British Army aircraft technician turned self-taught developer.
+                    Former British Army aircraft technician turned web developer.
                     I specialize in React, TypeScript, and turning complex problems into elegant solutions.
                 </p>
                 <div class="hero__cta">
@@ -58,20 +58,20 @@
                 <div class="about__content">
                     <div class="about__text">
                         <p>
-                            I started my career as an aircraft technician in the British Army, serving in the UK, Germany, and Iraq.
-                            After leaving the forces, I taught myself to code and haven't looked back since.
+                            Former British Army aircraft technician turned web developer. I spent 5 years maintaining helicopters
+                            before moving into tech full-time in 2010.
                         </p>
                         <p>
-                            That military background gave me discipline, adaptability, and a knack for solving problems under pressure.
-                            These days, I channel that into building web applications that are as robust as they are user-friendly.
+                            I love building component systems, interfaces and APIs. Communication is one of my strongest assets—I'm
+                            comfortable translating between frontend, backend and stakeholders, and getting stuck in wherever needed.
                         </p>
                         <p>
-                            I've had the privilege of working with some incredible brands—<span class="highlight">Google</span>,
-                            <span class="highlight">Apple</span>, <span class="highlight">The Economist</span>,
-                            <span class="highlight">Burberry</span>—and co-founded my own SaaS, <span class="highlight">Paper Trails</span>,
-                            with my designer brother.
+                            I've worked with brands like <span class="highlight">Google</span>, <span class="highlight">Apple</span>,
+                            <span class="highlight">The Economist</span> and <span class="highlight">Burberry</span>. I also co-founded
+                            <span class="highlight">Paper Trails</span> with my <a href="https://studiobrewer.com" target="_blank" rel="noopener noreferrer">designer brother Jake</a>—he
+                            handles the visuals, I handle the tech.
                         </p>
-                        <p>Here are some technologies I've been working with recently:</p>
+                        <p>Technologies I've been working with recently:</p>
                         <ul class="skills-list">
                             <li>React / React Native</li>
                             <li>TypeScript</li>
@@ -104,12 +104,12 @@
                                 </p>
                             </div>
                             <ul class="project__tech">
+                                <li>React</li>
                                 <li>Next.js</li>
                                 <li>React Native</li>
                                 <li>TypeScript</li>
                                 <li>Azure</li>
                                 <li>Nx</li>
-                                <li>Ionic</li>
                             </ul>
                         </div>
                     </article>
@@ -126,8 +126,9 @@
                             </h3>
                             <div class="project__description">
                                 <p>
-                                    Turn your adventure data into wall art. Built this SaaS from scratch with my brother Jake—
-                                    I handle the tech, he handles the design. Full-stack ownership from Stripe payments
+                                    Turn your adventure data into wall art. Built this SaaS from scratch with my brother
+                                    <a href="https://studiobrewer.com" target="_blank" rel="noopener noreferrer">Jake</a>—I
+                                    handle the tech, he handles the design. Full-stack ownership from Stripe payments
                                     to Strava integrations.
                                 </p>
                             </div>
@@ -142,7 +143,30 @@
                         </div>
                     </article>
 
-                    <!-- Project 3: The Economist -->
+                    <!-- Project 3: Meshii -->
+                    <article class="project">
+                        <div class="project__content">
+                            <p class="project__overline">Web3 Mobile App</p>
+                            <h3 class="project__title">Meshii WiFi</h3>
+                            <div class="project__description">
+                                <p>
+                                    Blockchain-integrated mobile app for decentralized WiFi sharing.
+                                    Led architecture decisions and deployment strategies. Integrated Polygon
+                                    blockchain functionality for token rewards using Alchemy API.
+                                </p>
+                            </div>
+                            <ul class="project__tech">
+                                <li>React Native</li>
+                                <li>TypeScript</li>
+                                <li>AWS Serverless</li>
+                                <li>Python</li>
+                                <li>Polygon</li>
+                                <li>Alchemy</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: The Economist -->
                     <article class="project">
                         <div class="project__content">
                             <p class="project__overline">Design System</p>
@@ -202,7 +226,7 @@
                             <ul class="timeline__details">
                                 <li>Leading frontend UI/UX development for fintech portfolio management platform</li>
                                 <li>Shipped POC to production within first year, multiple releases since</li>
-                                <li>Cross-platform development: Next.js web + React Native/Ionic mobile</li>
+                                <li>React, Next.js, React Native, Ionic, TypeScript, Nx monorepo, Azure DevOps</li>
                             </ul>
                         </div>
                     </div>
@@ -217,23 +241,8 @@
                             <p class="timeline__date">Mar 2019 — Present</p>
                             <ul class="timeline__details">
                                 <li>Co-founded SaaS turning adventure data into custom art prints</li>
-                                <li>Full-stack ownership: React frontend, Laravel API, Stripe payments</li>
-                                <li>CI/CD pipelines, TDD practices, Docker deployment</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline__item">
-                        <div class="timeline__marker"></div>
-                        <div class="timeline__content">
-                            <div class="timeline__header">
-                                <h3>Software Architect</h3>
-                                <span class="timeline__company">@ Meshii WiFi</span>
-                            </div>
-                            <p class="timeline__date">Feb 2023 — Oct 2023</p>
-                            <ul class="timeline__details">
-                                <li>Led architecture for blockchain-integrated mobile application</li>
-                                <li>AWS Serverless deployment, Polygon blockchain via Alchemy API</li>
+                                <li>Full-stack ownership from payments to Strava/Komoot integrations</li>
+                                <li>React, TypeScript, Laravel, PostgreSQL, Docker, Stripe, Jest, GitHub Actions CI/CD</li>
                             </ul>
                         </div>
                     </div>
@@ -245,27 +254,12 @@
                                 <h3>Contract Developer</h3>
                                 <span class="timeline__company">@ Apple, The Economist, Novata, Etch</span>
                             </div>
-                            <p class="timeline__date">2019 — 2022</p>
+                            <p class="timeline__date">2019 — 2023</p>
                             <ul class="timeline__details">
-                                <li>Upgraded internal tools at Apple</li>
-                                <li>Extended The Economist's Design System</li>
-                                <li>Built carbon emission calculators and investment planning tools</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline__item">
-                        <div class="timeline__marker"></div>
-                        <div class="timeline__content">
-                            <div class="timeline__header">
-                                <h3>Lead Frontend Developer</h3>
-                                <span class="timeline__company">@ Applied Works</span>
-                            </div>
-                            <p class="timeline__date">Aug 2017 — Jun 2018</p>
-                            <ul class="timeline__details">
-                                <li>Led frontend in international team of 15-20 developers</li>
-                                <li>Architected React/TypeScript/Redux application with Storybook</li>
-                                <li>Mentored developers through pairing and code reviews</li>
+                                <li>Apple: Upgraded internal software tools (React, TypeScript)</li>
+                                <li>The Economist: Extended Design System, built styleguide site (React, Storybook, Component Libraries)</li>
+                                <li>Novata: Carbon emission calculators with data visualisations (React, TypeScript, PostgreSQL, Prisma, Jest)</li>
+                                <li>Etch: Interactive investment planning tools (React, D3.js, TypeScript)</li>
                             </ul>
                         </div>
                     </div>
@@ -275,12 +269,15 @@
                         <div class="timeline__content">
                             <div class="timeline__header">
                                 <h3>Earlier Roles</h3>
-                                <span class="timeline__company">@ Toaster, Burberry, Saatchi & Saatchi, Outside Line</span>
+                                <span class="timeline__company">@ Applied Works, Toaster, Burberry, Saatchi & Saatchi, Outside Line</span>
                             </div>
-                            <p class="timeline__date">2011 — 2016</p>
+                            <p class="timeline__date">2011 — 2018</p>
                             <ul class="timeline__details">
-                                <li>Google campaigns, Burberry.com, Adidas, Virgin, Budweiser</li>
-                                <li>Agency life: fast-paced, high-profile brand work</li>
+                                <li>Applied Works: Led frontend team of 15-20 (React, TypeScript, Redux, Storybook, Node.js)</li>
+                                <li>Toaster: Google Play Policy, Google Search Indonesia, Adidas (Polymer, Web Components, GSAP animations)</li>
+                                <li>Burberry: Burberry.com e-commerce frontend (Backbone.js, SASS, Grunt)</li>
+                                <li>Freelance: Lost Boy, Ash Thorp, Film Locker, Wandering Fever (React SPAs, Kirby CMS, PHP)</li>
+                                <li>Agency: Toyota, Virgin Galactic, Cravendale, Budweiser, Blackwell eReader (Knockout.js, Patternlab, Gulp)</li>
                             </ul>
                         </div>
                     </div>

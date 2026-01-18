@@ -137,12 +137,14 @@ img {
 
 .nav__logo {
     font-family: var(--font-mono);
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: var(--gradient-80s);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.nav__logo:hover {
+    color: var(--accent);
 }
 
 .nav__links {
@@ -168,12 +170,18 @@ img {
     transition: width var(--transition-base);
 }
 
-.nav__links a:hover {
+.nav__links a:hover,
+.nav__links a:focus {
     color: var(--accent);
 }
 
-.nav__links a:hover::after {
+.nav__links a:hover::after,
+.nav__links a:focus::after {
     width: 100%;
+}
+
+.nav__links a.is-active {
+    color: var(--accent);
 }
 
 .theme-toggle {
