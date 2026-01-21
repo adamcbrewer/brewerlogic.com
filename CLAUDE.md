@@ -37,6 +37,20 @@ docs/
 - IIFE pattern to avoid globals
 - Intersection Observer for scroll-based interactions
 
+## Content Sync
+
+**IMPORTANT**: `index.html` and `docs/portfolio.html` share content that must stay in sync:
+
+| Section | index.html | portfolio.html |
+|---------|------------|----------------|
+| Job title | Hero section | Header `.title` |
+| About/Summary | `#about` section | `.summary` paragraph |
+| Skills | `.skills-list` | `.skills-grid` |
+| Experience | `.timeline` | `.job` entries |
+| Contact | Footer + contact section | `.contact-info` |
+
+When updating copy in one file, check the other for corresponding content and update both.
+
 ## Deployment
 
 Static files—deploy anywhere (GitHub Pages, Netlify, Digital Ocean, etc.)
