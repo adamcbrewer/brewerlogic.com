@@ -819,6 +819,25 @@ img {
     transform: translateY(-3px);
 }
 
+.footer__links {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.footer__links a {
+    color: var(--text-secondary);
+}
+
+.footer__links a:hover {
+    color: var(--accent);
+}
+
+.footer__divider {
+    margin: 0 0.75rem;
+    color: var(--text-tertiary);
+}
+
 .footer__credit {
     font-family: var(--font-mono);
     font-size: 0.8rem;
