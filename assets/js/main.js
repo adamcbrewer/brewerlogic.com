@@ -102,4 +102,21 @@
     sections.forEach(function(section) {
         observer.observe(section);
     });
+
+    // Scroll reveal animations
+    var revealElements = document.querySelectorAll('.reveal, .reveal-children');
+    var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    revealElements.forEach(function(el) {
+        revealObserver.observe(el);
+    });
 })();

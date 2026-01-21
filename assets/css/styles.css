@@ -345,6 +345,48 @@ img {
 .animate-in--delay-4 { animation-delay: 0.5s; }
 .animate-in--delay-5 { animation-delay: 0.7s; }
 
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal--left {
+    transform: translateX(-30px);
+}
+
+.reveal--left.is-visible {
+    transform: translateX(0);
+}
+
+.reveal--right {
+    transform: translateX(30px);
+}
+
+.reveal--right.is-visible {
+    transform: translateX(0);
+}
+
+/* Staggered children reveal */
+.reveal-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal-children.is-visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.reveal-children.is-visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.reveal-children.is-visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.reveal-children.is-visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.reveal-children.is-visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+.reveal-children.is-visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
 /* ─────────────────────────────────────────────────
    HERO
    ───────────────────────────────────────────────── */
