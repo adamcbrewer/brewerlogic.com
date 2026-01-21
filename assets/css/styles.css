@@ -436,6 +436,12 @@ img {
     padding-bottom: 0.1em;
 }
 
+.hero__tagline-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
 .hero__description {
     max-width: 540px;
     font-size: 1.1rem;

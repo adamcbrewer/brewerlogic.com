@@ -70,39 +70,48 @@
 
     // Active nav state on scroll
     const sections = document.querySelectorAll('section[id]');
+    const heroSection = document.querySelector('.hero');
     const navLinks = document.querySelectorAll('.nav__links a');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav__links a');
 
     function setActiveNav(id) {
-        var selector = '#' + id;
+        var selector = id ? '#' + id : null;
         navLinks.forEach(function(link) {
             link.classList.remove('is-active');
-            if (link.getAttribute('href') === selector) {
+            if (selector && link.getAttribute('href') === selector) {
                 link.classList.add('is-active');
             }
         });
         mobileNavLinks.forEach(function(link) {
             link.classList.remove('is-active');
-            if (link.getAttribute('href') === selector) {
+            if (selector && link.getAttribute('href') === selector) {
                 link.classList.add('is-active');
             }
         });
         // Update URL hash without scrolling
         if (history.replaceState) {
-            history.replaceState(null, null, selector);
+            var newUrl = selector || window.location.pathname + window.location.search;
+            history.replaceState(null, null, newUrl);
         }
     }
 
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                setActiveNav(entry.target.id);
+                if (entry.target.classList.contains('hero')) {
+                    setActiveNav(null);
+                } else {
+                    setActiveNav(entry.target.id);
+                }
             }
         });
     }, {
         rootMargin: '-50% 0px -50% 0px'
     });
 
+    if (heroSection) {
+        observer.observe(heroSection);
+    }
     sections.forEach(function(section) {
         observer.observe(section);
     });
