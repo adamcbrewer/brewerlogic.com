@@ -87,6 +87,10 @@
                 link.classList.add('is-active');
             }
         });
+        // Update URL hash without scrolling
+        if (history.replaceState) {
+            history.replaceState(null, null, selector);
+        }
     }
 
     const observer = new IntersectionObserver(function(entries) {
