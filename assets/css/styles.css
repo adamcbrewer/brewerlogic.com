@@ -24,6 +24,11 @@
     --gradient-subtle: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(255, 107, 157, 0.1));
     --shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
     --border: rgba(100, 255, 218, 0.1);
+    --badge-bg: linear-gradient(135deg, rgba(255, 107, 157, 0.08), rgba(255, 0, 128, 0.04));
+    --badge-bg-hover: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(255, 0, 128, 0.08));
+    --badge-border: rgba(255, 107, 157, 0.6);
+    --badge-border-hover: rgba(255, 107, 157, 0.85);
+    --badge-text: #ff7eb3;
 }
 
 [data-theme="light"] {
@@ -39,6 +44,11 @@
     --gradient-subtle: linear-gradient(135deg, rgba(8, 145, 178, 0.05), rgba(219, 39, 119, 0.05));
     --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
     --border: rgba(0, 0, 0, 0.1);
+    --badge-bg: linear-gradient(135deg, rgba(219, 39, 119, 0.08), rgba(190, 24, 93, 0.04));
+    --badge-bg-hover: linear-gradient(135deg, rgba(219, 39, 119, 0.12), rgba(190, 24, 93, 0.06));
+    --badge-border: rgba(219, 39, 119, 0.5);
+    --badge-border-hover: rgba(219, 39, 119, 0.7);
+    --badge-text: #be185d;
 }
 
 *, *::before, *::after {
@@ -451,15 +461,15 @@ img {
     position: relative;
     padding: 0.35rem 0.85rem;
     border-radius: 4px;
-    background: linear-gradient(135deg, rgba(255, 107, 157, 0.08), rgba(255, 0, 128, 0.04));
-    border: 1px solid rgba(255, 107, 157, 0.4);
-    color: var(--accent-secondary);
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-border);
+    color: var(--badge-text);
     transition: all var(--transition-fast);
 }
 
 .project__tech li:hover {
-    background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(255, 0, 128, 0.08));
-    border-color: rgba(255, 107, 157, 0.6);
+    background: var(--badge-bg-hover);
+    border-color: var(--badge-border-hover);
     transform: translateY(-1px);
 }
 
