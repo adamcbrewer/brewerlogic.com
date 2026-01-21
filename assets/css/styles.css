@@ -521,6 +521,19 @@ img {
 .section--contact {
     text-align: center;
     padding: 150px 0;
+    position: relative;
+}
+
+.section--contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: var(--gradient-80s);
+    border-radius: 2px;
 }
 
 .section__title {
@@ -764,6 +777,11 @@ img {
    CONTACT
    ───────────────────────────────────────────────── */
 
+.section--contact .section__title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 1.5rem;
+}
+
 .contact__content {
     max-width: 500px;
     margin: 0 auto;
@@ -772,6 +790,7 @@ img {
 .contact__content p {
     font-size: 1.1rem;
     margin-bottom: 2.5rem;
+    color: var(--text-secondary);
 }
 
 /* ─────────────────────────────────────────────────
