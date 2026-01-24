@@ -13,10 +13,11 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             color: #333;
             background: white;
             padding: 40px 20px;
+            font-size: 14px;
         }
 
         .container {
@@ -27,192 +28,208 @@
 
         /* Header */
         .header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 20px;
+            margin-bottom: 20px;
         }
 
         .header h1 {
-            font-size: 32px;
-            font-weight: 600;
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
             margin-bottom: 8px;
-            color: #1a1a1a;
         }
 
-        .header .title {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 12px;
+        .header h1 span {
+            font-weight: 400;
+            color: #333;
         }
 
         .contact-info {
-            font-size: 14px;
-            color: #666;
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 15px;
         }
 
         .contact-info a {
             color: #0066cc;
             text-decoration: none;
-            margin: 0 10px;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
         }
 
-        /* Sections */
-        .section {
-            margin-bottom: 30px;
+        .contact-info .separator {
+            margin: 0 8px;
+            color: #999;
         }
 
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 15px;
+        /* Section Headers */
+        .section-header {
+            font-size: 13px;
+            font-weight: 700;
+            color: #000;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin: 20px 0 10px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .section-header--first {
+            margin-top: 12px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.7;
         }
 
         /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 30px;
         }
 
-        .skill-category {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
+        .skill-item {
+            display: flex;
+            gap: 8px;
         }
 
-        .skill-category h4 {
-            font-size: 14px;
+        .skill-item strong {
             font-weight: 600;
-            margin-bottom: 8px;
+            color: #000;
+            min-width: 140px;
+            flex-shrink: 0;
+        }
+
+        .skill-item span {
             color: #444;
-        }
-
-        .skill-category p {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        /* Summary */
-        .summary {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 20px;
         }
 
         /* Experience */
         .job {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 20px;
         }
 
         .job:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+            margin-bottom: 0;
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .job-company {
+            font-size: 14px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .job-dates {
+            font-size: 13px;
+            color: #555;
+            flex-shrink: 0;
         }
 
         .job-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .company {
-            font-size: 15px;
-            color: #666;
+            font-size: 14px;
             font-style: italic;
-        }
-
-        .dates {
-            font-size: 14px;
-            color: #888;
-        }
-
-        .job-description {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-            line-height: 1.6;
+            color: #444;
+            margin-bottom: 6px;
         }
 
         .job ul {
-            list-style: none;
-            padding-left: 0;
+            list-style: disc;
+            padding-left: 18px;
+            margin-bottom: 6px;
         }
 
         .job ul li {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 6px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .job ul li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #999;
-        }
-
-        .tech-stack {
             font-size: 13px;
-            color: #666;
+            color: #333;
+            margin-bottom: 3px;
+            line-height: 1.5;
+        }
+
+        .job-skills {
+            font-size: 12px;
+            color: #555;
             font-style: italic;
-            margin-top: 8px;
         }
 
         /* Education */
         .education-item {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
         }
 
         .education-item h4 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-            color: #1a1a1a;
+            color: #000;
+        }
+
+        .education-item .dates {
+            font-size: 13px;
+            color: #555;
         }
 
         .education-item p {
-            font-size: 14px;
-            color: #666;
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
         }
 
         /* Print styles */
         @media print {
             body {
                 padding: 0;
+                font-size: 12px;
             }
 
             .container {
                 max-width: 100%;
             }
 
-            .section {
-                page-break-inside: avoid;
+            .section-header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .job {
                 page-break-inside: avoid;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .education-header {
+                flex-direction: column;
+                gap: 2px;
             }
         }
     </style>
@@ -221,166 +238,167 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Adam Brewer</h1>
-            <div class="title">Senior Full-stack Developer</div>
+            <h1>Adam Brewer <span>| Senior Full-stack Developer</span></h1>
+            <div class="section-header section-header--first">Contact</div>
             <div class="contact-info">
-                <span>Greater Bristol Area, UK</span> •
-                <a href="mailto:adam@brewerlogic.com">adam@brewerlogic.com</a> •
-                <a href="https://brewerlogic.com">brewerlogic.com</a> •
-                <a href="https://linkedin.com/in/adamcbrewer">LinkedIn</a> •
-                <a href="https://github.com/adamcbrewer/adamcbrewer">GitHub</a>
+                <a href="mailto:adam@brewerlogic.com">adam@brewerlogic.com</a>
+                <span class="separator">|</span>
+                <span>07803 075364</span>
+                <span class="separator">|</span>
+                <a href="https://brewerlogic.com">brewerlogic.com</a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/adamcbrewer">LinkedIn</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/adamcbrewer">GitHub</a>
+                <span class="separator">|</span>
+                <span>Greater Bristol Area, UK</span>
             </div>
         </div>
 
-        <!-- Skills Section -->
-        <div class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Core</h4>
-                    <p>React, TypeScript, Next.js, Node.js, Git</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Frontend</h4>
-                    <p>React Native, HTML5, CSS3, Redux, JavaScript ES6+, Component Systems, Design Systems</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Backend</h4>
-                    <p>PHP, Laravel, REST APIs, PostgreSQL, Prisma, Docker, AWS</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Practices</h4>
-                    <p>Testing (Jest, Cypress, TDD), CI/CD, Agile, Team Leadership, Code Reviews, AI-augmented Workflows</p>
-                </div>
+        <!-- Summary -->
+        <div class="section-header">Summary</div>
+        <p class="summary">
+            Senior full-stack developer with 12+ years building scalable web applications. Former British Army aircraft technician—that background gave me discipline, adaptability, and a knack for problem-solving under pressure. I excel at creating robust component systems, leading teams, and translating technical concepts for stakeholders. Strong track record with enterprise brands (Google, Apple, The Economist, Burberry) and co-founded my own SaaS. Equally comfortable leading a team or shipping features autonomously.
+        </p>
+
+        <!-- Skills -->
+        <div class="section-header">Skills</div>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <strong>Core:</strong>
+                <span>React, TypeScript, Next.js, Node.js, Git</span>
+            </div>
+            <div class="skill-item">
+                <strong>Frontend:</strong>
+                <span>React Native, HTML5, CSS3, Redux, ES6+, Design Systems</span>
+            </div>
+            <div class="skill-item">
+                <strong>Backend:</strong>
+                <span>PHP, Laravel, REST APIs, PostgreSQL, MongoDB, Prisma, Docker, AWS</span>
+            </div>
+            <div class="skill-item">
+                <strong>Practices:</strong>
+                <span>Testing (Jest, Cypress), CI/CD, Agile, Code Reviews, AI-augmented Workflows</span>
             </div>
         </div>
 
-        <!-- Summary Section -->
-        <div class="section">
-            <h2 class="section-title">Professional Summary</h2>
-            <p class="summary">
-                Senior full-stack developer with 12+ years building scalable web applications. Former British Army aircraft technician—that background gave me discipline, adaptability, and a knack for problem-solving under pressure. I excel at creating robust component systems, leading teams, and translating technical concepts for stakeholders. Strong track record with enterprise brands (Google, Apple, The Economist, Burberry) and co-founded my own SaaS. Equally comfortable leading a team or shipping features autonomously.
-            </p>
+        <!-- Experience -->
+        <div class="section-header">Work Experience</div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-company">Quilter</div>
+                <div class="job-dates">Jan 2024 - Present</div>
+            </div>
+            <div class="job-title">Senior Developer</div>
+            <ul>
+                <li>Leading frontend UI/UX development for fintech portfolio management platform</li>
+                <li>Shipped proof of concept to production within first year, multiple releases since</li>
+                <li>Cross-platform solution serving both web and mobile clients using Nx monorepo</li>
+            </ul>
+            <div class="job-skills">React, Next.js, React Native, Ionic, TypeScript, Nx, Azure DevOps</div>
         </div>
 
-        <!-- Experience Section -->
-        <div class="section">
-            <h2 class="section-title">Experience</h2>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Senior Developer</div>
-                        <div class="company">Quilter</div>
-                    </div>
-                    <div class="dates">January 2024 - Present</div>
-                </div>
-                <p class="job-description">Leading frontend UI/UX development for a successful proof of concept launched within one year.</p>
-                <ul>
-                    <li>Spearheaded frontend architecture decisions and component system design</li>
-                    <li>Collaborated with cross-functional teams to deliver features from concept to production</li>
-                    <li>Mentored team members on best practices and code quality standards</li>
-                </ul>
-                <p class="tech-stack">Skills: React, TypeScript, Component Architecture, Team Leadership</p>
+        <div class="job">
+            <div class="job-header">
+                <div class="job-company">Paper Trails (Co-founded)</div>
+                <div class="job-dates">Mar 2019 - Present</div>
             </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Technical Director / Co-Founder</div>
-                        <div class="company">Paper Trails</div>
-                    </div>
-                    <div class="dates">March 2019 - Present</div>
-                </div>
-                <p class="job-description">Co-founded and built a full-stack application from the ground up, handling all technical aspects.</p>
-                <ul>
-                    <li>Architected and developed complete frontend application using React and TypeScript</li>
-                    <li>Built robust REST API backend with PHP and Laravel</li>
-                    <li>Implemented CI/CD pipelines, TDD practices, and payment integrations</li>
-                </ul>
-                <p class="tech-stack">Skills: React, TypeScript, PHP, Laravel, Docker, TDD, Stripe API, DevOps</p>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Software Architect</div>
-                        <div class="company">Meshii WiFi</div>
-                    </div>
-                    <div class="dates">February 2023 - October 2023</div>
-                </div>
-                <p class="job-description">Led architecture and development for a blockchain-integrated mobile application.</p>
-                <ul>
-                    <li>Designed system architecture and deployment strategies for AWS Serverless</li>
-                    <li>Coordinated team workflows and feature development sprints</li>
-                    <li>Integrated Polygon blockchain functionality using Alchemy API</li>
-                </ul>
-                <p class="tech-stack">Skills: React Native, TypeScript, AWS, Python, Blockchain, Team Leadership</p>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Senior Frontend Developer</div>
-                        <div class="company">Novata</div>
-                    </div>
-                    <div class="dates">March 2022 - November 2022</div>
-                </div>
-                <p class="job-description">Enhanced carbon emission calculator platform and modernized component library.</p>
-                <ul>
-                    <li>Implemented complex calculator features and data visualizations</li>
-                    <li>Modernized frontend component library for improved developer experience</li>
-                    <li>Maintained high code quality through comprehensive TDD practices</li>
-                </ul>
-                <p class="tech-stack">Skills: React, TypeScript, Jest, PostgreSQL, Prisma, Component Systems</p>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Lead Frontend Developer</div>
-                        <div class="company">Applied Works</div>
-                    </div>
-                    <div class="dates">August 2017 - June 2018</div>
-                </div>
-                <p class="job-description">Led frontend development and mentored developers in an international team of 15-20.</p>
-                <ul>
-                    <li>Architected large-scale React application with TypeScript and Redux</li>
-                    <li>Mentored developers through pair programming and code reviews</li>
-                    <li>Created Storybook component library for consistent UI development</li>
-                </ul>
-                <p class="tech-stack">Skills: React, TypeScript, Redux, Storybook, Team Management, Mentoring</p>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Senior Contractor</div>
-                        <div class="company">Various Clients (Apple, The Economist, LSE, Etch)</div>
-                    </div>
-                    <div class="dates">2019 - 2022</div>
-                </div>
-                <p class="job-description">Delivered high-impact projects for prestigious clients across various industries.</p>
-                <ul>
-                    <li>Upgraded critical internal software systems at Apple</li>
-                    <li>Extended The Economist's Design System used across all digital products</li>
-                    <li>Built interactive investment planning tools for financial services</li>
-                </ul>
-                <p class="tech-stack">Skills: React, TypeScript, Design Systems, Enterprise Development</p>
-            </div>
+            <div class="job-title">Technical Director</div>
+            <ul>
+                <li>Co-founded SaaS turning adventure data (Strava, Komoot) into custom wall art</li>
+                <li>Full-stack ownership: architected frontend, built REST API, implemented CI/CD and TDD</li>
+                <li>Integrated Stripe payments, activity platform APIs, and print fulfillment services</li>
+            </ul>
+            <div class="job-skills">React, TypeScript, Next.js, Laravel, MongoDB, Docker, Stripe, Jest, GitHub Actions</div>
         </div>
 
-        <!-- Education Section -->
-        <div class="section">
-            <h2 class="section-title">Education & Certifications</h2>
-            <div class="education-item">
+        <div class="job">
+            <div class="job-header">
+                <div class="job-company">Meshii WiFi</div>
+                <div class="job-dates">Feb 2023 - Oct 2023</div>
+            </div>
+            <div class="job-title">Software Architect</div>
+            <ul>
+                <li>Led architecture and development for blockchain-integrated mobile application</li>
+                <li>Designed system architecture and AWS Serverless deployment strategies</li>
+                <li>Integrated Polygon blockchain functionality for token rewards using Alchemy API</li>
+            </ul>
+            <div class="job-skills">React Native, TypeScript, AWS Serverless, Python, Polygon, Alchemy</div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-company">Apple, The Economist, Novata, Etch</div>
+                <div class="job-dates">2019 - 2023</div>
+            </div>
+            <div class="job-title">Senior Contract Developer</div>
+            <ul>
+                <li>Apple: Upgraded critical internal software tools</li>
+                <li>The Economist: Extended Design System used across all digital products; built styleguide showcase</li>
+                <li>Novata: Built carbon emission calculators with complex data visualisations</li>
+                <li>Etch/LSE: Created interactive investment planning tools for financial services</li>
+            </ul>
+            <div class="job-skills">React, TypeScript, Storybook, PostgreSQL, Prisma, D3.js, Jest</div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-company">Applied Works</div>
+                <div class="job-dates">Aug 2017 - Jun 2018</div>
+            </div>
+            <div class="job-title">Lead Frontend Developer</div>
+            <ul>
+                <li>Led frontend development and mentored developers in international team of 15-20</li>
+                <li>Architected large-scale React application with TypeScript and Redux</li>
+                <li>Created Storybook component library for consistent UI development</li>
+            </ul>
+            <div class="job-skills">React, TypeScript, Redux, Storybook, Node.js, Team Leadership</div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-company">Toaster (Google, Adidas), Burberry, Saatchi & Saatchi</div>
+                <div class="job-dates">2011 - 2017</div>
+            </div>
+            <div class="job-title">Frontend Developer / Senior Developer</div>
+            <ul>
+                <li>Google Play Policy developer guidelines and Google Search Indonesia mobile experience</li>
+                <li>Burberry.com e-commerce frontend development</li>
+                <li>Agency work for Toyota, Virgin Galactic, Cravendale, Budweiser</li>
+            </ul>
+            <div class="job-skills">Polymer, Web Components, Backbone.js, GSAP, Knockout.js, SASS</div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-company">British Army (REME)</div>
+                <div class="job-dates">Feb 2005 - Nov 2009</div>
+            </div>
+            <div class="job-title">Aircraft Technician, Corporal</div>
+            <ul>
+                <li>Maintained and repaired military helicopters; served in UK, Germany, and Iraq</li>
+                <li>Developed discipline, adaptability, and problem-solving under pressure</li>
+            </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="section-header">Education & Certifications</div>
+
+        <div class="education-item">
+            <div class="education-header">
                 <h4>LPIC-1 Certification</h4>
-                <p>Linux Professional Institute • 2009</p>
+                <span class="dates">2009</span>
             </div>
-            <div class="education-item">
+            <p>Linux Professional Institute</p>
+        </div>
+
+        <div class="education-item">
+            <div class="education-header">
                 <h4>Aeronautical Engineering Apprenticeship</h4>
-                <p>REME School of Aeronautical Engineering • 2005-2006</p>
+                <span class="dates">2005 - 2006</span>
             </div>
+            <p>REME School of Aeronautical Engineering</p>
         </div>
     </div>
 </body>
