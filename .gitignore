@@ -26,3 +26,6 @@ Desktop.ini
 # Testing
 .playwright-mcp/
 _archive-content
+
+# Dependencies
+node_modules/

@@ -210,12 +210,116 @@
             color: var(--red);
         }
 
+        .nav__toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 101;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav__toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .nav__toggle[aria-expanded="true"] span:first-child {
+            transform: translateY(4px) rotate(45deg);
+        }
+
+        .nav__toggle[aria-expanded="true"] span:last-child {
+            transform: translateY(-4px) rotate(-45deg);
+        }
+
+        .nav__overlay {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .nav__overlay {
+                display: block;
+                position: fixed;
+                inset: 0;
+                background: var(--black);
+                z-index: 99;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.15s, visibility 0.15s;
+            }
+
+            .nav__overlay.is-open {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav__links--mobile {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 100;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 0 24px;
+                list-style: none;
+                gap: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.15s, visibility 0.15s;
+            }
+
+            .nav__links--mobile.is-open {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav__links--mobile li {
+                border-bottom: 2px solid var(--grey);
+                width: 100%;
+            }
+
+            .nav__links--mobile li:first-child {
+                border-top: 2px solid var(--grey);
+            }
+
+            .nav__links--mobile a {
+                display: block;
+                font-family: var(--font-display);
+                font-size: clamp(2.5rem, 10vw, 4rem);
+                text-transform: uppercase;
+                color: var(--white);
+                padding: 16px 0;
+                letter-spacing: -0.02em;
+                line-height: 1;
+                transition: color 0.15s;
+            }
+
+            .nav__links--mobile a:hover,
+            .nav__links--mobile a:active {
+                color: var(--red);
+            }
+        }
+
         @media (min-width: 768px) {
             .nav {
                 padding: 20px 48px;
             }
             .nav__links {
                 display: flex;
+            }
+            .nav__toggle {
+                display: none;
             }
         }
 
@@ -224,6 +328,7 @@
         .section {
             position: relative;
             border-bottom: 2px solid var(--grey);
+            overflow: hidden;
         }
 
         .section__label {
@@ -909,6 +1014,185 @@
                 height: 120px;
             }
         }
+
+        /* ═══════════════════ MOBILE RESPONSIVE ═══════════════════ */
+
+        @media (max-width: 767px) {
+            .hero {
+                min-height: 100svh;
+                padding: 0 16px 40px;
+            }
+
+            .hero__name {
+                font-size: clamp(3.2rem, 16vw, 6rem);
+            }
+
+            .hero__description {
+                font-size: 0.8rem;
+                margin-bottom: 32px;
+            }
+
+            .hero__marker {
+                display: none;
+            }
+
+            .hero__cta {
+                flex-direction: column;
+            }
+
+            .hero__cta .btn {
+                text-align: center;
+                padding: 16px 28px;
+            }
+
+            .section__inner {
+                padding: 60px 16px;
+            }
+
+            .section__title {
+                margin-bottom: 32px;
+            }
+
+            .about__grid {
+                gap: 32px;
+            }
+
+            .skills__list {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .project {
+                padding: 32px 0;
+            }
+
+            .project__number {
+                font-size: clamp(3rem, 8vw, 5rem);
+            }
+
+            .exp {
+                padding: 32px 0;
+            }
+
+            .contact__big-text {
+                font-size: clamp(2.5rem, 9vw, 4rem);
+            }
+
+            .footer {
+                padding: 32px 16px;
+            }
+
+            .footer__inner {
+                gap: 16px;
+            }
+
+            .social a {
+                padding: 4px;
+            }
+
+            .social a svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 0.7rem;
+            }
+
+            .btn--large {
+                padding: 16px 32px;
+            }
+
+            .grid-lines {
+                padding: 0 16px;
+            }
+
+            .grid-lines span:nth-child(n+5) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 15px;
+            }
+
+            .nav {
+                padding: 12px 16px;
+            }
+
+            .nav__logo {
+                font-size: 1.25rem;
+            }
+
+            .hero {
+                padding: 0 12px 32px;
+            }
+
+            .hero__greeting {
+                font-size: 0.6rem;
+            }
+
+            .hero__name {
+                font-size: clamp(2.8rem, 14vw, 4rem);
+            }
+
+            .hero__tagline {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+            }
+
+            .hero__description {
+                font-size: 0.75rem;
+                line-height: 1.6;
+            }
+
+            .section__inner {
+                padding: 48px 12px;
+            }
+
+            .section__title {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+                margin-bottom: 24px;
+            }
+
+            .about__text p {
+                font-size: 0.8rem;
+            }
+
+            .project__desc {
+                font-size: 0.8rem;
+            }
+
+            .project__tech {
+                gap: 6px;
+            }
+
+            .project__tech li {
+                font-size: 0.6rem;
+                padding: 4px 8px;
+            }
+
+            .exp__role {
+                font-size: clamp(1.2rem, 4vw, 1.6rem);
+            }
+
+            .exp__details li {
+                font-size: 0.75rem;
+            }
+
+            .footer {
+                padding: 24px 12px;
+            }
+
+            .grid-lines {
+                padding: 0 12px;
+            }
+
+            .grid-lines span:nth-child(n+4) {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -927,7 +1211,18 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
         </nav>
+        <div class="nav__overlay" aria-hidden="true"></div>
+        <ul class="nav__links--mobile" aria-hidden="true">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </header>
 
     <main id="main">
@@ -1313,6 +1608,39 @@
             if (heroSection) navObserver.observe(heroSection);
             sections.forEach(function(section) {
                 navObserver.observe(section);
+            });
+
+            var toggle = document.querySelector('.nav__toggle');
+            var overlay = document.querySelector('.nav__overlay');
+            var mobileLinks = document.querySelector('.nav__links--mobile');
+
+            function openMenu() {
+                toggle.setAttribute('aria-expanded', 'true');
+                overlay.classList.add('is-open');
+                mobileLinks.classList.add('is-open');
+                mobileLinks.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                toggle.setAttribute('aria-expanded', 'false');
+                overlay.classList.remove('is-open');
+                mobileLinks.classList.remove('is-open');
+                mobileLinks.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            toggle.addEventListener('click', function() {
+                var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+                isOpen ? closeMenu() : openMenu();
+            });
+
+            overlay.addEventListener('click', closeMenu);
+
+            mobileLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
             });
         })();
     </script>
