@@ -48,7 +48,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="assets/img/bl-logo.svg">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/bl-logo.svg">
 
     <style>
         *,
@@ -201,13 +201,8 @@
             color: var(--red);
         }
 
-        .nav__links a:hover::after,
-        .nav__links a.is-active::after {
+        .nav__links a:hover::after {
             width: 100%;
-        }
-
-        .nav__links a.is-active {
-            color: var(--red);
         }
 
         @media (min-width: 768px) {
@@ -276,11 +271,9 @@
 
             .section__label {
                 display: block;
-                position: sticky;
-                top: 130px;
-                float: left;
-                margin-left: 16px;
-                margin-top: 10px;
+                position: absolute;
+                left: 16px;
+                top: 120px;
                 font-family: var(--font-mono);
                 font-size: 0.6rem;
                 text-transform: uppercase;
@@ -304,8 +297,8 @@
             }
 
             .section__label {
-                margin-left: 20px;
-                top: 170px;
+                left: 20px;
+                top: 160px;
             }
         }
 
@@ -415,7 +408,7 @@
 
         .hero__marker {
             position: absolute;
-            top: 90px;
+            top: 20px;
             right: 24px;
             font-family: var(--font-mono);
             font-size: 0.6rem;
@@ -633,14 +626,8 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             padding: 4px 10px;
-            border: 1px solid var(--red);
-            color: var(--red);
-            transition: background 0.15s, color 0.15s;
-        }
-
-        .project__tech li:hover {
-            background: var(--red);
-            color: var(--black);
+            border: 1px solid var(--grey);
+            color: rgba(240, 237, 230, 0.5);
         }
 
         @media (min-width: 768px) {
@@ -880,13 +867,35 @@
             border-color: var(--red);
         }
 
-        /* ═══════════════════ ACCENT STRIP ═══════════════════ */
+        /* ═══════════════════ MARQUEE STRIP ═══════════════════ */
 
-        .accent-strip {
+        .marquee-strip {
+            overflow: hidden;
             border-bottom: 2px solid var(--grey);
             border-top: 2px solid var(--grey);
             padding: 12px 0;
             background: var(--red);
+        }
+
+        .marquee-strip__inner {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-strip__text {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--black);
+            padding: 0 32px;
+            flex-shrink: 0;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* ═══════════════════ CROSS DECORATION ═══════════════════ */
@@ -946,13 +955,44 @@
                 </p>
                 <div class="hero__cta reveal reveal--delay-4">
                     <a href="#work" class="btn btn--primary">See my work</a>
-                    <a href="docs/portfolio.html" class="btn btn--secondary" target="_blank">Download CV</a>
+                    <a href="../docs/portfolio.html" class="btn btn--secondary" target="_blank">Download CV</a>
                 </div>
             </div>
-            <span class="hero__marker" aria-hidden="true">Portfolio / 2026</span>
+            <span class="hero__marker" aria-hidden="true">Portfolio / 2025</span>
         </section>
 
-        <div class="accent-strip" aria-hidden="true"></div>
+        <div class="marquee-strip" aria-hidden="true">
+            <div class="marquee-strip__inner">
+                <span class="marquee-strip__text">React</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">TypeScript</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">Next.js</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">Node.js</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">React Native</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">Laravel</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">MongoDB</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">React</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">TypeScript</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">Next.js</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">Node.js</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">React Native</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">Laravel</span>
+                <span class="marquee-strip__text">&mdash;</span>
+                <span class="marquee-strip__text">MongoDB</span>
+                <span class="marquee-strip__text">&mdash;</span>
+            </div>
+        </div>
 
         <section id="about" class="section">
             <span class="section__label" aria-hidden="true">About</span>
@@ -991,6 +1031,8 @@
                             <li>TypeScript</li>
                             <li>Next.js</li>
                             <li>Node.js</li>
+                            <li>PHP / Laravel</li>
+                            <li>MongoDB</li>
                             <li>AI-augmented workflows</li>
                         </ul>
                     </div>
@@ -1257,11 +1299,11 @@
 
     <script>
         (function() {
-            var revealObserver = new IntersectionObserver(function(entries) {
+            var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('reveal--visible');
-                        revealObserver.unobserve(entry.target);
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
@@ -1270,7 +1312,7 @@
             });
 
             document.querySelectorAll('.reveal').forEach(function(el) {
-                revealObserver.observe(el);
+                observer.observe(el);
             });
 
             document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -1281,38 +1323,6 @@
                         target.scrollIntoView({ behavior: 'smooth' });
                     }
                 });
-            });
-
-            var sections = document.querySelectorAll('section[id]');
-            var heroSection = document.querySelector('.hero');
-            var navLinks = document.querySelectorAll('.nav__links a');
-
-            function setActiveNav(id) {
-                navLinks.forEach(function(link) {
-                    link.classList.remove('is-active');
-                    if (id && link.getAttribute('href') === '#' + id) {
-                        link.classList.add('is-active');
-                    }
-                });
-            }
-
-            var navObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('hero')) {
-                            setActiveNav(null);
-                        } else {
-                            setActiveNav(entry.target.id);
-                        }
-                    }
-                });
-            }, {
-                rootMargin: '-50% 0px -50% 0px'
-            });
-
-            if (heroSection) navObserver.observe(heroSection);
-            sections.forEach(function(section) {
-                navObserver.observe(section);
             });
         })();
     </script>

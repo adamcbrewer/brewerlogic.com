@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWKH9DPEMN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TWKH9DPEMN');
+    </script>
+
+    <title>Adam Brewer: Selected Works, 2010–2026</title>
+    <meta name="description" content="Senior full-stack developer specializing in React, TypeScript, and Next.js. Former British Army aircraft technician, now building scalable web applications.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#111113">
+    <link rel="canonical" href="https://brewerlogic.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brewerlogic.com/">
+    <meta property="og:title" content="Adam Brewer: Selected Works, 2010–2026">
+    <meta property="og:description" content="Senior full-stack developer specializing in React, TypeScript, and Next.js. Former British Army aircraft technician, now building scalable web applications.">
+    <meta property="og:image" content="https://brewerlogic.com/assets/img/logo-og.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Adam Brewer: Selected Works, 2010–2026">
+    <meta name="twitter:description" content="Senior full-stack developer specializing in React, TypeScript, and Next.js. Former British Army aircraft technician, now building scalable web applications.">
+    <meta name="twitter:image" content="https://brewerlogic.com/assets/img/logo-og.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Adam Brewer",
+        "jobTitle": "Senior Full-stack Developer",
+        "url": "https://brewerlogic.com",
+        "sameAs": [
+            "https://github.com/adamcbrewer/adamcbrewer",
+            "https://linkedin.com/in/adamcbrewer"
+        ],
+        "knowsAbout": ["React", "TypeScript", "Next.js", "Node.js", "Laravel", "React Native"],
+        "email": "adam@brewerlogic.com"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/bl-logo.svg">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #111113;
+            --bg-elevated: #18181b;
+            --text: #e8e8ec;
+            --text-secondary: #6b6b73;
+            --border: #3a3a42;
+            --accent: #2855d4;
+            --font: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+            --max-width: 1120px;
+            --margin-left: 200px;
+            --gutter: clamp(1.25rem, 4vw, 3rem);
+        }
+
+        html {
+            font-size: 15px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background-color: var(--accent);
+            color: #fff;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--text);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            color: #fff;
+        }
+
+        .reveal {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+        }
+
+        .catalog {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--gutter);
+        }
+
+        .catalog__grid {
+            display: grid;
+            grid-template-columns: var(--margin-left) 1fr;
+            gap: 0;
+        }
+
+        .catalog__margin {
+            padding-right: 2rem;
+            padding-top: 0.2rem;
+        }
+
+        .catalog__margin-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .catalog__body {
+            border-left: 1px solid var(--border);
+            padding-left: 2.5rem;
+        }
+
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 0;
+        }
+
+        .cover__exhibition-title {
+            font-weight: 600;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .cover__subtitle {
+            font-weight: 600;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 2.5rem;
+        }
+
+        .cover__role {
+            font-weight: 300;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .cover__tagline {
+            font-weight: 400;
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .cover__tagline-sub {
+            font-weight: 300;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .cover__intro {
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin-bottom: 3rem;
+        }
+
+        .cover__curator {
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .cover__ctas {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--font);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            border-color: var(--text);
+            color: var(--text);
+        }
+
+        .btn--accent {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn--accent:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .rule {
+            border: none;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section__header {
+            margin-bottom: 3rem;
+        }
+
+        .section__number {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .section__title {
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .toc {
+            padding: 3rem 0 4rem;
+        }
+
+        .toc__title {
+            font-weight: 600;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .toc__list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .toc__item {
+            display: flex;
+            align-items: baseline;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(58, 58, 66, 0.4);
+        }
+
+        .toc__item:first-child {
+            border-top: 1px solid rgba(58, 58, 66, 0.4);
+        }
+
+        .toc__section-num {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            min-width: 2rem;
+            flex-shrink: 0;
+        }
+
+        .toc__label {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text);
+        }
+
+        .toc__label a {
+            color: var(--text);
+        }
+
+        .toc__label a:hover {
+            color: var(--accent);
+        }
+
+        .toc__dots {
+            flex: 1;
+            border-bottom: 1px dotted var(--border);
+            margin: 0 0.75rem;
+            min-width: 2rem;
+            position: relative;
+            top: -4px;
+        }
+
+        .toc__page {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .about__text {
+            max-width: 600px;
+        }
+
+        .about__text p {
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about__text .highlight {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .object-label {
+            border: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+            margin-top: 2.5rem;
+            max-width: 380px;
+        }
+
+        .object-label__title {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .object-label__row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.35rem 0;
+        }
+
+        .object-label__key {
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .object-label__value {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .plate {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .plate:last-child {
+            border-bottom: none;
+        }
+
+        .plate__number {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .plate__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.15rem;
+        }
+
+        .plate__title a {
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1px;
+        }
+
+        .plate__title a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .plate__classification {
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .plate__description {
+            font-weight: 300;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin-bottom: 1.5rem;
+        }
+
+        .plate__meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+        }
+
+        .plate__meta-item {
+            font-size: 0.65rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .plate__meta-item span {
+            font-weight: 400;
+            color: var(--text);
+        }
+
+        .plate__medium {
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(58, 58, 66, 0.4);
+        }
+
+        .plate__medium em {
+            font-style: normal;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .index-entry {
+            display: grid;
+            grid-template-columns: 2rem 1fr;
+            gap: 1rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(58, 58, 66, 0.4);
+        }
+
+        .index-entry:last-child {
+            border-bottom: none;
+        }
+
+        .index-entry__num {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding-top: 0.15rem;
+        }
+
+        .index-entry__role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.1rem;
+        }
+
+        .index-entry__company {
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .index-entry__period {
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .index-entry__details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .index-entry__details li {
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .index-entry__tech {
+            font-size: 0.65rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(58, 58, 66, 0.3);
+        }
+
+        .index-entry__tech span {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .contact__text {
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin-bottom: 2rem;
+        }
+
+        .contact__email {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+            transition: border-color 0.2s ease;
+        }
+
+        .contact__email:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        .contact__availability {
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+        }
+
+        .plates-list {
+            padding: 3rem 0;
+        }
+
+        .plates-list__title {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .plates-list__items {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .plates-list__items li {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: baseline;
+        }
+
+        .plates-list__items li span {
+            color: var(--text);
+            font-weight: 400;
+            min-width: 4.5rem;
+            flex-shrink: 0;
+        }
+
+        .colophon {
+            padding: 4rem 0 3rem;
+        }
+
+        .colophon__grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .colophon__publisher {
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .colophon__isbn {
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+        }
+
+        .colophon__social {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .colophon__social a {
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .colophon__social a:hover {
+            color: var(--text);
+        }
+
+        .colophon__social svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .colophon__credit {
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .colophon__typeface {
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .footnote {
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(58, 58, 66, 0.3);
+            max-width: 480px;
+        }
+
+        .footnote sup {
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .catalog__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .catalog__margin {
+                padding-right: 0;
+                padding-bottom: 0.5rem;
+            }
+
+            .catalog__margin-label {
+                position: static;
+            }
+
+            .catalog__body {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 4rem 0 3rem;
+            }
+
+            .index-entry {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .index-entry__num {
+                margin-bottom: 0.25rem;
+            }
+
+            .object-label {
+                max-width: 100%;
+            }
+
+            .plate__meta {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            :root {
+                --margin-left: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <main id="main">
+        <div class="catalog">
+            <div class="catalog__grid">
+                <div class="catalog__margin">
+                    <span class="catalog__margin-label">Cover</span>
+                </div>
+                <div class="catalog__body">
+                    <section class="cover reveal">
+                        <p class="cover__curator">Curated by brewerlogic.com</p>
+                        <h1 class="cover__exhibition-title">Adam Brewer</h1>
+                        <p class="cover__subtitle">Selected Works, 2010&ndash;2026</p>
+                        <hr class="rule">
+                        <br>
+                        <p class="cover__role">Senior Full-stack Developer</p>
+                        <p class="cover__tagline">I build things for the web.</p>
+                        <p class="cover__tagline-sub">Enthusiastic, dedicated, adventurous.</p>
+                        <p class="cover__intro">Senior full-stack developer with 12+ years crafting scalable applications. Former British Army aircraft technician turned web developer. I specialize in React, TypeScript, and turning complex problems into elegant solutions.</p>
+                        <div class="cover__ctas">
+                            <a href="#work" class="btn btn--accent">View Plates</a>
+                            <a href="../docs/portfolio.html" target="_blank" rel="noopener" class="btn">Download Catalog</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <hr class="rule">
+
+            <div class="catalog__grid">
+                <div class="catalog__margin"></div>
+                <div class="catalog__body">
+                    <nav class="toc reveal" aria-label="Table of contents">
+                        <h2 class="toc__title">Contents</h2>
+                        <ol class="toc__list">
+                            <li class="toc__item">
+                                <span class="toc__section-num">I</span>
+                                <span class="toc__label"><a href="#about">The Artist</a></span>
+                                <span class="toc__dots"></span>
+                                <span class="toc__page">03</span>
+                            </li>
+                            <li class="toc__item">
+                                <span class="toc__section-num">II</span>
+                                <span class="toc__label"><a href="#work">Plates 1&ndash;5 &mdash; Selected Projects</a></span>
+                                <span class="toc__dots"></span>
+                                <span class="toc__page">07</span>
+                            </li>
+                            <li class="toc__item">
+                                <span class="toc__section-num">III</span>
+                                <span class="toc__label"><a href="#experience">Catalogue Raisonn&eacute;</a></span>
+                                <span class="toc__dots"></span>
+                                <span class="toc__page">15</span>
+                            </li>
+                            <li class="toc__item">
+                                <span class="toc__section-num">IV</span>
+                                <span class="toc__label"><a href="#contact">Inquiries</a></span>
+                                <span class="toc__dots"></span>
+                                <span class="toc__page">21</span>
+                            </li>
+                            <li class="toc__item">
+                                <span class="toc__section-num"></span>
+                                <span class="toc__label"><a href="#plates-list">List of Plates</a></span>
+                                <span class="toc__dots"></span>
+                                <span class="toc__page">23</span>
+                            </li>
+                            <li class="toc__item">
+                                <span class="toc__section-num"></span>
+                                <span class="toc__label"><a href="#colophon">Colophon</a></span>
+                                <span class="toc__dots"></span>
+                                <span class="toc__page">24</span>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <hr class="rule">
+
+            <div class="catalog__grid" id="about">
+                <div class="catalog__margin">
+                    <span class="catalog__margin-label">Section I</span>
+                </div>
+                <div class="catalog__body">
+                    <section class="section reveal">
+                        <div class="section__header">
+                            <span class="section__number">Section I</span>
+                            <h2 class="section__title">The Artist</h2>
+                        </div>
+                        <div class="about__text">
+                            <p>Former British Army aircraft technician turned web developer. I spent five years maintaining helicopters before moving into tech full-time in 2010. It was a leap, but the discipline and precision I learned in the military translated directly into how I approach engineering problems today.</p>
+                            <p>I love building component systems, interfaces and APIs. Communication is one of my strongest assets&mdash;I'm comfortable translating between frontend teams, backend engineers and stakeholders, and getting stuck in wherever needed. The best code comes from understanding the people who will use it.</p>
+                            <p>I've worked with brands including <span class="highlight">Google</span>, <span class="highlight">Apple</span>, <span class="highlight">The Economist</span>, <span class="highlight">Burberry</span>, <span class="highlight">Adidas</span> and <span class="highlight">Virgin Galactic</span>. In 2019, I co-founded <a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">Paper Trails</a> with my designer brother <a href="https://studiobrewer.com" target="_blank" rel="noopener noreferrer">Jake</a>&mdash;a SaaS platform that turns adventure data into wall art. He handles the visuals, I handle the tech.</p>
+                            <p>Outside of work, I'm kept busy by my wife, two girls, and a Vizsla who thinks she's in charge. When I can salvage some spare time, I like to run, cycle, lift heavy things, and build furniture.</p>
+                        </div>
+                        <div class="object-label">
+                            <h3 class="object-label__title">Media &amp; Techniques</h3>
+                            <div class="object-label__row">
+                                <span class="object-label__key">Primary</span>
+                                <span class="object-label__value">React / React Native</span>
+                            </div>
+                            <div class="object-label__row">
+                                <span class="object-label__key">Language</span>
+                                <span class="object-label__value">TypeScript</span>
+                            </div>
+                            <div class="object-label__row">
+                                <span class="object-label__key">Framework</span>
+                                <span class="object-label__value">Next.js</span>
+                            </div>
+                            <div class="object-label__row">
+                                <span class="object-label__key">Runtime</span>
+                                <span class="object-label__value">Node.js</span>
+                            </div>
+                            <div class="object-label__row">
+                                <span class="object-label__key">Backend</span>
+                                <span class="object-label__value">PHP / Laravel</span>
+                            </div>
+                            <div class="object-label__row">
+                                <span class="object-label__key">Data</span>
+                                <span class="object-label__value">MongoDB</span>
+                            </div>
+                            <div class="object-label__row">
+                                <span class="object-label__key">Emerging</span>
+                                <span class="object-label__value">AI-augmented workflows</span>
+                            </div>
+                        </div>
+                        <p class="footnote"><sup>1</sup> Technologies listed reflect current and recent practice. The artist's medium has evolved considerably since early works in jQuery and Backbone.js (c. 2010&ndash;2014).</p>
+                    </section>
+                </div>
+            </div>
+
+            <hr class="rule">
+
+            <div class="catalog__grid" id="work">
+                <div class="catalog__margin">
+                    <span class="catalog__margin-label">Section II</span>
+                </div>
+                <div class="catalog__body">
+                    <section class="section reveal">
+                        <div class="section__header">
+                            <span class="section__number">Section II</span>
+                            <h2 class="section__title">Plates: Selected Projects</h2>
+                        </div>
+
+                        <article class="plate reveal">
+                            <p class="plate__number">Plate 1</p>
+                            <h3 class="plate__title">Quilter</h3>
+                            <p class="plate__classification">Enterprise Fintech &middot; 2024</p>
+                            <p class="plate__description">Portfolio management platform for financial advisers. Led frontend development from proof-of-concept to production, shipping multiple releases within the first year. Cross-platform solution serving both web and mobile clients. Architecture and component system that powers the adviser experience across devices.</p>
+                            <div class="plate__meta">
+                                <span class="plate__meta-item">Date: <span>2024&ndash;Present</span></span>
+                                <span class="plate__meta-item">Dimensions: <span>Web &amp; Mobile</span></span>
+                                <span class="plate__meta-item">Collection: <span>Enterprise</span></span>
+                            </div>
+                            <p class="plate__medium">Medium: <em>React, Next.js, React Native, TypeScript, Azure, Nx</em></p>
+                        </article>
+
+                        <article class="plate reveal">
+                            <p class="plate__number">Plate 2</p>
+                            <h3 class="plate__title"><a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">Paper Trails</a></h3>
+                            <p class="plate__classification">Co-founded SaaS &middot; 2019</p>
+                            <p class="plate__description">Turn your adventure data into wall art. Built this SaaS from scratch with my brother <a href="https://studiobrewer.com" target="_blank" rel="noopener noreferrer">Jake</a>&mdash;I handle the tech, he handles the design. Full-stack ownership from Stripe payments to Strava and Komoot integrations. A product born from a shared love of maps and the outdoors.</p>
+                            <div class="plate__meta">
+                                <span class="plate__meta-item">Date: <span>2019&ndash;Present</span></span>
+                                <span class="plate__meta-item">Dimensions: <span>Full-stack SaaS</span></span>
+                                <span class="plate__meta-item">Collection: <span>Co-founded</span></span>
+                            </div>
+                            <p class="plate__medium">Medium: <em>React, Next.js, TypeScript, Laravel, MongoDB, Docker, Stripe</em></p>
+                        </article>
+
+                        <article class="plate reveal">
+                            <p class="plate__number">Plate 3</p>
+                            <h3 class="plate__title">Meshii WiFi</h3>
+                            <p class="plate__classification">Web3 Mobile App &middot; 2023</p>
+                            <p class="plate__description">Blockchain-integrated mobile app for decentralized WiFi sharing. Led architecture decisions and deployment strategies. Integrated Polygon blockchain functionality for token rewards using Alchemy API. Mobile-first experience with serverless backend infrastructure.</p>
+                            <div class="plate__meta">
+                                <span class="plate__meta-item">Date: <span>2023</span></span>
+                                <span class="plate__meta-item">Dimensions: <span>Mobile</span></span>
+                                <span class="plate__meta-item">Collection: <span>Web3</span></span>
+                            </div>
+                            <p class="plate__medium">Medium: <em>React Native, TypeScript, AWS Serverless, Python, Polygon, Alchemy</em></p>
+                        </article>
+
+                        <article class="plate reveal">
+                            <p class="plate__number">Plate 4</p>
+                            <h3 class="plate__title">The Economist</h3>
+                            <p class="plate__classification">Design System &middot; 2021</p>
+                            <p class="plate__description">Extended the Design System powering all of The Economist's digital products. Built the styleguide showcase website. Enterprise-scale work with exacting standards, ensuring consistency across web and native platforms.</p>
+                            <div class="plate__meta">
+                                <span class="plate__meta-item">Date: <span>2021</span></span>
+                                <span class="plate__meta-item">Dimensions: <span>Web</span></span>
+                                <span class="plate__meta-item">Collection: <span>Media</span></span>
+                            </div>
+                            <p class="plate__medium">Medium: <em>React, Design Systems, Component Libraries, Documentation</em></p>
+                        </article>
+
+                        <article class="plate reveal">
+                            <p class="plate__number">Plate 5</p>
+                            <h3 class="plate__title">Google Projects</h3>
+                            <p class="plate__classification">Agency Work @ Toaster &middot; 2016</p>
+                            <p class="plate__description">Google Play Policy developer guidelines and Google Search Indonesia mobile experience. Built with Polymer web components following Material Design specifications. Full internationalisation support, delivered to Google's exacting standards.</p>
+                            <div class="plate__meta">
+                                <span class="plate__meta-item">Date: <span>2016</span></span>
+                                <span class="plate__meta-item">Dimensions: <span>Web</span></span>
+                                <span class="plate__meta-item">Collection: <span>Agency</span></span>
+                            </div>
+                            <p class="plate__medium">Medium: <em>Polymer, Web Components, Material Design, i18n</em></p>
+                        </article>
+
+                        <p class="footnote"><sup>2</sup> Plates are arranged in reverse chronological order. Additional works from the artist's complete catalogue are documented in Section III.</p>
+                    </section>
+                </div>
+            </div>
+
+            <hr class="rule">
+
+            <div class="catalog__grid" id="experience">
+                <div class="catalog__margin">
+                    <span class="catalog__margin-label">Section III</span>
+                </div>
+                <div class="catalog__body">
+                    <section class="section reveal">
+                        <div class="section__header">
+                            <span class="section__number">Section III</span>
+                            <h2 class="section__title">Catalogue Raisonn&eacute;</h2>
+                        </div>
+
+                        <div class="index-entry reveal">
+                            <span class="index-entry__num">i.</span>
+                            <div>
+                                <h3 class="index-entry__role">Senior Developer <span class="index-entry__company">@ Quilter</span></h3>
+                                <p class="index-entry__period">Jan 2024 &mdash; Present</p>
+                                <ul class="index-entry__details">
+                                    <li>Leading frontend UI/UX development for fintech portfolio management platform</li>
+                                    <li>Shipped POC to production within first year, multiple releases since</li>
+                                    <li>Driving technical decisions and mentoring across the team</li>
+                                </ul>
+                                <p class="index-entry__tech"><span>React, Next.js, React Native, Ionic, TypeScript, Nx, Azure DevOps</span></p>
+                            </div>
+                        </div>
+
+                        <div class="index-entry reveal">
+                            <span class="index-entry__num">ii.</span>
+                            <div>
+                                <h3 class="index-entry__role">Technical Director <span class="index-entry__company">@ Paper Trails</span></h3>
+                                <p class="index-entry__period">Mar 2019 &mdash; Present</p>
+                                <ul class="index-entry__details">
+                                    <li>Co-founded SaaS turning adventure data into custom art prints</li>
+                                    <li>Full-stack ownership from payments to Strava/Komoot integrations</li>
+                                    <li>Responsible for architecture, deployment pipeline and feature development</li>
+                                </ul>
+                                <p class="index-entry__tech"><span>React, TypeScript, Laravel, PostgreSQL, Docker, Stripe, Jest, GitHub Actions CI/CD</span></p>
+                            </div>
+                        </div>
+
+                        <div class="index-entry reveal">
+                            <span class="index-entry__num">iii.</span>
+                            <div>
+                                <h3 class="index-entry__role">Contract Developer <span class="index-entry__company">@ Apple, The Economist, Novata, Etch</span></h3>
+                                <p class="index-entry__period">2019 &mdash; 2023</p>
+                                <ul class="index-entry__details">
+                                    <li>Apple: Upgraded internal software tools (React, TypeScript)</li>
+                                    <li>The Economist: Extended Design System, built styleguide site (React, Storybook, Component Libraries)</li>
+                                    <li>Novata: Carbon emission calculators with data visualisations (React, TypeScript, PostgreSQL, Prisma, Jest)</li>
+                                    <li>Etch: Interactive investment planning tools (React, D3.js, TypeScript)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="index-entry reveal">
+                            <span class="index-entry__num">iv.</span>
+                            <div>
+                                <h3 class="index-entry__role">Earlier Roles <span class="index-entry__company">@ Applied Works, Toaster, Burberry, Saatchi &amp; Saatchi, Outside Line</span></h3>
+                                <p class="index-entry__period">2011 &mdash; 2018</p>
+                                <ul class="index-entry__details">
+                                    <li>Applied Works: Led frontend team of 15&ndash;20 (React, TypeScript, Redux, Storybook, Node.js)</li>
+                                    <li>Toaster: Google Play Policy, Google Search Indonesia, Adidas (Polymer, Web Components, GSAP animations)</li>
+                                    <li>Burberry: Burberry.com e-commerce frontend (Backbone.js, SASS, Grunt)</li>
+                                    <li>Freelance: Lost Boy, Ash Thorp, Film Locker, Wandering Fever (React SPAs, Kirby CMS, PHP)</li>
+                                    <li>Agency: Toyota, Virgin Galactic, Cravendale, Budweiser, Blackwell eReader (Knockout.js, Patternlab, Gulp)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="index-entry reveal">
+                            <span class="index-entry__num">v.</span>
+                            <div>
+                                <h3 class="index-entry__role">Aircraft Technician (Corporal) <span class="index-entry__company">@ British Army</span></h3>
+                                <p class="index-entry__period">Feb 2005 &mdash; Nov 2009</p>
+                                <ul class="index-entry__details">
+                                    <li>Served in the UK, Germany, and Iraq</li>
+                                    <li>Maintained and repaired military helicopters</li>
+                                    <li>Where I learned discipline, adaptability, and problem-solving under pressure</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="footnote"><sup>3</sup> The catalogue raisonn&eacute; documents all known professional engagements. Entries are arranged chronologically from most recent. Earlier freelance and agency works (2011&ndash;2018) are grouped for concision.</p>
+                    </section>
+                </div>
+            </div>
+
+            <hr class="rule">
+
+            <div class="catalog__grid" id="contact">
+                <div class="catalog__margin">
+                    <span class="catalog__margin-label">Section IV</span>
+                </div>
+                <div class="catalog__body">
+                    <section class="section reveal">
+                        <div class="section__header">
+                            <span class="section__number">Section IV</span>
+                            <h2 class="section__title">Inquiries</h2>
+                        </div>
+                        <p class="contact__text">For all inquiries regarding availability and commissions, please contact the artist directly. Currently open to new opportunities&mdash;primarily contract work, but open to the right permanent role. Whether you have a project in mind or just want to say hello, correspondence is always welcome.</p>
+                        <a href="mailto:adam@brewerlogic.com" class="contact__email">adam@brewerlogic.com</a>
+                        <p class="contact__availability">Available for contract &amp; permanent roles</p>
+                    </section>
+                </div>
+            </div>
+
+            <hr class="rule">
+
+            <div class="catalog__grid" id="plates-list">
+                <div class="catalog__margin">
+                    <span class="catalog__margin-label">Appendix</span>
+                </div>
+                <div class="catalog__body">
+                    <div class="plates-list reveal">
+                        <h2 class="plates-list__title">List of Plates</h2>
+                        <ul class="plates-list__items">
+                            <li><span>Plate 1.</span> Quilter, 2024. Enterprise Fintech. React, Next.js, React Native, TypeScript, Azure, Nx.</li>
+                            <li><span>Plate 2.</span> Paper Trails, 2019. Co-founded SaaS. React, Next.js, TypeScript, Laravel, MongoDB, Docker, Stripe.</li>
+                            <li><span>Plate 3.</span> Meshii WiFi, 2023. Web3 Mobile App. React Native, TypeScript, AWS Serverless, Python, Polygon, Alchemy.</li>
+                            <li><span>Plate 4.</span> The Economist, 2021. Design System. React, Design Systems, Component Libraries, Documentation.</li>
+                            <li><span>Plate 5.</span> Google Projects, 2016. Agency Work @ Toaster. Polymer, Web Components, Material Design, i18n.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="rule">
+
+            <div class="catalog__grid" id="colophon">
+                <div class="catalog__margin"></div>
+                <div class="catalog__body">
+                    <footer class="colophon reveal">
+                        <div class="colophon__grid">
+                            <p class="colophon__publisher">Published by brewerlogic.com, 2026</p>
+                            <p class="colophon__isbn">ISBN 978-0-000000-00-0</p>
+                            <ul class="colophon__social">
+                                <li>
+                                    <a href="https://github.com/adamcbrewer/adamcbrewer" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                                        GitHub
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/in/adamcbrewer" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                        LinkedIn
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:adam@brewerlogic.com">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                        Email
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="colophon__credit"><a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">Paper Trails</a></p>
+                            <hr class="rule">
+                            <p class="colophon__credit">Designed &amp; Built by Adam Brewer</p>
+                            <p class="colophon__typeface">This catalog was set in Hanken Grotesk</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -20px 0px'
+            });
+
+            document.querySelectorAll('.reveal').forEach(function (el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>

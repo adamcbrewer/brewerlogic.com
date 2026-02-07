@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWKH9DPEMN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TWKH9DPEMN');
+    </script>
+    <title>Adam Brewer — Senior Full-stack Developer</title>
+    <meta name="description" content="Senior full-stack developer specializing in React, TypeScript, and Next.js. Former British Army, now building scalable web applications.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1f1a14">
+    <link rel="canonical" href="https://brewerlogic.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brewerlogic.com/">
+    <meta property="og:title" content="Adam Brewer — Senior Full-stack Developer">
+    <meta property="og:description" content="Senior full-stack developer specializing in React, TypeScript, and Next.js. Former British Army, now building scalable web applications.">
+    <meta property="og:image" content="https://brewerlogic.com/assets/img/logo-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Adam Brewer — Senior Full-stack Developer">
+    <meta name="twitter:description" content="Senior full-stack developer specializing in React, TypeScript, and Next.js. Former British Army, now building scalable web applications.">
+    <meta name="twitter:image" content="https://brewerlogic.com/assets/img/logo-og.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Adam Brewer",
+        "jobTitle": "Senior Full-stack Developer",
+        "url": "https://brewerlogic.com",
+        "sameAs": [
+            "https://github.com/adamcbrewer/adamcbrewer",
+            "https://linkedin.com/in/adamcbrewer"
+        ],
+        "knowsAbout": ["React", "TypeScript", "Next.js", "Node.js", "Laravel", "React Native"],
+        "email": "adam@brewerlogic.com"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Spectral:wght@200;400;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/bl-logo.svg">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #1f1a14;
+            --bg-deep: #171310;
+            --text: #e8dcc4;
+            --text-dim: #b8a889;
+            --accent: #9c654a;
+            --gold: #b8976a;
+            --gold-dim: #8a7050;
+            --rule: #3a3228;
+            --measure: 38em;
+            --margin-note-width: 14em;
+            --page-gutter: 2rem;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+            font-size: 19px;
+            line-height: 1.78;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'onum' 1, 'liga' 1;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            padding: 0.5em 1em;
+            background: var(--accent);
+            color: var(--bg);
+            font-size: 0.85rem;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .skip-link:focus { top: 1rem; }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--text); }
+
+        .running-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            text-align: center;
+            padding: 0.75rem var(--page-gutter);
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-dim);
+            font-variant: small-caps;
+            background: linear-gradient(to bottom, var(--bg) 60%, transparent);
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        .running-header span { display: inline-block; }
+
+        .running-header .sep {
+            display: inline-block;
+            margin: 0 0.6em;
+            color: var(--rule);
+        }
+
+        main {
+            max-width: calc(var(--measure) + var(--margin-note-width) + 4rem);
+            margin: 0 auto;
+            padding: 0 var(--page-gutter);
+            position: relative;
+        }
+
+        .chapter {
+            padding: 6rem 0 4rem;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chapter__body {
+            max-width: var(--measure);
+        }
+
+        .ornament {
+            display: block;
+            text-align: center;
+            color: var(--gold-dim);
+            font-size: 1rem;
+            letter-spacing: 0.5em;
+            margin-bottom: 2rem;
+            user-select: none;
+        }
+
+        .chapter__number {
+            display: block;
+            text-align: center;
+            font-family: 'Spectral', serif;
+            font-weight: 200;
+            font-size: 3.5rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+            line-height: 1;
+        }
+
+        .chapter__title {
+            text-align: center;
+            font-family: 'EB Garamond', serif;
+            font-weight: 400;
+            font-variant: small-caps;
+            font-size: 1.4rem;
+            letter-spacing: 0.15em;
+            color: var(--text);
+            margin-bottom: 3rem;
+        }
+
+        .epigraph {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-dim);
+            max-width: 28em;
+            margin: 0 auto 3rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .epigraph cite {
+            display: block;
+            font-style: normal;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+            color: var(--gold-dim);
+        }
+
+        .chapter__body p {
+            text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            margin-bottom: 1.2em;
+        }
+
+        .drop-cap::first-letter {
+            float: left;
+            font-family: 'Spectral', serif;
+            font-weight: 800;
+            font-size: 4.2em;
+            line-height: 0.75;
+            padding-right: 0.08em;
+            padding-top: 0.08em;
+            color: var(--accent);
+        }
+
+        .sc {
+            font-variant: small-caps;
+            letter-spacing: 0.04em;
+        }
+
+        sup.fn-ref {
+            font-size: 0.65em;
+            line-height: 0;
+            vertical-align: super;
+            color: var(--gold);
+            cursor: pointer;
+        }
+
+        sup.fn-ref a { color: var(--gold); text-decoration: none; }
+        sup.fn-ref a:hover { color: var(--text); }
+
+        .footnotes {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+        }
+
+        .footnotes p {
+            text-align: left !important;
+            margin-bottom: 0.4em;
+        }
+
+        .footnotes .fn-num {
+            color: var(--gold);
+            margin-right: 0.4em;
+        }
+
+        .margin-note {
+            float: right;
+            clear: right;
+            width: var(--margin-note-width);
+            margin-right: calc(-1 * (var(--margin-note-width) + 2rem));
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: var(--text-dim);
+            border-left: 1px solid var(--rule);
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .margin-note-label {
+            display: block;
+            font-variant: small-caps;
+            letter-spacing: 0.08em;
+            color: var(--gold-dim);
+            margin-bottom: 0.4em;
+            font-size: 0.72rem;
+        }
+
+        .section-divider {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gold-dim);
+            font-size: 0.85rem;
+            letter-spacing: 0.8em;
+            user-select: none;
+        }
+
+        .title-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem var(--page-gutter);
+        }
+
+        .title-page__rule {
+            width: 3rem;
+            height: 1px;
+            background: var(--gold-dim);
+            margin: 1.5rem auto;
+        }
+
+        .title-page__name {
+            font-family: 'Spectral', serif;
+            font-weight: 200;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: 0.06em;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .title-page__role {
+            font-variant: small-caps;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-top: 0.5rem;
+        }
+
+        .title-page__epigraph {
+            font-style: italic;
+            color: var(--text-dim);
+            max-width: 24em;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .title-page__epigraph cite {
+            display: block;
+            font-style: normal;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+            color: var(--gold-dim);
+        }
+
+        .title-page__tagline {
+            font-family: 'Spectral', serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-top: 0;
+        }
+
+        .title-page__sub {
+            font-style: italic;
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .title-page__desc {
+            max-width: 28em;
+            margin: 0 auto;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .title-page__links {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .title-page__links a {
+            display: inline-block;
+            margin: 0 1em;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+        }
+
+        .title-page__links a:hover { color: var(--text); }
+
+        .title-page__ornament {
+            color: var(--gold-dim);
+            font-size: 0.85rem;
+            letter-spacing: 0.6em;
+            margin-top: 3rem;
+        }
+
+        .project {
+            margin-bottom: 3rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .project:last-child { border-bottom: none; }
+
+        .project__number {
+            font-family: 'Spectral', serif;
+            font-weight: 200;
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 0.2rem;
+        }
+
+        .project__overline {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-dim);
+            margin-bottom: 0.3rem;
+        }
+
+        .project__title {
+            font-family: 'EB Garamond', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+        }
+
+        .project__title a { color: var(--text); }
+        .project__title a:hover { color: var(--gold); }
+
+        .project__title svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-left: 0.3em;
+            stroke: var(--gold-dim);
+        }
+
+        .project__desc {
+            text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            margin-bottom: 0.8rem;
+        }
+
+        .project__tech {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .career-entry {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .career-entry:last-child { border-bottom: none; }
+
+        .career-entry__header {
+            margin-bottom: 0.5rem;
+        }
+
+        .career-entry__title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
+
+        .career-entry__company {
+            color: var(--gold);
+        }
+
+        .career-entry__date {
+            font-size: 0.82rem;
+            color: var(--gold-dim);
+            font-style: italic;
+            margin-bottom: 0.6rem;
+        }
+
+        .career-entry__body p {
+            text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            margin-bottom: 0.8em;
+        }
+
+        .career-entry__tech {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+
+        .contact-section p {
+            text-align: center !important;
+            max-width: 28em;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-section .write-link {
+            display: inline-block;
+            font-variant: small-caps;
+            letter-spacing: 0.15em;
+            font-size: 1.1rem;
+            color: var(--gold);
+            border-bottom: 1px solid var(--gold-dim);
+            padding-bottom: 0.15em;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .contact-section .write-link:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .colophon {
+            text-align: center;
+            padding: 4rem var(--page-gutter) 3rem;
+            max-width: var(--measure);
+            margin: 0 auto;
+            border-top: 1px solid var(--rule);
+        }
+
+        .colophon__ornament {
+            color: var(--gold-dim);
+            font-size: 0.85rem;
+            letter-spacing: 0.6em;
+            margin-bottom: 2rem;
+        }
+
+        .colophon__typefaces {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .colophon__social {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .colophon__social a {
+            color: var(--gold-dim);
+            transition: color 0.2s;
+        }
+
+        .colophon__social a:hover { color: var(--text); }
+
+        .colophon__links {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .colophon__links a { color: var(--gold-dim); }
+        .colophon__links a:hover { color: var(--text); }
+
+        .colophon__credit {
+            font-size: 0.75rem;
+            color: var(--gold-dim);
+            letter-spacing: 0.08em;
+        }
+
+        .skills-aside {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .skills-aside__heading {
+            font-variant: small-caps;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            color: var(--gold-dim);
+            margin-bottom: 0.8rem;
+        }
+
+        .skills-aside__list {
+            list-style: none;
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            line-height: 1.9;
+            column-count: 2;
+            column-gap: 2rem;
+        }
+
+        .skills-aside__list li::before {
+            content: '· ';
+            color: var(--gold-dim);
+        }
+
+        @media (max-width: 68em) {
+            .margin-note {
+                float: none;
+                width: 100%;
+                margin-right: 0;
+                margin-top: 1.2rem;
+                margin-bottom: 1.2rem;
+                border-left: none;
+                border-top: 1px solid var(--rule);
+                padding-left: 0;
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 40em) {
+            body { font-size: 17px; line-height: 1.75; }
+
+            .running-header { font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.6rem var(--page-gutter); }
+
+            .title-page { min-height: 90vh; padding: 3rem var(--page-gutter); }
+
+            .title-page__name { font-size: 2.4rem; }
+
+            .chapter { padding: 4rem 0 3rem; }
+
+            .chapter__number { font-size: 2.5rem; }
+
+            .chapter__title { font-size: 1.15rem; letter-spacing: 0.1em; margin-bottom: 2rem; }
+
+            .drop-cap::first-letter { font-size: 3.4em; }
+
+            .skills-aside__list { column-count: 1; }
+        }
+
+        @media print {
+            .running-header { display: none; }
+            body { background: #fff; color: #1a1a1a; }
+            a { color: #1a1a1a; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="running-header" aria-hidden="true">
+        <span class="running-header__text">Adam Brewer <span class="sep">·</span> Senior Full-stack Developer</span>
+    </header>
+
+    <main id="main">
+
+        <section class="title-page chapter visible" data-section="Title Page">
+            <div class="title-page__ornament">◇ ◆ ◇</div>
+            <div class="title-page__rule"></div>
+            <h1 class="title-page__name">Adam Brewer</h1>
+            <p class="title-page__role">Senior Full-stack Developer</p>
+            <div class="title-page__rule"></div>
+            <div style="margin: 2rem 0;">
+                <p class="title-page__epigraph">"The details are not the details. They make the design."<cite>— Charles Eames</cite></p>
+            </div>
+            <p class="title-page__tagline">I build things for the web.</p>
+            <p class="title-page__sub">Enthusiastic, dedicated, adventurous.</p>
+            <div class="title-page__rule"></div>
+            <p class="title-page__desc">Senior full-stack developer with 12+ years crafting scalable applications. Former British Army aircraft technician turned web developer. I specialize in React, TypeScript, and turning complex problems into elegant solutions.</p>
+            <div class="title-page__links">
+                <a href="#about">Continue reading →</a>
+                <a href="../docs/portfolio.html" target="_blank">Download CV</a>
+            </div>
+        </section>
+
+        <div class="section-divider">── ❦ ──</div>
+
+        <section id="about" class="chapter" data-section="Chapter I: About">
+            <div class="chapter__body">
+                <span class="ornament">✦ ✦ ✦</span>
+                <span class="chapter__number">I</span>
+                <h2 class="chapter__title">About the Author</h2>
+                <div class="epigraph">"We are what we repeatedly do. Excellence, then, is not an act, but a habit."<cite>— Aristotle</cite></div>
+
+                <div class="margin-note">
+                    <span class="margin-note-label">Further Reading</span>
+                    React / React Native · TypeScript · Next.js · Node.js · PHP / Laravel · MongoDB · AI-augmented workflows · PostgreSQL · Docker · Jest · Storybook · D3.js · CI/CD
+                </div>
+
+                <p class="drop-cap">Before there was code, there were helicopters. I spent five years in the <span class="sc">British Army</span> as an aircraft technician, maintaining rotary-wing aircraft across the United Kingdom, Germany, and Iraq. It was there I learned the value of precision, discipline, and the quiet satisfaction of making complex systems work. In 2010, I traded the hangar for the browser and began a second career in software development.</p>
+
+                <p>I love building component systems, interfaces, and APIs. Communication is one of my strongest assets — I'm comfortable translating between frontend, backend, and stakeholders, and getting stuck in wherever needed. Over the years, I've had the good fortune to work with some remarkable organisations: <span class="sc">Google</span><sup class="fn-ref"><a href="#fn1">1</a></sup>, <span class="sc">Apple</span><sup class="fn-ref"><a href="#fn2">2</a></sup>, <span class="sc">The Economist</span><sup class="fn-ref"><a href="#fn3">3</a></sup>, <span class="sc">Burberry</span><sup class="fn-ref"><a href="#fn4">4</a></sup>, <span class="sc">Adidas</span><sup class="fn-ref"><a href="#fn5">5</a></sup>, and <span class="sc">Virgin Galactic</span><sup class="fn-ref"><a href="#fn6">6</a></sup>.</p>
+
+                <p>I also co-founded <span class="sc">Paper Trails</span> with my <a href="https://studiobrewer.com" target="_blank" rel="noopener noreferrer">designer brother Jake</a> — he handles the visuals, I handle the tech. We turn adventure data into wall art, and it remains one of the most rewarding things I've built.</p>
+
+                <p>Outside of work, I'm kept busy by my wife, two girls, and a Vizsla who thinks she's in charge. When I can salvage some spare time, I like to run, cycle, lift heavy things, and build furniture.</p>
+
+                <div class="skills-aside">
+                    <h3 class="skills-aside__heading">Technologies of late</h3>
+                    <ul class="skills-aside__list">
+                        <li>React / React Native</li>
+                        <li>TypeScript</li>
+                        <li>Next.js</li>
+                        <li>Node.js</li>
+                        <li>PHP / Laravel</li>
+                        <li>MongoDB</li>
+                        <li>AI-augmented workflows</li>
+                    </ul>
+                </div>
+
+                <div class="footnotes">
+                    <p id="fn1"><span class="fn-num">1.</span> Google Play Policy developer guidelines and Google Search Indonesia, built at Toaster agency.</p>
+                    <p id="fn2"><span class="fn-num">2.</span> Upgraded internal software tools for Apple's teams.</p>
+                    <p id="fn3"><span class="fn-num">3.</span> Extended the Design System powering all of The Economist's digital products.</p>
+                    <p id="fn4"><span class="fn-num">4.</span> Burberry.com e-commerce frontend development.</p>
+                    <p id="fn5"><span class="fn-num">5.</span> Campaign work delivered through Toaster agency.</p>
+                    <p id="fn6"><span class="fn-num">6.</span> Agency project during earlier career at Saatchi & Saatchi and Outside Line.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">── ◆ ──</div>
+
+        <section id="work" class="chapter" data-section="Chapter II: Selected Works">
+            <div class="chapter__body">
+                <span class="ornament">◇ ◆ ◇</span>
+                <span class="chapter__number">II</span>
+                <h2 class="chapter__title">Selected Works</h2>
+                <div class="epigraph">"Have nothing in your houses that you do not know to be useful or believe to be beautiful."<cite>— William Morris</cite></div>
+
+                <article class="project">
+                    <p class="project__number">i.</p>
+                    <p class="project__overline">Enterprise Fintech</p>
+                    <h3 class="project__title">Quilter</h3>
+                    <p class="project__desc">A portfolio management platform built for financial advisers. I led the frontend development from proof-of-concept to production, shipping multiple releases within the first year. The application serves both web and mobile clients through a cross-platform architecture, handling the complexity of financial data with the care such work demands.</p>
+                    <p class="project__tech">React · Next.js · React Native · TypeScript · Azure · Nx</p>
+                </article>
+
+                <article class="project">
+                    <p class="project__number">ii.</p>
+                    <p class="project__overline">Co-founded SaaS</p>
+                    <h3 class="project__title"><a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">Paper Trails <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></h3>
+                    <p class="project__desc">Turn your adventure data into wall art. I built this SaaS from scratch with my brother <a href="https://studiobrewer.com" target="_blank" rel="noopener noreferrer">Jake</a> — I handle the tech, he handles the design. Full-stack ownership from Stripe payments to Strava and Komoot integrations. Every line of code, every deployment pipeline, every midnight bug fix — this one is personal.</p>
+                    <p class="project__tech">React · Next.js · TypeScript · Laravel · MongoDB · Docker · Stripe</p>
+                </article>
+
+                <article class="project">
+                    <p class="project__number">iii.</p>
+                    <p class="project__overline">Web3 Mobile App</p>
+                    <h3 class="project__title">Meshii WiFi</h3>
+                    <p class="project__desc">A blockchain-integrated mobile application for decentralised WiFi sharing. I led architecture decisions and deployment strategies, integrating Polygon blockchain functionality for token rewards using the Alchemy API. An exercise in navigating the frontier of decentralised technology while keeping the user experience grounded and intuitive.</p>
+                    <p class="project__tech">React Native · TypeScript · AWS Serverless · Python · Polygon · Alchemy</p>
+                </article>
+
+                <article class="project">
+                    <p class="project__number">iv.</p>
+                    <p class="project__overline">Design System</p>
+                    <h3 class="project__title">The Economist</h3>
+                    <p class="project__desc">Extended the Design System powering all of The Economist's digital products and built the styleguide showcase website. Enterprise-scale work with exacting standards — the kind of project where every pixel matters and every component must work in harmony with the whole.</p>
+                    <p class="project__tech">React · Design Systems · Component Libraries · Documentation</p>
+                </article>
+
+                <article class="project">
+                    <p class="project__number">v.</p>
+                    <p class="project__overline">Agency Work @ Toaster</p>
+                    <h3 class="project__title">Google Projects</h3>
+                    <p class="project__desc">Google Play Policy developer guidelines and Google Search Indonesia mobile experience. Built with Polymer web components following Material Design specifications. The discipline of working within Google's design language taught me the importance of systematic thinking in component architecture.</p>
+                    <p class="project__tech">Polymer · Web Components · Material Design · i18n</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="section-divider">── ✦ ──</div>
+
+        <section id="experience" class="chapter" data-section="Chapter III: Career">
+            <div class="chapter__body">
+                <span class="ornament">✦ ◇ ✦</span>
+                <span class="chapter__number">III</span>
+                <h2 class="chapter__title">Career</h2>
+                <div class="epigraph">"A craftsman's work requires patience and skill. It is a dialogue between the maker and the material."<cite>— Richard Sennett</cite></div>
+
+                <article class="career-entry">
+                    <div class="career-entry__header">
+                        <span class="career-entry__title">Senior Developer</span> <span class="career-entry__company">@ Quilter</span>
+                    </div>
+                    <p class="career-entry__date">January 2024 — Present</p>
+                    <div class="career-entry__body">
+                        <p>The most recent chapter finds me leading frontend development for a fintech portfolio management platform. I took the project from its earliest proof-of-concept through to production, shipping multiple releases in the first year. The work spans both web and mobile through a cross-platform architecture — React and Next.js on the web, React Native and Ionic for mobile — all orchestrated within an Nx monorepo and deployed through Azure DevOps.</p>
+                    </div>
+                    <p class="career-entry__tech">React · Next.js · React Native · Ionic · TypeScript · Nx · Azure DevOps</p>
+                </article>
+
+                <article class="career-entry">
+                    <div class="career-entry__header">
+                        <span class="career-entry__title">Technical Director</span> <span class="career-entry__company">@ Paper Trails</span>
+                    </div>
+                    <p class="career-entry__date">March 2019 — Present</p>
+                    <div class="career-entry__body">
+                        <p>The longest-running thread in my career is the company I co-founded with my brother Jake. Paper Trails turns adventure data — your runs, rides, and hikes — into custom art prints. I own the full technical stack: from Stripe payment processing to Strava and Komoot integrations, from the React frontend to the Laravel backend, all containerised with Docker and continuously deployed via GitHub Actions.</p>
+                    </div>
+                    <p class="career-entry__tech">React · TypeScript · Laravel · PostgreSQL · Docker · Stripe · Jest · GitHub Actions CI/CD</p>
+                </article>
+
+                <article class="career-entry">
+                    <div class="career-entry__header">
+                        <span class="career-entry__title">Contract Developer</span> <span class="career-entry__company">@ Apple, The Economist, Novata, Etch</span>
+                    </div>
+                    <p class="career-entry__date">2019 — 2023</p>
+                    <div class="career-entry__body">
+                        <p>A period of varied contract work that sharpened different facets of my craft. At Apple, I upgraded internal software tools. For The Economist, I extended their Design System and built the styleguide site that showcased it. At Novata, I built carbon emission calculators with rich data visualisations. And at Etch, I created interactive investment planning tools with D3.js. Each engagement was a study in adapting to different codebases, teams, and standards.</p>
+                    </div>
+                    <p class="career-entry__tech">React · TypeScript · Storybook · PostgreSQL · Prisma · Jest · D3.js · Component Libraries</p>
+                </article>
+
+                <article class="career-entry">
+                    <div class="career-entry__header">
+                        <span class="career-entry__title">Earlier Roles</span> <span class="career-entry__company">@ Applied Works, Toaster, Burberry, Saatchi & Saatchi, Outside Line</span>
+                    </div>
+                    <p class="career-entry__date">2011 — 2018</p>
+                    <div class="career-entry__body">
+                        <p>The formative years. At Applied Works I led a frontend team of fifteen to twenty developers. Toaster brought projects for Google and Adidas. At Burberry I worked on the e-commerce frontend. Freelance years produced work for Lost Boy, Ash Thorp, Film Locker, and Wandering Fever. Agency life at Saatchi & Saatchi and Outside Line delivered campaigns for Toyota, Virgin Galactic, Cravendale, and Budweiser, along with the Blackwell eReader project. Each role added a new tool to the kit, a new perspective on how software is made.</p>
+                    </div>
+                    <p class="career-entry__tech">React · Redux · Backbone.js · Polymer · Web Components · Knockout.js · Node.js · PHP · GSAP · Gulp · Grunt</p>
+                </article>
+
+                <article class="career-entry">
+                    <div class="career-entry__header">
+                        <span class="career-entry__title">Aircraft Technician (Corporal)</span> <span class="career-entry__company">@ British Army</span>
+                    </div>
+                    <p class="career-entry__date">February 2005 — November 2009</p>
+                    <div class="career-entry__body">
+                        <p>Before the code, the beginning. Five years maintaining helicopters in the British Army, serving in the United Kingdom, Germany, and Iraq. It was here I learned discipline, adaptability, and problem-solving under pressure — qualities that have proven more valuable in software than any framework or language. Every career needs its origin story, and mine smells of aviation fuel and boot polish.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="section-divider">── ◇ ──</div>
+
+        <section id="contact" class="chapter" data-section="Chapter IV: Correspondence">
+            <div class="chapter__body contact-section">
+                <span class="ornament">❦</span>
+                <span class="chapter__number">IV</span>
+                <h2 class="chapter__title">Correspondence</h2>
+
+                <p>I'm currently open to new opportunities — primarily contract work, but open to the right permanent role. Whether you have a project in mind or simply wish to exchange ideas, my inbox is always open. I believe the best working relationships begin with a good conversation.</p>
+
+                <p style="font-style: italic; color: var(--text-dim); font-size: 0.95rem;">adam@brewerlogic.com</p>
+
+                <a href="mailto:adam@brewerlogic.com" class="write-link">Write to me →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="colophon">
+        <div class="colophon__ornament">◇ ◆ ◇</div>
+        <p class="colophon__typefaces">This page is set in <em>EB Garamond</em>, designed by Georg Duffner — the quintessential book face — and <em>Spectral</em>, designed by Production Type for Google.</p>
+        <ul class="colophon__social">
+            <li>
+                <a href="https://github.com/adamcbrewer/adamcbrewer" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/adamcbrewer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:adam@brewerlogic.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </li>
+        </ul>
+        <p class="colophon__links">
+            <a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">Paper Trails</a>
+        </p>
+        <p class="colophon__credit">Designed & Built by Adam Brewer</p>
+    </footer>
+
+    <script>
+    (function() {
+        var header = document.querySelector('.running-header__text');
+        var chapters = document.querySelectorAll('.chapter[data-section]');
+        var currentSection = 'Adam Brewer · Senior Full-stack Developer';
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var section = entry.target.getAttribute('data-section');
+                    if (section && section !== 'Title Page') {
+                        currentSection = section;
+                    } else {
+                        currentSection = 'Adam Brewer · Senior Full-stack Developer';
+                    }
+                    header.textContent = currentSection;
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+
+        chapters.forEach(function(ch) { observer.observe(ch); });
+
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.chapter:not(.visible)').forEach(function(ch) {
+            revealObserver.observe(ch);
+        });
+    })();
+    </script>
+</body>
+</html>

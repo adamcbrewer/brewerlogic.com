@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Design Alternatives - Adam Brewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/bl-logo.svg">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #f0ede6;
+            --red: #ff3300;
+            --grey: #333;
+            --grey-light: #666;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        html { font-size: 16px; }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection { background: var(--red); color: var(--black); }
+
+        a { color: var(--red); text-decoration: none; transition: color 0.15s; }
+        a:hover { color: var(--white); }
+
+        .header {
+            padding: 40px 24px;
+            border-bottom: 2px solid var(--grey);
+        }
+
+        .header__back {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 32px;
+            display: block;
+        }
+
+        .header__title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 7rem);
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+        }
+
+        .header__sub {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--grey-light);
+            margin-top: 16px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 0;
+        }
+
+        .card {
+            border-bottom: 2px solid var(--grey);
+            padding: 40px 24px;
+            display: grid;
+            gap: 24px;
+            transition: background 0.2s;
+        }
+
+        .card:hover {
+            background: rgba(255, 51, 0, 0.03);
+        }
+
+        .card__number {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: rgba(240, 237, 230, 0.06);
+            line-height: 1;
+        }
+
+        .card__category {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--red);
+            margin-bottom: 4px;
+        }
+
+        .card__name {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            line-height: 0.95;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .card__name a {
+            color: var(--white);
+            display: block;
+        }
+
+        .card__name a:hover { color: var(--red); }
+
+        .card__desc {
+            color: rgba(240, 237, 230, 0.6);
+            max-width: 540px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .card__tags {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .card__tags li {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 3px 8px;
+            border: 1px solid var(--grey);
+            color: rgba(240, 237, 230, 0.4);
+        }
+
+        .card__link {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 12px 24px;
+            border: 2px solid var(--red);
+            color: var(--red);
+            transition: all 0.15s;
+            margin-top: 8px;
+        }
+
+        .card__link:hover {
+            background: var(--red);
+            color: var(--black);
+        }
+
+        .footer {
+            padding: 40px 24px;
+            border-top: 2px solid var(--grey);
+            text-align: center;
+        }
+
+        .footer__text {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--grey);
+        }
+
+        .footer__text a { color: var(--grey-light); }
+
+        @media (min-width: 768px) {
+            .header { padding: 60px 48px; }
+            .card {
+                padding: 48px 48px;
+                grid-template-columns: auto 1fr;
+                gap: 48px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .header { padding: 80px 80px; }
+            .card { padding: 60px 80px; }
+        }
+
+        .preview-frame {
+            width: 100%;
+            height: 500px;
+            border: 2px solid var(--grey);
+            margin-top: 16px;
+            background: var(--black);
+            display: none;
+        }
+
+        .preview-frame.is-active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="header__back">&larr; Back to main site</a>
+        <h1 class="header__title">Design<br>Alternatives</h1>
+        <p class="header__sub">6 alternative designs for brewerlogic.com</p>
+    </header>
+
+    <main>
+        <div class="grid">
+            <article class="card">
+                <div class="card__number" aria-hidden="true">01</div>
+                <div>
+                    <p class="card__category">Brutalist</p>
+                    <h2 class="card__name"><a href="brutalist.html">Brutalist</a></h2>
+                    <p class="card__desc">
+                        Aggressive oversized typography, stark black/off-white contrast, exposed grid lines,
+                        harsh 2px borders, rotated section labels. Bebas Neue + Space Mono. Raw red accent.
+                    </p>
+                    <ul class="card__tags">
+                        <li>Dark</li>
+                        <li>Typography</li>
+                        <li>Aggressive</li>
+                        <li>Grid</li>
+                    </ul>
+                    <a href="brutalist.html" class="card__link">View Design &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__number" aria-hidden="true">02</div>
+                <div>
+                    <p class="card__category">Editorial</p>
+                    <h2 class="card__name"><a href="editorial.html">Editorial</a></h2>
+                    <p class="card__desc">
+                        Premium magazine feature article layout. Cormorant Garamond + Crimson Pro.
+                        Drop caps, pull quotes, multi-column text, warm cream/ink dark palette with muted gold accents.
+                    </p>
+                    <ul class="card__tags">
+                        <li>Dark</li>
+                        <li>Serif</li>
+                        <li>Magazine</li>
+                        <li>Elegant</li>
+                    </ul>
+                    <a href="editorial.html" class="card__link">View Design &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__number" aria-hidden="true">03</div>
+                <div>
+                    <p class="card__category">Editorial &mdash; Literary</p>
+                    <h2 class="card__name"><a href="literary.html">Literary</a></h2>
+                    <p class="card__desc">
+                        Chapbook / book design. EB Garamond with chapter numbers, drop caps, footnotes,
+                        margin notes, running headers, ornamental dividers. Warm umber/parchment palette.
+                    </p>
+                    <ul class="card__tags">
+                        <li>Dark</li>
+                        <li>Book</li>
+                        <li>Serif</li>
+                        <li>Warm</li>
+                    </ul>
+                    <a href="literary.html" class="card__link">View Design &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__number" aria-hidden="true">04</div>
+                <div>
+                    <p class="card__category">Editorial &mdash; Art Catalog</p>
+                    <h2 class="card__name"><a href="art-catalog.html">Art Catalog</a></h2>
+                    <p class="card__desc">
+                        Gallery exhibition catalog. Numbered plates, object labels, table of contents with
+                        dotted leaders, catalogue raisonn&eacute;. Hanken Grotesk. Cool institutional palette.
+                    </p>
+                    <ul class="card__tags">
+                        <li>Dark</li>
+                        <li>Institutional</li>
+                        <li>Clinical</li>
+                        <li>Sans-serif</li>
+                    </ul>
+                    <a href="art-catalog.html" class="card__link">View Design &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__number" aria-hidden="true">05</div>
+                <div>
+                    <p class="card__category">Brutalist &mdash; Cyberpunk</p>
+                    <h2 class="card__name"><a href="neon-noir.html">Neon Noir</a></h2>
+                    <p class="card__desc">
+                        Blade Runner neon noir. CSS rain, scanlines, phosphor neon glow effects,
+                        fog gradients. Rajdhani + Share Tech Mono. Pink/cyan neon on blue-black.
+                    </p>
+                    <ul class="card__tags">
+                        <li>Dark</li>
+                        <li>Neon</li>
+                        <li>Atmospheric</li>
+                        <li>Animated</li>
+                    </ul>
+                    <a href="neon-noir.html" class="card__link">View Design &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__number" aria-hidden="true">06</div>
+                <div>
+                    <p class="card__category">Brutalist &mdash; Cyberpunk</p>
+                    <h2 class="card__name"><a href="vhs.html">VHS</a></h2>
+                    <p class="card__desc">
+                        Worn VHS tape aesthetic. Chromatic aberration, tracking lines, PLAY/REC HUD overlays,
+                        live timestamp, glitch bands. VT323 + Chakra Petch. Amber UI on CRT black.
+                    </p>
+                    <ul class="card__tags">
+                        <li>Dark</li>
+                        <li>Retro</li>
+                        <li>Glitch</li>
+                        <li>Animated</li>
+                    </ul>
+                    <a href="vhs.html" class="card__link">View Design &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">
+            <a href="/">brewerlogic.com</a> &middot; Design Alternatives &middot; 2026
+        </p>
+    </footer>
+</body>
+</html>
