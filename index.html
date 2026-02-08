@@ -323,26 +323,6 @@
             margin-bottom: 2rem;
         }
 
-        .pause-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'VT323', monospace;
-            font-size: 2rem;
-            color: var(--vhs-white);
-            opacity: 0;
-            pointer-events: none;
-            text-shadow: -2px 0 var(--chroma-red), 2px 0 var(--chroma-blue);
-            z-index: 10;
-            transition: opacity 0.1s;
-            letter-spacing: 0.3em;
-        }
-
-        .section-block:hover .pause-overlay {
-            opacity: 0.3;
-        }
-
         .hero {
             min-height: 100vh;
             display: flex;
@@ -960,10 +940,6 @@
                 animation: none;
             }
 
-            .section-block:hover .pause-overlay {
-                opacity: 0;
-            }
-
             .project:hover,
             .timeline-entry:hover,
             .skill-item:hover {
@@ -1242,7 +1218,7 @@
     <div class="chapter-marker" aria-hidden="true">&#9472;&#9472; CH.01 &#9472;&#9472;</div>
 
     <section id="about" class="section-block">
-        <div class="pause-overlay" aria-hidden="true">PAUSE &#10074;&#10074;</div>
+
         <div class="section-inner">
             <div class="reveal">
                 <div class="section-label">CH.01</div>
@@ -1272,7 +1248,7 @@
     <div class="chapter-marker" aria-hidden="true">&#9472;&#9472; CH.02 &#9472;&#9472;</div>
 
     <section id="work" class="section-block">
-        <div class="pause-overlay" aria-hidden="true">PAUSE &#10074;&#10074;</div>
+
         <div class="section-inner">
             <div class="reveal">
                 <div class="section-label">CH.02</div>
@@ -1363,7 +1339,7 @@
     <div class="chapter-marker" aria-hidden="true">&#9472;&#9472; CH.03 &#9472;&#9472;</div>
 
     <section id="experience" class="section-block">
-        <div class="pause-overlay" aria-hidden="true">PAUSE &#10074;&#10074;</div>
+
         <div class="section-inner">
             <div class="reveal">
                 <div class="section-label">CH.03</div>
@@ -1434,7 +1410,7 @@
     <div class="chapter-marker" aria-hidden="true">&#9472;&#9472; CH.04 &#9472;&#9472;</div>
 
     <section id="contact" class="section-block">
-        <div class="pause-overlay" aria-hidden="true">PAUSE &#10074;&#10074;</div>
+
         <div class="section-inner">
             <div class="reveal">
                 <div class="section-label">CH.04</div>
