@@ -20,12 +20,20 @@ Running, climbing, cycling, woodworking, reading, and anything with an 80s aesth
 
 ## Tech Stack
 
-This site is a simple static HTML/CSS/JS portfolio with:
+This site is a simple HTML/CSS/JS portfolio with a zero-dependency Node server for:
 
 - Dark/light theme toggle
 - Intersection Observer for active nav states
 - CSS custom properties for theming
-- No build tools, no frameworks—just the basics
+- No build tools, no frameworks, no runtime dependencies
+- Markdown content negotiation for agents
+
+## Agent Discovery
+
+- `sitemap.xml` lists canonical public URLs and is referenced from `robots.txt`.
+- `robots.txt` includes AI crawler rules and Content Signals.
+- `server.js` adds homepage `Link` headers and returns markdown when agents send `Accept: text/markdown`.
+- Keep `index.md`, `portfolio/index.md`, and `sitemap.xml` in sync when publishing public content changes.
 
 ## Links
 

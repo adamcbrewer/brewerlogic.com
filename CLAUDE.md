@@ -4,19 +4,21 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
-Static portfolio website for Adam Brewer. No build tools, no frameworks—just HTML, CSS, and vanilla JavaScript.
+Portfolio website for Adam Brewer. No build tools or frameworks; HTML, CSS, vanilla JavaScript, and a zero-dependency Node server for headers/content negotiation.
 
 ## Structure
 
 ```
 index.html              # Single-page portfolio
+index.md                # Markdown homepage for agents
+server.js               # Node static server with Link headers + markdown negotiation
 assets/
 ├── css/styles.css      # Styles with CSS custom properties for theming
 ├── js/main.js          # Theme toggle + active nav via Intersection Observer
 └── img/                # Site assets
-docs/
-├── portfolio.html      # Downloadable CV/resume
-└── *.pdf               # Resume PDFs
+portfolio/
+├── index.html          # Downloadable CV/resume at /portfolio
+└── index.md            # Markdown CV/resume for agents
 ```
 
 ## Features
@@ -24,6 +26,7 @@ docs/
 - **Dark/light theme**: Toggle with localStorage persistence, respects `prefers-color-scheme`
 - **Active nav states**: Intersection Observer highlights current section
 - **Responsive**: Mobile-first, works without JS
+- **Agent discovery**: Sitemap, robots AI rules, Content Signals, Link headers, markdown negotiation
 
 ## Code Patterns
 
@@ -39,9 +42,9 @@ docs/
 
 ## Content Sync
 
-**IMPORTANT**: `index.html` and `docs/portfolio.html` share content that must stay in sync:
+**IMPORTANT**: `index.html` and `portfolio/index.html` share content that must stay in sync:
 
-| Section | index.html | portfolio.html |
+| Section | index.html | portfolio/index.html |
 |---------|------------|----------------|
 | Job title | Hero section | Header `.title` |
 | About/Summary | `#about` section | `.summary` paragraph |
@@ -50,9 +53,3 @@ docs/
 | Contact | Footer + contact section | `.contact-info` |
 
 When updating copy in one file, check the other for corresponding content and update both.
-
-## Deployment
-
-Static files—deploy anywhere (GitHub Pages, Netlify, Digital Ocean, etc.)
-
-No build step required.
