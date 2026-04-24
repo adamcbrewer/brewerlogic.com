@@ -4,14 +4,13 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
-Portfolio website for Adam Brewer. No build tools or frameworks; HTML, CSS, vanilla JavaScript, and a zero-dependency Node server for headers/content negotiation.
+Portfolio website for Adam Brewer. No build tools or frameworks; static HTML, CSS, and vanilla JavaScript.
 
 ## Structure
 
 ```
 index.html              # Single-page portfolio
 index.md                # Markdown homepage for agents
-server.js               # Node static server with Link headers + markdown negotiation
 assets/
 ├── css/styles.css      # Styles with CSS custom properties for theming
 ├── js/main.js          # Theme toggle + active nav via Intersection Observer
@@ -26,7 +25,7 @@ portfolio/
 - **Dark/light theme**: Toggle with localStorage persistence, respects `prefers-color-scheme`
 - **Active nav states**: Intersection Observer highlights current section
 - **Responsive**: Mobile-first, works without JS
-- **Agent discovery**: Sitemap, robots AI rules, Content Signals, Link headers, markdown negotiation
+- **Agent discovery**: Sitemap, robots AI rules, Content Signals, markdown companion files
 
 ## Code Patterns
 
