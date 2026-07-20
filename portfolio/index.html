@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam Brewer - Resume</title>
+    <title>Adam Brewer - Senior Full-Stack Engineer CV</title>
     <link rel="canonical" href="https://brewerlogic.com/portfolio">
     <link rel="alternate" type="text/markdown" href="https://brewerlogic.com/portfolio/index.md">
     <style>
@@ -41,6 +41,9 @@
         }
 
         .header h1 span {
+            display: block;
+            margin-top: 2px;
+            font-size: 19px;
             font-weight: 400;
             color: #333;
         }
@@ -49,6 +52,7 @@
             font-size: 13px;
             color: #444;
             margin-bottom: 15px;
+            font-style: normal;
         }
 
         .contact-info a {
@@ -90,9 +94,9 @@
 
         /* Skills */
         .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
         .skill-item {
@@ -180,7 +184,7 @@
             align-items: baseline;
         }
 
-        .education-item h4 {
+        .education-item h3 {
             font-size: 14px;
             font-weight: 600;
             color: #000;
@@ -199,9 +203,14 @@
 
         /* Print styles */
         @media print {
+            @page {
+                size: A4;
+                margin: 10mm 12mm;
+            }
+
             body {
                 padding: 0;
-                font-size: 12px;
+                font-size: 11.5px;
             }
 
             .container {
@@ -211,10 +220,89 @@
             .section-header {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                margin-top: 12px;
+                margin-bottom: 6px;
+                padding-bottom: 3px;
             }
 
             .job {
+                break-inside: avoid;
                 page-break-inside: avoid;
+                margin-bottom: 10px;
+            }
+
+            .header {
+                margin-bottom: 8px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+                margin-bottom: 4px;
+            }
+
+            .header h1 span {
+                font-size: 15px;
+            }
+
+            .contact-info,
+            .job-dates,
+            .education-item .dates {
+                font-size: 10.5px;
+            }
+
+            .summary,
+            .job-title {
+                font-size: 11.5px;
+            }
+
+            .job-company,
+            .education-item h3 {
+                font-size: 12px;
+            }
+
+            .summary {
+                font-size: 11px;
+                line-height: 1.5;
+            }
+
+            .skills-grid {
+                gap: 2px;
+            }
+
+            .skill-item strong {
+                min-width: 105px;
+            }
+
+            .job ul {
+                margin-bottom: 3px;
+            }
+
+            .job ul li {
+                font-size: 11px;
+                line-height: 1.4;
+                margin-bottom: 2px;
+            }
+
+            .job-title {
+                margin-bottom: 3px;
+            }
+
+            .job-skills {
+                font-size: 10px;
+            }
+
+            .job--page-break {
+                break-before: page;
+            }
+
+            .education-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 4px;
+            }
+
+            .education-item p {
+                font-size: 10px;
             }
         }
 
@@ -239,169 +327,173 @@
 <body>
     <div class="container">
         <!-- Header -->
-        <div class="header">
-            <h1>Adam Brewer <span>| Senior Full-stack Developer</span></h1>
-            <div class="section-header section-header--first">Contact</div>
-            <div class="contact-info">
+        <header class="header">
+            <h1>Adam Brewer <span>Senior Full-Stack Engineer | Frontend Architecture, TypeScript, React &amp; Next.js</span></h1>
+            <h2 class="section-header section-header--first">Contact</h2>
+            <address class="contact-info">
                 <a href="mailto:adam@brewerlogic.com">adam@brewerlogic.com</a>
                 <span class="separator">|</span>
-                <span>07803 075364</span>
+                <a href="tel:+447803075364">+44 7803 075364</a>
                 <span class="separator">|</span>
                 <a href="https://brewerlogic.com">brewerlogic.com</a>
                 <span class="separator">|</span>
-                <a href="https://linkedin.com/in/adamcbrewer">LinkedIn</a>
+                <a href="https://linkedin.com/in/adamcbrewer">linkedin.com/in/adamcbrewer</a>
                 <span class="separator">|</span>
-                <a href="https://github.com/adamcbrewer">GitHub</a>
+                <a href="https://github.com/adamcbrewer">github.com/adamcbrewer</a>
                 <span class="separator">|</span>
                 <span>Greater Bristol Area, UK</span>
-            </div>
-        </div>
+            </address>
+        </header>
+
+        <main>
 
         <!-- Summary -->
-        <div class="section-header">Summary</div>
+        <h2 class="section-header">Summary</h2>
         <p class="summary">
-            Senior full-stack developer with 12+ years building scalable web applications. Former British Army aircraft technician—that background gave me discipline, adaptability, and a knack for problem-solving under pressure. I excel at creating robust component systems, leading teams, and translating technical concepts for stakeholders. Strong track record with enterprise brands (Google, Apple, The Economist, Burberry) and co-founded my own SaaS. Equally comfortable leading a team or shipping features autonomously.
+            Senior full-stack engineer with 15+ years delivering web and mobile products, specialising in frontend architecture, TypeScript, React and Next.js. Most recently provided frontend technical leadership for a fintech platform, taking its Next.js web and Ionic mobile clients from proof of concept to production within nine months. Solo technical co-founder of Paper Trails, where I migrated a Laravel application to Next.js and own a geospatial print, commerce and fulfilment platform supporting thousands of customer orders worldwide. Experienced leading engineers, building accessible design systems and taking products from architecture through production, informed by an earlier career as a British Army aircraft technician.
         </p>
 
         <!-- Skills -->
-        <div class="section-header">Skills</div>
+        <h2 class="section-header">Skills</h2>
         <div class="skills-grid">
             <div class="skill-item">
-                <strong>Core:</strong>
-                <span>React, TypeScript, Next.js, Node.js, Git</span>
-            </div>
-            <div class="skill-item">
                 <strong>Frontend:</strong>
-                <span>React Native, HTML5, CSS3, Redux, ES6+, Design Systems</span>
+                <span>TypeScript, JavaScript, React, Next.js, React Native, Ionic React, Capacitor, HTML, CSS</span>
             </div>
             <div class="skill-item">
-                <strong>Backend:</strong>
-                <span>PHP, Laravel, REST APIs, PostgreSQL, MongoDB, Prisma, Docker, AWS</span>
+                <strong>Architecture:</strong>
+                <span>Frontend Architecture, Design Systems, Component Libraries, REST APIs</span>
             </div>
             <div class="skill-item">
-                <strong>Practices:</strong>
-                <span>Testing (Jest, Cypress), CI/CD, Agile, Code Reviews, AI-augmented Workflows</span>
+                <strong>Backend &amp; Data:</strong>
+                <span>Node.js, Next.js Server Actions, PHP/Laravel, MongoDB, Mongoose, PostgreSQL, Prisma</span>
+            </div>
+            <div class="skill-item">
+                <strong>Quality:</strong>
+                <span>WCAG 2.2 AA, Jest, Testing Library, Playwright, Storybook, TDD</span>
+            </div>
+            <div class="skill-item">
+                <strong>Delivery &amp; Cloud:</strong>
+                <span>CI/CD, pnpm, Nx, Docker, GitHub Actions, Azure, AWS, DigitalOcean</span>
+            </div>
+            <div class="skill-item">
+                <strong>Additional:</strong>
+                <span>AI-assisted Engineering, Agent Workflows, Polygon, Alchemy</span>
             </div>
         </div>
 
         <!-- Experience -->
-        <div class="section-header">Work Experience</div>
+        <h2 class="section-header">Work Experience</h2>
 
-        <div class="job">
+        <article class="job">
             <div class="job-header">
-                <div class="job-company">Quilter</div>
-                <div class="job-dates">Jan 2024 - Present</div>
+                <h3 class="job-company">Quilter (contract through Brewer Logic)</h3>
+                <div class="job-dates">Jan 2024 - Jul 2026</div>
             </div>
             <div class="job-title">Senior Developer</div>
             <ul>
-                <li>Leading frontend UI/UX development for fintech portfolio management platform</li>
-                <li>Shipped proof of concept to production within first year, multiple releases since</li>
-                <li>Cross-platform solution serving both web and mobile clients using Nx monorepo</li>
+                <li>Provided frontend technical leadership for a portfolio-planning platform serving financial advisers, taking it from proof of concept to production within nine months and supporting multiple subsequent releases.</li>
+                <li>Created the shared component architecture used by Next.js web and Ionic React/Capacitor mobile clients, reducing duplication through shared TypeScript packages and meeting WCAG 2.2 AA requirements.</li>
+                <li>Standardised server and complex form state with TanStack Query, Next.js server actions, Yup and Zustand, creating consistent reusable patterns across applications.</li>
+                <li>Improved Jest coverage reporting and Playwright E2E protection, and led the npm-to-pnpm migration to strengthen dependency controls and CI reliability.</li>
             </ul>
-            <div class="job-skills">React, Next.js, React Native, Ionic, TypeScript, Nx, Azure DevOps</div>
-        </div>
+            <div class="job-skills">React, Next.js, TypeScript, Ionic React, Capacitor, TanStack Query, Zustand, Jest, Playwright, pnpm, Azure DevOps</div>
+        </article>
 
-        <div class="job">
+        <article class="job">
             <div class="job-header">
-                <div class="job-company">Paper Trails (Co-founded)</div>
+                <h3 class="job-company">Paper Trails</h3>
                 <div class="job-dates">Mar 2019 - Present</div>
             </div>
-            <div class="job-title">Technical Director</div>
+            <div class="job-title">Technical Director &amp; Co-Founder (part-time)</div>
             <ul>
-                <li>Co-founded SaaS turning adventure data (Strava, Komoot) into custom wall art</li>
-                <li>Full-stack ownership: architected frontend, built REST API, implemented CI/CD and TDD</li>
-                <li>Integrated Stripe payments, activity platform APIs, and print fulfillment services</li>
+                <li>Solo technical co-founder of a production SaaS that has fulfilled thousands of personalised print orders worldwide.</li>
+                <li>Migrated the application from a Laravel REST backend and legacy frontend to Next.js App Router, TypeScript, server actions and MongoDB/Mongoose.</li>
+                <li>Built a geospatial pipeline spanning Strava/GPX/FIT ingestion, Mapbox composition, Playwright print rendering, Sharp thumbnails, DigitalOcean Spaces and Prodigi fulfilment.</li>
+                <li>Own Stripe commerce, Mailgun communications, Jest/Testing Library/Playwright testing, GitHub Actions CI, DigitalOcean deployment, monitoring and production support.</li>
             </ul>
-            <div class="job-skills">React, TypeScript, Next.js, Laravel, MongoDB, Docker, Stripe, Jest, GitHub Actions</div>
-        </div>
+            <div class="job-skills">React, Next.js, TypeScript, MongoDB, Mongoose, Mapbox, Stripe, Jest, Testing Library, Playwright, GitHub Actions, DigitalOcean</div>
+        </article>
 
-        <div class="job">
+        <article class="job">
             <div class="job-header">
-                <div class="job-company">Meshii WiFi</div>
+                <h3 class="job-company">Meshii WiFi</h3>
                 <div class="job-dates">Feb 2023 - Oct 2023</div>
             </div>
             <div class="job-title">Software Architect</div>
             <ul>
-                <li>Led architecture and development for blockchain-integrated mobile application</li>
-                <li>Designed system architecture and AWS Serverless deployment strategies</li>
-                <li>Integrated Polygon blockchain functionality for token rewards using Alchemy API</li>
+                <li>Led architecture and technical delivery for a React Native/Expo application rewarding decentralised WiFi participation with Polygon-based tokens.</li>
+                <li>Integrated Alchemy and Polygon transaction flows with an AWS serverless backend, including signed webhooks and transaction-status reconciliation.</li>
+                <li>Led three developers from architecture through a private pilot using AWS Lambda, API Gateway, Amplify Hosting and PostgreSQL/Prisma on RDS.</li>
             </ul>
-            <div class="job-skills">React Native, TypeScript, AWS Serverless, Python, Polygon, Alchemy</div>
-        </div>
+            <div class="job-skills">React Native, Expo, TypeScript, AWS Lambda, API Gateway, PostgreSQL, Prisma, Jest, Polygon, Alchemy</div>
+        </article>
 
-        <div class="job">
+        <article class="job job--page-break">
             <div class="job-header">
-                <div class="job-company">Apple, The Economist, Novata, Etch</div>
-                <div class="job-dates">2019 - 2023</div>
+                <h3 class="job-company">Independent Consultant, Brewer Logic</h3>
+                <div class="job-dates">Sep 2019 - Nov 2022</div>
             </div>
-            <div class="job-title">Senior Contract Developer</div>
+            <div class="job-title">Selected client engagements</div>
             <ul>
-                <li>Apple: Upgraded critical internal software tools</li>
-                <li>The Economist: Extended Design System used across all digital products; built styleguide showcase</li>
-                <li>Novata: Built carbon emission calculators with complex data visualisations</li>
-                <li>Etch/LSE: Created interactive investment planning tools for financial services</li>
+                <li>Novata (Mar-Nov 2022): Delivered React/TypeScript carbon-emissions features, PostgreSQL and Prisma API work, reusable components and Jest tests meeting WCAG 2.1 AA requirements.</li>
+                <li>Etch/Quilter (Sep-Dec 2020; Apr 2021-Jan 2022): Built retirement-choice and adviser investment-profiling products using React and TypeScript, including Storybook components, API-driven journeys, SVG financial charts and PDF reports.</li>
+                <li>The Economist (Feb-Jun 2020): Extended its tested React design system and built the Gatsby/MDX public style-guide platform, including accessible component patterns and visual-regression testing.</li>
+                <li>Apple (Sep-Oct 2019): Modernised and supported a business-critical internal web application; further details are confidential.</li>
             </ul>
-            <div class="job-skills">React, TypeScript, Storybook, PostgreSQL, Prisma, D3.js, Jest</div>
-        </div>
+            <div class="job-skills">React, TypeScript, Storybook, Gatsby, PostgreSQL, Prisma, Jest, WCAG 2.1 AA</div>
+        </article>
 
-        <div class="job">
+        <article class="job">
             <div class="job-header">
-                <div class="job-company">Applied Works</div>
+                <h3 class="job-company">Applied Works</h3>
                 <div class="job-dates">Aug 2017 - Jun 2018</div>
             </div>
-            <div class="job-title">Lead Frontend Developer</div>
+            <div class="job-title">Senior Web Developer</div>
             <ul>
-                <li>Led frontend development and mentored developers in international team of 15-20</li>
-                <li>Architected large-scale React application with TypeScript and Redux</li>
-                <li>Created Storybook component library for consistent UI development</li>
+                <li>Provided frontend leadership and mentored developers within an international 15-20-person team.</li>
+                <li>Architected Redux state patterns for a large React and TypeScript application.</li>
+                <li>Built Storybook UI components supporting a consistent, reusable interface.</li>
             </ul>
             <div class="job-skills">React, TypeScript, Redux, Storybook, Node.js, Team Leadership</div>
-        </div>
+        </article>
 
-        <div class="job">
+        <article class="job">
             <div class="job-header">
-                <div class="job-company">Toaster (Google, Adidas), Burberry, Saatchi & Saatchi</div>
-                <div class="job-dates">2011 - 2017</div>
+                <h3 class="job-company">Selected Earlier Experience</h3>
+                <div class="job-dates">2010 - 2017</div>
             </div>
-            <div class="job-title">Frontend Developer / Senior Developer</div>
+            <div class="job-title">Frontend and Web Developer roles</div>
             <ul>
-                <li>Google Play Policy developer guidelines and Google Search Indonesia mobile experience</li>
-                <li>Burberry.com e-commerce frontend development</li>
-                <li>Agency work for Toyota, Virgin Galactic, Cravendale, Budweiser</li>
+                <li>iRiS/Marriott: Built a multilingual React/Redux mobile-dining application embedded in Marriott's native app, covering menus, cart customisation and guest-order API flows.</li>
+                <li>Toaster: Built Google Play Policy guidance with Polymer/Web Components and an interactive, touch-enabled Google Search Indonesia campaign.</li>
+                <li>Burberry: Developed Burberry.com e-commerce and touch-enabled HTML Canvas prototypes for interactive product experiences.</li>
             </ul>
-            <div class="job-skills">Polymer, Web Components, Backbone.js, GSAP, Knockout.js, SASS</div>
-        </div>
+            <div class="job-skills">JavaScript, HTML, CSS/Sass, PHP, Polymer, Web Components</div>
+        </article>
 
-        <div class="job">
+        <article class="job">
             <div class="job-header">
-                <div class="job-company">British Army (REME)</div>
+                <h3 class="job-company">British Army (REME)</h3>
                 <div class="job-dates">Feb 2005 - Nov 2009</div>
             </div>
             <div class="job-title">Aircraft Technician, Corporal</div>
             <ul>
-                <li>Maintained and repaired military helicopters; served in UK, Germany, and Iraq</li>
-                <li>Developed discipline, adaptability, and problem-solving under pressure</li>
+                <li>Reached Corporal, supervising small teams maintaining military helicopters in the UK, Germany and Iraq.</li>
             </ul>
-        </div>
+        </article>
 
         <!-- Education -->
-        <div class="section-header">Education & Certifications</div>
+        <h2 class="section-header">Education &amp; Certifications</h2>
 
         <div class="education-item">
             <div class="education-header">
-                <h4>LPIC-1 Certification</h4>
-                <span class="dates">2009</span>
-            </div>
-            <p>Linux Professional Institute</p>
-        </div>
-
-        <div class="education-item">
-            <div class="education-header">
-                <h4>Aeronautical Engineering Apprenticeship</h4>
+                <h3>Aeronautical Engineering Apprenticeship</h3>
                 <span class="dates">2005 - 2006</span>
             </div>
             <p>REME School of Aeronautical Engineering</p>
         </div>
+        </main>
     </div>
 </body>
 </html>
