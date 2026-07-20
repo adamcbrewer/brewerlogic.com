@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meshii WiFi Architecture Case Study | Adam Brewer</title>
+    <meta name="description" content="A case study based on private Meshii WiFi source code, covering its app for web, iOS and Android, AWS services, device performance data and test rewards on Polygon.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="canonical" href="https://brewerlogic.com/case-studies/meshii/">
+    <link rel="alternate" type="text/markdown" href="https://brewerlogic.com/case-studies/meshii/index.md">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/bl-logo.svg">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #f0ede6;
+            --cyan: #00e5ff;
+            --grey: #333;
+            --muted: #aaa;
+            --display: 'Bebas Neue', sans-serif;
+            --mono: 'Space Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--mono);
+            font-size: 0.875rem;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--white);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--cyan);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            z-index: 20;
+            padding: 8px 16px;
+            background: var(--cyan);
+            color: var(--black);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .skip-link:focus {
+            top: 16px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 16px 24px;
+            border-bottom: 2px solid var(--grey);
+            background: var(--black);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav__links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .hero,
+        .section {
+            border-bottom: 2px solid var(--grey);
+        }
+
+        .hero__inner,
+        .section__inner {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            padding: 72px 24px;
+        }
+
+        .hero__inner {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .eyebrow {
+            margin-bottom: 16px;
+            color: var(--cyan);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--display);
+            font-weight: 400;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 960px;
+            margin-bottom: 28px;
+            font-size: clamp(4rem, 13vw, 10rem);
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            margin-bottom: 40px;
+            font-size: clamp(3rem, 8vw, 6rem);
+        }
+
+        h3 {
+            margin-bottom: 12px;
+            font-size: 2rem;
+        }
+
+        .lede {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .facts {
+            display: grid;
+            margin-top: 48px;
+            border-top: 2px solid var(--grey);
+            border-left: 2px solid var(--grey);
+        }
+
+        .fact {
+            min-width: 0;
+            padding: 20px;
+            border-right: 2px solid var(--grey);
+            border-bottom: 2px solid var(--grey);
+        }
+
+        .fact dt {
+            margin-bottom: 8px;
+            color: var(--cyan);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .fact dd {
+            overflow-wrap: anywhere;
+        }
+
+        .diagram {
+            border: 2px solid var(--grey);
+        }
+
+        .lane {
+            display: grid;
+            gap: 16px;
+            padding: 24px;
+            border-bottom: 2px solid var(--grey);
+        }
+
+        .lane:last-child {
+            border-bottom: 0;
+        }
+
+        .lane__label {
+            color: var(--cyan);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .flow {
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+        }
+
+        .node {
+            display: flex;
+            min-width: 150px;
+            flex: 1 0 150px;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border: 1px solid var(--cyan);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .caption {
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        .cards {
+            display: grid;
+            gap: 2px;
+            background: var(--grey);
+            border: 2px solid var(--grey);
+        }
+
+        .cards--spaced {
+            margin-top: 24px;
+        }
+
+        .card {
+            padding: 28px;
+            background: var(--black);
+        }
+
+        .card p,
+        .card li {
+            color: var(--muted);
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .card li + li {
+            margin-top: 8px;
+        }
+
+        .boundary {
+            padding: 28px;
+            border: 2px solid var(--cyan);
+        }
+
+        .boundary strong {
+            color: var(--cyan);
+        }
+
+        .evidence-list {
+            display: grid;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .evidence-list li {
+            padding: 16px 0;
+            border-top: 1px solid var(--grey);
+            color: var(--muted);
+        }
+
+        .evidence-list li::before {
+            content: '//';
+            margin-right: 10px;
+            color: var(--cyan);
+        }
+
+        .cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 24px;
+            border: 2px solid var(--cyan);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .button--primary {
+            background: var(--cyan);
+            color: var(--black);
+        }
+
+        .button--primary:hover {
+            background: var(--white);
+            border-color: var(--white);
+            color: var(--black);
+        }
+
+        .footer {
+            padding: 28px 24px;
+            color: var(--muted);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 720px) {
+            .facts {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .lane {
+                grid-template-columns: 150px 1fr;
+                align-items: center;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 719px) {
+            .nav {
+                align-items: flex-start;
+                padding: 12px 16px;
+            }
+
+            .nav__links {
+                flex-direction: column;
+                gap: 4px;
+                text-align: right;
+            }
+
+            .hero__inner,
+            .section__inner {
+                padding-right: 16px;
+                padding-left: 16px;
+            }
+
+            .flow {
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .node {
+                min-width: 0;
+                flex-basis: auto;
+            }
+
+            .arrow {
+                justify-content: center;
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="nav" aria-label="Case study navigation">
+        <a href="/">Adam Brewer</a>
+        <ul class="nav__links">
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#decisions">Decisions</a></li>
+            <li><a href="#boundaries">Boundaries</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <header class="hero">
+            <div class="hero__inner">
+                <p class="eyebrow">Architecture review based on source code / 2023</p>
+                <h1>Meshii WiFi</h1>
+                <p class="lede">
+                    A reconstruction of a private-pilot platform, based on its application, API, infrastructure and test
+                    source code. The platform combined device management across web, iOS and Android, AWS services,
+                    mesh network performance data and test rewards on Polygon Mumbai.
+                </p>
+
+                <dl class="facts">
+                    <div class="fact">
+                        <dt>Role</dt>
+                        <dd>Software Architect</dd>
+                    </div>
+                    <div class="fact">
+                        <dt>Delivery</dt>
+                        <dd>Private pilot</dd>
+                    </div>
+                    <div class="fact">
+                        <dt>App</dt>
+                        <dd>React Native / Expo</dd>
+                    </div>
+                    <div class="fact">
+                        <dt>Services and data</dt>
+                        <dd>AWS / PostgreSQL / Polygon testnet</dd>
+                    </div>
+                </dl>
+            </div>
+        </header>
+
+        <section class="section" id="architecture">
+            <div class="section__inner">
+                <p class="eyebrow">01 / How the system worked</p>
+                <h2>Architecture</h2>
+
+                <div class="diagram" role="img" aria-label="Meshii system architecture showing how the app, AWS services, device performance data and test rewards connected">
+                    <div class="lane">
+                        <p class="lane__label">App for web, iOS and Android</p>
+                        <div class="flow">
+                            <div class="node">Web / iOS / Android</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Built with Expo / React Native</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Login, data and maps: Auth0 / React Query / Mapbox</div>
+                        </div>
+                    </div>
+                    <div class="lane">
+                        <p class="lane__label">Application services</p>
+                        <div class="flow">
+                            <div class="node">Secure API access: API Gateway + JWT</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Business functions: AWS Lambda</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Application records: PostgreSQL / Prisma</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Network and device services: RADIUSdesk / AWS IoT</div>
+                        </div>
+                    </div>
+                    <div class="lane">
+                        <p class="lane__label">Device performance data</p>
+                        <div class="flow">
+                            <div class="node">Mesh node performance data</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Collection: AWS IoT rules / Kinesis</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Storage and triggers: S3 / EventBridge</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Database and reward scoring: PostgreSQL</div>
+                        </div>
+                    </div>
+                    <div class="lane">
+                        <p class="lane__label">Test reward processing</p>
+                        <div class="flow">
+                            <div class="node">Calculated reward group</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Reward processing: AWS Lambda</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Test transaction: Alchemy / Polygon Mumbai</div>
+                            <span class="arrow" aria-hidden="true">-&gt;</span>
+                            <div class="node">Signed notification / status update</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="caption">
+                    Application services and device performance processing were kept separate. The application APIs
+                    managed user identities, wallets, device pairing and configuration. A separate set of services
+                    collected the larger volume of device data and calculated reward scores.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="decisions">
+            <div class="section__inner">
+                <p class="eyebrow">02 / Key design decisions</p>
+                <h2>Why It Was Designed This Way</h2>
+
+                <div class="cards">
+                    <article class="card">
+                        <h3>One app, platform-specific connections</h3>
+                        <p>
+                            Expo and React Native allowed the browser, iOS and Android versions to share navigation,
+                            screens and API connections. Platform-specific code connected each version to Auth0,
+                            Mapbox and nearby device discovery using mDNS.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Cloud, device and blockchain data</h3>
+                        <p>
+                            The app combined account information from cloud services, information found directly from
+                            nearby devices and transaction data from the blockchain. React Query gave the rest of the
+                            app one consistent way to access this information.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>AWS application services</h3>
+                        <p>
+                            API Gateway, AWS Lambda and shared code separated the services for users, wallets, devices
+                            and maps. PostgreSQL and Prisma held the application's main records.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Separate device data processing</h3>
+                        <p>
+                            AWS IoT rules, Kinesis, S3 and EventBridge separated the collection of device performance
+                            data from reward scoring and processing. This allowed each stage to change independently
+                            during the private pilot.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Test rewards on Polygon</h3>
+                        <p>
+                            Alchemy submitted groups of smart-contract reward transactions to the Polygon Mumbai test
+                            network. Signed notifications from Alchemy then updated each transaction's status in the
+                            application database.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Automated builds and deployments</h3>
+                        <p>
+                            AWS SAM defined the AWS services. GitHub Actions deployed changes using short-lived AWS
+                            access through OIDC. AWS Amplify hosted the Expo web app, while EAS configuration defined
+                            preview builds for iOS and Android.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="boundaries">
+            <div class="section__inner">
+                <p class="eyebrow">03 / Limits of the private pilot</p>
+                <h2>What the Evidence Does Not Show</h2>
+
+                <div class="boundary">
+                    <p>
+                        This architecture supported a <strong>private pilot</strong>, not a production launch or a launch
+                        on Polygon's main network. The source shows integration with the Polygon Mumbai test network,
+                        automated development and staging deployments, and unit tests using simulated dependencies. It
+                        does not show that every reward could only be processed once, that repeated requests were safe
+                        at every stage, that blockchain and application records were always compared and corrected,
+                        that device setup could not partly complete, or that native app releases were fully automated.
+                    </p>
+                </div>
+
+                <div class="cards cards--spaced">
+                    <article class="card">
+                        <h3>Work needed before production</h3>
+                        <ul>
+                            <li>Save a unique record for each reward group before submitting any blockchain transaction.</li>
+                            <li>Add controls for repeated events, storage for failed events, and regular checks between blockchain transactions and application records.</li>
+                            <li>Track recovery steps when device pairing spans multiple systems.</li>
+                            <li>Give each AWS Lambda only the secrets and AWS permissions it requires.</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Additional testing needed</h3>
+                        <ul>
+                            <li>Add tests covering PostgreSQL, AWS SAM events and repeated webhook notifications working together.</li>
+                            <li>Test mDNS discovery, authentication and pairing on physical devices.</li>
+                            <li>Make the development, staging and production infrastructure definitions consistent before launch.</li>
+                            <li>Test deployment health and rollback after database structure changes.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section__inner">
+                <p class="eyebrow">04 / Source code reviewed</p>
+                <h2>Evidence Used</h2>
+                <ul class="evidence-list">
+                    <li>Expo app configuration, platform-specific connections, API code and component tests.</li>
+                    <li>AWS SAM definitions for APIs, device performance processing, reward scoring and device setup.</li>
+                    <li>AWS Lambda code for authentication, device pairing, rewards and signed notifications.</li>
+                    <li>Prisma and SQL database changes for application and device performance data.</li>
+                    <li>GitHub Actions, AWS Amplify and EAS build and deployment configuration.</li>
+                </ul>
+                <p class="caption">
+                    The source code is private. Identifiers for infrastructure and devices, credentials, customer data,
+                    smart-contract addresses and private service addresses have been intentionally omitted.
+                </p>
+
+                <div class="cta">
+                    <a class="button button--primary" href="/">Back to portfolio</a>
+                    <a class="button" href="/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf" download>Download CV</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Meshii WiFi architecture case study / Adam Brewer</p>
+    </footer>
+</body>
+</html>

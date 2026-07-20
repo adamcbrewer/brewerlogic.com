@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Assisted Engineering Case Study | Adam Brewer</title>
+    <meta name="description" content="A Paper Trails production incident showing how Adam Brewer diagnosed and designed a checkout fix before AI drafted code, tests and review.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#10100e">
+    <link rel="canonical" href="https://brewerlogic.com/case-studies/ai-engineering/">
+    <link rel="alternate" type="text/markdown" href="https://brewerlogic.com/case-studies/ai-engineering/index.md">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/bl-logo.svg">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --black: #10100e;
+            --paper: #e9e4d8;
+            --signal: #ffd400;
+            --red: #ff4d32;
+            --grey: #363630;
+            --muted: #aaa69d;
+            --display: 'Bebas Neue', sans-serif;
+            --mono: 'Space Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--paper);
+            font-family: var(--mono);
+            font-size: 0.875rem;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: linear-gradient(rgba(255, 212, 0, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 212, 0, 0.035) 1px, transparent 1px);
+            background-size: 32px 32px;
+            content: '';
+            pointer-events: none;
+        }
+
+        a {
+            color: var(--signal);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--paper);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--signal);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            z-index: 30;
+            padding: 8px 16px;
+            background: var(--signal);
+            color: var(--black);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .skip-link:focus {
+            top: 16px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 16px 24px;
+            border-bottom: 2px solid var(--grey);
+            background: var(--black);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav__links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .hero,
+        .section {
+            border-bottom: 2px solid var(--grey);
+        }
+
+        .hero__inner,
+        .section__inner {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            padding: 72px 24px;
+        }
+
+        .hero__inner {
+            position: relative;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .case-number {
+            position: absolute;
+            top: 56px;
+            right: 24px;
+            color: rgba(255, 212, 0, 0.08);
+            font-family: var(--display);
+            font-size: clamp(9rem, 28vw, 22rem);
+            line-height: 0.8;
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            position: relative;
+            margin-bottom: 16px;
+            color: var(--signal);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--display);
+            font-weight: 400;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            position: relative;
+            max-width: 960px;
+            margin-bottom: 28px;
+            font-size: clamp(4rem, 13vw, 10rem);
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            margin-bottom: 40px;
+            font-size: clamp(3rem, 8vw, 6rem);
+        }
+
+        h3 {
+            margin-bottom: 12px;
+            font-size: 2rem;
+        }
+
+        .lede {
+            position: relative;
+            max-width: 780px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .facts {
+            position: relative;
+            display: grid;
+            margin-top: 48px;
+            border-top: 2px solid var(--grey);
+            border-left: 2px solid var(--grey);
+        }
+
+        .fact {
+            min-width: 0;
+            padding: 20px;
+            border-right: 2px solid var(--grey);
+            border-bottom: 2px solid var(--grey);
+            background: var(--black);
+        }
+
+        .fact dt {
+            margin-bottom: 8px;
+            color: var(--signal);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .fact dd {
+            overflow-wrap: anywhere;
+        }
+
+        .incident {
+            display: grid;
+            border: 2px solid var(--grey);
+        }
+
+        .incident__item {
+            padding: 28px;
+            border-bottom: 2px solid var(--grey);
+        }
+
+        .incident__item:last-child {
+            border-bottom: 0;
+        }
+
+        .incident__label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--signal);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .incident__item p {
+            color: var(--muted);
+        }
+
+        .incident__item strong {
+            color: var(--paper);
+        }
+
+        .pipeline {
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .step {
+            display: flex;
+            min-width: 170px;
+            flex: 1 0 170px;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 28px;
+            padding: 20px;
+            border: 1px solid var(--signal);
+            background: var(--black);
+        }
+
+        .step__number {
+            color: var(--signal);
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        .step strong {
+            font-family: var(--display);
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: var(--signal);
+            font-weight: 700;
+        }
+
+        .caption {
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        .cards {
+            display: grid;
+            gap: 2px;
+            background: var(--grey);
+            border: 2px solid var(--grey);
+        }
+
+        .cards--spaced {
+            margin-top: 24px;
+        }
+
+        .card {
+            padding: 28px;
+            background: var(--black);
+        }
+
+        .card p,
+        .card li {
+            color: var(--muted);
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .card li + li {
+            margin-top: 8px;
+        }
+
+        .decision {
+            margin-top: 24px;
+            padding: 28px;
+            border: 2px solid var(--signal);
+        }
+
+        .decision strong {
+            color: var(--signal);
+        }
+
+        .result {
+            display: grid;
+            gap: 2px;
+            background: var(--grey);
+            border: 2px solid var(--grey);
+        }
+
+        .result__primary,
+        .result__supporting {
+            padding: 32px;
+            background: var(--black);
+        }
+
+        .result__primary strong {
+            display: block;
+            color: var(--signal);
+            font-family: var(--display);
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 400;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .result__primary p,
+        .result__supporting li {
+            color: var(--muted);
+        }
+
+        .result__supporting ul {
+            padding-left: 20px;
+        }
+
+        .result__supporting li + li {
+            margin-top: 8px;
+        }
+
+        .evidence-list {
+            display: grid;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .evidence-list li {
+            padding: 16px 0;
+            border-top: 1px solid var(--grey);
+            color: var(--muted);
+        }
+
+        .evidence-list li::before {
+            margin-right: 10px;
+            color: var(--signal);
+            content: '//';
+        }
+
+        .cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 24px;
+            border: 2px solid var(--signal);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .button--primary {
+            background: var(--signal);
+            color: var(--black);
+        }
+
+        .button--primary:hover {
+            background: var(--paper);
+            border-color: var(--paper);
+            color: var(--black);
+        }
+
+        .footer {
+            padding: 28px 24px;
+            color: var(--muted);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 720px) {
+            .facts {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .step {
+                min-width: 0;
+                flex: 1 1 0;
+                padding: 16px;
+            }
+
+            .arrow {
+                flex: 0 0 auto;
+            }
+
+            .incident {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .incident__item {
+                border-right: 2px solid var(--grey);
+                border-bottom: 0;
+            }
+
+            .incident__item:last-child {
+                border-right: 0;
+            }
+
+            .cards,
+            .result {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 719px) {
+            .nav {
+                align-items: flex-start;
+                padding: 12px 16px;
+            }
+
+            .nav__links {
+                flex-direction: column;
+                gap: 4px;
+                text-align: right;
+            }
+
+            .hero__inner,
+            .section__inner {
+                padding-right: 16px;
+                padding-left: 16px;
+            }
+
+            .case-number {
+                right: 16px;
+            }
+
+            .pipeline {
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .step {
+                min-width: 0;
+                flex-basis: auto;
+            }
+
+            .arrow {
+                justify-content: center;
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="nav" aria-label="Case study navigation">
+        <a href="/">Adam Brewer</a>
+        <ul class="nav__links">
+            <li><a href="#incident">Incident</a></li>
+            <li><a href="#workflow">Workflow</a></li>
+            <li><a href="#outcome">Outcome</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <header class="hero">
+            <div class="hero__inner">
+                <span class="case-number" aria-hidden="true">01</span>
+                <p class="eyebrow">Production incident record / January 2026</p>
+                <h1>AI-Assisted Engineering</h1>
+                <p class="lede">
+                    A real Paper Trails checkout failure showing how I use AI as part of a human-led engineering process.
+                    I diagnosed the problem and designed the solution before involving AI. A written plan then guided
+                    Claude Code and OpenCode as they drafted code, tests and review. I simplified their output and
+                    checked the fix before deployment.
+                </p>
+
+                <dl class="facts">
+                    <div class="fact">
+                        <dt>Role</dt>
+                        <dd>Technical Director and Co-Founder</dd>
+                    </div>
+                    <div class="fact">
+                        <dt>System</dt>
+                        <dd>Paper Trails checkout: Next.js / Stripe / MongoDB</dd>
+                    </div>
+                    <div class="fact">
+                        <dt>AI tools</dt>
+                        <dd>Claude Code and OpenCode</dd>
+                    </div>
+                    <div class="fact">
+                        <dt>Result</dt>
+                        <dd>No repeat failures observed from January through July 2026</dd>
+                    </div>
+                </dl>
+            </div>
+        </header>
+
+        <section class="section" id="incident">
+            <div class="section__inner">
+                <p class="eyebrow">01 / Understand the problem first</p>
+                <h2>The Incident</h2>
+
+                <div class="incident">
+                    <article class="incident__item">
+                        <span class="incident__label">Signal</span>
+                        <p>A customer completed a checkout with a <strong>100% discount</strong>, but Paper Trails did not create an order.</p>
+                    </article>
+                    <article class="incident__item">
+                        <span class="incident__label">Root cause</span>
+                        <p>Stripe does not create its usual payment record, called a PaymentIntent, when a checkout total is zero. The order details had been stored only on that record.</p>
+                    </article>
+                    <article class="incident__item">
+                        <span class="incident__label">Design decision</span>
+                        <p>Store the order details on the Stripe Checkout Session, which exists for both paid and free orders, and use it as the <strong>one reliable source</strong>.</p>
+                    </article>
+                </div>
+
+                <p class="caption">
+                    I confirmed the cause using Paper Trails logs and Stripe records before involving AI. I then wrote
+                    a plan covering the diagnosis, chosen solution, files to change and checks the fix had to pass.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="workflow">
+            <div class="section__inner">
+                <p class="eyebrow">02 / AI works from the agreed plan</p>
+                <h2>Plan to Proof</h2>
+
+                <div class="pipeline" role="img" aria-label="Workflow from customer report through Adam's diagnosis and plan, AI drafting, Adam's review, checks and monitoring">
+                    <div class="step"><span class="step__number">01</span><strong>Customer report</strong></div>
+                    <span class="arrow" aria-hidden="true">-&gt;</span>
+                    <div class="step"><span class="step__number">02</span><strong>Adam diagnoses</strong></div>
+                    <span class="arrow" aria-hidden="true">-&gt;</span>
+                    <div class="step"><span class="step__number">03</span><strong>Adam writes the plan</strong></div>
+                    <span class="arrow" aria-hidden="true">-&gt;</span>
+                    <div class="step"><span class="step__number">04</span><strong>AI drafts the work</strong></div>
+                    <span class="arrow" aria-hidden="true">-&gt;</span>
+                    <div class="step"><span class="step__number">05</span><strong>Adam simplifies</strong></div>
+                    <span class="arrow" aria-hidden="true">-&gt;</span>
+                    <div class="step"><span class="step__number">06</span><strong>Check and monitor</strong></div>
+                </div>
+
+                <p class="caption">
+                    This reflects how I use AI in production work. I make the technical decisions and define what
+                    success means first. AI then drafts a limited, agreed part of the work.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section__inner">
+                <p class="eyebrow">03 / Clear ownership</p>
+                <h2>Who Decided What</h2>
+
+                <div class="cards">
+                    <article class="card">
+                        <h3>Adam's decisions</h3>
+                        <ul>
+                            <li>Identify how Stripe handles checkouts with a zero total.</li>
+                            <li>Choose the Stripe Checkout Session as the reliable source of order details.</li>
+                            <li>Prevent duplicate orders by requiring each Stripe checkout session ID to be unique in the database.</li>
+                            <li>Choose the automated and manual checks required before deployment.</li>
+                            <li>Add an automated browser test later as further protection.</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Claude Code and OpenCode</h3>
+                        <ul>
+                            <li>Drafted the production code from my written plan.</li>
+                            <li>Drafted focused automated tests for payments and orders.</li>
+                            <li>Drafted code and security reviews against my agreed design.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="decision">
+                    <p>
+                        <strong>My review changed the result.</strong> I removed two extra browser-side checks that made
+                        the code more complicated. The database's unique Stripe session ID was the real protection
+                        against duplicate orders, so I kept the browser code straightforward. I also kept a larger
+                        checkout redesign separate from this incident fix and completed it as later follow-up work.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="outcome">
+            <div class="section__inner">
+                <p class="eyebrow">04 / Check the result</p>
+                <h2>Checks and Result</h2>
+
+                <div class="result">
+                    <div class="result__primary">
+                        <strong>No repeat failures observed</strong>
+                        <p>No repeat failures were observed from the January 2026 deployment through July 2026.</p>
+                    </div>
+                    <div class="result__supporting">
+                        <h3>Checks and confirmation</h3>
+                        <ul>
+                            <li>Automated unit tests passed.</li>
+                            <li>Code quality, formatting and production build checks passed.</li>
+                            <li>A checkout with a zero total was completed manually in Stripe's test environment.</li>
+                            <li>The order was saved and matched to its Stripe checkout session.</li>
+                            <li>The affected customer confirmed successful completion.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cards cards--spaced">
+                    <article class="card">
+                        <h3>Later browser testing</h3>
+                        <p>
+                            After deployment, I added a Playwright automated browser test for checkouts with a zero total.
+                            This was added alongside a broader redesign that moved thank-you page processing from the
+                            browser to the server. It was later protection, not a check completed before deployment.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>What this proves</h3>
+                        <p>
+                            This case shows a structured, repeatable way to use AI in production engineering. It does not
+                            prove that AI increased speed or reduced defects. AI did not diagnose the problem, design the
+                            solution or deliver the change without human oversight.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section__inner">
+                <p class="eyebrow">05 / Evidence reviewed</p>
+                <h2>Evidence Reviewed</h2>
+                <ul class="evidence-list">
+                    <li>My incident plan, including the cause, chosen solution, files to change and completed checks.</li>
+                    <li>Project history showing the initial fix, my simplification and the later redesign.</li>
+                    <li>Automated tests covering payments, orders and Stripe settings.</li>
+                    <li>The later Playwright browser test for a digital checkout with a zero total.</li>
+                    <li>Automated checks for formatting, code quality, unit tests, production builds and browser tests.</li>
+                </ul>
+                <p class="caption">
+                    Paper Trails is named with permission. No repository or pull request links are included. Customer
+                    identity, order data, logs, environment settings and credentials are also omitted.
+                </p>
+
+                <div class="cta">
+                    <a class="button button--primary" href="/">Back to portfolio</a>
+                    <a class="button" href="/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf" download>Download CV</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>AI-assisted engineering case study / Adam Brewer</p>
+    </footer>
+</body>
+</html>

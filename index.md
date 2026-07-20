@@ -72,9 +72,11 @@ Technologies: React, Gatsby, MDX, Storybook, Jest, accessibility.
 
 ### Meshii WiFi
 
-Web3 mobile architecture delivered to private pilot.
+Private-pilot application testing rewards for decentralised WiFi participation on Polygon's Mumbai test network.
 
-My contribution: I led three developers, designed the React Native/Expo and AWS serverless architecture, and integrated Alchemy transaction flows with signed webhook reconciliation.
+My contribution: I led three developers, designed the React Native/Expo and AWS serverless architecture, and integrated Alchemy test transactions with signed notifications that updated their status.
+
+Architecture case study: https://brewerlogic.com/case-studies/meshii/
 
 Technologies: React Native, Expo, TypeScript, AWS Lambda, PostgreSQL, Polygon, Alchemy.
 
@@ -86,11 +88,13 @@ My contribution: I modernised and supported a business-critical internal applica
 
 Technologies: React, TypeScript, Polymer, Web Components, Material Design.
 
-### Spec to Verified Delivery
+### Human-Led, AI-Assisted Delivery
 
-AI-assisted engineering practice used for production work.
+A structured way to use AI for production work without handing over engineering decisions.
 
-My contribution: I configured reusable OpenCode and Claude Code skills, MCP integrations and repository-context workflows. Work starts from a written spec and passes type checks, tests, relevant builds and E2E coverage, human diff review and targeted security review. This supported the solo Paper Trails migration from Laravel to Next.js and made broader regression coverage practical.
+My contribution: I set up reusable instructions and project context for OpenCode and Claude Code. I diagnose the problem, design the solution and write the plan before AI drafts code, tests and review. I then review, simplify and check the result. This approach supported my solo Paper Trails migration from Laravel to Next.js and made wider automated testing practical.
+
+Paper Trails production incident case study: https://brewerlogic.com/case-studies/ai-engineering/
 
 Technologies: OpenCode, Claude Code, GitHub Copilot, agent workflows, MCP, Jest, Playwright.
 
