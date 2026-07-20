@@ -1,126 +1,161 @@
 ---
-title: Adam Brewer - Senior Full-stack Developer
-description: Senior full-stack developer specializing in React, TypeScript, and Next.js. Former British Army, now building scalable web applications.
+title: Adam Brewer - Senior Full-Stack Engineer | React, TypeScript & Next.js
+description: Senior full-stack engineer specialising in frontend architecture, TypeScript, React and Next.js, with 15+ years delivering fintech, SaaS and design-system products.
 canonical: https://brewerlogic.com/
 ---
 
 # Adam Brewer
 
-Senior Full-stack Developer
+Senior Full-Stack Engineer
 
-I build things for the web. Enthusiastic, dedicated, adventurous.
+## Complex products. Maintainable systems.
 
-Senior full-stack developer with 12+ years crafting scalable applications. Former British Army aircraft technician turned web developer. I specialize in React, TypeScript, and turning complex problems into elegant solutions.
+Frontend architecture and full-stack delivery.
+
+TypeScript, React and Next.js engineer with 15+ years delivering fintech, SaaS and design-system products from architecture through production.
+
+- Download CV: https://brewerlogic.com/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf
+- View HTML CV: https://brewerlogic.com/portfolio
 
 ## About
 
-Former British Army aircraft technician turned web developer. I spent 5 years maintaining helicopters before moving into tech full-time in 2010.
+I turn complex product requirements into maintainable web and mobile systems. My deepest specialism is frontend architecture, backed by hands-on full-stack delivery across TypeScript, React, Next.js and Node.js.
 
-I love building component systems, interfaces and APIs. Communication is one of my strongest assets: I am comfortable translating between frontend, backend and stakeholders, and getting stuck in wherever needed.
+At Quilter, I worked across product, design, backend and quality teams to take adviser-facing Next.js web and Ionic mobile clients from proof of concept to production within nine months. At Paper Trails, I own the entire product lifecycle, from geospatial ingestion and payments to deployment and production support.
 
-I've worked with brands like Google, Apple, The Economist, Burberry, Adidas and Virgin Galactic. I also co-founded Paper Trails with my designer brother Jake; he handles the visuals, I handle the tech.
+I use AI-assisted engineering as a disciplined delivery practice: work starts from a written spec and ends with type checks, tests, builds, human review and targeted security review. My Web3 experience comes from leading Meshii's Polygon and Alchemy integration through a private pilot.
 
-Outside of work, I'm kept busy by my wife, two girls, and a Vizsla who thinks she's in charge. When I can salvage some spare time, I like to run, cycle, lift heavy things, and build furniture.
+Before software, I maintained military helicopters as a British Army aircraft technician. That remains a useful grounding in operational responsibility, calm problem-solving and clear communication.
 
-## Skills
+### Core Expertise
 
-- React / React Native
-- TypeScript
-- Next.js
-- Node.js
-- AI-augmented workflows
+- Frontend Architecture
+- TypeScript / JavaScript
+- React / Next.js
+- Design Systems
+- WCAG Accessibility
+- Node.js / Server Actions
+- MongoDB / PostgreSQL
+- Jest / Playwright
+- CI/CD / Cloud
+- AI-assisted Engineering
 
-## Projects
+## Featured Projects
 
 ### Quilter
 
-Enterprise Fintech
+Enterprise fintech portfolio-planning platform for financial advisers.
 
-Portfolio management platform for financial advisers. Led frontend development from POC to production, shipping multiple releases within the first year. Cross-platform solution serving both web and mobile clients.
+My contribution: I provided frontend technical leadership, created the shared component architecture, and standardised server and complex form state across Next.js web and Ionic React/Capacitor mobile clients. The platform reached production within nine months and supported multiple subsequent releases. Client work is confidential.
 
-Technologies: React, Next.js, React Native, TypeScript, Azure, Nx.
+Technologies: React, Next.js, Ionic React, Capacitor, TypeScript, TanStack Query, Playwright, Azure.
 
 ### Paper Trails
 
-Co-founded SaaS: https://papertrails.io
+Production SaaS: https://papertrails.io
 
-Turn your adventure data into wall art. Built this SaaS from scratch with my brother Jake; I handle the tech, he handles the design. Full-stack ownership from Stripe payments to Strava integrations.
+A geospatial print platform that has fulfilled thousands of personalised orders worldwide.
 
-Technologies: React, Next.js, TypeScript, Laravel, MongoDB, Docker, Stripe.
+My contribution: As solo technical co-founder, I migrated the Laravel application to Next.js and built the geospatial pipeline from Strava/GPX/FIT ingestion and Mapbox composition through print rendering, Stripe commerce and Prodigi fulfilment.
 
-### Meshii WiFi
-
-Web3 Mobile App
-
-Blockchain-integrated mobile app for decentralized WiFi sharing. Led architecture decisions and deployment strategies. Integrated Polygon blockchain functionality for token rewards using Alchemy API.
-
-Technologies: React Native, TypeScript, AWS Serverless, Python, Polygon, Alchemy.
+Technologies: React, Next.js, TypeScript, MongoDB, Mapbox, Stripe, Playwright, DigitalOcean.
 
 ### The Economist
 
-Design System: https://design-system.economist.com/
+Public design-system documentation: https://design-system.economist.com/
 
-Extended the Design System powering all of The Economist's digital products. Built the styleguide showcase website. Enterprise-scale work with exacting standards.
+React design system used across The Economist's digital products.
 
-Technologies: React, Design Systems, Component Libraries, Documentation.
+My contribution: I extended the tested component library and built its public Gatsby/MDX style-guide platform, including generated component documentation, accessible patterns and visual-regression testing.
 
-### Google Projects
+Technologies: React, Gatsby, MDX, Storybook, Jest, accessibility.
 
-Agency work at Toaster
+### Meshii WiFi
 
-Google Play Policy developer guidelines and Google Search Indonesia mobile experience. Built with Polymer web components following Material Design specifications.
+Web3 mobile architecture delivered to private pilot.
 
-Technologies: Polymer, Web Components, Material Design, i18n.
+My contribution: I led three developers, designed the React Native/Expo and AWS serverless architecture, and integrated Alchemy transaction flows with signed webhook reconciliation.
+
+Technologies: React Native, Expo, TypeScript, AWS Lambda, PostgreSQL, Polygon, Alchemy.
+
+### Apple / Google
+
+Selected enterprise work.
+
+My contribution: I modernised and supported a business-critical internal application for Apple, with further details confidential. At Toaster, I built Google Play Policy guidance with Polymer/Web Components and an interactive, touch-enabled Search Indonesia campaign.
+
+Technologies: React, TypeScript, Polymer, Web Components, Material Design.
+
+### Spec to Verified Delivery
+
+AI-assisted engineering practice used for production work.
+
+My contribution: I configured reusable OpenCode and Claude Code skills, MCP integrations and repository-context workflows. Work starts from a written spec and passes type checks, tests, relevant builds and E2E coverage, human diff review and targeted security review. This supported the solo Paper Trails migration from Laravel to Next.js and made broader regression coverage practical.
+
+Technologies: OpenCode, Claude Code, GitHub Copilot, agent workflows, MCP, Jest, Playwright.
 
 ## Experience
 
 ### Senior Developer, Quilter
 
-Jan 2024 - Present
+Jan 2024 - Jul 2026
 
-- Leading frontend UI/UX development for fintech portfolio management platform
-- Shipped POC to production within first year, multiple releases since
-- React, Next.js, React Native, Ionic, TypeScript, Nx monorepo, Azure DevOps
+- Contract through Brewer Logic, providing frontend technical leadership for a financial-adviser platform
+- Took Next.js web and Ionic React/Capacitor clients from proof of concept to production within nine months
+- React, Next.js, TypeScript, TanStack Query, Zustand, Playwright, pnpm, Azure DevOps
 
-### Technical Director, Paper Trails
+### Technical Director & Co-Founder, Paper Trails
 
-Mar 2019 - Present
+Mar 2019 - Present, part-time
 
-- Co-founded SaaS turning adventure data into custom art prints
-- Full-stack ownership from payments to Strava/Komoot integrations
-- React, TypeScript, Laravel, PostgreSQL, Docker, Stripe, Jest, GitHub Actions CI/CD
+- Solo technical owner of a geospatial print, commerce and fulfilment platform
+- Migrated the Laravel application to Next.js App Router and MongoDB/Mongoose
+- React, Next.js, TypeScript, Mapbox, Stripe, Playwright, GitHub Actions, DigitalOcean
 
-### Contract Developer, Apple, The Economist, Novata, Etch
+### Software Architect, Meshii WiFi
 
-2019 - 2023
+Feb 2023 - Oct 2023
 
-- Apple: Upgraded internal software tools with React and TypeScript
-- The Economist: Extended Design System and built styleguide site
-- Novata: Carbon emission calculators with data visualisations
-- Etch: Interactive investment planning tools
+- Led three developers from architecture through a private pilot
+- Designed React Native/Expo, AWS serverless and PostgreSQL/Prisma architecture
+- Integrated Polygon/Alchemy wallet, reward and signed webhook flows
 
-### Earlier Roles, Applied Works, Toaster, Burberry, Saatchi & Saatchi, Outside Line
+### Independent Consultant, Brewer Logic
 
-2011 - 2018
+Sep 2019 - Nov 2022, selected clients
 
-- Applied Works: Led frontend team of 15-20
-- Toaster: Google Play Policy, Google Search Indonesia, Adidas
-- Burberry: Burberry.com e-commerce frontend
-- Freelance and agency work for Toyota, Virgin Galactic, Cravendale, Budweiser, and others
+- Novata: React/TypeScript carbon-emissions features, reusable components and WCAG 2.1 AA
+- Etch/Quilter: retirement-choice and adviser investment-profiling products
+- The Economist: React design system and Gatsby/MDX public style-guide platform
+- Apple: business-critical internal web application; further details are confidential
+
+### Senior Web Developer, Applied Works
+
+Aug 2017 - Jun 2018
+
+- Provided frontend leadership and mentored developers within an international team
+- Architected Redux state patterns and built reusable Storybook UI components
+
+### Frontend and Web Developer, Selected Earlier Roles
+
+2010 - 2017
+
+- Delivered product and campaign work for Marriott, Google, Burberry and other consumer brands
+- Built responsive applications, e-commerce experiences, Web Components and interactive prototypes
 
 ### Aircraft Technician (Corporal), British Army
 
 Feb 2005 - Nov 2009
 
-- Served in UK, Germany, and Iraq
-- Learned discipline, adaptability, and problem-solving under pressure
+- Reached Corporal, supervising small teams maintaining military helicopters in the UK, Germany and Iraq
 
 ## Contact
 
-I'm currently open to new opportunities, primarily contract work, but open to the right permanent role. Whether you have a project in mind or just want to say hi, my inbox is always open.
+Open to remote-first permanent roles and contracts, with office visits as required. Eligible to work in the UK without employer sponsorship. For availability or a project discussion, get in touch directly.
 
 - Email: adam@brewerlogic.com
 - Website: https://brewerlogic.com/
-- CV: https://brewerlogic.com/portfolio
-- GitHub: https://github.com/adamcbrewer/adamcbrewer
+- Download CV: https://brewerlogic.com/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf
+- HTML CV: https://brewerlogic.com/portfolio
+- GitHub: https://github.com/adamcbrewer
 - LinkedIn: https://linkedin.com/in/adamcbrewer
