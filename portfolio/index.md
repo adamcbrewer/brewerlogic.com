@@ -1,5 +1,5 @@
 ---
-title: Adam Brewer - Resume
+title: Adam Brewer - Senior Full-Stack Engineer CV
 canonical: https://brewerlogic.com/portfolio
 ---
 
@@ -8,7 +8,7 @@ canonical: https://brewerlogic.com/portfolio
 ## Contact
 
 - Email: adam@brewerlogic.com
-- Phone: 07803 075364
+- Phone: +44 7803 075364
 - Website: https://brewerlogic.com
 - LinkedIn: https://linkedin.com/in/adamcbrewer
 - GitHub: https://github.com/adamcbrewer
