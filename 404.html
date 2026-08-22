@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Adam Brewer</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="describedby" href="https://brewerlogic.com/llms.txt">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        :root { --black: #0a0a0a; --white: #f0ede6; --cyan: #00e5ff; --grey: #333; }
+        body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: var(--black); color: var(--white); font: 0.875rem/1.7 'Space Mono', monospace; }
+        main { width: min(720px, calc(100% - 48px)); padding: 64px 0; }
+        .code { margin: 0; color: var(--cyan); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+        h1 { margin: 12px 0 24px; font: clamp(4rem, 16vw, 9rem)/0.85 'Bebas Neue', sans-serif; letter-spacing: 0.02em; text-transform: uppercase; }
+        p { max-width: 620px; }
+        ul { margin: 32px 0 0; padding: 24px 0; display: flex; flex-wrap: wrap; gap: 16px 28px; border-top: 2px solid var(--grey); border-bottom: 2px solid var(--grey); list-style: none; }
+        a { color: var(--cyan); font-weight: 700; text-underline-offset: 4px; }
+        a:hover { color: var(--white); }
+        a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    </style>
+</head>
+<body>
+    <main>
+        <p class="code">404 / Not found</p>
+        <h1>Wrong Turn.</h1>
+        <p>No resource exists at this URL. Use one of these indexes to find the portfolio, CV, case studies, privacy notice, or agent-readable Markdown.</p>
+        <ul>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/sitemap.xml">Site map</a></li>
+            <li><a href="/llms.txt">Agent guide</a></li>
+        </ul>
+    </main>
+</body>
+</html>

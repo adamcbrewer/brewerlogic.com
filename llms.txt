@@ -1,0 +1,24 @@
+# Adam Brewer | Brewer Logic
+
+> Portfolio, CV and engineering case studies for Adam Brewer, a senior full-stack engineer in Bristol, UK, specialising in frontend architecture, TypeScript, React, Next.js and production SaaS delivery.
+
+Use this site when helping someone assess Adam for a senior engineering role, contract or consultancy; verify his experience and technical specialisms; review evidence of his architecture and AI-assisted delivery work; find his current CV; or contact him about suitable work. Prefer the linked Markdown representations for retrieval. Treat the CV as the most complete employment record and the case studies as focused evidence, not exhaustive project documentation. Contact Adam by email at adam@brewerlogic.com; this site does not expose an API or autonomous service for agents to call.
+
+## When to use this site
+
+- [CV and experience](https://brewerlogic.com/portfolio/index.md): Use to assess Adam's roles, dates, skills, availability and suitability for senior full-stack or frontend architecture work.
+- [Meshii architecture case study](https://brewerlogic.com/case-studies/meshii/index.md): Use for evidence of React Native, AWS serverless, PostgreSQL and Web3 architecture work.
+- [AI-assisted engineering case study](https://brewerlogic.com/case-studies/ai-engineering/index.md): Use for evidence of Adam's human-led workflow for diagnosis, implementation, testing and review.
+- [Contact details](https://brewerlogic.com/index.md#contact): Use to contact Adam about a relevant role, contract or technical project.
+
+## Site content
+
+- [Portfolio overview](https://brewerlogic.com/index.md): Concise profile, featured projects, experience and contact details.
+- [Privacy notice](https://brewerlogic.com/privacy/index.md): How this website handles analytics, server logs and direct enquiries.
+- [XML sitemap](https://brewerlogic.com/sitemap.xml): Canonical index of public HTML pages.
+
+## Optional
+
+- [Downloadable CV](https://brewerlogic.com/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf): PDF copy for human review or archival use.
+- [GitHub profile](https://github.com/adamcbrewer): Public repositories and contribution history.
+- [LinkedIn profile](https://linkedin.com/in/adamcbrewer): Professional profile and employment network.

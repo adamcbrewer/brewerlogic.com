@@ -20,20 +20,23 @@ Running, climbing, cycling, woodworking, reading, and anything with an 80s aesth
 
 ## Tech Stack
 
-This site is a simple static HTML/CSS/JS portfolio with:
+This site is a simple static HTML/CSS/JS portfolio hosted on DigitalOcean App Platform:
 
 - Dark/light theme toggle
 - Intersection Observer for active nav states
 - CSS custom properties for theming
-- No build tools, no frameworks, no runtime dependencies
+- No build tools, frameworks or runtime dependencies
 - Markdown companion files for agents
 
 ## Agent Discovery
 
 - `sitemap.xml` lists canonical public URLs and is referenced from `robots.txt`.
 - `robots.txt` includes AI crawler rules and Content Signals.
-- HTML pages link to markdown companion files with `rel="alternate"`.
-- Keep `index.md`, `portfolio/index.md`, and `sitemap.xml` in sync when publishing public content changes.
+- `llms.txt` tells agents when to use the site and points them to canonical resources.
+- HTML pages link to Markdown companions with `rel="alternate"` and to `llms.txt` with `rel="describedby"`.
+- `404.html` gives agents recovery links while DigitalOcean preserves a real 404 response.
+- DigitalOcean static sites cannot negotiate Markdown from the `Accept` header; agents use the advertised `.md` URLs instead.
+- Keep every HTML/Markdown page pair and `sitemap.xml` in sync when publishing public content changes.
 
 ## Links
 
