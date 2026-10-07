@@ -3,7 +3,7 @@ title: Adam Brewer - Senior Full-Stack Engineer CV
 canonical: https://brewerlogic.com/portfolio
 ---
 
-# Adam Brewer | Senior Full-Stack Engineer | Frontend Architecture, TypeScript, React & Next.js
+# Adam Brewer | Senior Full-Stack Engineer | TypeScript, React & Next.js | GraphQL, Rust, Go & AWS
 
 ## Contact
 
@@ -16,16 +16,27 @@ canonical: https://brewerlogic.com/portfolio
 
 ## Summary
 
-Senior full-stack engineer with 15+ years delivering web and mobile products, specialising in frontend architecture, TypeScript, React and Next.js. Most recently provided frontend technical leadership for a fintech platform, taking its Next.js web and Ionic mobile clients from proof of concept to production within nine months. Solo technical co-founder of Paper Trails, where I migrated a Laravel application to Next.js and own a geospatial print, commerce and fulfilment platform supporting thousands of customer orders worldwide. Experienced leading engineers, building accessible design systems and taking products from architecture through production, informed by an earlier career as a British Army aircraft technician.
+Senior full-stack engineer with 15+ years delivering web and mobile products, specialising in frontend architecture, TypeScript, React and Next.js, with broader skills in GraphQL, Rust, Go and AWS. Open-source Rust contributor to Strata, shipping sandboxed file previews and GTK4 navigation features. Provided frontend technical leadership at Quilter, taking Next.js web and Ionic mobile clients from proof of concept to production within nine months. Solo technical co-founder of Paper Trails ([papertrails.io](https://papertrails.io)), owning a geospatial print and commerce platform supporting thousands of customer orders worldwide. Experienced leading engineers, building accessible design systems and designing AWS serverless applications, informed by an earlier career as a British Army aircraft technician.
 
 ## Skills
 
+- Languages & APIs: GraphQL, Rust, Go, Node.js, Next.js Server Actions, PHP/Laravel, REST APIs
+- Cloud & Delivery: AWS (Lambda, API Gateway, RDS, Amplify), Azure, DigitalOcean, Docker, CI/CD, GitHub Actions, pnpm, Nx
 - Frontend: TypeScript, JavaScript, React, Next.js, React Native, Ionic React, Capacitor, HTML, CSS
-- Architecture: Frontend Architecture, Design Systems, Component Libraries, REST APIs
-- Backend & Data: Node.js, Next.js Server Actions, PHP/Laravel, MongoDB, Mongoose, PostgreSQL, Prisma
+- Architecture & Data: Frontend Architecture, Design Systems, Component Libraries, MongoDB, Mongoose, PostgreSQL, Prisma
 - Quality: WCAG 2.2 AA, Jest, Testing Library, Playwright, Storybook, TDD
-- Delivery & Cloud: CI/CD, pnpm, Nx, Docker, GitHub Actions, Azure, AWS, DigitalOcean
 - Additional: AI-assisted Engineering, Agent Workflows, Polygon, Alchemy
+
+## Open Source
+
+### [Strata](https://github.com/lgse/strata) - Rust/GTK4 Linux file manager
+
+Sep - Oct 2026
+
+- Added sandboxed STL/3MF rendering, FreeCAD thumbnails and CBZ/CBR/EPUB cover previews with bounded parsing and regression tests ([#1276](https://github.com/lgse/strata/pull/1276), [#1325](https://github.com/lgse/strata/pull/1325)).
+- Shipped live job output and keyboard tab controls; fixed multi-window bookmark cleanup to preserve unrelated data during concurrent edits ([#1274](https://github.com/lgse/strata/pull/1274), [#1506](https://github.com/lgse/strata/pull/1506), [#1373](https://github.com/lgse/strata/pull/1373)).
+
+Technologies: Rust, GTK4, Linux, sandboxed previews, regression testing - merged contributions.
 
 ## Work Experience
 

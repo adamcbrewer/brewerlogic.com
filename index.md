@@ -1,6 +1,6 @@
 ---
-title: Adam Brewer - Senior Full-Stack Engineer | React, TypeScript & Next.js
-description: Senior full-stack engineer specialising in frontend architecture, TypeScript, React and Next.js, with 15+ years delivering fintech, SaaS and design-system products.
+title: Adam Brewer - Senior Full-Stack Engineer | TypeScript, React, GraphQL, Rust, Go & AWS
+description: Senior full-stack engineer with 15+ years delivering fintech, SaaS and design-system products. TypeScript, React, Next.js, GraphQL, Rust, Go and AWS.
 canonical: https://brewerlogic.com/
 ---
 
@@ -10,18 +10,20 @@ Senior Full-Stack Engineer
 
 ## Complex products. Maintainable systems.
 
-Frontend architecture and full-stack delivery.
+TypeScript / React / Next.js / GraphQL / Rust / Go / AWS
 
-TypeScript, React and Next.js engineer with 15+ years delivering fintech, SaaS and design-system products from architecture through production.
+15+ years delivering fintech, SaaS and design-system products. Co-founder of Paper Trails ([papertrails.io](https://papertrails.io)), with merged Rust contributions to Strata.
 
 - Download CV: https://brewerlogic.com/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf
 - View HTML CV: https://brewerlogic.com/portfolio
 
 ## About
 
-I turn complex product requirements into maintainable web and mobile systems. My deepest specialism is frontend architecture, backed by hands-on full-stack delivery across TypeScript, React, Next.js and Node.js.
+I turn complex product requirements into maintainable web and mobile systems. My deepest specialism is frontend architecture, backed by hands-on full-stack delivery across TypeScript, React, Next.js and Node.js. My broader skills include GraphQL, Rust, Go and AWS.
 
-At Quilter, I worked across product, design, backend and quality teams to take adviser-facing Next.js web and Ionic mobile clients from proof of concept to production within nine months. At Paper Trails, I own the entire product lifecycle, from geospatial ingestion and payments to deployment and production support.
+At Quilter, I worked across product, design, backend and quality teams to take adviser-facing Next.js web and Ionic mobile clients from proof of concept to production within nine months. At [Paper Trails](https://papertrails.io), I own the entire product lifecycle, from geospatial ingestion and payments to deployment and production support.
+
+I also contribute to [Strata](https://github.com/lgse/strata), a Rust/GTK4 file manager for Linux. My merged work includes sandboxed 3D-model and ebook previews, live job output, keyboard tab controls and fixes for navigation and multi-window bookmark state.
 
 I use AI-assisted engineering as a disciplined delivery practice: work starts from a written spec and ends with type checks, tests, builds, human review and targeted security review. My Web3 experience comes from leading Meshii's Polygon and Alchemy integration through a private pilot.
 
@@ -29,15 +31,19 @@ Before software, I maintained military helicopters as a British Army aircraft te
 
 ### Core Expertise
 
-- Frontend Architecture
+- GraphQL / REST APIs
+- Rust / GTK4
+- Go
+- AWS / Serverless
 - TypeScript / JavaScript
 - React / Next.js
-- Design Systems
-- WCAG Accessibility
 - Node.js / Server Actions
+- Frontend Architecture
+- Design Systems / Storybook
+- WCAG Accessibility
 - MongoDB / PostgreSQL
 - Jest / Playwright
-- CI/CD / Cloud
+- Docker / CI/CD
 - AI-assisted Engineering
 
 ## Featured Projects
@@ -59,6 +65,21 @@ A geospatial print platform that has fulfilled thousands of personalised orders 
 My contribution: As solo technical co-founder, I migrated the Laravel application to Next.js and built the geospatial pipeline from Strava/GPX/FIT ingestion and Mapbox composition through print rendering, Stripe commerce and Prodigi fulfilment.
 
 Technologies: React, Next.js, TypeScript, MongoDB, Mapbox, Stripe, Playwright, DigitalOcean.
+
+### Strata
+
+Open-source Rust/GTK4 file manager for Linux: https://github.com/lgse/strata
+
+My contribution: I added sandboxed STL/3MF rendering, FreeCAD thumbnails and CBZ/CBR/EPUB cover previews with bounded parsing and regression tests. Other merged work includes live custom-action output, keyboard tab navigation and reordering, search-result reveal, and multi-window sidebar and bookmark fixes that preserve unrelated data during concurrent edits.
+
+Merged examples:
+
+- 3D-model previews: https://github.com/lgse/strata/pull/1276
+- Ebook covers: https://github.com/lgse/strata/pull/1325
+- Bookmark lifecycle: https://github.com/lgse/strata/pull/1373
+- Tab controls: https://github.com/lgse/strata/pull/1506
+
+Technologies: Rust, GTK4, Linux, sandboxed previews, regression testing.
 
 ### The Economist
 
