@@ -16,7 +16,25 @@ canonical: https://brewerlogic.com/portfolio
 
 ## Summary
 
-Senior full-stack engineer with 15+ years delivering web and mobile products, specialising in frontend architecture, TypeScript, React and Next.js, with broader skills in GraphQL, Rust, Go and AWS. Open-source Rust contributor to Strata, shipping sandboxed file previews and GTK4 navigation features. Provided frontend technical leadership at Quilter, taking Next.js web and Ionic mobile clients from proof of concept to production within nine months. Solo technical co-founder of Paper Trails ([papertrails.io](https://papertrails.io)), owning a geospatial print and commerce platform supporting thousands of customer orders worldwide. Experienced leading engineers, building accessible design systems and designing AWS serverless applications, informed by an earlier career as a British Army aircraft technician.
+Senior full-stack engineer with 15+ years delivering web and mobile products, specialising in TypeScript, React, Next.js and frontend architecture. Led frontend delivery at Quilter from proof of concept to production within nine months. Solo technical co-founder of Paper Trails ([papertrails.io](https://papertrails.io)), a geospatial print and commerce platform supporting thousands of customer orders worldwide. Creator of Mapbox TUI and a contributor to Strata.
+
+## Open Source
+
+### Mapbox TUI - Creator | Go
+
+[github.com/adamcbrewer/mapbox-tui](https://github.com/adamcbrewer/mapbox-tui)
+
+- **Agent remote control:** CLI/MCP control of a running map: camera, journeys, imports, playback and saved workspaces.
+- **Journey planning:** Mapbox walking, cycling and driving routes, editable waypoints and shareable commands to reopen plans.
+- **Activity exploration:** Offline GPX, FIT, TCX and KML inspection, timed playback and elevation-profile comparisons across multiple files.
+
+### Strata - Contributor | Rust, GTK4
+
+[github.com/lgse/strata](https://github.com/lgse/strata)
+
+- **Mesh previews:** Added four on-demand camera views, triangle-count badges and cached renders for STL and single-part 3MF models. ([github.com/lgse/strata/pull/1644](https://github.com/lgse/strata/pull/1644))
+- **Sandboxed previews:** Added 3D-model rendering and ebook covers with bounded parsing and regression tests. ([github.com/lgse/strata/pull/1276](https://github.com/lgse/strata/pull/1276), [github.com/lgse/strata/pull/1325](https://github.com/lgse/strata/pull/1325))
+- **Navigation and state:** Shipped keyboard tab controls and fixed multi-window bookmark cleanup. ([github.com/lgse/strata/pull/1506](https://github.com/lgse/strata/pull/1506), [github.com/lgse/strata/pull/1373](https://github.com/lgse/strata/pull/1373))
 
 ## Skills
 
@@ -27,20 +45,9 @@ Senior full-stack engineer with 15+ years delivering web and mobile products, sp
 - Quality: WCAG 2.2 AA, Jest, Testing Library, Playwright, Storybook, TDD
 - Additional: AI-assisted Engineering, Agent Workflows, Polygon, Alchemy
 
-## Open Source
-
-### [Strata](https://github.com/lgse/strata) - Rust/GTK4 Linux file manager
-
-Sep - Oct 2026
-
-- Added sandboxed STL/3MF rendering, FreeCAD thumbnails and CBZ/CBR/EPUB cover previews with bounded parsing and regression tests ([#1276](https://github.com/lgse/strata/pull/1276), [#1325](https://github.com/lgse/strata/pull/1325)).
-- Shipped live job output and keyboard tab controls; fixed multi-window bookmark cleanup to preserve unrelated data during concurrent edits ([#1274](https://github.com/lgse/strata/pull/1274), [#1506](https://github.com/lgse/strata/pull/1506), [#1373](https://github.com/lgse/strata/pull/1373)).
-
-Technologies: Rust, GTK4, Linux, sandboxed previews, regression testing - merged contributions.
-
 ## Work Experience
 
-### Quilter (contract through Brewer Logic) - Senior Developer
+### Quilter - Senior Full Stack Developer
 
 Jan 2024 - Jul 2026
 
@@ -51,7 +58,7 @@ Jan 2024 - Jul 2026
 
 Technologies: React, Next.js, TypeScript, Ionic React, Capacitor, TanStack Query, Zustand, Jest, Playwright, pnpm, Azure DevOps.
 
-### Paper Trails - Technical Director & Co-Founder (part-time)
+### Paper Trails - Technical Director & Co-Founder
 
 Mar 2019 - Present
 
@@ -72,7 +79,7 @@ Feb 2023 - Oct 2023
 
 Technologies: React Native, Expo, TypeScript, AWS Lambda, API Gateway, PostgreSQL, Prisma, Jest, Polygon, Alchemy.
 
-### Independent Consultant, Brewer Logic - Selected client engagements
+### Independent Consultant, Brewer Logic - Senior Full Stack Developer
 
 Sep 2019 - Nov 2022
 

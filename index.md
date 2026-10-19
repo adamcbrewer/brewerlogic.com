@@ -12,7 +12,7 @@ Senior Full-Stack Engineer
 
 TypeScript / React / Next.js / GraphQL / Rust / Go / AWS
 
-15+ years delivering fintech, SaaS and design-system products. Co-founder of Paper Trails ([papertrails.io](https://papertrails.io)), with merged Rust contributions to Strata.
+15+ years delivering fintech, SaaS and design-system products. Co-founder of Paper Trails ([papertrails.io](https://papertrails.io)), creator of [Mapbox TUI](https://github.com/adamcbrewer/mapbox-tui) and contributor to [Strata](https://github.com/lgse/strata).
 
 - Download CV: https://brewerlogic.com/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf
 - View HTML CV: https://brewerlogic.com/portfolio
@@ -23,7 +23,7 @@ I turn complex product requirements into maintainable web and mobile systems. My
 
 At Quilter, I worked across product, design, backend and quality teams to take adviser-facing Next.js web and Ionic mobile clients from proof of concept to production within nine months. At [Paper Trails](https://papertrails.io), I own the entire product lifecycle, from geospatial ingestion and payments to deployment and production support.
 
-I also contribute to [Strata](https://github.com/lgse/strata), a Rust/GTK4 file manager for Linux. My merged work includes sandboxed 3D-model and ebook previews, live job output, keyboard tab controls and fixes for navigation and multi-window bookmark state.
+I built [Mapbox TUI](https://github.com/adamcbrewer/mapbox-tui), a Go terminal map explorer and journey planner with activity playback, offline file inspection and a local MCP server for agent workflows. I also contribute to [Strata](https://github.com/lgse/strata), a Rust/GTK4 Linux file manager, with merged work on sandboxed file previews, keyboard tab controls and multi-window state handling.
 
 I use AI-assisted engineering as a disciplined delivery practice: work starts from a written spec and ends with type checks, tests, builds, human review and targeted security review. My Web3 experience comes from leading Meshii's Polygon and Alchemy integration through a private pilot.
 
@@ -66,18 +66,27 @@ My contribution: As solo technical co-founder, I migrated the Laravel applicatio
 
 Technologies: React, Next.js, TypeScript, MongoDB, Mapbox, Stripe, Playwright, DigitalOcean.
 
+### Mapbox TUI
+
+[github.com/adamcbrewer/mapbox-tui](https://github.com/adamcbrewer/mapbox-tui)
+
+I created this Go terminal map explorer and journey planner.
+
+- **Agent remote control:** Built CLI/MCP control of a running map: move the camera, edit journeys, manage imports and playback, and save or reopen workspaces.
+- **Journey planning:** Mapbox walking, cycling and driving routes, editable waypoints and shareable commands to reopen plans.
+- **Activity exploration:** Offline GPX, FIT, TCX and KML inspection, timed playback and elevation-profile comparisons across multiple files.
+
+Technologies: Go, Mapbox, terminal UI, geospatial data, MCP.
+
 ### Strata
 
-Open-source Rust/GTK4 file manager for Linux: https://github.com/lgse/strata
+[github.com/lgse/strata](https://github.com/lgse/strata)
 
-My contribution: I added sandboxed STL/3MF rendering, FreeCAD thumbnails and CBZ/CBR/EPUB cover previews with bounded parsing and regression tests. Other merged work includes live custom-action output, keyboard tab navigation and reordering, search-result reveal, and multi-window sidebar and bookmark fixes that preserve unrelated data during concurrent edits.
+My merged contributions to this Rust/GTK4 Linux file manager:
 
-Merged examples:
-
-- 3D-model previews: https://github.com/lgse/strata/pull/1276
-- Ebook covers: https://github.com/lgse/strata/pull/1325
-- Bookmark lifecycle: https://github.com/lgse/strata/pull/1373
-- Tab controls: https://github.com/lgse/strata/pull/1506
+- **Mesh previews:** Added four on-demand camera views, triangle-count badges and cached renders for STL and single-part 3MF models. ([#1644](https://github.com/lgse/strata/pull/1644))
+- **Sandboxed previews:** Added 3D-model rendering and ebook covers with bounded parsing and regression tests. ([#1276](https://github.com/lgse/strata/pull/1276), [#1325](https://github.com/lgse/strata/pull/1325))
+- **Navigation and state:** Shipped keyboard tab controls and fixed multi-window bookmark cleanup. ([#1506](https://github.com/lgse/strata/pull/1506), [#1373](https://github.com/lgse/strata/pull/1373))
 
 Technologies: Rust, GTK4, Linux, sandboxed previews, regression testing.
 
@@ -121,7 +130,7 @@ Technologies: OpenCode, Claude Code, GitHub Copilot, agent workflows, MCP, Jest,
 
 ## Experience
 
-### Senior Developer, Quilter
+### Senior Full Stack Developer, Quilter
 
 Jan 2024 - Jul 2026
 
@@ -131,7 +140,7 @@ Jan 2024 - Jul 2026
 
 ### Technical Director & Co-Founder, Paper Trails
 
-Mar 2019 - Present, part-time
+Mar 2019 - Present
 
 - Solo technical owner of a geospatial print, commerce and fulfilment platform
 - Migrated the Laravel application to Next.js App Router and MongoDB/Mongoose
@@ -145,9 +154,9 @@ Feb 2023 - Oct 2023
 - Designed React Native/Expo, AWS serverless and PostgreSQL/Prisma architecture
 - Integrated Polygon/Alchemy wallet, reward and signed webhook flows
 
-### Independent Consultant, Brewer Logic
+### Senior Full Stack Developer, Brewer Logic
 
-Sep 2019 - Nov 2022, selected clients
+Sep 2019 - Nov 2022
 
 - Novata: React/TypeScript carbon-emissions features, reusable components and WCAG 2.1 AA
 - Etch/Quilter: retirement-choice and adviser investment-profiling products

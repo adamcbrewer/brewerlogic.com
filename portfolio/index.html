@@ -221,7 +221,7 @@
             .section-header {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
-                margin-top: 12px;
+                margin-top: 10px;
                 margin-bottom: 6px;
                 padding-bottom: 3px;
             }
@@ -229,7 +229,7 @@
             .job {
                 break-inside: avoid;
                 page-break-inside: avoid;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             .header {
@@ -292,10 +292,6 @@
                 font-size: 10px;
             }
 
-            .job--page-break {
-                break-before: page;
-            }
-
             .education-item {
                 break-inside: avoid;
                 page-break-inside: avoid;
@@ -351,8 +347,28 @@
         <!-- Summary -->
         <h2 class="section-header">Summary</h2>
         <p class="summary">
-            Senior full-stack engineer with 15+ years delivering web and mobile products, specialising in frontend architecture, TypeScript, React and Next.js, with broader skills in GraphQL, Rust, Go and AWS. Open-source Rust contributor to Strata, shipping sandboxed file previews and GTK4 navigation features. Provided frontend technical leadership at Quilter, taking Next.js web and Ionic mobile clients from proof of concept to production within nine months. Solo technical co-founder of Paper Trails (<a href="https://papertrails.io">papertrails.io</a>), owning a geospatial print and commerce platform supporting thousands of customer orders worldwide. Experienced leading engineers, building accessible design systems and designing AWS serverless applications, informed by an earlier career as a British Army aircraft technician.
+            Senior full-stack engineer with 15+ years delivering web and mobile products, specialising in TypeScript, React, Next.js and frontend architecture. Led frontend delivery at Quilter from proof of concept to production within nine months. Solo technical co-founder of Paper Trails (<a href="https://papertrails.io">papertrails.io</a>), a geospatial print and commerce platform supporting thousands of customer orders worldwide. Creator of Mapbox TUI and a contributor to Strata.
         </p>
+
+        <h2 class="section-header">Open Source</h2>
+        <article class="job">
+            <h3 class="job-company">Mapbox TUI - Creator | Go</h3>
+            <p class="job-skills"><a href="https://github.com/adamcbrewer/mapbox-tui">github.com/adamcbrewer/mapbox-tui</a></p>
+            <ul>
+                <li><strong>Agent remote control:</strong> CLI/MCP control of a running map: camera, journeys, imports, playback and saved workspaces.</li>
+                <li><strong>Journey planning:</strong> Mapbox walking, cycling and driving routes, editable waypoints and shareable commands to reopen plans.</li>
+                <li><strong>Activity exploration:</strong> Offline GPX, FIT, TCX and KML inspection, timed playback and elevation-profile comparisons across multiple files.</li>
+            </ul>
+        </article>
+        <article class="job">
+            <h3 class="job-company">Strata - Contributor | Rust, GTK4</h3>
+            <p class="job-skills"><a href="https://github.com/lgse/strata">github.com/lgse/strata</a></p>
+            <ul>
+                <li><strong>Mesh previews:</strong> Added four on-demand camera views, triangle-count badges and cached renders for STL and single-part 3MF models. (<a href="https://github.com/lgse/strata/pull/1644">github.com/lgse/strata/pull/1644</a>)</li>
+                <li><strong>Sandboxed previews:</strong> Added 3D-model rendering and ebook covers with bounded parsing and regression tests. (<a href="https://github.com/lgse/strata/pull/1276">github.com/lgse/strata/pull/1276</a>, <a href="https://github.com/lgse/strata/pull/1325">github.com/lgse/strata/pull/1325</a>)</li>
+                <li><strong>Navigation and state:</strong> Shipped keyboard tab controls and fixed multi-window bookmark cleanup. (<a href="https://github.com/lgse/strata/pull/1506">github.com/lgse/strata/pull/1506</a>, <a href="https://github.com/lgse/strata/pull/1373">github.com/lgse/strata/pull/1373</a>)</li>
+            </ul>
+        </article>
 
         <!-- Skills -->
         <h2 class="section-header">Skills</h2>
@@ -383,28 +399,15 @@
             </div>
         </div>
 
-        <h2 class="section-header">Open Source</h2>
-        <article class="job">
-            <div class="job-header">
-                <h3 class="job-company"><a href="https://github.com/lgse/strata">Strata</a> - Rust/GTK4 Linux file manager</h3>
-                <div class="job-dates">Sep - Oct 2026</div>
-            </div>
-            <ul>
-                <li>Added sandboxed STL/3MF rendering, FreeCAD thumbnails and CBZ/CBR/EPUB cover previews with bounded parsing and regression tests (<a href="https://github.com/lgse/strata/pull/1276">#1276</a>, <a href="https://github.com/lgse/strata/pull/1325">#1325</a>).</li>
-                <li>Shipped live job output and keyboard tab controls; fixed multi-window bookmark cleanup to preserve unrelated data during concurrent edits (<a href="https://github.com/lgse/strata/pull/1274">#1274</a>, <a href="https://github.com/lgse/strata/pull/1506">#1506</a>, <a href="https://github.com/lgse/strata/pull/1373">#1373</a>).</li>
-            </ul>
-            <div class="job-skills">Rust, GTK4, Linux, sandboxed previews, regression testing - merged contributions</div>
-        </article>
-
         <!-- Experience -->
         <h2 class="section-header">Work Experience</h2>
 
         <article class="job">
             <div class="job-header">
-                <h3 class="job-company">Quilter (contract through Brewer Logic)</h3>
+                <h3 class="job-company">Quilter</h3>
                 <div class="job-dates">Jan 2024 - Jul 2026</div>
             </div>
-            <div class="job-title">Senior Developer</div>
+            <div class="job-title">Senior Full Stack Developer</div>
             <ul>
                 <li>Provided frontend technical leadership for a portfolio-planning platform serving financial advisers, taking it from proof of concept to production within nine months and supporting multiple subsequent releases.</li>
                 <li>Created the shared component architecture used by Next.js web and Ionic React/Capacitor mobile clients, reducing duplication through shared TypeScript packages and meeting WCAG 2.2 AA requirements.</li>
@@ -419,7 +422,7 @@
                 <h3 class="job-company">Paper Trails</h3>
                 <div class="job-dates">Mar 2019 - Present</div>
             </div>
-            <div class="job-title">Technical Director &amp; Co-Founder (part-time)</div>
+            <div class="job-title">Technical Director &amp; Co-Founder</div>
             <ul>
                 <li>Solo technical co-founder of a production SaaS that has fulfilled thousands of personalised print orders worldwide.</li>
                 <li>Migrated the application from a Laravel REST backend and legacy frontend to Next.js App Router, TypeScript, server actions and MongoDB/Mongoose.</li>
@@ -429,7 +432,7 @@
             <div class="job-skills">React, Next.js, TypeScript, MongoDB, Mongoose, Mapbox, Stripe, Jest, Testing Library, Playwright, GitHub Actions, DigitalOcean</div>
         </article>
 
-        <article class="job job--page-break">
+        <article class="job">
             <div class="job-header">
                 <h3 class="job-company">Meshii WiFi</h3>
                 <div class="job-dates">Feb 2023 - Oct 2023</div>
@@ -448,7 +451,7 @@
                 <h3 class="job-company">Independent Consultant, Brewer Logic</h3>
                 <div class="job-dates">Sep 2019 - Nov 2022</div>
             </div>
-            <div class="job-title">Selected client engagements</div>
+            <div class="job-title">Senior Full Stack Developer</div>
             <ul>
                 <li>Novata (Mar-Nov 2022): Delivered React/TypeScript carbon-emissions features, PostgreSQL and Prisma API work, reusable components and Jest tests meeting WCAG 2.1 AA requirements.</li>
                 <li>Etch/Quilter (Sep-Dec 2020; Apr 2021-Jan 2022): Built retirement-choice and adviser investment-profiling products using React and TypeScript, including Storybook components, API-driven journeys, SVG financial charts and PDF reports.</li>
