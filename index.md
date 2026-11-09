@@ -6,9 +6,7 @@ canonical: https://brewerlogic.com/
 
 # Adam Brewer
 
-Senior Full-Stack Engineer
-
-## Complex products. Maintainable systems.
+## Senior engineer
 
 TypeScript / React / Next.js / GraphQL / Rust / Go / AWS
 
@@ -19,15 +17,19 @@ TypeScript / React / Next.js / GraphQL / Rust / Go / AWS
 
 ## About
 
-I turn complex product requirements into maintainable web and mobile systems. My deepest specialism is frontend architecture, backed by hands-on full-stack delivery across TypeScript, React, Next.js and Node.js. My broader skills include GraphQL, Rust, Go and AWS.
+I'm a full-stack engineer building web and mobile apps with TypeScript, React, Next.js and Node.js. I work across the whole stack and particularly enjoy spending time on the frontend. I also work with GraphQL, Rust, Go and AWS.
 
-At Quilter, I worked across product, design, backend and quality teams to take adviser-facing Next.js web and Ionic mobile clients from proof of concept to production within nine months. At [Paper Trails](https://papertrails.io), I own the entire product lifecycle, from geospatial ingestion and payments to deployment and production support.
+At Quilter, I was part of the engineering team that took the web and mobile apps from proof of concept to production within nine months. I worked closely with product, design, backend and QA teams, and helped maintain the apps across multiple deployments in the following years.
 
-I built [Mapbox TUI](https://github.com/adamcbrewer/mapbox-tui), a Go terminal map explorer and journey planner with activity playback, offline file inspection and a local MCP server for agent workflows. I also contribute to [Strata](https://github.com/lgse/strata), a Rust/GTK4 Linux file manager, with merged work on sandboxed file previews, keyboard tab controls and multi-window state handling.
+I co-founded [Paper Trails](https://papertrails.io) and built and maintained the entire stack end to end. That includes turning route data into prints, taking payments, deployment and production support.
 
-I use AI-assisted engineering as a disciplined delivery practice: work starts from a written spec and ends with type checks, tests, builds, human review and targeted security review. My Web3 experience comes from leading Meshii's Polygon and Alchemy integration through a private pilot.
+I built [Mapbox TUI](https://github.com/adamcbrewer/mapbox-tui), a Go app for exploring maps and planning journeys in the terminal. It can play back activities, read files offline and connect to AI agents through a local MCP server. I also contribute to [Strata](https://github.com/lgse/strata), a Rust/GTK4 file manager for Linux. My work there includes sandboxed file previews, keyboard controls for tabs and fixes for handling multiple windows.
 
-Before software, I maintained military helicopters as a British Army aircraft technician. That remains a useful grounding in operational responsibility, calm problem-solving and clear communication.
+I use AI daily for coding, technical reviews, debugging and fixing build and deployment pipelines. Agentic workflows are a big part of how I work, and I'm building my own agent harnesses and software factory systems to automate more of that work.
+
+At Meshii, I led the Polygon and Alchemy integration through a private pilot.
+
+Before software, I was an aircraft technician in the British Army, maintaining military helicopters.
 
 ### Core Expertise
 
