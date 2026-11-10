@@ -2,7 +2,7 @@
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getPosts } from '../../lib/posts';
 
-const posts = await getPosts();
+const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
 ---
 
 <BlogLayout title="Thoughts" description="Notes on building software by Adam Brewer.">
