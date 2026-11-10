@@ -1,5 +1,5 @@
 ---
-title: Keeping a small website simple
+title: Hello World
 description: A few thoughts on static pages, useful constraints, and leaving enough room to write.
 pubDate: 2026-11-10
 draft: true
