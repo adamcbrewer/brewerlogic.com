@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | Adam Brewer</title>
     <meta name="robots" content="noindex">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#25282c">
     <link rel="describedby" href="https://brewerlogic.com/llms.txt">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg">
+    <link rel="stylesheet" href="/assets/css/palette.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; }
-        :root { --black: #0a0a0a; --white: #f0ede6; --cyan: #00e5ff; --grey: #333; }
-        body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: var(--black); color: var(--white); font: 0.875rem/1.7 'Space Mono', monospace; }
+        :root { --black: var(--site-background); --white: #f0ede6; --cyan: #00e5ff; --grey: var(--site-border); }
+        body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: var(--black); color: var(--white); font: 0.875rem/1.7 'JetBrains Mono', monospace; }
         main { width: min(720px, calc(100% - 48px)); padding: 64px 0; }
         .code { margin: 0; color: var(--cyan); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
         h1 { margin: 12px 0 24px; font: clamp(4rem, 16vw, 9rem)/0.85 'Bebas Neue', sans-serif; letter-spacing: 0.02em; text-transform: uppercase; }

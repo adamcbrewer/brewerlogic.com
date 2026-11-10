@@ -16,7 +16,7 @@
     <meta name="description" content="Senior full-stack engineer with 15+ years delivering fintech, SaaS and design-system products. TypeScript, React, Next.js, GraphQL, Rust, Go and AWS.">
     <meta name="author" content="Adam Brewer">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#25282c">
     <link rel="canonical" href="https://brewerlogic.com/">
     <link rel="alternate" type="text/markdown" href="https://brewerlogic.com/index.md">
     <link rel="describedby" href="https://brewerlogic.com/llms.txt">
@@ -52,10 +52,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/img/bl-logo.svg">
     <script>document.documentElement.classList.add('js');</script>
 
+    <link rel="stylesheet" href="/assets/css/palette.css">
     <style>
         *,
         *::before,
@@ -66,17 +67,19 @@
         }
 
         :root {
-            --black: #0a0a0a;
+            --black: var(--site-background);
             --white: #f0ede6;
             --red: #00e5ff;
-            --grey: #333;
+            --grey: var(--site-border);
             --grey-light: #999;
             --font-display: 'Bebas Neue', sans-serif;
-            --font-mono: 'Space Mono', monospace;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-prose-size: clamp(17px, 1.125rem, 18px);
         }
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 96px;
             font-size: 16px;
         }
 
@@ -309,9 +312,10 @@
                 z-index: 100;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: safe center;
                 align-items: flex-start;
-                padding: 0 24px;
+                padding: 96px 24px 32px;
+                overflow-y: auto;
                 list-style: none;
                 gap: 0;
                 opacity: 0;
@@ -325,6 +329,7 @@
             }
 
             .nav__links--mobile li {
+                flex-shrink: 0;
                 border-bottom: 2px solid var(--grey);
                 width: 100%;
             }
@@ -484,11 +489,11 @@
         /* ═══════════════════ HERO ═══════════════════ */
 
         .hero {
-            min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 0 24px 60px;
+            justify-content: center;
+            padding: 128px 24px 64px;
             border-bottom: 2px solid var(--grey);
             position: relative;
             overflow: hidden;
@@ -526,7 +531,7 @@
 
         .hero__name {
             font-family: var(--font-display);
-            font-size: clamp(4rem, 18vw, 14rem);
+            font-size: clamp(4rem, min(18vw, 20svh), 14rem);
             line-height: 0.85;
             text-transform: uppercase;
             letter-spacing: -0.03em;
@@ -553,8 +558,8 @@
         }
 
         .hero__description {
+            font-size: var(--font-prose-size);
             max-width: 540px;
-            font-size: 0.875rem;
             line-height: 1.7;
             color: rgba(240, 237, 230, 0.7);
             margin-bottom: 40px;
@@ -580,7 +585,7 @@
 
         @media (min-width: 768px) {
             .hero {
-                padding: 0 48px 80px;
+                padding: 128px 48px 80px;
             }
             .hero__marker {
                 right: 48px;
@@ -589,7 +594,7 @@
 
         @media (min-width: 1200px) {
             .hero {
-                padding: 0 80px 120px;
+                padding: 128px 80px 80px;
             }
         }
 
@@ -645,6 +650,7 @@
         }
 
         .about__text p {
+            font-size: var(--font-prose-size);
             margin-bottom: 20px;
             color: rgba(240, 237, 230, 0.75);
             line-height: 1.8;
@@ -698,7 +704,7 @@
             font-size: 0.7rem;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .about__grid {
                 grid-template-columns: 1.4fr 1fr;
                 gap: 80px;
@@ -769,6 +775,7 @@
         }
 
         .project__desc {
+            font-size: var(--font-prose-size);
             max-width: 540px;
             color: rgba(240, 237, 230, 0.65);
             line-height: 1.7;
@@ -776,6 +783,7 @@
         }
 
         .project__features {
+            font-size: var(--font-prose-size);
             padding-left: 20px;
             list-style: disc;
         }
@@ -875,8 +883,8 @@
         }
 
         .exp__details li {
+            font-size: var(--font-prose-size);
             color: rgba(240, 237, 230, 0.65);
-            font-size: 0.8rem;
             line-height: 1.7;
             padding: 2px 0;
         }
@@ -896,7 +904,7 @@
             height: 12px;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .exp {
                 grid-template-columns: 200px 1fr;
                 gap: 24px 48px;
@@ -937,7 +945,7 @@
         }
 
         .contact__text {
-            font-size: 1rem;
+            font-size: var(--font-prose-size);
             color: rgba(240, 237, 230, 0.75);
             line-height: 1.8;
             margin-bottom: 12px;
@@ -1079,15 +1087,14 @@
         @media (max-width: 767px) {
             .hero {
                 min-height: 100svh;
-                padding: 0 16px 40px;
+                padding: 104px 16px 48px;
             }
 
             .hero__name {
-                font-size: clamp(3.2rem, 16vw, 6rem);
+                font-size: clamp(4rem, 18vw, 6rem);
             }
 
             .hero__description {
-                font-size: 0.8rem;
                 margin-bottom: 32px;
             }
 
@@ -1175,6 +1182,7 @@
         @media (max-width: 480px) {
             html {
                 font-size: 15px;
+                scroll-padding-top: 72px;
             }
 
             .nav {
@@ -1186,7 +1194,7 @@
             }
 
             .hero {
-                padding: 0 12px 32px;
+                padding: 96px 16px 40px;
             }
 
             .hero__greeting {
@@ -1194,33 +1202,24 @@
             }
 
             .hero__name {
-                font-size: clamp(2.8rem, 14vw, 4rem);
+                font-size: clamp(4rem, 18vw, 6rem);
             }
 
             .hero__tagline {
-                font-size: clamp(1.4rem, 5vw, 2rem);
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
             }
 
             .hero__description {
-                font-size: 0.75rem;
                 line-height: 1.6;
             }
 
             .section__inner {
-                padding: 48px 12px;
+                padding: 48px 16px;
             }
 
             .section__title {
                 font-size: clamp(2.5rem, 10vw, 4rem);
                 margin-bottom: 24px;
-            }
-
-            .about__text p {
-                font-size: 0.8rem;
-            }
-
-            .project__desc {
-                font-size: 0.8rem;
             }
 
             .project__tech {
@@ -1236,16 +1235,12 @@
                 font-size: clamp(1.2rem, 4vw, 1.6rem);
             }
 
-            .exp__details li {
-                font-size: 0.75rem;
-            }
-
             .footer {
-                padding: 24px 12px;
+                padding: 24px 16px;
             }
 
             .grid-lines {
-                padding: 0 12px;
+                padding: 0 16px;
             }
 
             .grid-lines span:nth-child(n+4) {
@@ -1289,7 +1284,7 @@
                 <li><a href="#work">Work</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li hidden><a href="/blog/">Blog</a></li>
+                <li hidden><a href="/blog/">Thoughts</a></li>
             </ul>
             <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-navigation">
                 <span></span>
@@ -1302,7 +1297,7 @@
             <li><a href="#work">Work</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li hidden><a href="/blog/">Blog</a></li>
+            <li hidden><a href="/blog/">Thoughts</a></li>
         </ul>
     </header>
 
@@ -1313,7 +1308,7 @@
                 <li><a href="#work">Work</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li hidden><a href="/blog/">Blog</a></li>
+                <li hidden><a href="/blog/">Thoughts</a></li>
             </ul>
         </nav>
     </noscript>

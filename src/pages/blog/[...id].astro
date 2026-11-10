@@ -17,12 +17,22 @@ const { Content } = await render(post);
 ---
 
 <BlogLayout title={post.data.title} description={post.data.description}>
-    <article>
-        <h1>{post.data.title}</h1>
-        <time datetime={post.data.pubDate.toISOString()}>
-            {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
-        </time>
-        {post.data.draft && <p>Draft preview</p>}
-        <Content />
+    <article class="article">
+        <header class="article-header">
+            <a class="back-link" href="/blog/">Back to Thoughts</a>
+            <h1>{post.data.title}</h1>
+            <p class="article-description">{post.data.description}</p>
+            <div class="article-meta">
+                <span>Adam Brewer</span>
+                <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
+                </time>
+                {post.data.draft && <span class="draft-label">Draft preview</span>}
+            </div>
+        </header>
+        <div class="prose"><Content /></div>
+        <footer class="article-footer">
+            <a href="/blog/">Back to all articles</a>
+        </footer>
     </article>
 </BlogLayout>

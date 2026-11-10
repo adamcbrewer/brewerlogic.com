@@ -1,4 +1,6 @@
 ---
+import '../styles/blog.css';
+
 interface Props {
     title: string;
     description: string;
@@ -14,15 +16,29 @@ const { title, description } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="description" content={description} />
         <meta name="robots" content="noindex, nofollow" />
+        <meta name="theme-color" content="#25282c" />
         <title>{title} | Adam Brewer</title>
+        <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/assets/css/palette.css" />
     </head>
     <body>
-        <header>
-            <nav aria-label="Main navigation">
-                <a href="/">Adam Brewer</a>
-                <a href="/blog/">Blog</a>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <a class="site-logo" href="/">Adam Brewer</a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/#work">Work</a>
+                <a href="/blog/" aria-current="page">Thoughts</a>
+                <a href="/#contact">Contact</a>
             </nav>
         </header>
-        <main><slot /></main>
+        <main id="main" tabindex="-1"><slot /></main>
+        <footer class="site-footer">
+            <a class="site-logo" href="/">Adam Brewer</a>
+            <a href="mailto:adam@brewerlogic.com">Get in touch</a>
+            <a href="/privacy/">Privacy</a>
+        </footer>
     </body>
 </html>
