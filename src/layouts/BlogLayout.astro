@@ -13,6 +13,8 @@ interface Props {
 
 const { title, description, canonicalPath, article } = Astro.props;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
+const pageTitle = `${title} | ${authorName}`;
+const image = article?.image;
 const structuredData = article && {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -23,6 +25,7 @@ const structuredData = article && {
     author: { '@type': 'Person', name: authorName, url: new URL('/', Astro.site).href },
     datePublished: article.pubDate.toISOString(),
     dateModified: article.updatedDate?.toISOString(),
+    image: image?.url,
 };
 ---
 
@@ -34,8 +37,27 @@ const structuredData = article && {
         <meta name="description" content={description} />
         <meta name="robots" content="noindex, nofollow" />
         <meta name="theme-color" content="#25282c" />
-        <title>{title} | Adam Brewer</title>
+        <title>{pageTitle}</title>
         <link rel="canonical" href={canonicalURL} />
+        <meta property="og:type" content={article ? 'article' : 'website'} />
+        <meta property="og:site_name" content="Adam Brewer | Brewer Logic" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={description} />
+        {article && <>
+            <meta property="article:author" content={new URL('/', Astro.site).href} />
+            <meta property="article:published_time" content={article.pubDate.toISOString()} />
+            {article.updatedDate && <meta property="article:modified_time" content={article.updatedDate.toISOString()} />}
+        </>}
+        {image && <>
+            <meta property="og:image" content={image.url} />
+            <meta property="og:image:alt" content={image.alt} />
+            <meta name="twitter:image" content={image.url} />
+            <meta name="twitter:image:alt" content={image.alt} />
+        </>}
         {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
         <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

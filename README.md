@@ -37,6 +37,8 @@ Blog URLs use `/blog/` and `/blog/article-name/`. Keep article filenames and fol
 
 Article frontmatter requires `title`, `description` and `pubDate`. Add `updatedDate` only for a meaningful content update; omit it on initial publication. Dates appear on the article and in its structured metadata. Set `draft: true` to keep an article in local previews only.
 
+For an article's social preview, optionally add `image` with an absolute public `url` and descriptive `alt` text. Use an image that represents the article. Articles without a supplied image use a text-only preview.
+
 ## Agent Discovery
 
 - `sitemap.xml` lists canonical public URLs and is referenced from `robots.txt`.
