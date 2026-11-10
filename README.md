@@ -33,6 +33,22 @@ This site is a simple static HTML/CSS/JS portfolio hosted on DigitalOcean App Pl
 
 See [the blog setup issue](https://github.com/adamcbrewer/brewerlogic.com/issues/12) for the full task checklist, local commands, Markdown articles and draft behaviour. DigitalOcean configuration happens after the production PR is merged. The blog is under development and its homepage navigation links remain hidden.
 
+### Preview and public builds
+
+`npm run build` defaults to preview mode: blog HTML has `noindex, nofollow`, homepage Thoughts links stay hidden, and the sitemap and agent index contain only the existing portfolio content.
+
+Build the approved public release with:
+
+```sh
+BLOG_PUBLIC=true npm run build
+```
+
+Only the literal value `true` enables public mode. Set it in the build environment or on the command above; it isn't a browser setting. Public mode enables blog indexing, reveals desktop, mobile and no-JavaScript homepage links, and includes the blog in the sitemap and agent index. Drafts remain excluded from every production output. Development HTML always stays unindexed, including draft previews.
+
+Use `npm run preview` to inspect the last build. To return to preview mode, rebuild without `BLOG_PUBLIC=true`; changing the environment after a build doesn't change its static files. The source homepage keeps its links hidden; the build updates only the staged copy. Publish only `dist/`.
+
+Enable `BLOG_PUBLIC=true` in DigitalOcean's build environment only during the final post-merge configuration task. No DigitalOcean configuration is needed for local checks.
+
 Blog URLs use `/blog/` and `/blog/article-name/`. Keep article filenames and folders stable after publication. If a published URL changes, add a permanent redirect from its old URL before deploying the change.
 
 Article frontmatter requires `title`, `description` and `pubDate`. Add `updatedDate` only for a meaningful content update; omit it on initial publication. Dates appear on the article and in its structured metadata. Set `draft: true` to keep an article in local previews only.
@@ -51,9 +67,9 @@ Published articles also generate `/blog/article-name/index.md` from the same con
 - DigitalOcean static sites cannot negotiate Markdown from the `Accept` header; agents use the advertised `.md` URLs instead.
 - Keep every HTML/Markdown page pair and `sitemap.xml` in sync when publishing public content changes.
 
-The template `src/data/sitemap.xml` holds the existing portfolio URLs and their content dates. Astro uses it as a template and adds the blog listing and published articles to `dist/sitemap.xml`. Article modification dates use `updatedDate` when supplied, otherwise `pubDate`; builds don't advance these dates.
+The template `src/data/sitemap.xml` holds the existing portfolio URLs and their content dates. In public mode, Astro adds the blog listing and published articles to `dist/sitemap.xml`. Preview mode preserves the template unchanged. Article modification dates use `updatedDate` when supplied, otherwise `pubDate`; builds don't advance these dates.
 
-The template `src/data/llms.txt` holds the portfolio guidance. Astro preserves it and appends a Thoughts section linking to published articles' Markdown copies in `dist/llms.txt`. Blog pages advertise this optional agent index with a `rel="describedby"` head link. `robots.txt` keeps its existing search and training crawler policy.
+The template `src/data/llms.txt` holds the portfolio guidance. In public mode, Astro appends a Thoughts section linking to published articles' Markdown copies in `dist/llms.txt`. Preview mode preserves the template unchanged. Blog pages advertise this optional agent index with a `rel="describedby"` head link. `robots.txt` keeps its existing search and training crawler policy.
 
 ## Links
 
