@@ -35,6 +35,8 @@ See [the blog setup issue](https://github.com/adamcbrewer/brewerlogic.com/issues
 
 Blog URLs use `/blog/` and `/blog/article-name/`. Keep article filenames and folders stable after publication. If a published URL changes, add a permanent redirect from its old URL before deploying the change.
 
+Article frontmatter requires `title`, `description` and `pubDate`. Add `updatedDate` only for a meaningful content update; omit it on initial publication. Dates appear on the article and in its structured metadata. Set `draft: true` to keep an article in local previews only.
+
 ## Agent Discovery
 
 - `sitemap.xml` lists canonical public URLs and is referenced from `robots.txt`.

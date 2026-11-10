@@ -1,15 +1,29 @@
 ---
 import '../styles/blog.css';
 import SiteHeader from '../components/SiteHeader.astro';
+import type { CollectionEntry } from 'astro:content';
+import { authorName } from '../lib/site';
 
 interface Props {
     title: string;
     description: string;
     canonicalPath: string;
+    article?: CollectionEntry<'blog'>['data'];
 }
 
-const { title, description, canonicalPath } = Astro.props;
+const { title, description, canonicalPath, article } = Astro.props;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
+const structuredData = article && {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    url: canonicalURL,
+    mainEntityOfPage: canonicalURL,
+    author: { '@type': 'Person', name: authorName, url: new URL('/', Astro.site).href },
+    datePublished: article.pubDate.toISOString(),
+    dateModified: article.updatedDate?.toISOString(),
+};
 ---
 
 <!doctype html>
@@ -22,6 +36,7 @@ const canonicalURL = new URL(canonicalPath, Astro.site).href;
         <meta name="theme-color" content="#25282c" />
         <title>{title} | Adam Brewer</title>
         <link rel="canonical" href={canonicalURL} />
+        {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
         <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
