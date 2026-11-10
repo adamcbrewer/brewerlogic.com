@@ -57,6 +57,14 @@ For an article's social preview, optionally add `image` with an absolute public 
 
 Published articles also generate `/blog/article-name/index.md` from the same content, with title, description, author, dates and canonical HTML URL. HTML advertises the matching Markdown file. Drafts have no public Markdown companion, including during development.
 
+### Build checks
+
+Run `npm ci --ignore-scripts` to install the locked dependencies, then `npm test` to check preview and public builds. The tests use a temporary copy of the repository with disposable published/draft articles, followed by an all-draft collection to check the empty listing. Your articles, `dist/` and local dev server are left untouched.
+
+Checks cover indexing and all homepage navigation variants, article metadata and Markdown, sitemap and agent discovery, draft exclusion, existing static files, and internal file/anchor links. Visual and keyboard checks remain part of the manual release review.
+
+Pinned dependency versions, locked installs and disabled lifecycle scripts follow the [npm security best practices](https://github.com/lirantal/npm-security-best-practices).
+
 ## Agent Discovery
 
 - `sitemap.xml` lists canonical public URLs and is referenced from `robots.txt`.
