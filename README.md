@@ -39,6 +39,8 @@ Article frontmatter requires `title`, `description` and `pubDate`. Add `updatedD
 
 For an article's social preview, optionally add `image` with an absolute public `url` and descriptive `alt` text. Use an image that represents the article. Articles without a supplied image use a text-only preview.
 
+Published articles also generate `/blog/article-name/index.md` from the same content, with title, description, author, dates and canonical HTML URL. HTML advertises the matching Markdown file. Drafts have no public Markdown companion, including during development.
+
 ## Agent Discovery
 
 - `sitemap.xml` lists canonical public URLs and is referenced from `robots.txt`.
