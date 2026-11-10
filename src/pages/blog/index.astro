@@ -1,11 +1,12 @@
 ---
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getPosts } from '../../lib/posts';
+import { getPostPath } from '../../lib/urls';
 
 const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
 ---
 
-<BlogLayout title="Thoughts" description="Notes on building software by Adam Brewer.">
+<BlogLayout title="Thoughts" description="Notes on building software by Adam Brewer." canonicalPath="/blog/">
     <div class="blog-index">
         <header class="blog-intro">
             <h1>Thoughts</h1>
@@ -27,7 +28,7 @@ const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
                             {post.data.draft && <span class="draft-label">Draft preview</span>}
                         </div>
                         <div>
-                            <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+                            <h2><a href={getPostPath(post.id)}>{post.data.title}</a></h2>
                             <p>{post.data.description}</p>
                         </div>
                     </li>

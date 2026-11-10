@@ -5,9 +5,11 @@ import SiteHeader from '../components/SiteHeader.astro';
 interface Props {
     title: string;
     description: string;
+    canonicalPath: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonicalPath } = Astro.props;
+const canonicalURL = new URL(canonicalPath, Astro.site).href;
 ---
 
 <!doctype html>
@@ -19,6 +21,7 @@ const { title, description } = Astro.props;
         <meta name="robots" content="noindex, nofollow" />
         <meta name="theme-color" content="#25282c" />
         <title>{title} | Adam Brewer</title>
+        <link rel="canonical" href={canonicalURL} />
         <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

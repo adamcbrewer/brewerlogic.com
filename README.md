@@ -33,6 +33,8 @@ This site is a simple static HTML/CSS/JS portfolio hosted on DigitalOcean App Pl
 
 See [the blog setup issue](https://github.com/adamcbrewer/brewerlogic.com/issues/12) for the full task checklist, local commands, Markdown articles and draft behaviour. DigitalOcean configuration happens after the production PR is merged. The blog is under development and its homepage navigation links remain hidden.
 
+Blog URLs use `/blog/` and `/blog/article-name/`. Keep article filenames and folders stable after publication. If a published URL changes, add a permanent redirect from its old URL before deploying the change.
+
 ## Agent Discovery
 
 - `sitemap.xml` lists canonical public URLs and is referenced from `robots.txt`.
