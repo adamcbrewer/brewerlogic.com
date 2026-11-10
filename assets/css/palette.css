@@ -5,5 +5,12 @@
     --site-text: #f0ede6;
     --site-muted: #b8bdc4;
     --site-accent: #00e5ff;
+    --site-prose-size: 18px;
     color-scheme: dark;
+}
+
+@media (max-width: 480px) {
+    :root {
+        --site-prose-size: 17px;
+    }
 }

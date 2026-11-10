@@ -28,7 +28,7 @@ Write the article in Markdown here.
 
 Drafts appear in development and are excluded from both the listing and article routes in production builds. Set `draft: false` to include an article in the build. Blog pages currently have `noindex, nofollow` while the design is being developed. That is a crawler instruction, not access control.
 
-The blog uses Bebas Neue headings, JetBrains Mono navigation, and Source Serif 4 body text from Google Fonts. Shared slate palette values live in `assets/css/palette.css`; blog styles live in `src/styles/blog.css`. Design approval, removing the hidden attributes and noindex metadata, and adding published blog URLs to `sitemap.xml` and `llms.txt` are launch work.
+The blog uses Bebas Neue headings, JetBrains Mono navigation and body text from Google Fonts. Shared slate palette values live in `assets/css/palette.css`; blog styles live in `src/styles/blog.css`. Design approval, removing the hidden attributes and noindex metadata, and adding published blog URLs to `sitemap.xml` and `llms.txt` are launch work.
 
 ## Static build
 

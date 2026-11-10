@@ -1,7 +1,7 @@
 :root {
     --font-display: 'Bebas Neue', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
-    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-body: var(--font-mono);
 }
 
 *,
@@ -219,7 +219,7 @@ h6 {
 }
 
 .article {
-    max-width: 56rem;
+    max-width: 60rem;
     margin-inline: auto;
     padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4rem) 5rem;
 }
@@ -254,7 +254,7 @@ h6 {
 
 .prose {
     padding-top: 1.5rem;
-    font: clamp(1.125rem, 2vw, 1.3125rem)/1.8 var(--font-body);
+    font: var(--site-prose-size)/1.8 var(--font-body);
     overflow-wrap: anywhere;
 }
 
