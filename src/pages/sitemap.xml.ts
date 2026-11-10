@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import existingSitemap from '../../sitemap.xml?raw';
+import existingSitemap from '../data/sitemap.xml?raw';
 import { getPosts } from '../lib/posts';
 import { getPostPath } from '../lib/urls';
 import { escapeXML } from '../lib/xml';

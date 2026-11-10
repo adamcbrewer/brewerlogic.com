@@ -51,7 +51,9 @@ Published articles also generate `/blog/article-name/index.md` from the same con
 - DigitalOcean static sites cannot negotiate Markdown from the `Accept` header; agents use the advertised `.md` URLs instead.
 - Keep every HTML/Markdown page pair and `sitemap.xml` in sync when publishing public content changes.
 
-The root `sitemap.xml` holds the existing portfolio URLs and their content dates. Astro uses it as a template and adds the blog listing and published articles to `dist/sitemap.xml`. Article modification dates use `updatedDate` when supplied, otherwise `pubDate`; builds don't advance these dates.
+The template `src/data/sitemap.xml` holds the existing portfolio URLs and their content dates. Astro uses it as a template and adds the blog listing and published articles to `dist/sitemap.xml`. Article modification dates use `updatedDate` when supplied, otherwise `pubDate`; builds don't advance these dates.
+
+The template `src/data/llms.txt` holds the portfolio guidance. Astro preserves it and appends a Thoughts section linking to published articles' Markdown copies in `dist/llms.txt`. Blog pages advertise this optional agent index with a `rel="describedby"` head link. `robots.txt` keeps its existing search and training crawler policy.
 
 ## Links
 
