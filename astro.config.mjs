@@ -1,15 +1,11 @@
 import { existsSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
-import { blogIsPublic } from './blog.config.mjs';
 
 export default defineConfig({
     site: 'https://brewerlogic.com',
     output: 'static',
     publicDir: './.site-public',
     trailingSlash: 'ignore',
-    vite: {
-        define: { __BLOG_IS_PUBLIC__: JSON.stringify(blogIsPublic) },
-    },
     integrations: [{
         name: 'existing-static-pages',
         hooks: {

@@ -3,10 +3,9 @@ import existingIndex from '../data/llms.txt?raw';
 import { escapeMarkdown } from '../lib/markdown';
 import { getPosts } from '../lib/posts';
 import { getPostPath } from '../lib/urls';
-import { blogIsPublic } from '../lib/launch';
 
 export const GET: APIRoute = async ({ site }) => {
-    if (!blogIsPublic) {
+    if (import.meta.env.DEV) {
         return new Response(existingIndex, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
     }
     const posts = await getPosts();

@@ -31,23 +31,21 @@ This site is a simple static HTML/CSS/JS portfolio hosted on DigitalOcean App Pl
 
 ## Blog development
 
-See [the blog setup issue](https://github.com/adamcbrewer/brewerlogic.com/issues/12) for the full task checklist, local commands, Markdown articles and draft behaviour. DigitalOcean configuration happens after the production PR is merged. The blog is under development and its homepage navigation links remain hidden.
+See [the blog setup issue](https://github.com/adamcbrewer/brewerlogic.com/issues/12) for the full task checklist, local commands, Markdown articles and draft behaviour. Production changes deploy through DigitalOcean after the approved PR is merged into main.
 
-### Preview and public builds
+### Development and production builds
 
-`npm run build` defaults to preview mode: blog HTML has `noindex, nofollow`, homepage Thoughts links stay hidden, and the sitemap and agent index contain only the existing portfolio content. Blog Markdown copies and their alternate links are omitted so they cannot be indexed separately.
+Use `mise install` to prepare the pinned Node.js version, then `npm run dev` for local development. Draft articles appear locally; development blog HTML always uses `noindex, nofollow`. Development sitemap and agent-index responses retain only the portfolio templates, and blog Markdown companions are not served.
 
-Build the approved public release with:
+Build the production site with:
 
 ```sh
-BLOG_PUBLIC=true npm run build
+npm run build
 ```
 
-Only the literal value `true` enables public mode. Set it in the build environment or on the command above; it isn't a browser setting. Public mode enables blog indexing, reveals desktop, mobile and no-JavaScript homepage links, and includes the blog in the sitemap and agent index. Drafts remain excluded from every production output. Development HTML always stays unindexed, including draft previews.
+Normal builds show Thoughts in all homepage navigation variants, use `index, follow` on blog pages, and include the listing and published articles in the sitemap and agent index. No launch environment variable is required. Drafts remain excluded from all production outputs. Keep `Hello World` as a draft until it is ready to publish.
 
-Use `npm run preview` to inspect the last build. To return to preview mode, rebuild without `BLOG_PUBLIC=true`; changing the environment after a build doesn't change its static files. The source homepage keeps its links hidden; the build updates only the staged copy. Publish only `dist/`.
-
-Enable `BLOG_PUBLIC=true` in DigitalOcean's build environment only during the final post-merge configuration task. No DigitalOcean configuration is needed for local checks.
+Use `npm run preview` to inspect the production build locally. It serves the same indexable files that DigitalOcean publishes. Deploy only `dist/`.
 
 Blog URLs use `/blog/` and `/blog/article-name/`. Keep article filenames and folders stable after publication. If a published URL changes, add a permanent redirect from its old URL before deploying the change.
 
@@ -55,11 +53,11 @@ Article frontmatter requires `title`, `description` and `pubDate`. Add `updatedD
 
 For an article's social preview, optionally add `image` with an absolute public `url` and descriptive `alt` text. Use an image that represents the article. Articles without a supplied image use a text-only preview.
 
-Public builds generate `/blog/article-name/index.md` for published articles from the same content, with title, description, author, dates and canonical HTML URL. HTML advertises the matching Markdown file. Drafts, preview builds and development servers have no blog Markdown companions.
+Production builds generate `/blog/article-name/index.md` for published articles from the same content, with title, description, author, dates and canonical HTML URL. HTML advertises the matching Markdown file. Drafts and development servers have no blog Markdown companions.
 
 ### Build checks
 
-Run `npm ci --ignore-scripts` to install the locked dependencies, then `npm test` to check preview and public builds. The tests use a temporary copy of the repository with disposable published/draft articles, followed by an all-draft collection to check the empty listing. Your articles, `dist/` and local dev server are left untouched.
+Run `npm ci --ignore-scripts` to install the locked dependencies, then `npm test` to check default production builds and development previews. The tests use a temporary copy of the repository with disposable published/draft articles, followed by an all-draft collection to check the empty listing. Your articles, `dist/` and local dev server are left untouched.
 
 Checks cover indexing and all homepage navigation variants, article metadata and Markdown, sitemap and agent discovery, draft exclusion, existing static files, and internal file/anchor links. Visual and keyboard checks remain part of the manual release review.
 
@@ -77,9 +75,9 @@ Pinned dependency versions, locked installs and disabled lifecycle scripts follo
 - DigitalOcean static sites cannot negotiate Markdown from the `Accept` header; agents use the advertised `.md` URLs instead.
 - Keep every HTML/Markdown page pair and `sitemap.xml` in sync when publishing public content changes.
 
-The template `src/data/sitemap.xml` holds the existing portfolio URLs and their content dates. In public mode, Astro adds the blog listing and published articles to `dist/sitemap.xml`. Preview mode preserves the template unchanged. Article modification dates use `updatedDate` when supplied, otherwise `pubDate`; builds don't advance these dates.
+The template `src/data/sitemap.xml` holds the existing portfolio URLs and their content dates. Production builds add the blog listing and published articles to `dist/sitemap.xml`. Development preserves the template unchanged. Article modification dates use `updatedDate` when supplied, otherwise `pubDate`; builds don't advance these dates.
 
-The template `src/data/llms.txt` holds the portfolio guidance. In public mode, Astro appends a Thoughts section linking to published articles' Markdown copies in `dist/llms.txt`. Preview mode preserves the template unchanged. Blog pages advertise this optional agent index with a `rel="describedby"` head link. `robots.txt` keeps its existing search and training crawler policy.
+The template `src/data/llms.txt` holds the portfolio guidance. Production builds append a Thoughts section linking to published articles' Markdown copies in `dist/llms.txt`. Development preserves the template unchanged. Blog pages advertise this optional agent index with a `rel="describedby"` head link. `robots.txt` keeps its existing search and training crawler policy.
 
 ## Links
 
