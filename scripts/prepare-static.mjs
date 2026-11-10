@@ -12,7 +12,6 @@ const paths = [
     'privacy',
     'Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf',
     'robots.txt',
-    'sitemap.xml',
     'llms.txt',
 ];
 

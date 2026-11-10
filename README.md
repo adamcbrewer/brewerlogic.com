@@ -49,6 +49,8 @@ For an article's social preview, optionally add `image` with an absolute public 
 - DigitalOcean static sites cannot negotiate Markdown from the `Accept` header; agents use the advertised `.md` URLs instead.
 - Keep every HTML/Markdown page pair and `sitemap.xml` in sync when publishing public content changes.
 
+The root `sitemap.xml` holds the existing portfolio URLs and their content dates. Astro uses it as a template and adds the blog listing and published articles to `dist/sitemap.xml`. Article modification dates use `updatedDate` when supplied, otherwise `pubDate`; builds don't advance these dates.
+
 ## Links
 
 - [brewerlogic.com](https://brewerlogic.com)
