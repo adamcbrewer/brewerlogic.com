@@ -1,5 +1,6 @@
 ---
 import '../styles/blog.css';
+import SiteHeader from '../components/SiteHeader.astro';
 
 interface Props {
     title: string;
@@ -23,17 +24,13 @@ const { title, description } = Astro.props;
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/assets/css/palette.css" />
+        <link rel="stylesheet" href="/assets/css/navigation.css" />
+        <script is:inline>document.documentElement.classList.add('js');</script>
+        <script is:inline src="/assets/js/navigation.js" defer></script>
     </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
-        <header class="site-header">
-            <a class="site-logo" href="/">Adam Brewer</a>
-            <nav class="site-nav" aria-label="Main navigation">
-                <a href="/#work">Work</a>
-                <a href="/blog/" aria-current="page">Thoughts</a>
-                <a href="/#contact">Contact</a>
-            </nav>
-        </header>
+        <SiteHeader />
         <main id="main" tabindex="-1"><slot /></main>
         <footer class="site-footer">
             <a class="site-logo" href="/">Adam Brewer</a>
