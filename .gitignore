@@ -30,3 +30,8 @@ _archive-content
 
 # Dependencies
 node_modules/
+
+# Astro build output
+.astro/
+.site-public/
+dist/

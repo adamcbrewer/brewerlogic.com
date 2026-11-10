@@ -25,8 +25,13 @@ This site is a simple static HTML/CSS/JS portfolio hosted on DigitalOcean App Pl
 - Dark/light theme toggle
 - Intersection Observer for active nav states
 - CSS custom properties for theming
-- No build tools, frameworks or runtime dependencies
+- Astro builds Markdown blog articles under `/blog/`
+- Existing pages remain plain HTML/CSS/JS; deployment remains static
 - Markdown companion files for agents
+
+## Blog development
+
+See [blog setup](docs/blog-setup.md) for local commands, Markdown articles, draft behaviour and the DigitalOcean deployment checklist. The blog is under development and its homepage navigation links remain hidden.
 
 ## Agent Discovery
 
