@@ -63,6 +63,8 @@ Run `npm ci --ignore-scripts` to install the locked dependencies, then `npm test
 
 Checks cover indexing and all homepage navigation variants, article metadata and Markdown, sitemap and agent discovery, draft exclusion, existing static files, and internal file/anchor links. Visual and keyboard checks remain part of the manual release review.
 
+GitHub Actions runs these checks on pushes and pull requests using Node.js 24. The workflow has read-only repository permissions and doesn't deploy. DigitalOcean continues to build the approved `master` branch.
+
 Pinned dependency versions, locked installs and disabled lifecycle scripts follow the [npm security best practices](https://github.com/lirantal/npm-security-best-practices).
 
 ## Agent Discovery
