@@ -1,0 +1,39 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { getPosts } from '../../lib/posts';
+import { getPostPath } from '../../lib/urls';
+
+const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
+---
+
+<BlogLayout title="Thoughts" description="Notes on building software by Adam Brewer." canonicalPath="/blog/">
+    <div class="blog-index">
+        <header class="blog-intro">
+            <h1>Thoughts</h1>
+            <p>Notes on building software.</p>
+        </header>
+        {posts.length === 0 ? (
+            <div class="empty-state">
+                <p>No articles published yet.</p>
+                <a href="/">Explore my work in the meantime</a>
+            </div>
+        ) : (
+            <ul class="post-list">
+                {posts.map((post) => (
+                    <li class="post-summary">
+                        <div class="post-meta">
+                            <time datetime={post.data.pubDate.toISOString()}>
+                                {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
+                            </time>
+                            {post.data.draft && <span class="draft-label">Draft preview</span>}
+                        </div>
+                        <div>
+                            <h2><a href={getPostPath(post.id)}>{post.data.title}</a></h2>
+                            <p>{post.data.description}</p>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        )}
+    </div>
+</BlogLayout>

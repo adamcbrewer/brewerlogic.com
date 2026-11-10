@@ -16,7 +16,7 @@
     <meta name="description" content="Senior full-stack engineer with 15+ years delivering fintech, SaaS and design-system products. TypeScript, React, Next.js, GraphQL, Rust, Go and AWS.">
     <meta name="author" content="Adam Brewer">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#25282c">
     <link rel="canonical" href="https://brewerlogic.com/">
     <link rel="alternate" type="text/markdown" href="https://brewerlogic.com/index.md">
     <link rel="describedby" href="https://brewerlogic.com/llms.txt">
@@ -52,10 +52,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/img/bl-logo.svg">
     <script>document.documentElement.classList.add('js');</script>
 
+    <link rel="stylesheet" href="/assets/css/palette.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <script src="/assets/js/navigation.js" defer></script>
     <style>
         *,
         *::before,
@@ -66,17 +69,18 @@
         }
 
         :root {
-            --black: #0a0a0a;
+            --black: var(--site-background);
             --white: #f0ede6;
             --red: #00e5ff;
-            --grey: #333;
+            --grey: var(--site-border);
             --grey-light: #999;
             --font-display: 'Bebas Neue', sans-serif;
-            --font-mono: 'Space Mono', monospace;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 96px;
             font-size: 16px;
         }
 
@@ -152,218 +156,6 @@
             width: 1px;
             height: 100%;
             background: rgba(240, 237, 230, 0.04);
-        }
-
-        /* ═══════════════════ NAV ═══════════════════ */
-
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 102;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 24px;
-            border-bottom: 2px solid var(--grey);
-            background: var(--black);
-            mix-blend-mode: normal;
-        }
-
-        .nav__logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--white);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .nav__logo:hover {
-            color: var(--red);
-        }
-
-        .nav__links {
-            display: none;
-            list-style: none;
-            gap: 32px;
-        }
-
-        .nav__links a {
-            color: var(--white);
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            position: relative;
-        }
-
-        .nav__links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--red);
-            transition: width 0.2s;
-        }
-
-        .nav__links a:hover {
-            color: var(--red);
-        }
-
-        .nav__links a:hover::after,
-        .nav__links a.is-active::after {
-            width: 100%;
-        }
-
-        .nav__links a.is-active {
-            color: var(--red);
-        }
-
-        .nav__toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 101;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .js .nav__toggle {
-            display: flex;
-        }
-
-        .nav__toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--white);
-            transition: transform 0.3s, opacity 0.3s;
-        }
-
-        .nav__toggle[aria-expanded="true"] span:first-child {
-            transform: translateY(4px) rotate(45deg);
-        }
-
-        .nav__toggle[aria-expanded="true"] span:last-child {
-            transform: translateY(-4px) rotate(-45deg);
-        }
-
-        .nav__overlay {
-            display: none;
-        }
-
-        .nav__links--mobile {
-            display: none;
-        }
-
-        .noscript-nav {
-            padding: 72px 16px 12px;
-            border-bottom: 2px solid var(--grey);
-            background: var(--black);
-        }
-
-        .noscript-nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 20px;
-            list-style: none;
-        }
-
-        .noscript-nav a {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        @media (max-width: 767px) {
-            .nav__overlay {
-                display: block;
-                position: fixed;
-                inset: 0;
-                background: var(--black);
-                z-index: 99;
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.15s, visibility 0.15s;
-            }
-
-            .nav__overlay.is-open {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav__links--mobile {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 100;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                padding: 0 24px;
-                list-style: none;
-                gap: 0;
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.15s, visibility 0.15s;
-            }
-
-            .nav__links--mobile.is-open {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav__links--mobile li {
-                border-bottom: 2px solid var(--grey);
-                width: 100%;
-            }
-
-            .nav__links--mobile li:first-child {
-                border-top: 2px solid var(--grey);
-            }
-
-            .nav__links--mobile a {
-                display: block;
-                font-family: var(--font-display);
-                font-size: clamp(2.5rem, 10vw, 4rem);
-                text-transform: uppercase;
-                color: var(--white);
-                padding: 16px 0;
-                letter-spacing: -0.02em;
-                line-height: 1;
-                transition: color 0.15s;
-            }
-
-            .nav__links--mobile a:hover,
-            .nav__links--mobile a:active {
-                color: var(--red);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .nav {
-                padding: 20px 48px;
-            }
-            .nav__links {
-                display: flex;
-            }
-            .js .nav__toggle {
-                display: none;
-            }
-            .noscript-nav {
-                display: none;
-            }
         }
 
         /* ═══════════════════ SECTION FRAMEWORK ═══════════════════ */
@@ -484,11 +276,11 @@
         /* ═══════════════════ HERO ═══════════════════ */
 
         .hero {
-            min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 0 24px 60px;
+            justify-content: center;
+            padding: 128px 24px 64px;
             border-bottom: 2px solid var(--grey);
             position: relative;
             overflow: hidden;
@@ -526,7 +318,7 @@
 
         .hero__name {
             font-family: var(--font-display);
-            font-size: clamp(4rem, 18vw, 14rem);
+            font-size: clamp(4rem, min(18vw, 20svh), 14rem);
             line-height: 0.85;
             text-transform: uppercase;
             letter-spacing: -0.03em;
@@ -553,8 +345,8 @@
         }
 
         .hero__description {
+            font-size: var(--site-prose-size);
             max-width: 540px;
-            font-size: 0.875rem;
             line-height: 1.7;
             color: rgba(240, 237, 230, 0.7);
             margin-bottom: 40px;
@@ -580,7 +372,7 @@
 
         @media (min-width: 768px) {
             .hero {
-                padding: 0 48px 80px;
+                padding: 128px 48px 80px;
             }
             .hero__marker {
                 right: 48px;
@@ -589,7 +381,7 @@
 
         @media (min-width: 1200px) {
             .hero {
-                padding: 0 80px 120px;
+                padding: 128px 80px 80px;
             }
         }
 
@@ -645,6 +437,7 @@
         }
 
         .about__text p {
+            font-size: var(--site-prose-size);
             margin-bottom: 20px;
             color: rgba(240, 237, 230, 0.75);
             line-height: 1.8;
@@ -698,7 +491,7 @@
             font-size: 0.7rem;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .about__grid {
                 grid-template-columns: 1.4fr 1fr;
                 gap: 80px;
@@ -769,6 +562,7 @@
         }
 
         .project__desc {
+            font-size: var(--site-prose-size);
             max-width: 540px;
             color: rgba(240, 237, 230, 0.65);
             line-height: 1.7;
@@ -776,6 +570,7 @@
         }
 
         .project__features {
+            font-size: var(--site-prose-size);
             padding-left: 20px;
             list-style: disc;
         }
@@ -875,8 +670,8 @@
         }
 
         .exp__details li {
+            font-size: var(--site-prose-size);
             color: rgba(240, 237, 230, 0.65);
-            font-size: 0.8rem;
             line-height: 1.7;
             padding: 2px 0;
         }
@@ -896,7 +691,7 @@
             height: 12px;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .exp {
                 grid-template-columns: 200px 1fr;
                 gap: 24px 48px;
@@ -937,7 +732,7 @@
         }
 
         .contact__text {
-            font-size: 1rem;
+            font-size: var(--site-prose-size);
             color: rgba(240, 237, 230, 0.75);
             line-height: 1.8;
             margin-bottom: 12px;
@@ -1079,15 +874,14 @@
         @media (max-width: 767px) {
             .hero {
                 min-height: 100svh;
-                padding: 0 16px 40px;
+                padding: 104px 16px 48px;
             }
 
             .hero__name {
-                font-size: clamp(3.2rem, 16vw, 6rem);
+                font-size: clamp(4rem, 18vw, 6rem);
             }
 
             .hero__description {
-                font-size: 0.8rem;
                 margin-bottom: 32px;
             }
 
@@ -1175,18 +969,12 @@
         @media (max-width: 480px) {
             html {
                 font-size: 15px;
+                scroll-padding-top: 72px;
             }
 
-            .nav {
-                padding: 12px 16px;
-            }
-
-            .nav__logo {
-                font-size: 1.25rem;
-            }
 
             .hero {
-                padding: 0 12px 32px;
+                padding: 96px 16px 40px;
             }
 
             .hero__greeting {
@@ -1194,33 +982,24 @@
             }
 
             .hero__name {
-                font-size: clamp(2.8rem, 14vw, 4rem);
+                font-size: clamp(4rem, 18vw, 6rem);
             }
 
             .hero__tagline {
-                font-size: clamp(1.4rem, 5vw, 2rem);
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
             }
 
             .hero__description {
-                font-size: 0.75rem;
                 line-height: 1.6;
             }
 
             .section__inner {
-                padding: 48px 12px;
+                padding: 48px 16px;
             }
 
             .section__title {
                 font-size: clamp(2.5rem, 10vw, 4rem);
                 margin-bottom: 24px;
-            }
-
-            .about__text p {
-                font-size: 0.8rem;
-            }
-
-            .project__desc {
-                font-size: 0.8rem;
             }
 
             .project__tech {
@@ -1236,16 +1015,12 @@
                 font-size: clamp(1.2rem, 4vw, 1.6rem);
             }
 
-            .exp__details li {
-                font-size: 0.75rem;
-            }
-
             .footer {
-                padding: 24px 12px;
+                padding: 24px 16px;
             }
 
             .grid-lines {
-                padding: 0 12px;
+                padding: 0 16px;
             }
 
             .grid-lines span:nth-child(n+4) {
@@ -1281,7 +1056,7 @@
         <span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
 
-    <header>
+    <header data-site-header>
         <nav class="nav" aria-label="Main navigation">
             <a href="#main" class="nav__logo">Adam Brewer</a>
             <ul class="nav__links">
@@ -1289,6 +1064,7 @@
                 <li><a href="#work">Work</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li data-blog-link hidden><a href="/blog/">Thoughts</a></li>
             </ul>
             <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-navigation">
                 <span></span>
@@ -1296,11 +1072,12 @@
             </button>
         </nav>
         <div class="nav__overlay" aria-hidden="true"></div>
-        <ul class="nav__links--mobile" id="mobile-navigation" aria-hidden="true">
+        <ul class="nav__links--mobile" id="mobile-navigation" aria-hidden="true" inert>
             <li><a href="#about">About</a></li>
             <li><a href="#work">Work</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li data-blog-link hidden><a href="/blog/">Thoughts</a></li>
         </ul>
     </header>
 
@@ -1311,6 +1088,7 @@
                 <li><a href="#work">Work</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li data-blog-link hidden><a href="/blog/">Thoughts</a></li>
             </ul>
         </nav>
     </noscript>
@@ -1864,52 +1642,6 @@
                     navObserver.observe(section);
                 });
             }
-
-            var toggle = document.querySelector('.nav__toggle');
-            var overlay = document.querySelector('.nav__overlay');
-            var mobileLinks = document.querySelector('.nav__links--mobile');
-
-            function openMenu() {
-                toggle.setAttribute('aria-expanded', 'true');
-                overlay.classList.add('is-open');
-                mobileLinks.classList.add('is-open');
-                mobileLinks.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeMenu() {
-                toggle.setAttribute('aria-expanded', 'false');
-                overlay.classList.remove('is-open');
-                mobileLinks.classList.remove('is-open');
-                mobileLinks.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-            }
-
-            toggle.addEventListener('click', function() {
-                var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-                isOpen ? closeMenu() : openMenu();
-            });
-
-            overlay.addEventListener('click', closeMenu);
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-                    closeMenu();
-                    toggle.focus();
-                }
-            });
-
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768 && toggle.getAttribute('aria-expanded') === 'true') {
-                    closeMenu();
-                }
-            });
-
-            mobileLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    closeMenu();
-                });
-            });
         })();
     </script>
 </body>

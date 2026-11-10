@@ -1,0 +1,45 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { getPosts } from '../../lib/posts';
+import { getPostPath } from '../../lib/urls';
+import { authorName } from '../../lib/site';
+
+export async function getStaticPaths() {
+    const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
+    return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+interface Props {
+    post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogLayout title={post.data.title} description={post.data.description} canonicalPath={getPostPath(post.id)} article={post.data}>
+    <article class="article">
+        <header class="article-header">
+            <a class="back-link" href="/blog/">Back to Thoughts</a>
+            <h1>{post.data.title}</h1>
+            <p class="article-description">{post.data.description}</p>
+            <div class="article-meta">
+                <span>{authorName}</span>
+                <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
+                </time>
+                {post.data.updatedDate && (
+                    <span>Updated <time datetime={post.data.updatedDate.toISOString()}>
+                        {post.data.updatedDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
+                    </time></span>
+                )}
+                {post.data.draft && <span class="draft-label">Draft preview</span>}
+            </div>
+        </header>
+        <div class="prose"><Content /></div>
+        <footer class="article-footer">
+            <a href="/blog/">Back to all articles</a>
+        </footer>
+    </article>
+</BlogLayout>
