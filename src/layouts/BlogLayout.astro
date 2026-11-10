@@ -3,7 +3,6 @@ import '../styles/blog.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import type { CollectionEntry } from 'astro:content';
 import { authorName } from '../lib/site';
-import { blogIsPublic } from '../lib/launch';
 
 interface Props {
     title: string;
@@ -16,7 +15,7 @@ const { title, description, canonicalPath, article } = Astro.props;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
 const pageTitle = `${title} | ${authorName}`;
 const image = article?.image;
-const canIndex = blogIsPublic && !import.meta.env.DEV && !article?.draft;
+const canIndex = !import.meta.env.DEV && !article?.draft;
 const structuredData = article && {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',

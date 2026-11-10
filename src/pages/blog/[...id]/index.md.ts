@@ -4,10 +4,9 @@ import { escapeMarkdown } from '../../../lib/markdown';
 import { getPosts } from '../../../lib/posts';
 import { authorName } from '../../../lib/site';
 import { getPostPath } from '../../../lib/urls';
-import { blogIsPublic } from '../../../lib/launch';
 
 export async function getStaticPaths() {
-    if (!blogIsPublic || import.meta.env.DEV) return [];
+    if (import.meta.env.DEV) return [];
     const posts = await getPosts();
     return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
 }

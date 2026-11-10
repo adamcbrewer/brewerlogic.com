@@ -1,5 +1,4 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { blogIsPublic } from '../blog.config.mjs';
+import { cp, mkdir, rm } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 const destination = new URL('.site-public/', root);
@@ -22,9 +21,3 @@ await Promise.all(paths.map((path) => cp(
     new URL(path, destination),
     { recursive: true },
 )));
-
-if (blogIsPublic) {
-    const homepage = new URL('index.html', destination);
-    const html = await readFile(homepage, 'utf8');
-    await writeFile(homepage, html.replaceAll('data-blog-link hidden', 'data-blog-link'));
-}

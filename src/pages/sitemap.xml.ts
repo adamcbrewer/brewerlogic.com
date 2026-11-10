@@ -3,10 +3,9 @@ import existingSitemap from '../data/sitemap.xml?raw';
 import { getPosts } from '../lib/posts';
 import { getPostPath } from '../lib/urls';
 import { escapeXML } from '../lib/xml';
-import { blogIsPublic } from '../lib/launch';
 
 export const GET: APIRoute = async ({ site }) => {
-    if (!blogIsPublic) {
+    if (import.meta.env.DEV) {
         return new Response(existingSitemap, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
     }
     const posts = await getPosts();
