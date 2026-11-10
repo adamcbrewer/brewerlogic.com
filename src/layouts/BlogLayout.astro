@@ -42,7 +42,7 @@ const structuredData = article && {
         <title>{pageTitle}</title>
         <link rel="canonical" href={canonicalURL} />
         <link rel="describedby" href="/llms.txt" />
-        {article && !article.draft && <link rel="alternate" type="text/markdown" href={`${canonicalPath}index.md`} />}
+        {canIndex && article && <link rel="alternate" type="text/markdown" href={`${canonicalPath}index.md`} />}
         <meta property="og:type" content={article ? 'article' : 'website'} />
         <meta property="og:site_name" content="Adam Brewer | Brewer Logic" />
         <meta property="og:title" content={pageTitle} />

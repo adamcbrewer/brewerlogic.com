@@ -35,7 +35,7 @@ See [the blog setup issue](https://github.com/adamcbrewer/brewerlogic.com/issues
 
 ### Preview and public builds
 
-`npm run build` defaults to preview mode: blog HTML has `noindex, nofollow`, homepage Thoughts links stay hidden, and the sitemap and agent index contain only the existing portfolio content.
+`npm run build` defaults to preview mode: blog HTML has `noindex, nofollow`, homepage Thoughts links stay hidden, and the sitemap and agent index contain only the existing portfolio content. Blog Markdown copies and their alternate links are omitted so they cannot be indexed separately.
 
 Build the approved public release with:
 
@@ -55,7 +55,7 @@ Article frontmatter requires `title`, `description` and `pubDate`. Add `updatedD
 
 For an article's social preview, optionally add `image` with an absolute public `url` and descriptive `alt` text. Use an image that represents the article. Articles without a supplied image use a text-only preview.
 
-Published articles also generate `/blog/article-name/index.md` from the same content, with title, description, author, dates and canonical HTML URL. HTML advertises the matching Markdown file. Drafts have no public Markdown companion, including during development.
+Public builds generate `/blog/article-name/index.md` for published articles from the same content, with title, description, author, dates and canonical HTML URL. HTML advertises the matching Markdown file. Drafts, preview builds and development servers have no blog Markdown companions.
 
 ### Build checks
 

@@ -148,7 +148,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         }
     }
 
-    for (const isPublic of [false, true]) {
+    for (const isPublic of [true, false]) {
         await t.test(`${isPublic ? 'public' : 'preview'}: indexing, navigation, metadata, discovery and draft exclusion`, async () => {
             await build(isPublic);
             const homepage = await readPage(dist, '/');
@@ -181,6 +181,12 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
                 assert.equal(article.mainEntityOfPage, origin + path);
                 assert.equal(article.description, meta(document, 'description'));
                 const alternates = links(document, 'alternate').filter((node) => attribute(node, 'type') === 'text/markdown');
+                if (!isPublic) {
+                    assert.equal(alternates.length, 0, 'Preview HTML must not advertise Markdown');
+                    assert.ok(!existsSync(join(dist, path, 'index.md')), 'Preview must not publish an indexable Markdown copy');
+                    assert.ok(text(document).includes(path === articlePath ? 'Published fixture body.' : 'Plain fixture body.'));
+                    continue;
+                }
                 assert.deepEqual(alternates.map((node) => attribute(node, 'href')), [path + 'index.md']);
                 const markdown = await readFile(join(dist, path, 'index.md'), 'utf8');
                 assert.ok(markdown.includes(`Canonical: ${origin}${path}`) && markdown.includes('Author: Adam Brewer'));
