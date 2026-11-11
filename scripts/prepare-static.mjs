@@ -3,9 +3,7 @@ import { cp, mkdir, rm } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const destination = new URL('.site-public/', root);
 const paths = [
-    'index.html',
     'index.md',
-    '404.html',
     'assets',
     'case-studies',
     'portfolio',

@@ -253,3 +253,9 @@
         transition: none;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .nav__links {
+        gap: 16px;
+    }
+}

@@ -6,7 +6,7 @@ Personal portfolio website for Adam Brewer, senior full-stack developer based in
 
 I enjoy building things with JavaScript, TypeScript, React and Node.js—whether that's enterprise fintech platforms, design systems, or side projects with my brother.
 
-My focus is on creating robust component systems, clean APIs, and interfaces that just work. I care about performance, accessibility, and writing code that other developers actually want to maintain.
+I build products across the stack, from interfaces and APIs to data processing, deployment and production support. I care about performance, accessibility and code that other developers can maintain.
 
 Previously served as an Aircraft Technician in the British Army before moving into web development in 2010.
 
@@ -20,14 +20,23 @@ Running, climbing, cycling, woodworking, reading, and anything with an 80s aesth
 
 ## Tech Stack
 
-This site is a simple static HTML/CSS/JS portfolio hosted on DigitalOcean App Platform:
+Astro generates this static portfolio for DigitalOcean App Platform:
 
-- Dark/light theme toggle
 - Intersection Observer for active nav states
 - CSS custom properties for theming
-- Astro builds Markdown blog articles under `/blog/`
-- Existing pages remain plain HTML/CSS/JS; deployment remains static
+- Astro manages the home page in `src/pages/index.astro` and Markdown blog articles under `/blog/`
+- The home page and blog share header and footer components in `src/components/`
+- Home, Thoughts, case studies, privacy and 404 use a shared Astro document layout; deployment remains static
+- The printable CV remains independent HTML/CSS and can be tailored separately from the website
 - Markdown companion files for agents
+
+## Templates and presentation
+
+`SiteLayout.astro` owns the HTML document, metadata, local fonts, navigation, skip link and footer. `ListingLayout.astro` gives Thoughts and Case Studies the same section heading and numbered-list presentation. `ArticleHeader.astro` and shared reading styles keep blog posts and individual case studies consistent. `BlogLayout.astro` adds article metadata and draft indexing rules. `CaseStudyLayout.astro` keeps case-study navigation and presentation together while each study owns its story and diagrams. Home-only analytics remain in the home page.
+
+`assets/css/palette.css` owns site tokens and font families. `src/styles/base.css` owns resets, focus, links and reduced-motion defaults. Page styles own composition and reading layouts. Case-study styles are scoped to their diagrams, facts and content blocks; headings, reading width and accents follow the shared article presentation.
+
+`SectionHeading.astro`, `NumberedEntry.astro`, `ExternalProjectLink.astro` and `TagList.astro` own repeated presentation and accessible markup. Website content stays in its pages. The printable CV, its Markdown version and the PDF are separate editorial outputs, with no shared portfolio-data dependency or automatic PDF generation.
 
 ## Blog development
 
@@ -59,7 +68,7 @@ Production builds generate `/blog/article-name/index.md` for published articles 
 
 Run `npm ci --ignore-scripts` to install the locked dependencies, then `npm test` to check default production builds and development previews. The tests use a temporary copy of the repository with disposable published/draft articles, followed by an all-draft collection to check the empty listing. Your articles, `dist/` and local dev server are left untouched.
 
-Checks cover indexing and all homepage navigation variants, article metadata and Markdown, sitemap and agent discovery, draft exclusion, existing static files, and internal file/anchor links. Visual and keyboard checks remain part of the manual release review.
+Checks cover indexing and all homepage navigation variants, article metadata and Markdown, sitemap and agent discovery, draft exclusion, existing static files, and internal file/anchor links. Checks also cover case-study navigation, shared metadata, privacy, 404 recovery, and unchanged CV and Markdown outputs. Visual and keyboard checks remain part of the manual release review.
 
 Mise, GitHub Actions and DigitalOcean use Node.js v26.12.1, pinned in `mise.toml`, the workflow and `package.json`. Run `mise install` to prepare the local version. The workflow has read-only repository permissions and doesn't deploy. DigitalOcean builds the approved `main` branch and reads its Node.js version from `package.json`.
 

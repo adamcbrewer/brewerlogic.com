@@ -1,0 +1,431 @@
+---
+import '../styles/home.css';
+import '../styles/sections.css';
+import SectionHeading from '../components/SectionHeading.astro';
+import NumberedEntry from '../components/NumberedEntry.astro';
+import ExternalProjectLink from '../components/ExternalProjectLink.astro';
+import TagList from '../components/TagList.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+    title="Adam Brewer - Senior Full-Stack Engineer | TypeScript, React, GraphQL, Rust, Go & AWS"
+    description="Senior full-stack engineer with 15+ years delivering fintech, SaaS and design-system products. TypeScript, React, Next.js, GraphQL, Rust, Go and AWS."
+    canonicalPath="/"
+    markdownPath="/index.md"
+    pageClass="home-page"
+    socialTitle="Adam Brewer - Senior Full-Stack Engineer"
+    socialDescription="Full-stack product development, APIs and AWS serverless. Creator of Mapbox TUI and Rust contributor to Strata. TypeScript, React, Next.js, GraphQL and Go."
+    image={{ url: 'https://brewerlogic.com/assets/img/logo-og.png' }}
+>
+    <Fragment slot="head">
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-TWKH9DPEMN"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TWKH9DPEMN');
+    </script>
+
+    <script is:inline type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Adam Brewer",
+        "description": "Senior full-stack engineer building web and mobile products, APIs and production SaaS, with AWS serverless experience and open-source Go and Rust work.",
+        "jobTitle": "Senior Full-Stack Engineer",
+        "url": "https://brewerlogic.com",
+        "sameAs": [
+            "https://github.com/adamcbrewer",
+            "https://linkedin.com/in/adamcbrewer"
+        ],
+        "knowsAbout": ["GraphQL", "Rust", "Go", "AWS", "TypeScript", "React", "Next.js", "Frontend Architecture", "JavaScript", "Node.js", "Design Systems", "Accessibility", "React Native", "Ionic", "MongoDB", "PostgreSQL", "Docker", "CI/CD", "AI harness development"],
+        "email": "adam@brewerlogic.com"
+    }
+    </script>
+
+    </Fragment>
+    <div slot="decoration" class="grid-lines" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+        <section class="hero">
+            <div class="hero__name-bg" aria-hidden="true">ADAM<br>BREWER</div>
+            <div class="hero__content">
+                <h1 class="hero__name reveal reveal--delay-1">Adam<br>Brewer</h1>
+                <h2 class="hero__tagline reveal reveal--delay-2">Senior engineer</h2>
+                <p class="hero__tagline-sub reveal reveal--delay-3">TypeScript / React / Next.js / GraphQL / Rust / Go / AWS</p>
+                <p class="hero__description reveal reveal--delay-3">
+                    15+ years delivering fintech, SaaS and design-system products.
+                    Co-founder of Paper Trails (<a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">papertrails.io</a>),
+                    creator of <a href="https://github.com/adamcbrewer/mapbox-tui" target="_blank" rel="noopener noreferrer">Mapbox TUI</a> and contributor to <a href="https://github.com/lgse/strata" target="_blank" rel="noopener noreferrer">Strata</a>.
+                </p>
+                <div class="hero__cta reveal reveal--delay-4">
+                    <a href="/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf" class="btn btn--primary" download>Download CV</a>
+                    <a href="#work" class="btn btn--secondary">See my work</a>
+                </div>
+            </div>
+            <span class="hero__marker" aria-hidden="true">Portfolio / 2026</span>
+        </section>
+
+        <div class="accent-strip" aria-hidden="true"></div>
+
+        <section id="about" class="section">
+            <span class="section__label" aria-hidden="true">About</span>
+            <div class="section__number-bg" aria-hidden="true">01</div>
+            <div class="section__inner">
+                <SectionHeading eyebrow="01 - About" class="reveal">What I Do</SectionHeading>
+                <div class="about__grid">
+                    <div class="about__text reveal reveal--delay-1">
+                        <p>
+                            I'm a full-stack engineer working across web and mobile apps, APIs, databases and deployment. I use
+                            TypeScript, React, Next.js and Node.js, alongside GraphQL, Rust, Go and AWS. My work covers
+                            building products, testing them and keeping them running in production.
+                        </p>
+                        <p>
+                            At Quilter, I was part of the engineering team that took the web and mobile apps from proof of concept to
+                            production within nine months. I worked closely with product, design, backend and QA teams, and helped
+                            maintain the apps across multiple deployments in the following years.
+                        </p>
+                        <p>
+                            I co-founded <a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">Paper Trails</a> and
+                            built and maintained the entire stack end to end. That includes turning route data into prints, taking
+                            payments, deployment and production support.
+                        </p>
+                        <p>
+                            I built{' '}<a href="https://github.com/adamcbrewer/mapbox-tui" target="_blank" rel="noopener noreferrer">Mapbox TUI</a>, a Go app for exploring maps and planning journeys in the terminal. It can play back activities, read files
+                            offline and connect to AI agents through a local MCP server. I also contribute to{' '}<a href="https://github.com/lgse/strata" target="_blank" rel="noopener noreferrer">Strata</a>, a Rust/GTK4
+                            file manager for Linux. My work there includes sandboxed file previews, keyboard controls for tabs and fixes
+                            for handling multiple windows.
+                        </p>
+                        <p>
+                            I used OpenCode and Claude Code to help rewrite Paper Trails from Laravel to Next.js, with written
+                            plans and project instructions to guide the work. I'm also building an AI evaluation harness
+                            for Mapbox TUI to improve how I develop and check open-source contributions.
+                        </p>
+                        <p>
+                            At Meshii, I led the Polygon and Alchemy integration through a private pilot.
+                        </p>
+                        <p>
+                            Before software, I was an aircraft technician in the British Army, maintaining military helicopters.
+                        </p>
+                    </div>
+                    <div class="skills reveal reveal--delay-2">
+                        <p class="skills__heading">Core expertise</p>
+                        <ul class="skills__list">
+                            <li>GraphQL / REST APIs</li>
+                            <li>Rust / GTK4</li>
+                            <li>Go</li>
+                            <li>AWS / Serverless</li>
+                            <li>TypeScript / JavaScript</li>
+                            <li>React / Next.js</li>
+                            <li>Node.js / Server Actions</li>
+                            <li>Frontend Architecture</li>
+                            <li>Design Systems / Storybook</li>
+                            <li>WCAG Accessibility</li>
+                            <li>MongoDB / PostgreSQL</li>
+                            <li>Jest / Playwright</li>
+                            <li>Docker / CI/CD</li>
+                            <li>AI harness development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="cross-grid" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
+                    <line x1="0" y1="0" x2="100" y2="100"/><line x1="100" y1="0" x2="0" y2="100"/>
+                    <line x1="50" y1="0" x2="50" y2="100"/><line x1="0" y1="50" x2="100" y2="50"/>
+                </svg>
+            </div>
+        </section>
+
+        <section id="work" class="section">
+            <span class="section__label" aria-hidden="true">Projects</span>
+            <div class="section__number-bg" aria-hidden="true">02</div>
+            <div class="section__inner">
+                <SectionHeading eyebrow="02 - Work" class="reveal">Featured<br>Projects</SectionHeading>
+                <div class="numbered-list">
+                    <NumberedEntry number="01" label="Enterprise Fintech" class="reveal" title="Quilter">
+                    <p>
+                        Portfolio-planning platform for financial advisers. I helped take the web and mobile apps from proof
+                        of concept to production within nine months, then supported later releases. My work included
+                        application architecture, API integration, shared components, state management and automated
+                        testing with Next.js and Ionic React/Capacitor. Client work is confidential.
+                    </p>
+                    <TagList tags={['React', 'Next.js', 'Ionic React', 'Capacitor', 'TypeScript', 'TanStack Query', 'Playwright', 'Azure']} />
+                    </NumberedEntry>
+
+                    <NumberedEntry number="02" label="Co-founded SaaS" class="reveal">
+                    <ExternalProjectLink slot="title" href="https://papertrails.io">Paper Trails</ExternalProjectLink>
+                    <p>
+                        A production platform that has fulfilled thousands of personalised print orders worldwide.{' '}<strong>My contribution:</strong> As solo technical co-founder, I migrated the Laravel application to
+                        Next.js and built the geospatial pipeline from Strava/GPX/FIT ingestion and Mapbox composition through
+                        print rendering, Stripe commerce and Prodigi fulfilment.
+                    </p>
+                    <TagList tags={['React', 'Next.js', 'TypeScript', 'MongoDB', 'Mapbox', 'Stripe', 'Playwright', 'DigitalOcean']} />
+                    </NumberedEntry>
+
+                    <NumberedEntry number="03" label="Open Source / Go" class="reveal" id="mapbox-tui">
+                    <ExternalProjectLink slot="title" href="https://github.com/adamcbrewer/mapbox-tui">Mapbox TUI</ExternalProjectLink>
+                    <p>I created this Go terminal map explorer and journey planner.</p>
+                    <ul class="entry-features">
+                        <li><strong>Agent remote control:</strong> Built CLI/MCP control of a running map: move the camera, edit journeys, manage imports and playback, and save or reopen workspaces.</li>
+                        <li><strong>Journey planning:</strong> Mapbox walking, cycling and driving routes, editable waypoints and shareable commands to reopen plans.</li>
+                        <li><strong>Activity exploration:</strong> Offline GPX, FIT, TCX and KML inspection, timed playback and elevation-profile comparisons across multiple files.</li>
+                    </ul>
+                    <TagList tags={['Go', 'Mapbox', 'Terminal UI', 'Geospatial Data', 'MCP']} />
+                    </NumberedEntry>
+
+                    <NumberedEntry number="04" label="Open Source / Rust" class="reveal">
+                    <ExternalProjectLink slot="title" href="https://github.com/lgse/strata">Strata</ExternalProjectLink>
+                    <p>My merged contributions to this Rust/GTK4 Linux file manager:</p>
+                    <ul class="entry-features">
+                        <li><strong>Mesh previews:</strong> Added four on-demand camera views, triangle-count badges and cached renders for STL and single-part 3MF models. (<a href="https://github.com/lgse/strata/pull/1644" target="_blank" rel="noopener noreferrer">#1644</a>)</li>
+                        <li><strong>Sandboxed previews:</strong> Added 3D-model rendering and ebook covers with bounded parsing and regression tests. (<a href="https://github.com/lgse/strata/pull/1276" target="_blank" rel="noopener noreferrer">#1276</a>, <a href="https://github.com/lgse/strata/pull/1325" target="_blank" rel="noopener noreferrer">#1325</a>)</li>
+                        <li><strong>Navigation and state:</strong> Shipped keyboard tab controls and fixed multi-window bookmark cleanup. (<a href="https://github.com/lgse/strata/pull/1506" target="_blank" rel="noopener noreferrer">#1506</a>, <a href="https://github.com/lgse/strata/pull/1373" target="_blank" rel="noopener noreferrer">#1373</a>)</li>
+                    </ul>
+                    <TagList tags={['Rust', 'GTK4', 'Linux', 'Sandboxed Previews', 'Regression Testing']} />
+                    </NumberedEntry>
+
+                    <NumberedEntry number="05" label="Design System" class="reveal">
+                    <ExternalProjectLink slot="title" href="https://design-system.economist.com/">The Economist</ExternalProjectLink>
+                    <p>
+                        React design system used across The Economist's digital products. <strong>My contribution:</strong>{' '}I extended the tested component library and built its public Gatsby/MDX style-guide platform, including
+                        generated component documentation, accessible patterns and visual-regression testing.
+                    </p>
+                    <TagList tags={['React', 'Gatsby', 'MDX', 'Storybook', 'Jest', 'Accessibility']} />
+                    </NumberedEntry>
+
+                    <NumberedEntry number="06" label="Mobile and Digital Rewards" class="reveal" title="Meshii WiFi">
+                    <p>
+                        Private-pilot application testing rewards for decentralised WiFi participation on Polygon's Mumbai test network.{' '}<strong>My contribution:</strong> I led three developers, designed the React Native/Expo and AWS
+                        serverless architecture, and integrated Alchemy test transactions with signed notifications that updated their status.
+                    </p>
+                    <p><a href="/case-studies/meshii/">Read the architecture case study</a></p>
+                    <TagList tags={['React Native', 'Expo', 'TypeScript', 'AWS Lambda', 'PostgreSQL', 'Polygon', 'Alchemy']} />
+                    </NumberedEntry>
+
+                    <NumberedEntry number="07" label="Selected Enterprise Work" class="reveal" title="Apple / Google">
+                    <p>
+                        <strong>My contribution:</strong> I modernised and supported a business-critical internal application
+                        for Apple, with further details confidential. At Toaster, I built Google Play Policy guidance with
+                        Polymer/Web Components and an interactive, touch-enabled Search Indonesia campaign.
+                    </p>
+                    <TagList tags={['React', 'TypeScript', 'Polymer', 'Web Components', 'Material Design']} />
+                    </NumberedEntry>
+
+                    <NumberedEntry number="08" label="Engineering Practice" class="reveal" title="AI harness development">
+                        <p>
+                            I used OpenCode and Claude Code to help rewrite papertrails.io from Laravel to Next.js.
+                            The work covered the application, geospatial print pipeline, payments and deployment.
+                            I wrote project instructions and implementation plans, then reviewed the generated code
+                            and tests against the behaviour I needed.
+                        </p>
+                        <p>
+                            I'm also building an AI evaluation harness for Mapbox TUI to improve the workflow for
+                            developing and checking open-source contributions. That builds on the agent instructions,
+                            project context and review process I used for Paper Trails.
+                        </p>
+                        <p><a href="/case-studies/ai-engineering/">Read the Paper Trails checkout case study</a></p>
+                        <TagList tags={['OpenCode', 'Claude Code', 'AI Evaluation', 'MCP', 'Go', 'Playwright']} />
+                    </NumberedEntry>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <span class="section__label" aria-hidden="true">Experience</span>
+            <div class="section__number-bg" aria-hidden="true">03</div>
+            <div class="section__inner">
+                <SectionHeading eyebrow="03 - Experience" class="reveal">Where I've<br>Worked</SectionHeading>
+                <div class="experience-list">
+                    <div class="exp reveal">
+                        <div class="exp__marker"></div>
+                        <div class="exp__header">
+                            <h3 class="exp__role">Senior Full Stack Developer</h3>
+                            <span class="exp__company">@ Quilter</span>
+                        </div>
+                        <p class="exp__date">Jan 2024 - Jul 2026</p>
+                        <ul class="exp__details">
+                            <li>Contract through Brewer Logic, building and maintaining a financial-adviser platform with product, design, backend and QA teams</li>
+                            <li>Helped take Next.js web and Ionic React/Capacitor apps from proof of concept to production within nine months</li>
+                            <li>React, Next.js, TypeScript, TanStack Query, Zustand, Playwright, pnpm, Azure DevOps</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp reveal">
+                        <div class="exp__marker"></div>
+                        <div class="exp__header">
+                            <h3 class="exp__role">Technical Director &amp; Co-Founder</h3>
+                            <span class="exp__company">@ Paper Trails</span>
+                        </div>
+                        <p class="exp__date">Mar 2019 - Present</p>
+                        <ul class="exp__details">
+                            <li>Solo technical owner of a geospatial print, commerce and fulfilment platform</li>
+                            <li>Migrated the Laravel application to Next.js App Router and MongoDB/Mongoose</li>
+                            <li>React, Next.js, TypeScript, Mapbox, Stripe, Playwright, GitHub Actions, DigitalOcean</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp reveal">
+                        <div class="exp__marker"></div>
+                        <div class="exp__header">
+                            <h3 class="exp__role">Software Architect</h3>
+                            <span class="exp__company">@ Meshii WiFi</span>
+                        </div>
+                        <p class="exp__date">Feb 2023 - Oct 2023</p>
+                        <ul class="exp__details">
+                            <li>Led three developers from architecture through a private pilot</li>
+                            <li>Designed React Native/Expo, AWS serverless and PostgreSQL/Prisma architecture</li>
+                            <li>Integrated Polygon/Alchemy wallet, reward and signed webhook flows</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp reveal">
+                        <div class="exp__marker"></div>
+                        <div class="exp__header">
+                            <h3 class="exp__role">Senior Full Stack Developer</h3>
+                            <span class="exp__company">@ Brewer Logic</span>
+                        </div>
+                        <p class="exp__date">Sep 2019 - Nov 2022</p>
+                        <ul class="exp__details">
+                            <li>Novata: React/TypeScript carbon-emissions features, reusable components and WCAG 2.1 AA</li>
+                            <li>Etch/Quilter: retirement-choice and adviser investment-profiling products</li>
+                            <li>The Economist: React design system and Gatsby/MDX public style-guide platform</li>
+                            <li>Apple: business-critical internal web application; further details are confidential</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp reveal">
+                        <div class="exp__marker"></div>
+                        <div class="exp__header">
+                            <h3 class="exp__role">Senior Web Developer</h3>
+                            <span class="exp__company">@ Applied Works</span>
+                        </div>
+                        <p class="exp__date">Aug 2017 - Jun 2018</p>
+                        <ul class="exp__details">
+                            <li>Worked within an international team and mentored developers</li>
+                            <li>Built application state patterns with Redux and reusable Storybook components</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp reveal">
+                        <div class="exp__marker"></div>
+                        <div class="exp__header">
+                            <h3 class="exp__role">Frontend and Web Developer</h3>
+                            <span class="exp__company">@ Selected earlier roles</span>
+                        </div>
+                        <p class="exp__date">2010 - 2017</p>
+                        <ul class="exp__details">
+                            <li>Delivered product and campaign work for Marriott, Google, Burberry and other consumer brands</li>
+                            <li>Built responsive applications, e-commerce experiences, Web Components and interactive prototypes</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp exp--army reveal">
+                        <div class="exp__marker"></div>
+                        <div class="exp__header">
+                            <h3 class="exp__role">Aircraft Technician (Corporal)</h3>
+                            <span class="exp__company">@ British Army</span>
+                        </div>
+                        <p class="exp__date">Feb 2005 - Nov 2009</p>
+                        <ul class="exp__details">
+                            <li>Reached Corporal, supervising small teams maintaining military helicopters in the UK, Germany and Iraq</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <span class="section__label" aria-hidden="true">Contact</span>
+            <div class="section__number-bg" aria-hidden="true">04</div>
+            <div class="section__inner">
+                <SectionHeading eyebrow="04 - Contact" class="reveal">Get In<br>Touch</SectionHeading>
+                <div class="contact__inner">
+                    <p class="contact__text reveal reveal--delay-1">
+                        Open to remote-first permanent roles and contracts, with office visits as required. Eligible to work in the UK
+                        without employer sponsorship. For availability or a project discussion, get in touch directly.
+                    </p>
+                    <p class="contact__email reveal reveal--delay-2">
+                        <a href="mailto:adam@brewerlogic.com">adam@brewerlogic.com</a>
+                    </p>
+                    <div class="reveal reveal--delay-3">
+                        <a href="mailto:adam@brewerlogic.com" class="btn btn--primary btn--large">Say Hello</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <Fragment slot="scripts">
+    <script is:inline>
+        (function() {
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var revealElements = document.querySelectorAll('.reveal');
+
+            if ('IntersectionObserver' in window && !reduceMotion) {
+                var revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('reveal--visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -40px 0px'
+                });
+
+                revealElements.forEach(function(el) {
+                    revealObserver.observe(el);
+                });
+            } else {
+                revealElements.forEach(function(el) {
+                    el.classList.add('reveal--visible');
+                });
+            }
+
+            var sections = document.querySelectorAll('section[id]');
+            var heroSection = document.querySelector('.hero');
+            var navLinks = document.querySelectorAll('.nav__links a');
+            var mobileNavLinks = document.querySelectorAll('.nav__links--mobile a');
+
+            function setActiveNav(id) {
+                navLinks.forEach(function(link) {
+                    link.classList.remove('is-active');
+                    if (id && link.getAttribute('href') === '#' + id) {
+                        link.classList.add('is-active');
+                    }
+                });
+                mobileNavLinks.forEach(function(link) {
+                    link.classList.remove('is-active');
+                    if (id && link.getAttribute('href') === '#' + id) {
+                        link.classList.add('is-active');
+                    }
+                });
+            }
+
+            if ('IntersectionObserver' in window) {
+                var navObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            if (entry.target.classList.contains('hero')) {
+                                setActiveNav(null);
+                            } else {
+                                setActiveNav(entry.target.id);
+                            }
+                        }
+                    });
+                }, {
+                    rootMargin: '-50% 0px -50% 0px'
+                });
+
+                if (heroSection) navObserver.observe(heroSection);
+                sections.forEach(function(section) {
+                    navObserver.observe(section);
+                });
+            }
+        })();
+    </script>
+    </Fragment>
+</SiteLayout>

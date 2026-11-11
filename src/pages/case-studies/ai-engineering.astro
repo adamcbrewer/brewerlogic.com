@@ -1,0 +1,345 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import { aiEngineeringCaseStudy } from '../../data/case-studies';
+import '../../styles/case-ai.css';
+
+const sectionLinks = [
+    { href: '#incident', label: 'Incident' },
+    { href: '#workflow', label: 'Workflow' },
+    { href: '#outcome', label: 'Outcome' },
+];
+---
+
+<CaseStudyLayout
+    study={aiEngineeringCaseStudy}
+    sectionLinks={sectionLinks}
+>
+    <Fragment slot="intro">
+        I used OpenCode and Claude Code while rewriting Paper Trails from Laravel to Next.js. A customer
+        completed a free checkout, but the application didn't create an order. I traced the cause, wrote the
+        plan and used the agents to draft the code and tests. I reviewed and simplified the result before
+        deployment.
+    </Fragment>
+    <dl slot="facts" class="facts">
+        <div class="fact">
+            <dt>
+                Role
+            </dt>
+            <dd>
+                Technical Director and Co-Founder
+            </dd>
+        </div>
+        <div class="fact">
+            <dt>
+                System
+            </dt>
+            <dd>
+                Paper Trails checkout: Next.js / Stripe / MongoDB
+            </dd>
+        </div>
+        <div class="fact">
+            <dt>
+                AI tools
+            </dt>
+            <dd>
+                Claude Code and OpenCode
+            </dd>
+        </div>
+        <div class="fact">
+            <dt>
+                Result
+            </dt>
+            <dd>
+                No repeat failures observed from January through July 2026
+            </dd>
+        </div>
+    </dl>
+    <section class="section" id="incident">
+        <div class="section__inner">
+            <p class="eyebrow">
+                01 / Diagnosis
+            </p>
+            <h2>
+                The incident
+            </h2>
+            <div class="incident">
+                <article class="incident__item">
+                    <span class="incident__label">
+                        The report
+                    </span>
+                    <p>
+                        A customer completed checkout with a 100% discount, but Paper Trails never created
+                        the order.
+                    </p>
+                </article>
+                <article class="incident__item">
+                    <span class="incident__label">
+                        The cause
+                    </span>
+                    <p>
+                        Stripe doesn't create a PaymentIntent when the checkout total is zero. The
+                        application had stored the order details only on that payment record.
+                    </p>
+                </article>
+                <article class="incident__item">
+                    <span class="incident__label">
+                        The fix
+                    </span>
+                    <p>
+                        I moved the order details to the Stripe Checkout Session, which exists for both paid
+                        and free orders.
+                    </p>
+                </article>
+            </div>
+            <p class="caption">
+                I checked the Paper Trails logs and Stripe records to confirm the cause. Then I wrote a plan
+                covering the change, the files involved and the checks I needed before deployment.
+            </p>
+        </div>
+    </section>
+    <section class="section" id="workflow">
+        <div class="section__inner">
+            <p class="eyebrow">
+                02 / Implementation
+            </p>
+            <h2>
+                From diagnosis to release
+            </h2>
+            <div class="pipeline" role="img" aria-label="Checkout fix from the customer report through my diagnosis and plan, AI drafting, my review, testing, release and monitoring">
+                <div class="step">
+                    <span class="step__number">
+                        01
+                    </span>
+                    <strong>
+                        Customer report
+                    </strong>
+                </div>
+                <span class="arrow" aria-hidden="true">
+                    -&gt;
+                </span>
+                <div class="step">
+                    <span class="step__number">
+                        02
+                    </span>
+                    <strong>
+                        I diagnose the problem
+                    </strong>
+                </div>
+                <span class="arrow" aria-hidden="true">
+                    -&gt;
+                </span>
+                <div class="step">
+                    <span class="step__number">
+                        03
+                    </span>
+                    <strong>
+                        I write the plan
+                    </strong>
+                </div>
+                <span class="arrow" aria-hidden="true">
+                    -&gt;
+                </span>
+                <div class="step">
+                    <span class="step__number">
+                        04
+                    </span>
+                    <strong>
+                        AI drafts code and tests
+                    </strong>
+                </div>
+                <span class="arrow" aria-hidden="true">
+                    -&gt;
+                </span>
+                <div class="step">
+                    <span class="step__number">
+                        05
+                    </span>
+                    <strong>
+                        I review and simplify
+                    </strong>
+                </div>
+                <span class="arrow" aria-hidden="true">
+                    -&gt;
+                </span>
+                <div class="step">
+                    <span class="step__number">
+                        06
+                    </span>
+                    <strong>
+                        Test, release and monitor
+                    </strong>
+                </div>
+            </div>
+            <p class="caption">
+                The agents worked from that plan. I reviewed their implementation and test coverage,
+                simplified the code, then checked the fix before releasing it and monitoring the result.
+            </p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section__inner">
+            <p class="eyebrow">
+                03 / Review
+            </p>
+            <h2>
+                Implementation and review
+            </h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>
+                        What I decided
+                    </h3>
+                    <ul>
+                        <li>
+                            Confirm how Stripe handles a checkout with a zero total.
+                        </li>
+                        <li>
+                            Use the Checkout Session as the source of order details.
+                        </li>
+                        <li>
+                            Require a unique Stripe checkout session ID in the database to prevent duplicate
+                            orders.
+                        </li>
+                        <li>
+                            Choose the automated and manual checks needed before deployment.
+                        </li>
+                        <li>
+                            Add a browser test as follow-up protection.
+                        </li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>
+                        What the agents drafted
+                    </h3>
+                    <ul>
+                        <li>
+                            Production code based on my written plan.
+                        </li>
+                        <li>
+                            Focused automated tests for payments and orders.
+                        </li>
+                        <li>
+                            Code and security reviews against the agreed design.
+                        </li>
+                    </ul>
+                </article>
+            </div>
+            <div class="decision">
+                <p>
+                    During review I removed two browser-side checks that added complexity. The
+                    database's unique Stripe session ID was the protection against duplicate orders. I
+                    kept the browser code straightforward and left the larger checkout redesign for a
+                    separate follow-up.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="outcome">
+        <div class="section__inner">
+            <p class="eyebrow">
+                04 / Verification
+            </p>
+            <h2>
+                Checks and outcome
+            </h2>
+            <div class="result">
+                <div class="result__primary">
+                    <strong>
+                        No repeat failures observed
+                    </strong>
+                    <p>
+                        I saw no repeat failures between the January 2026 deployment and July 2026.
+                    </p>
+                </div>
+                <div class="result__supporting">
+                    <h3>
+                        Checks before deployment
+                    </h3>
+                    <ul>
+                        <li>
+                            Unit tests passed.
+                        </li>
+                        <li>
+                            Code quality, formatting and production build checks passed.
+                        </li>
+                        <li>
+                            I completed a free checkout manually in Stripe's test environment.
+                        </li>
+                        <li>
+                            The order was saved and matched to its Stripe checkout session.
+                        </li>
+                        <li>
+                            The affected customer confirmed successful completion.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cards cards--spaced">
+                <article class="card">
+                    <h3>
+                        The later browser test
+                    </h3>
+                    <p>
+                        I added the Playwright browser test after the fix went live, alongside a later
+                        checkout redesign. That follow-up moved thank-you page processing from the browser
+                        to the server. The browser test wasn't one of the checks I ran before the
+                        initial deployment.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>
+                        What I took from it
+                    </h3>
+                    <p>
+                        The written plan gave the agents a clear change to work on and gave me something
+                        concrete to review against. I still needed to check the implementation and remove
+                        unnecessary code. I haven't measured a speed or defect-rate improvement for
+                        this incident.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section__inner">
+            <p class="eyebrow">
+                05 / Project records
+            </p>
+            <h2>
+                What I checked
+            </h2>
+            <ul class="evidence-list">
+                <li>
+                    My incident plan, including the cause, chosen solution, files to change and completed
+                    checks.
+                </li>
+                <li>
+                    Project history covering the initial fix, my simplification and the later redesign.
+                </li>
+                <li>
+                    Automated tests for payments, orders and Stripe settings.
+                </li>
+                <li>
+                    The later Playwright test for a digital checkout with a zero total.
+                </li>
+                <li>
+                    Automated checks for formatting, code quality, unit tests, production builds and browser
+                    tests.
+                </li>
+            </ul>
+            <p class="caption">
+                Paper Trails is named with permission. I've left out customer data, order details,
+                logs, credentials, environment settings and private repository links.
+            </p>
+            <div class="cta">
+                <a class="button button--primary" href="/">
+                    Back to portfolio
+                </a>
+                <a class="button" href="/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf" download>
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </section>
+</CaseStudyLayout>

@@ -6,6 +6,10 @@
     --site-muted: #b8bdc4;
     --site-accent: #00e5ff;
     --site-prose-size: 18px;
+    --site-subtle: #999;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: var(--font-mono);
     color-scheme: dark;
 }
 
@@ -13,4 +17,10 @@
     :root {
         --site-prose-size: 17px;
     }
+}
+
+.case-study {
+    --case-accent: var(--site-accent);
+    --case-text: var(--site-text);
+    --case-muted: #aaa;
 }

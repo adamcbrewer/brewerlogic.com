@@ -1,0 +1,38 @@
+.section__inner {
+    position: relative;
+    z-index: 1;
+    padding: 80px 24px;
+}
+
+@media (min-width: 768px) {
+    .section__inner {
+        padding: 120px 48px;
+        margin-left: 48px;
+        border-left: 2px solid var(--site-border);
+    }
+}
+
+@media (min-width: 1200px) {
+    .section__inner {
+        padding: 160px 80px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .section__inner {
+        padding: 60px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section__inner {
+        padding: 48px 16px;
+    }
+}
+
+.numbered-list {
+    display: grid;
+    gap: 0;
+    list-style: none;
+}

@@ -1,0 +1,139 @@
+.article-page body::before,
+.listing-page body::before {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1px), rgb(240 237 230 / 3%) calc(25% - 1px), rgb(240 237 230 / 3%) 25%);
+    pointer-events: none;
+    content: '';
+}
+
+.article-page main {
+    padding-top: var(--site-header-height);
+    min-height: calc(100svh - 12rem);
+    margin-inline: clamp(1.25rem, 4vw, 3rem);
+    border-left: 1px solid var(--site-border);
+}
+
+.listing-page main {
+    padding-top: var(--site-header-height);
+    min-height: calc(100svh - 12rem);
+}
+
+.article {
+    max-width: 60rem;
+    margin-inline: auto;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4rem) 5rem;
+}
+
+.prose {
+    padding-top: 1.5rem;
+    font: var(--site-prose-size)/1.8 var(--font-body);
+    overflow-wrap: anywhere;
+}
+
+.prose > * {
+    margin-block: 1.5rem;
+}
+
+.prose :is(h2, h3, h4, h5, h6) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.15;
+    scroll-margin-top: 6rem;
+}
+
+.prose h2 { font-size: 2.5rem; }
+
+.prose h3 { font-size: 2rem; }
+
+.prose h4 { font-size: 1.6rem; }
+
+.prose h5 { font-size: 1.4rem; }
+
+.prose h6 { font-size: 1.2rem; }
+
+.prose :is(ul, ol) {
+    padding-left: 1.5em;
+}
+
+.prose li + li {
+    margin-top: 0.5rem;
+}
+
+.prose blockquote {
+    margin-inline: 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--site-accent);
+    color: var(--site-muted);
+    font-style: italic;
+}
+
+.prose code {
+    font: 0.75em/1.7 var(--font-mono);
+}
+
+.prose :not(pre) > code {
+    padding: 0.15em 0.35em;
+    background: var(--site-surface);
+}
+
+.prose pre {
+    max-width: 100%;
+    padding: 1.5rem;
+    overflow-x: auto;
+    border: 1px solid var(--site-border);
+    font-size: 1rem;
+    overflow-wrap: normal;
+}
+
+.prose :is(img, video) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.prose table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.prose :is(th, td) {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--site-border);
+    text-align: left;
+}
+
+.prose hr {
+    margin-block: 3rem;
+    border: 0;
+    border-top: 1px solid var(--site-border);
+}
+
+.article-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--site-border);
+    font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+    .article-page main {
+        margin-left: 0;
+        border-left: 0;
+    }
+
+    .article {
+        padding-inline: 1.25rem 0;
+    }
+}
+
+.prose a,
+.article-footer a {
+    text-decoration: underline;
+}

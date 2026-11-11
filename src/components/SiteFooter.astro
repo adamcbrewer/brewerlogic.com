@@ -1,0 +1,133 @@
+<footer class="footer">
+    <div class="footer__inner">
+        <ul class="social">
+            <li>
+                <a href="https://github.com/adamcbrewer" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/adamcbrewer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:adam@brewerlogic.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </li>
+        </ul>
+        <p class="footer__links">
+            <a href="https://papertrails.io" target="_blank" rel="noopener noreferrer">Paper Trails</a>
+            <span class="footer__divider">&middot;</span>
+            <a href="/portfolio">HTML CV</a>
+            <span class="footer__divider">&middot;</span>
+            <a href="/privacy">Privacy</a>
+            <span class="footer__divider">&middot;</span>
+            <a href="#main">Back to top</a>
+        </p>
+        <p class="footer__credit">Designed &amp; Built by Adam Brewer</p>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        padding: 40px 24px;
+        border-top: 2px solid var(--site-border);
+        font-family: var(--font-mono);
+        line-height: 1.6;
+    }
+
+    .footer__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .social {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        gap: 24px;
+    }
+
+    .social a {
+        color: #999;
+        transition: color 0.15s;
+        display: flex;
+    }
+
+    .social a:hover {
+        color: var(--site-accent);
+    }
+
+    .footer__links {
+        margin: 0;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    .footer__links a {
+        color: #999;
+    }
+
+    .footer__links a:hover {
+        color: var(--site-accent);
+    }
+
+    .footer__divider {
+        margin: 0 8px;
+        color: var(--site-border);
+    }
+
+    .footer__credit {
+        margin: 0;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--site-border);
+    }
+
+    @media (min-width: 768px) {
+        .footer {
+            padding: 40px 48px;
+        }
+
+        .footer__inner {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .footer a {
+        text-decoration: none;
+    }
+
+    @media (max-width: 767px) {
+        .footer {
+            padding: 32px 16px;
+        }
+
+        .footer__inner {
+            gap: 16px;
+        }
+
+        .social a {
+            padding: 4px;
+        }
+
+        .social a svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer {
+            padding: 24px 16px;
+        }
+    }
+</style>

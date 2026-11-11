@@ -1,0 +1,49 @@
+---
+interface Props {
+    level?: 'h1' | 'h2';
+    eyebrow?: string;
+    class?: string;
+}
+
+const { level: Heading = 'h2', eyebrow, class: className } = Astro.props;
+---
+
+<Heading class:list={['section-heading', className]}>
+    {eyebrow && <span>{eyebrow}</span>}
+    <slot />
+</Heading>
+
+<style>
+    .section-heading {
+        margin: 0 0 48px;
+        color: var(--site-text);
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 12vw, 8rem);
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+    }
+
+    .section-heading span {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--site-accent);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: 767px) {
+        .section-heading {
+            margin-bottom: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section-heading {
+            margin-bottom: 24px;
+            font-size: clamp(2.5rem, 10vw, 4rem);
+        }
+    }
+</style>

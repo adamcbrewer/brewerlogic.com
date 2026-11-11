@@ -1,0 +1,121 @@
+---
+interface Props {
+    as?: 'article' | 'li';
+    number: string | number;
+    label?: string;
+    title?: string;
+    href?: string;
+    headingLevel?: 'h2' | 'h3';
+    class?: string;
+    id?: string;
+}
+
+const {
+    as: Entry = 'article', number, label, title, href,
+    headingLevel: Heading = 'h3', class: className, id,
+} = Astro.props;
+---
+
+<Entry class:list={['numbered-entry', className]} id={id}>
+    <div class="numbered-entry__number" aria-hidden="true">{String(number).padStart(2, '0')}</div>
+    <div class="numbered-entry__body">
+        <div class="numbered-entry__label"><slot name="label">{label}</slot></div>
+        <Heading class="numbered-entry__title">
+            <slot name="title">{href ? <a href={href}>{title}</a> : title}</slot>
+        </Heading>
+        <slot />
+    </div>
+</Entry>
+
+<style>
+    .numbered-entry {
+        position: relative;
+        display: grid;
+        gap: 24px;
+        padding: 40px 0;
+        border-top: 2px solid var(--site-border);
+    }
+
+    .numbered-entry__number {
+        position: absolute;
+        top: 24px;
+        right: 0;
+        color: rgba(240, 237, 230, 0.06);
+        font-family: var(--font-display);
+        font-size: clamp(4rem, 10vw, 7rem);
+        line-height: 1;
+    }
+
+    .numbered-entry__body {
+        min-width: 0;
+    }
+
+    .numbered-entry__label {
+        margin: 0 0 4px;
+        color: var(--site-accent);
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        line-height: 1.6;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+
+    .numbered-entry__title {
+        margin: 0 0 12px;
+        color: var(--site-text);
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 6vw, 4rem);
+        line-height: 0.95;
+        text-transform: uppercase;
+        overflow-wrap: anywhere;
+    }
+
+    .numbered-entry__title :global(a) {
+        color: var(--site-text);
+    }
+
+    .numbered-entry__title :global(a:hover) {
+        color: var(--site-accent);
+    }
+
+    .numbered-entry__body :global(p),
+    .numbered-entry__body :global(.entry-features) {
+        max-width: 540px;
+        margin: 0 0 16px;
+        color: rgba(240, 237, 230, 0.65);
+        font-size: var(--site-prose-size);
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .numbered-entry__body :global(.entry-features) {
+        padding-left: 20px;
+        list-style: disc;
+    }
+
+    .numbered-entry__body :global(.entry-features li + li) {
+        margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+        .numbered-entry {
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 48px;
+            padding: 48px 0;
+        }
+
+        .numbered-entry__number {
+            position: static;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .numbered-entry {
+            padding: 32px 0;
+        }
+
+        .numbered-entry__number {
+            font-size: clamp(3rem, 8vw, 5rem);
+        }
+    }
+</style>

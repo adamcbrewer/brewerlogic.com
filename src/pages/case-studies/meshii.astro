@@ -1,0 +1,350 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import { meshiiCaseStudy } from '../../data/case-studies';
+import '../../styles/case-meshii.css';
+
+const sectionLinks = [
+    { href: '#architecture', label: 'Architecture' },
+    { href: '#decisions', label: 'Decisions' },
+    { href: '#boundaries', label: 'Boundaries' },
+];
+---
+
+<CaseStudyLayout
+    study={meshiiCaseStudy}
+    sectionLinks={sectionLinks}
+>
+    <Fragment slot="intro">
+        I designed the app and AWS service architecture for a private Meshii WiFi pilot and led three
+        developers through delivery. The system combined device setup, network performance data and test
+        rewards on Polygon Mumbai, with one app for web, iOS and Android.
+    </Fragment>
+    <dl slot="facts" class="facts">
+        <div class="fact">
+            <dt>
+                Role
+            </dt>
+            <dd>
+                Software Architect
+            </dd>
+        </div>
+        <div class="fact">
+            <dt>
+                Delivery
+            </dt>
+            <dd>
+                Private pilot
+            </dd>
+        </div>
+        <div class="fact">
+            <dt>
+                App
+            </dt>
+            <dd>
+                React Native / Expo
+            </dd>
+        </div>
+        <div class="fact">
+            <dt>
+                Services and data
+            </dt>
+            <dd>
+                AWS / PostgreSQL / Polygon testnet
+            </dd>
+        </div>
+    </dl>
+    <section class="section" id="architecture">
+        <div class="section__inner">
+            <p class="eyebrow">
+                01 / System design
+            </p>
+            <h2>
+                How the system worked
+            </h2>
+            <div class="diagram" role="img" aria-label="Meshii system architecture showing how the app, AWS services, device performance data and test rewards connected">
+                <div class="lane">
+                    <p class="lane__label">
+                        App for web, iOS and Android
+                    </p>
+                    <div class="flow">
+                        <div class="node">
+                            Web / iOS / Android
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Built with Expo / React Native
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Login, data and maps: Auth0 / React Query / Mapbox
+                        </div>
+                    </div>
+                </div>
+                <div class="lane">
+                    <p class="lane__label">
+                        Application services
+                    </p>
+                    <div class="flow">
+                        <div class="node">
+                            Secure API access: API Gateway + JWT
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Business functions: AWS Lambda
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Application records: PostgreSQL / Prisma
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Network and device services: RADIUSdesk / AWS IoT
+                        </div>
+                    </div>
+                </div>
+                <div class="lane">
+                    <p class="lane__label">
+                        Device performance data
+                    </p>
+                    <div class="flow">
+                        <div class="node">
+                            Mesh node performance data
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Collection: AWS IoT rules / Kinesis
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Storage and triggers: S3 / EventBridge
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Database and reward scoring: PostgreSQL
+                        </div>
+                    </div>
+                </div>
+                <div class="lane">
+                    <p class="lane__label">
+                        Test reward processing
+                    </p>
+                    <div class="flow">
+                        <div class="node">
+                            Calculated reward group
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Reward processing: AWS Lambda
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Test transaction: Alchemy / Polygon Mumbai
+                        </div>
+                        <span class="arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
+                        <div class="node">
+                            Signed notification / status update
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="caption">
+                I kept the application APIs separate from device-data processing. The APIs handled accounts,
+                wallets, device pairing and configuration. Another set of services collected node
+                measurements and calculated reward scores.
+            </p>
+        </div>
+    </section>
+    <section class="section" id="decisions">
+        <div class="section__inner">
+            <p class="eyebrow">
+                02 / Design decisions
+            </p>
+            <h2>
+                Why I built it this way
+            </h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>
+                        One app across three platforms
+                    </h3>
+                    <p>
+                        Expo and React Native let us share screens, navigation and API connections across
+                        web, iOS and Android. Platform-specific code handled Auth0, Mapbox and nearby device
+                        discovery through mDNS.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>
+                        Bringing different data sources together
+                    </h3>
+                    <p>
+                        The app needed account information from cloud services, details from nearby devices
+                        and blockchain transaction data. React Query gave the rest of the app a consistent
+                        way to use those sources.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>
+                        Application APIs and records
+                    </h3>
+                    <p>
+                        API Gateway, Lambda and shared code separated the services for users, wallets,
+                        devices and maps. PostgreSQL and Prisma held the application's main records.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>
+                        Device data as a separate workflow
+                    </h3>
+                    <p>
+                        AWS IoT rules, Kinesis, S3 and EventBridge handled device-data collection separately
+                        from reward scoring and processing. That let us change each stage independently
+                        during the pilot.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>
+                        Test rewards on Polygon
+                    </h3>
+                    <p>
+                        Alchemy submitted groups of smart-contract reward transactions to Polygon Mumbai.
+                        Signed notifications from Alchemy updated transaction status in the application
+                        database.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>
+                        Builds and deployments
+                    </h3>
+                    <p>
+                        AWS SAM defined the services. GitHub Actions deployed changes using short-lived AWS
+                        access through OIDC. Amplify hosted the Expo web app, and EAS configuration defined
+                        preview builds for iOS and Android.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="boundaries">
+        <div class="section__inner">
+            <p class="eyebrow">
+                03 / Beyond the pilot
+            </p>
+            <h2>
+                What I'd finish before production
+            </h2>
+            <div class="boundary">
+                <p>
+                    This was a private pilot on Polygon Mumbai. The code records automated development and
+                    staging deployments and unit tests with mocked dependencies. Before production, I would
+                    need to test and harden the complete workflow: duplicate rewards, repeated events,
+                    recovery during device setup and keeping blockchain transactions in sync with
+                    application records. Native release automation would also need work.
+                </p>
+            </div>
+            <div class="cards cards--spaced">
+                <article class="card">
+                    <h3>
+                        Recovery and production controls
+                    </h3>
+                    <ul>
+                        <li>
+                            Save a unique record for each reward group before submitting a blockchain
+                            transaction.
+                        </li>
+                        <li>
+                            Handle repeated events, retain failed events and regularly compare blockchain
+                            transactions with application records.
+                        </li>
+                        <li>
+                            Track recovery steps when device pairing spans multiple systems.
+                        </li>
+                        <li>
+                            Limit each Lambda to the secrets and AWS permissions it needs.
+                        </li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>
+                        Integration and release checks
+                    </h3>
+                    <ul>
+                        <li>
+                            Test PostgreSQL, AWS SAM events and repeated webhook notifications together.
+                        </li>
+                        <li>
+                            Check mDNS discovery, authentication and pairing on physical devices.
+                        </li>
+                        <li>
+                            Bring development, staging and production infrastructure definitions into line.
+                        </li>
+                        <li>
+                            Test deployment health and rollback after database changes.
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section__inner">
+            <p class="eyebrow">
+                04 / Source code and configuration
+            </p>
+            <h2>
+                What I checked
+            </h2>
+            <ul class="evidence-list">
+                <li>
+                    Expo configuration, platform-specific connections, API code and component tests.
+                </li>
+                <li>
+                    AWS SAM definitions for APIs, device-data processing, reward scoring and device setup.
+                </li>
+                <li>
+                    Lambda code for authentication, device pairing, rewards and signed notifications.
+                </li>
+                <li>
+                    Prisma and SQL changes for application records and device performance data.
+                </li>
+                <li>
+                    GitHub Actions, Amplify and EAS build and deployment configuration.
+                </li>
+            </ul>
+            <p class="caption">
+                The source code is private. I've left out credentials, customer data, infrastructure
+                and device identifiers, smart-contract addresses and private service addresses.
+            </p>
+            <div class="cta">
+                <a class="button button--primary" href="/">
+                    Back to portfolio
+                </a>
+                <a class="button" href="/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf" download>
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </section>
+</CaseStudyLayout>

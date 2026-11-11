@@ -17,7 +17,7 @@ TypeScript / React / Next.js / GraphQL / Rust / Go / AWS
 
 ## About
 
-I'm a full-stack engineer building web and mobile apps with TypeScript, React, Next.js and Node.js. I work across the whole stack and particularly enjoy spending time on the frontend. I also work with GraphQL, Rust, Go and AWS.
+I'm a full-stack engineer working across web and mobile apps, APIs, databases and deployment. I use TypeScript, React, Next.js and Node.js, alongside GraphQL, Rust, Go and AWS. My work covers building products, testing them and keeping them running in production.
 
 At Quilter, I was part of the engineering team that took the web and mobile apps from proof of concept to production within nine months. I worked closely with product, design, backend and QA teams, and helped maintain the apps across multiple deployments in the following years.
 
@@ -25,7 +25,7 @@ I co-founded [Paper Trails](https://papertrails.io) and built and maintained the
 
 I built [Mapbox TUI](https://github.com/adamcbrewer/mapbox-tui), a Go app for exploring maps and planning journeys in the terminal. It can play back activities, read files offline and connect to AI agents through a local MCP server. I also contribute to [Strata](https://github.com/lgse/strata), a Rust/GTK4 file manager for Linux. My work there includes sandboxed file previews, keyboard controls for tabs and fixes for handling multiple windows.
 
-I use AI daily for coding, technical reviews, debugging and fixing build and deployment pipelines. Agentic workflows are a big part of how I work, and I'm building my own agent harnesses and software factory systems to automate more of that work.
+I used OpenCode and Claude Code to help rewrite Paper Trails from Laravel to Next.js, with written plans and project instructions to guide the work. I'm also building an AI evaluation harness for Mapbox TUI to improve how I develop and check open-source contributions.
 
 At Meshii, I led the Polygon and Alchemy integration through a private pilot.
 
@@ -46,7 +46,7 @@ Before software, I was an aircraft technician in the British Army, maintaining m
 - MongoDB / PostgreSQL
 - Jest / Playwright
 - Docker / CI/CD
-- AI-assisted Engineering
+- AI harness development
 
 ## Featured Projects
 
@@ -54,7 +54,7 @@ Before software, I was an aircraft technician in the British Army, maintaining m
 
 Enterprise fintech portfolio-planning platform for financial advisers.
 
-My contribution: I provided frontend technical leadership, created the shared component architecture, and standardised server and complex form state across Next.js web and Ionic React/Capacitor mobile clients. The platform reached production within nine months and supported multiple subsequent releases. Client work is confidential.
+I helped take the web and mobile apps from proof of concept to production within nine months, then supported later releases. My work included application architecture, API integration, shared components, state management and automated testing with Next.js and Ionic React/Capacitor. Client work is confidential.
 
 Technologies: React, Next.js, Ionic React, Capacitor, TypeScript, TanStack Query, Playwright, Azure.
 
@@ -120,15 +120,15 @@ My contribution: I modernised and supported a business-critical internal applica
 
 Technologies: React, TypeScript, Polymer, Web Components, Material Design.
 
-### Human-Led, AI-Assisted Delivery
+### AI harness development
 
-A structured way to use AI for production work without handing over engineering decisions.
+I used OpenCode and Claude Code to help rewrite papertrails.io from Laravel to Next.js. The work covered the application, geospatial print pipeline, payments and deployment. I wrote project instructions and implementation plans, then reviewed the generated code and tests against the behaviour I needed.
 
-My contribution: I set up reusable instructions and project context for OpenCode and Claude Code. I diagnose the problem, design the solution and write the plan before AI drafts code, tests and review. I then review, simplify and check the result. This approach supported my solo Paper Trails migration from Laravel to Next.js and made wider automated testing practical.
+I'm also building an AI evaluation harness for Mapbox TUI to improve the workflow for developing and checking open-source contributions. That builds on the agent instructions, project context and review process I used for Paper Trails.
 
-Paper Trails production incident case study: https://brewerlogic.com/case-studies/ai-engineering/
+Paper Trails checkout case study: https://brewerlogic.com/case-studies/ai-engineering/
 
-Technologies: OpenCode, Claude Code, GitHub Copilot, agent workflows, MCP, Jest, Playwright.
+Technologies: OpenCode, Claude Code, AI evaluation, MCP, Go, Playwright.
 
 ## Experience
 
@@ -136,8 +136,8 @@ Technologies: OpenCode, Claude Code, GitHub Copilot, agent workflows, MCP, Jest,
 
 Jan 2024 - Jul 2026
 
-- Contract through Brewer Logic, providing frontend technical leadership for a financial-adviser platform
-- Took Next.js web and Ionic React/Capacitor clients from proof of concept to production within nine months
+- Contract through Brewer Logic, building and maintaining a financial-adviser platform with product, design, backend and QA teams
+- Helped take Next.js web and Ionic React/Capacitor apps from proof of concept to production within nine months
 - React, Next.js, TypeScript, TanStack Query, Zustand, Playwright, pnpm, Azure DevOps
 
 ### Technical Director & Co-Founder, Paper Trails
@@ -169,8 +169,8 @@ Sep 2019 - Nov 2022
 
 Aug 2017 - Jun 2018
 
-- Provided frontend leadership and mentored developers within an international team
-- Architected Redux state patterns and built reusable Storybook UI components
+- Worked within an international team and mentored developers
+- Built application state patterns with Redux and reusable Storybook components
 
 ### Frontend and Web Developer, Selected Earlier Roles
 

@@ -7,14 +7,14 @@ export default defineConfig({
     publicDir: './.site-public',
     trailingSlash: 'ignore',
     integrations: [{
-        name: 'existing-static-pages',
+        name: 'printable-cv-route',
         hooks: {
             'astro:server:setup': ({ server }) => {
                 server.middlewares.use((request, _response, next) => {
                     const url = new URL(request.url ?? '/', 'http://localhost');
-                    const file = new URL(`./.site-public${url.pathname}index.html`, import.meta.url);
-                    if (url.pathname.endsWith('/') && existsSync(file)) {
-                        request.url = `${url.pathname}index.html${url.search}`;
+                    const file = new URL('./.site-public/portfolio/index.html', import.meta.url);
+                    if (['/portfolio', '/portfolio/'].includes(url.pathname) && existsSync(file)) {
+                        request.url = `/portfolio/index.html${url.search}`;
                     }
                     next();
                 });
