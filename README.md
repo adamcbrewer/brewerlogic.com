@@ -20,13 +20,13 @@ Running, climbing, cycling, woodworking, reading, and anything with an 80s aesth
 
 ## Tech Stack
 
-This site is a simple static HTML/CSS/JS portfolio hosted on DigitalOcean App Platform:
+Astro generates this static portfolio for DigitalOcean App Platform:
 
-- Dark/light theme toggle
 - Intersection Observer for active nav states
 - CSS custom properties for theming
-- Astro builds Markdown blog articles under `/blog/`
-- Existing pages remain plain HTML/CSS/JS; deployment remains static
+- Astro manages the home page in `src/pages/index.astro` and Markdown blog articles under `/blog/`
+- The home page and blog share header and footer components in `src/components/`
+- CV, privacy and case-study pages remain plain HTML/CSS/JS; deployment remains static
 - Markdown companion files for agents
 
 ## Blog development

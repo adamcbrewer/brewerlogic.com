@@ -7,7 +7,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import test from 'node:test';
-import { parse } from 'parse5';
+import { parse, serialize } from 'parse5';
 import sax from 'sax';
 
 const execute = promisify(execFile);
@@ -131,7 +131,6 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
     await mkdir(fixtureDirectory);
     await Promise.all(Object.entries(fixtures).map(([name, source]) => writeFile(join(fixtureDirectory, name), source)));
     const dist = join(site, 'dist');
-    const sourceHomepage = await readFile(join(site, 'index.html'), 'utf8');
     const originalSitemap = await readFile(join(site, 'src/data/sitemap.xml'), 'utf8');
     const originalIndex = await readFile(join(site, 'src/data/llms.txt'), 'utf8');
 
@@ -157,11 +156,50 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         const navItems = elements(homepage, 'li').filter((node) => attribute(node, 'data-blog-link') !== undefined);
         assert.equal(navItems.length, 3);
         assert.deepEqual(navItems.map((node) => attribute(node, 'hidden') !== undefined), [false, false, false]);
-        assert.equal(await readFile(join(site, 'index.html'), 'utf8'), sourceHomepage);
+        assert.ok(!existsSync(join(site, '.site-public/index.html')), 'Astro must own the home route');
+        assert.deepEqual(elements(homepage, 'h1').map(text), ['AdamBrewer']);
+        assert.deepEqual(elements(homepage, 'section').map((node) => attribute(node, 'id')).filter(Boolean), ['about', 'work', 'experience', 'contact']);
+        assert.deepEqual(links(homepage, 'canonical').map((node) => attribute(node, 'href')), [origin + '/']);
+        assert.equal(meta(homepage, 'robots'), 'index, follow');
+        assert.equal(meta(homepage, 'og:url'), origin + '/');
+        assert.equal(meta(homepage, 'twitter:card'), 'summary_large_image');
+        const person = elements(homepage, 'script').find((node) => attribute(node, 'type') === 'application/ld+json');
+        assert.equal(JSON.parse(text(person))['@type'], 'Person');
+        assert.ok(elements(homepage, 'script').some((node) => attribute(node, 'src') === '/assets/js/navigation.js'));
+        assert.ok(elements(homepage, 'script').some((node) => text(node).includes('revealObserver')));
+        assert.ok(elements(homepage, 'a').some((node) => attribute(node, 'download') !== undefined && attribute(node, 'href')?.endsWith('.pdf')));
+        assert.ok(!elements(homepage, 'a').some((node) => attribute(node, 'aria-current') !== undefined));
+        for (const id of ['about', 'work', 'experience', 'contact']) {
+            assert.equal(elements(homepage, 'a').filter((node) => attribute(node, 'href') === '#' + id).length, id === 'work' ? 4 : 3);
+        }
+        for (const document of [homepage, await readPage(dist, '/blog/')]) {
+            const fonts = links(document, 'preload').filter((node) => attribute(node, 'as') === 'font');
+            assert.deepEqual(fonts.map((node) => attribute(node, 'href')), [
+                '/assets/fonts/bebas-neue-latin.woff2', '/assets/fonts/jetbrains-mono-latin.woff2',
+            ]);
+            assert.ok(fonts.every((node) => attribute(node, 'crossorigin') !== undefined));
+            assert.ok(!elements(document, 'link').some((node) => /fonts\.(googleapis|gstatic)\.com/.test(attribute(node, 'href') ?? '')));
+            const faces = elements(document, 'style').map(text).join('\n');
+            assert.equal((faces.match(/font-display:\s*block/g) ?? []).length, 3);
+            for (const match of faces.matchAll(/url\(['"]?(\/assets\/fonts\/[^)'"\s]+)['"]?\)/g)) {
+                const font = await readFile(join(dist, match[1]));
+                assert.equal(font.subarray(0, 4).toString(), 'wOF2');
+            }
+        }
+        const homeFooter = elements(homepage, 'footer')[0];
+        assert.deepEqual(elements(homeFooter, 'a').map((node) => attribute(node, 'href')), [
+            'https://github.com/adamcbrewer', 'https://linkedin.com/in/adamcbrewer', 'mailto:adam@brewerlogic.com',
+            'https://papertrails.io', '/portfolio', '/privacy', '#main',
+        ]);
         const listing = await readPage(dist, '/blog/');
         assert.ok(text(listing).indexOf(title) < text(listing).indexOf('Plain build check'));
         for (const path of ['/blog/', articlePath, plainPath]) {
             const document = await readPage(dist, path);
+            const footer = elements(document, 'footer').find((node) => attribute(node, 'class') === 'footer');
+            assert.equal(serialize(footer), serialize(homeFooter), 'Home and blog must share the same footer');
+            const thoughts = elements(document, 'a').filter((node) => attribute(node, 'aria-current') !== undefined);
+            assert.equal(thoughts.length, 2);
+            assert.ok(thoughts.every((node) => attribute(node, 'href') === '/blog/' && attribute(node, 'aria-current') === (path === '/blog/' ? 'page' : 'location')));
             assert.equal(meta(document, 'robots'), 'index, follow');
             assert.deepEqual(links(document, 'canonical').map((node) => attribute(node, 'href')), [origin + path]);
             assert.deepEqual(links(document, 'describedby').map((node) => attribute(node, 'href')), ['/llms.txt']);
@@ -232,7 +270,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
     });
 
     await t.test('development previews stay unindexed and omit Markdown discovery', { timeout: 45_000 }, async (t) => {
-        const server = spawn(process.execPath, [join(site, 'node_modules/astro/bin/astro.mjs'), 'dev', '--host', '127.0.0.1', '--port', '0'], {
+        const server = spawn(process.execPath, [join(site, 'node_modules/astro/bin/astro.mjs'), 'dev', '--ignore-lock', '--host', '127.0.0.1', '--port', '0'], {
             cwd: site,
             env: buildEnvironment,
             stdio: ['ignore', 'pipe', 'pipe'],
@@ -254,6 +292,12 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
                 if (url) { clearTimeout(timer); resolve(url); }
             });
         });
+        const homeResponse = await fetch(localURL);
+        assert.equal(homeResponse.status, 200);
+        const homepage = parse(await homeResponse.text());
+        assert.deepEqual(elements(homepage, 'h1').map(text), ['AdamBrewer']);
+        assert.ok(elements(homepage, 'a').some((node) => attribute(node, 'href') === '#about'));
+        assert.equal(elements(homepage, 'footer').length, 1);
         for (const path of ['/blog/', articlePath, '/blog/build-check/draft/']) {
             const response = await fetch(new URL(path, localURL));
             assert.equal(response.status, 200);

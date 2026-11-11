@@ -1,6 +1,8 @@
 ---
 import '../styles/blog.css';
 import SiteHeader from '../components/SiteHeader.astro';
+import SiteFonts from '../components/SiteFonts.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import type { CollectionEntry } from 'astro:content';
 import { authorName } from '../lib/site';
 
@@ -31,7 +33,7 @@ const structuredData = article && {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class={article ? undefined : 'thoughts-page'}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -63,9 +65,7 @@ const structuredData = article && {
         </>}
         {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
         <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+        <SiteFonts />
         <link rel="stylesheet" href="/assets/css/palette.css" />
         <link rel="stylesheet" href="/assets/css/navigation.css" />
         <script is:inline>document.documentElement.classList.add('js');</script>
@@ -74,11 +74,7 @@ const structuredData = article && {
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
         <SiteHeader />
-        <main id="main" tabindex="-1"><slot /></main>
-        <footer class="site-footer">
-            <a class="site-logo" href="/">Adam Brewer</a>
-            <a href="mailto:adam@brewerlogic.com">Get in touch</a>
-            <a href="/privacy/">Privacy</a>
-        </footer>
+        <main id="main" class={article ? undefined : 'thoughts-main'} tabindex="-1"><slot /></main>
+        <SiteFooter />
     </body>
 </html>

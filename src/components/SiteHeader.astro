@@ -1,9 +1,12 @@
 ---
+const isHome = Astro.url.pathname === '/';
+const sectionPrefix = isHome ? '' : '/';
+const isBlog = Astro.url.pathname === '/blog' || Astro.url.pathname.startsWith('/blog/');
 const links = [
-    { href: '/#about', label: 'About' },
-    { href: '/#work', label: 'Work' },
-    { href: '/#experience', label: 'Experience' },
-    { href: '/#contact', label: 'Contact' },
+    { href: `${sectionPrefix}#about`, label: '#about' },
+    { href: `${sectionPrefix}#work`, label: '#work' },
+    { href: `${sectionPrefix}#experience`, label: '#experience' },
+    { href: `${sectionPrefix}#contact`, label: '#contact' },
     { href: '/blog/', label: 'Thoughts' },
 ];
 const current = Astro.url.pathname === '/blog/' || Astro.url.pathname === '/blog' ? 'page' : 'location';
@@ -11,10 +14,10 @@ const current = Astro.url.pathname === '/blog/' || Astro.url.pathname === '/blog
 
 <header data-site-header>
     <nav class="nav" aria-label="Main navigation">
-        <a href="/" class="nav__logo">Adam Brewer</a>
+        <a href={isHome ? '#main' : '/'} class="nav__logo">Adam Brewer</a>
         <ul class="nav__links">
             {links.map(({ href, label }) => (
-                <li><a href={href} aria-current={href === '/blog/' ? current : undefined}>{label}</a></li>
+                <li data-blog-link={href === '/blog/' ? '' : undefined}><a href={href} aria-current={isBlog && href === '/blog/' ? current : undefined}>{label}</a></li>
             ))}
         </ul>
         <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-navigation">
@@ -25,14 +28,14 @@ const current = Astro.url.pathname === '/blog/' || Astro.url.pathname === '/blog
     <div class="nav__overlay" aria-hidden="true"></div>
     <ul class="nav__links--mobile" id="mobile-navigation" aria-hidden="true" inert>
         {links.map(({ href, label }) => (
-            <li><a href={href} aria-current={href === '/blog/' ? current : undefined}>{label}</a></li>
+            <li data-blog-link={href === '/blog/' ? '' : undefined}><a href={href} aria-current={isBlog && href === '/blog/' ? current : undefined}>{label}</a></li>
         ))}
     </ul>
 </header>
 <noscript>
     <nav class="noscript-nav" aria-label="Section navigation">
         <ul>
-            {links.map(({ href, label }) => <li><a href={href}>{label}</a></li>)}
+            {links.map(({ href, label }) => <li data-blog-link={href === '/blog/' ? '' : undefined}><a href={href}>{label}</a></li>)}
         </ul>
     </nav>
 </noscript>
