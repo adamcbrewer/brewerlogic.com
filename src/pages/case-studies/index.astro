@@ -1,0 +1,16 @@
+---
+import ListingLayout from '../../layouts/ListingLayout.astro';
+import NumberedEntry from '../../components/NumberedEntry.astro';
+import { caseStudies } from '../../data/case-studies';
+import { getCaseStudyPath } from '../../lib/urls';
+---
+
+<ListingLayout title="Case studies" description="Architecture, production fixes and engineering decisions." canonicalPath="/case-studies/" markdownPath="/case-studies/index.md">
+    <ul class="numbered-list">
+        {caseStudies.map((study, index) => (
+            <NumberedEntry as="li" number={index + 1} headingLevel="h2" title={study.title} href={getCaseStudyPath(study.slug)} label={study.context}>
+                <p>{study.summary}</p>
+            </NumberedEntry>
+        ))}
+    </ul>
+</ListingLayout>

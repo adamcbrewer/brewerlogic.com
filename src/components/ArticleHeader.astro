@@ -1,0 +1,53 @@
+---
+interface Props {
+    title: string;
+    backHref: string;
+    backLabel: string;
+    description?: string;
+}
+
+const { title, backHref, backLabel, description } = Astro.props;
+---
+
+<header class="article-header">
+    <a class="back-link" href={backHref}>{backLabel}</a>
+    <h1>{title}</h1>
+    <p class="article-description"><slot name="description">{description}</slot></p>
+    <div class="article-meta"><slot name="meta" /></div>
+</header>
+
+<style>
+    .back-link {
+        display: inline-block;
+        margin-bottom: 3rem;
+        font-size: 0.75rem;
+        text-decoration: underline;
+    }
+
+    h1 {
+        margin: 0;
+        font: clamp(3.5rem, 9vw, 7rem)/0.95 var(--font-display);
+        letter-spacing: -0.01em;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
+    }
+
+    .article-description {
+        margin: 1.5rem 0;
+        color: var(--site-muted);
+        font: clamp(1.3rem, 3vw, 1.6rem)/1.5 var(--font-body);
+        text-wrap: pretty;
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem 1.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--site-border);
+        color: var(--site-muted);
+        font-size: 0.7rem;
+        line-height: 1.8;
+    }
+</style>

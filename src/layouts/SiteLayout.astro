@@ -1,0 +1,74 @@
+---
+import '../styles/base.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFonts from '../components/SiteFonts.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { authorName } from '../lib/site';
+
+interface Props {
+    title: string;
+    description: string;
+    canonicalPath?: string;
+    markdownPath?: string;
+    pageClass: string;
+    noindex?: boolean;
+    socialTitle?: string;
+    socialDescription?: string;
+    image?: { url: string; alt?: string };
+    ogType?: 'website' | 'article';
+}
+
+const {
+    title, description, canonicalPath, markdownPath, pageClass, noindex = false,
+    socialTitle = title, socialDescription = description, image, ogType = 'website',
+} = Astro.props;
+const canonicalURL = canonicalPath && new URL(canonicalPath, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en" class={pageClass}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="author" content={authorName} />
+        <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+        <meta name="theme-color" content="#25282c" />
+        {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+        {markdownPath && <link rel="alternate" type="text/markdown" href={markdownPath} />}
+        <link rel="describedby" href="/llms.txt" />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:site_name" content="Adam Brewer | Brewer Logic" />
+        <meta property="og:title" content={socialTitle} />
+        <meta property="og:description" content={socialDescription} />
+        {canonicalURL && <meta property="og:url" content={canonicalURL} />}
+        <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+        <meta name="twitter:title" content={socialTitle} />
+        <meta name="twitter:description" content={socialDescription} />
+        {image && <>
+            <meta property="og:image" content={image.url} />
+            <meta name="twitter:image" content={image.url} />
+            {image.alt && <>
+                <meta property="og:image:alt" content={image.alt} />
+                <meta name="twitter:image:alt" content={image.alt} />
+            </>}
+        </>}
+        <SiteFonts />
+        <link rel="icon" type="image/svg+xml" href="/assets/img/bl-logo.svg" />
+        <link rel="stylesheet" href="/assets/css/palette.css" />
+        <link rel="stylesheet" href="/assets/css/navigation.css" />
+        <script is:inline>document.documentElement.classList.add('js');</script>
+        <script is:inline src="/assets/js/navigation.js" defer></script>
+        <slot name="head" />
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to main content</a>
+        <slot name="decoration" />
+        <SiteHeader />
+        <main id="main" tabindex="-1"><slot /></main>
+        <slot name="footer-note" />
+        <SiteFooter />
+        <slot name="scripts" />
+    </body>
+</html>

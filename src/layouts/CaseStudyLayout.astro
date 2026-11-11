@@ -1,0 +1,34 @@
+---
+import '../styles/content.css';
+import '../styles/case-study.css';
+import ArticleHeader from '../components/ArticleHeader.astro';
+import SiteLayout from './SiteLayout.astro';
+import type { CaseStudy } from '../data/case-studies';
+import { getCaseStudyPath } from '../lib/urls';
+import { authorName } from '../lib/site';
+
+interface Props {
+    study: CaseStudy;
+    sectionLinks: { href: string; label: string }[];
+}
+
+const { study, sectionLinks } = Astro.props;
+const canonicalPath = getCaseStudyPath(study.slug);
+---
+
+<SiteLayout title={`${study.metaTitle} | ${authorName}`} description={study.description} canonicalPath={canonicalPath} markdownPath={`${canonicalPath}index.md`} pageClass="article-page case-study-page">
+    <article class:list={['article', 'case-study', `case-study--${study.variant}`]}>
+        <ArticleHeader title={study.title} backHref="/case-studies/" backLabel="Back to case studies">
+            <Fragment slot="description"><slot name="intro" /></Fragment>
+            <Fragment slot="meta"><span>{authorName}</span><span>{study.context}</span></Fragment>
+        </ArticleHeader>
+        <nav class="case-contents" aria-label="In this case study">
+            <ul>
+                {sectionLinks.map(({ href, label }) => <li><a href={href}>{label}</a></li>)}
+            </ul>
+        </nav>
+        <slot name="facts" />
+        <div class="prose case-body"><slot /></div>
+        <footer class="article-footer"><a href="/case-studies/">Back to all case studies</a></footer>
+    </article>
+</SiteLayout>

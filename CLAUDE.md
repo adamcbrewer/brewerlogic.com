@@ -1,54 +1,20 @@
-# CLAUDE.md
+# Project guidance
 
-This file provides guidance to Claude Code when working with this repository.
+The website uses Astro to generate static HTML. See README.md for the template structure and development workflow.
 
-## Project Overview
+## Ownership
 
-Portfolio website for Adam Brewer. No build tools or frameworks; static HTML, CSS, and vanilla JavaScript.
+- `SiteLayout.astro` owns the document, metadata, fonts, site navigation and footer.
+- Blog and case-study layouts add their own presentation and metadata rules. Case studies keep local section navigation and custom diagrams.
+- Site tokens belong in `assets/css/palette.css`; shared base and accessibility rules belong in `src/styles/base.css`. Components own repeated markup and their styles. Page CSS owns composition.
+- Keep home-only analytics in the home page. Preserve draft exclusion, development noindex rules, canonical paths and Markdown discovery when changing templates.
 
-## Structure
+## Independent CV
 
-```
-index.html              # Single-page portfolio
-index.md                # Markdown homepage for agents
-assets/
-├── css/styles.css      # Styles with CSS custom properties for theming
-├── js/main.js          # Theme toggle + active nav via Intersection Observer
-└── img/                # Site assets
-portfolio/
-├── index.html          # Downloadable CV/resume at /portfolio
-└── index.md            # Markdown CV/resume for agents
-```
+`portfolio/index.html`, `portfolio/index.md` and the downloadable PDF are independently tailored job-application documents. Keep their content and print layout separate from website data and templates. Differences from the website can be intentional; edit the CV only when asked. There is no automatic PDF generation.
 
-## Features
+## Content and verification
 
-- **Dark/light theme**: Toggle with localStorage persistence, respects `prefers-color-scheme`
-- **Active nav states**: Intersection Observer highlights current section
-- **Responsive**: Mobile-first, works without JS
-- **Agent discovery**: Sitemap, robots AI rules, Content Signals, markdown companion files
+Keep website HTML and its Markdown companion aligned when editing the same published story. Preserve stable URLs, section anchors and declared publication dates. Sitemap and agent-index templates contain curated portfolio guidance; the blog appends published content during builds.
 
-## Code Patterns
-
-**CSS**
-- CSS custom properties for theming (`--bg-primary`, `--accent`, etc.)
-- BEM-inspired naming (`.section--alt`, `.btn--primary`)
-- `[data-theme="dark"]` / `[data-theme="light"]` attribute selectors
-
-**JavaScript**
-- Vanilla JS, no dependencies
-- IIFE pattern to avoid globals
-- Intersection Observer for scroll-based interactions
-
-## Content Sync
-
-**IMPORTANT**: `index.html` and `portfolio/index.html` share content that must stay in sync:
-
-| Section | index.html | portfolio/index.html |
-|---------|------------|----------------|
-| Job title | Hero section | Header `.title` |
-| About/Summary | `#about` section | `.summary` paragraph |
-| Skills | `.skills-list` | `.skills-grid` |
-| Experience | `.timeline` | `.job` entries |
-| Contact | Footer + contact section | `.contact-info` |
-
-When updating copy in one file, check the other for corresponding content and update both.
+Use the existing build tests for output contracts. Legacy CSS and JavaScript under `assets/css/styles.css` and `assets/js/main.js` are currently unreferenced; do not treat them as the active theme or navigation implementation.

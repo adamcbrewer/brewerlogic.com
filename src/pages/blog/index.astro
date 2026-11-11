@@ -1,40 +1,32 @@
 ---
-import '../../styles/listings.css';
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import '../../styles/blog.css';
+import NumberedEntry from '../../components/NumberedEntry.astro';
+import ListingLayout from '../../layouts/ListingLayout.astro';
 import { getPosts } from '../../lib/posts';
 import { getPostPath } from '../../lib/urls';
 
 const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
 ---
 
-<BlogLayout title="Thoughts" description="Notes on building software by Adam Brewer." canonicalPath="/blog/">
-    <div class="blog-index section__inner">
-        <header class="blog-intro">
-            <h1 class="section__title"><span>Notes on building software.</span>Thoughts</h1>
-        </header>
-        {posts.length === 0 ? (
-            <div class="empty-state">
-                <p>No articles published yet.</p>
-                <a href="/">Explore my work in the meantime</a>
-            </div>
-        ) : (
-            <ul class="post-list projects">
-                {posts.map((post, index) => (
-                    <li class="project">
-                        <div class="project__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
-                        <div>
-                            <div class="post-meta project__overline">
-                                <time datetime={post.data.pubDate.toISOString()}>
-                                    {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
-                                </time>
-                                {post.data.draft && <span class="draft-label">Draft preview</span>}
-                            </div>
-                            <h2 class="project__name"><a href={getPostPath(post.id)}>{post.data.title}</a></h2>
-                            <p class="project__desc">{post.data.description}</p>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        )}
-    </div>
-</BlogLayout>
+<ListingLayout title="Thoughts" description="Notes on building software." canonicalPath="/blog/">
+    {posts.length === 0 ? (
+        <div class="empty-state">
+            <p>No articles published yet.</p>
+            <a href="/">Explore my work in the meantime</a>
+        </div>
+    ) : (
+        <ul class="numbered-list">
+            {posts.map((post, index) => (
+                <NumberedEntry as="li" number={index + 1} headingLevel="h2" title={post.data.title} href={getPostPath(post.id)}>
+                    <div slot="label" class="post-meta">
+                        <time datetime={post.data.pubDate.toISOString()}>
+                            {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
+                        </time>
+                        {post.data.draft && <span class="draft-label">Draft preview</span>}
+                    </div>
+                    <p>{post.data.description}</p>
+                </NumberedEntry>
+            ))}
+        </ul>
+    )}
+</ListingLayout>

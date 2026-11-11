@@ -1,15 +1,21 @@
 ---
 const isHome = Astro.url.pathname === '/';
 const sectionPrefix = isHome ? '' : '/';
-const isBlog = Astro.url.pathname === '/blog' || Astro.url.pathname.startsWith('/blog/');
+const pathname = Astro.url.pathname.replace(/\/$/, '');
 const links = [
     { href: `${sectionPrefix}#about`, label: '#about' },
     { href: `${sectionPrefix}#work`, label: '#work' },
     { href: `${sectionPrefix}#experience`, label: '#experience' },
     { href: `${sectionPrefix}#contact`, label: '#contact' },
+    { href: '/case-studies/', label: 'Case studies' },
     { href: '/blog/', label: 'Thoughts' },
 ];
-const current = Astro.url.pathname === '/blog/' || Astro.url.pathname === '/blog' ? 'page' : 'location';
+function currentPage(href: string): 'page' | 'location' | undefined {
+    const path = href.replace(/\/$/, '');
+    if (pathname === path) return 'page';
+    if (pathname.startsWith(`${path}/`)) return 'location';
+    return undefined;
+}
 ---
 
 <header data-site-header>
@@ -17,7 +23,7 @@ const current = Astro.url.pathname === '/blog/' || Astro.url.pathname === '/blog
         <a href={isHome ? '#main' : '/'} class="nav__logo">Adam Brewer</a>
         <ul class="nav__links">
             {links.map(({ href, label }) => (
-                <li data-blog-link={href === '/blog/' ? '' : undefined}><a href={href} aria-current={isBlog && href === '/blog/' ? current : undefined}>{label}</a></li>
+                <li data-blog-link={href === '/blog/' ? '' : undefined}><a href={href} aria-current={currentPage(href)}>{label}</a></li>
             ))}
         </ul>
         <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-navigation">
@@ -28,7 +34,7 @@ const current = Astro.url.pathname === '/blog/' || Astro.url.pathname === '/blog
     <div class="nav__overlay" aria-hidden="true"></div>
     <ul class="nav__links--mobile" id="mobile-navigation" aria-hidden="true" inert>
         {links.map(({ href, label }) => (
-            <li data-blog-link={href === '/blog/' ? '' : undefined}><a href={href} aria-current={isBlog && href === '/blog/' ? current : undefined}>{label}</a></li>
+            <li data-blog-link={href === '/blog/' ? '' : undefined}><a href={href} aria-current={currentPage(href)}>{label}</a></li>
         ))}
     </ul>
 </header>

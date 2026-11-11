@@ -158,6 +158,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         assert.deepEqual(navItems.map((node) => attribute(node, 'hidden') !== undefined), [false, false, false]);
         assert.ok(!existsSync(join(site, '.site-public/index.html')), 'Astro must own the home route');
         assert.deepEqual(elements(homepage, 'h1').map(text), ['AdamBrewer']);
+        assert.match(text(elements(homepage, 'title')[0]), /Go & AWS$/);
         assert.deepEqual(elements(homepage, 'section').map((node) => attribute(node, 'id')).filter(Boolean), ['about', 'work', 'experience', 'contact']);
         assert.deepEqual(links(homepage, 'canonical').map((node) => attribute(node, 'href')), [origin + '/']);
         assert.equal(meta(homepage, 'robots'), 'index, follow');
@@ -186,6 +187,10 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
                 assert.equal(font.subarray(0, 4).toString(), 'wOF2');
             }
         }
+        const about = elements(homepage, 'section').find((node) => attribute(node, 'id') === 'about');
+        assert.match(text(about), /I built\s+Mapbox TUI/);
+        assert.match(text(about), /contribute to\s+Strata/);
+        assert.ok(elements(homepage, 'p').every((node) => !/\SMy contribution:/.test(text(node))), 'Inline emphasis must keep its preceding space');
         const homeFooter = elements(homepage, 'footer')[0];
         assert.deepEqual(elements(homeFooter, 'a').map((node) => attribute(node, 'href')), [
             'https://github.com/adamcbrewer', 'https://linkedin.com/in/adamcbrewer', 'mailto:adam@brewerlogic.com',
@@ -263,9 +268,70 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         for (const path of await files(join(site, '.site-public'))) {
             assert.deepEqual(await readFile(join(dist, relative(join(site, '.site-public'), path))), await readFile(path));
         }
-        for (const path of ['index.md', '404.html', 'privacy/index.html', 'portfolio/index.html', 'case-studies/meshii/index.html', 'case-studies/ai-engineering/index.html', 'robots.txt', 'Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf']) {
+        for (const path of ['index.md', 'privacy/index.md', 'portfolio/index.html', 'portfolio/index.md', 'case-studies/meshii/index.md', 'case-studies/ai-engineering/index.md', 'robots.txt', 'Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf']) {
             assert.deepEqual(await readFile(join(dist, path)), await readFile(join(site, path)));
         }
+        for (const [path, canonical, heading] of [
+            ['/case-studies/meshii/', '/case-studies/meshii/', 'Meshii WiFi'],
+            ['/case-studies/ai-engineering/', '/case-studies/ai-engineering/', 'AI-assisted engineering'],
+            ['/privacy/', '/privacy', 'Privacy Notice'],
+        ]) {
+            const document = await readPage(dist, path);
+            assert.deepEqual(elements(document, 'h1').map(text), [heading]);
+            assert.equal(elements(document, 'main').length, 1);
+            assert.equal(meta(document, 'robots'), 'index, follow');
+            assert.deepEqual(links(document, 'canonical').map((node) => attribute(node, 'href')), [origin + canonical]);
+            assert.deepEqual(links(document, 'alternate').map((node) => attribute(node, 'href')), [path + 'index.md']);
+            assert.equal(serialize(elements(document, 'footer').at(-1)), serialize(homeFooter));
+            assert.ok(!elements(document, 'script').some((node) => /googletagmanager/.test(attribute(node, 'src') ?? '')));
+            assert.ok(!elements(document, 'link').some((node) => /fonts\.(googleapis|gstatic)\.com/.test(attribute(node, 'href') ?? '')));
+            assert.equal(links(document, 'preload').filter((node) => attribute(node, 'as') === 'font').length, 2);
+            if (path.startsWith('/case-studies/')) {
+                const header = elements(document, 'header').find((node) => attribute(node, 'data-site-header') !== undefined);
+                const menu = elements(header, 'ul').find((node) => attribute(node, 'class') === 'nav__links');
+                assert.deepEqual(elements(menu, 'a').map((node) => [attribute(node, 'href'), text(node)]), [
+                    ['/#about', '#about'], ['/#work', '#work'], ['/#experience', '#experience'],
+                    ['/#contact', '#contact'], ['/case-studies/', 'Case studies'], ['/blog/', 'Thoughts'],
+                ]);
+                const contents = elements(document, 'nav').find((node) => attribute(node, 'aria-label') === 'In this case study');
+                const sectionIds = path.includes('meshii') ? ['architecture', 'decisions', 'boundaries'] : ['incident', 'workflow', 'outcome'];
+                for (const id of sectionIds) {
+                    assert.ok(elements(document, 'section').some((node) => attribute(node, 'id') === id));
+                    assert.equal(elements(contents, 'a').filter((node) => attribute(node, 'href') === '#' + id).length, 1);
+                }
+            }
+        }
+        const studies = await readPage(dist, '/case-studies/');
+        assert.equal(meta(studies, 'robots'), 'index, follow');
+        assert.deepEqual(links(studies, 'canonical').map((node) => attribute(node, 'href')), [origin + '/case-studies/']);
+        assert.deepEqual(links(studies, 'alternate').map((node) => attribute(node, 'href')), ['/case-studies/index.md']);
+        const studyMain = elements(studies, 'main')[0];
+        assert.ok(text(elements(studyMain, 'h1')[0]).endsWith('Case studies'));
+        assert.deepEqual(elements(studyMain, 'h2').map(text), ['Meshii WiFi', 'AI-assisted engineering']);
+        const studyMarkdown = await readFile(join(dist, 'case-studies/index.md'), 'utf8');
+        for (const slug of ['meshii', 'ai-engineering']) {
+            const path = `/case-studies/${slug}/`;
+            assert.ok(elements(studyMain, 'a').some((node) => attribute(node, 'href') === path));
+            assert.ok(studyMarkdown.includes(origin + path + 'index.md'));
+            const study = await readPage(dist, path);
+            assert.ok(elements(study, 'article').some((node) => attribute(node, 'class')?.split(' ').includes('article')));
+            assert.ok(elements(study, 'header').some((node) => attribute(node, 'class')?.split(' ').includes('article-header')));
+            assert.ok(elements(study, 'a').some((node) => attribute(node, 'href') === '/case-studies/' && text(node) === 'Back to case studies'));
+            const current = elements(study, 'a').filter((node) => attribute(node, 'aria-current') !== undefined);
+            assert.equal(current.length, 2);
+            assert.ok(current.every((node) => attribute(node, 'href') === '/case-studies/' && attribute(node, 'aria-current') === 'location'));
+        }
+        assert.ok(byURL.has(origin + '/case-studies/'));
+        const studyCurrent = elements(studies, 'a').filter((node) => attribute(node, 'aria-current') !== undefined);
+        assert.equal(studyCurrent.length, 2);
+        assert.ok(studyCurrent.every((node) => attribute(node, 'href') === '/case-studies/' && attribute(node, 'aria-current') === 'page'));
+        const notFound = parse(await readFile(join(dist, '404.html'), 'utf8'));
+        assert.equal(meta(notFound, 'robots'), 'noindex, nofollow');
+        assert.deepEqual(elements(notFound, 'h1').map(text), ['Wrong Turn.']);
+        assert.equal(elements(notFound, 'main').length, 1);
+        assert.equal(links(notFound, 'canonical').length, 0);
+        assert.ok(elements(notFound, 'a').some((node) => attribute(node, 'href') === '/sitemap.xml'));
+        assert.ok(elements(notFound, 'a').some((node) => attribute(node, 'href') === '/llms.txt'));
         await checkInternalLinks(dist);
     });
 
@@ -292,18 +358,27 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
                 if (url) { clearTimeout(timer); resolve(url); }
             });
         });
+        for (const path of ['/case-studies/', '/case-studies/meshii/', '/case-studies/ai-engineering/', '/privacy/', '/portfolio', '/portfolio/']) {
+            const response = await fetch(new URL(path, localURL));
+            assert.equal(response.status, 200, `Development route failed: ${path}`);
+            assert.ok((await response.text()).includes('<h1'));
+        }
+        const missingResponse = await fetch(new URL('/missing-build-check-page/', localURL));
+        assert.equal(missingResponse.status, 404);
+        assert.ok((await missingResponse.text()).includes('Wrong Turn.'));
         const homeResponse = await fetch(localURL);
         assert.equal(homeResponse.status, 200);
         const homepage = parse(await homeResponse.text());
         assert.deepEqual(elements(homepage, 'h1').map(text), ['AdamBrewer']);
+        assert.match(text(elements(homepage, 'title')[0]), /Go & AWS$/);
         assert.ok(elements(homepage, 'a').some((node) => attribute(node, 'href') === '#about'));
         assert.equal(elements(homepage, 'footer').length, 1);
-        for (const path of ['/blog/', articlePath, '/blog/build-check/draft/']) {
+        for (const path of ['/blog/', '/case-studies/', articlePath, '/blog/build-check/draft/']) {
             const response = await fetch(new URL(path, localURL));
             assert.equal(response.status, 200);
             const document = parse(await response.text());
             assert.equal(meta(document, 'robots'), 'noindex, nofollow');
-            assert.equal(links(document, 'alternate').length, 0);
+            assert.equal(links(document, 'alternate').length, path === '/case-studies/' ? 1 : 0);
             if (path.endsWith('/draft/')) assert.ok(text(document).includes(draftMarker));
         }
         for (const path of [articlePath, '/blog/build-check/draft/']) {

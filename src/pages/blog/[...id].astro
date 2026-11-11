@@ -1,6 +1,7 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import BlogLayout from '../../layouts/BlogLayout.astro';
+import ArticleHeader from '../../components/ArticleHeader.astro';
 import { getPosts } from '../../lib/posts';
 import { getPostPath } from '../../lib/urls';
 import { authorName } from '../../lib/site';
@@ -20,11 +21,8 @@ const { Content } = await render(post);
 
 <BlogLayout title={post.data.title} description={post.data.description} canonicalPath={getPostPath(post.id)} article={post.data}>
     <article class="article">
-        <header class="article-header">
-            <a class="back-link" href="/blog/">Back to Thoughts</a>
-            <h1>{post.data.title}</h1>
-            <p class="article-description">{post.data.description}</p>
-            <div class="article-meta">
+        <ArticleHeader title={post.data.title} description={post.data.description} backHref="/blog/" backLabel="Back to Thoughts">
+            <Fragment slot="meta">
                 <span>{authorName}</span>
                 <time datetime={post.data.pubDate.toISOString()}>
                     {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
@@ -35,8 +33,8 @@ const { Content } = await render(post);
                     </time></span>
                 )}
                 {post.data.draft && <span class="draft-label">Draft preview</span>}
-            </div>
-        </header>
+            </Fragment>
+        </ArticleHeader>
         <div class="prose"><Content /></div>
         <footer class="article-footer">
             <a href="/blog/">Back to all articles</a>

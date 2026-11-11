@@ -1,21 +1,21 @@
 ---
-title: Meshii WiFi Architecture Case Study | Adam Brewer
-description: A case study based on private Meshii WiFi source code, covering its app for web, iOS and Android, AWS services, device performance data and test rewards on Polygon.
+title: Meshii WiFi architecture case study | Adam Brewer
+description: The app, AWS services, device data processing and Polygon test rewards I worked on as Software Architect for the Meshii WiFi private pilot.
 canonical: https://brewerlogic.com/case-studies/meshii/
 ---
 
-# Meshii WiFi Architecture
+# Meshii WiFi
 
-Architecture review based on source code, 2023.
+Private pilot, 2023.
 
-A reconstruction of a private-pilot platform, based on its application, API, infrastructure and test source code. The platform combined device management across web, iOS and Android, AWS services, mesh network performance data and test rewards on Polygon Mumbai.
+I designed the app and AWS service architecture for a private Meshii WiFi pilot and led three developers through delivery. The system combined device setup, network performance data and test rewards on Polygon Mumbai, with one app for web, iOS and Android.
 
 - Role: Software Architect
 - Delivery: Private pilot
 - App: React Native / Expo
 - Services and data: AWS / PostgreSQL / Polygon testnet
 
-## Architecture
+## How the system worked
 
 ```text
 APP FOR WEB, IOS AND ANDROID
@@ -42,61 +42,62 @@ Calculated reward group
   -> Signed notification / status update
 ```
 
-Application services and device performance processing were kept separate. The application APIs managed user identities, wallets, device pairing and configuration. A separate set of services collected the larger volume of device data and calculated reward scores.
+I kept the application APIs separate from device-data processing. The APIs handled accounts, wallets, device pairing and configuration. Another set of services collected node measurements and calculated reward scores.
 
-## Why It Was Designed This Way
+## Why I built it this way
 
-### One App, Platform-Specific Connections
+### One app across three platforms
 
-Expo and React Native allowed the browser, iOS and Android versions to share navigation, screens and API connections. Platform-specific code connected each version to Auth0, Mapbox and nearby device discovery using mDNS.
+Expo and React Native let us share screens, navigation and API connections across web, iOS and Android. Platform-specific code handled Auth0, Mapbox and nearby device discovery through mDNS.
 
-### Cloud, Device and Blockchain Data
+### Bringing different data sources together
 
-The app combined account information from cloud services, information found directly from nearby devices and transaction data from the blockchain. React Query gave the rest of the app one consistent way to access this information.
+The app needed account information from cloud services, details from nearby devices and blockchain transaction data. React Query gave the rest of the app a consistent way to use those sources.
 
-### AWS Application Services
+### Application APIs and records
 
-API Gateway, AWS Lambda and shared code separated the services for users, wallets, devices and maps. PostgreSQL and Prisma held the application's main records.
+API Gateway, Lambda and shared code separated the services for users, wallets, devices and maps. PostgreSQL and Prisma held the application's main records.
 
-### Separate Device Data Processing
+### Device data as a separate workflow
 
-AWS IoT rules, Kinesis, S3 and EventBridge separated the collection of device performance data from reward scoring and processing. This allowed each stage to change independently during the private pilot.
+AWS IoT rules, Kinesis, S3 and EventBridge handled device-data collection separately from reward scoring and processing. That let us change each stage independently during the pilot.
 
-### Test Rewards on Polygon
+### Test rewards on Polygon
 
-Alchemy submitted groups of smart-contract reward transactions to the Polygon Mumbai test network. Signed notifications from Alchemy then updated each transaction's status in the application database.
+Alchemy submitted groups of smart-contract reward transactions to Polygon Mumbai. Signed notifications from Alchemy updated transaction status in the application database.
 
-### Automated Builds and Deployments
+### Builds and deployments
 
-AWS SAM defined the AWS services. GitHub Actions deployed changes using short-lived AWS access through OIDC. AWS Amplify hosted the Expo web app, while EAS configuration defined preview builds for iOS and Android.
+AWS SAM defined the services. GitHub Actions deployed changes using short-lived AWS access through OIDC. Amplify hosted the Expo web app, and EAS configuration defined preview builds for iOS and Android.
 
-## What the Evidence Does Not Show
+## What I'd finish before production
 
-This architecture supported a private pilot, not a production launch or a launch on Polygon's main network. The source shows integration with the Polygon Mumbai test network, automated development and staging deployments, and unit tests using simulated dependencies. It does not show that every reward could only be processed once, that repeated requests were safe at every stage, that blockchain and application records were always compared and corrected, that device setup could not partly complete, or that native app releases were fully automated.
+This was a private pilot on Polygon Mumbai. The code records automated development and staging deployments and unit tests with mocked dependencies. Before production, I would need to test and harden the complete workflow: duplicate rewards, repeated events, recovery during device setup and keeping blockchain transactions in sync with application records. Native release automation would also need work.
 
-### Work Needed Before Production
+### Recovery and production controls
 
-- Save a unique record for each reward group before submitting any blockchain transaction.
-- Add controls for repeated events, storage for failed events, and regular checks between blockchain transactions and application records.
+- Save a unique record for each reward group before submitting a blockchain transaction.
+- Handle repeated events, retain failed events and regularly compare blockchain transactions with application records.
 - Track recovery steps when device pairing spans multiple systems.
-- Give each AWS Lambda only the secrets and AWS permissions it requires.
+- Limit each Lambda to the secrets and AWS permissions it needs.
 
-### Additional Testing Needed
+### Integration and release checks
 
-- Add tests covering PostgreSQL, AWS SAM events and repeated webhook notifications working together.
-- Test mDNS discovery, authentication and pairing on physical devices.
-- Make the development, staging and production infrastructure definitions consistent before launch.
-- Test deployment health and rollback after database structure changes.
+- Test PostgreSQL, AWS SAM events and repeated webhook notifications together.
+- Check mDNS discovery, authentication and pairing on physical devices.
+- Bring development, staging and production infrastructure definitions into line.
+- Test deployment health and rollback after database changes.
 
-## Evidence Used
+## What I checked
 
-- Expo app configuration, platform-specific connections, API code and component tests.
-- AWS SAM definitions for APIs, device performance processing, reward scoring and device setup.
-- AWS Lambda code for authentication, device pairing, rewards and signed notifications.
-- Prisma and SQL database changes for application and device performance data.
-- GitHub Actions, AWS Amplify and EAS build and deployment configuration.
+- Expo configuration, platform-specific connections, API code and component tests.
+- AWS SAM definitions for APIs, device-data processing, reward scoring and device setup.
+- Lambda code for authentication, device pairing, rewards and signed notifications.
+- Prisma and SQL changes for application records and device performance data.
+- GitHub Actions, Amplify and EAS build and deployment configuration.
 
-The source code is private. Identifiers for infrastructure and devices, credentials, customer data, smart-contract addresses and private service addresses have been intentionally omitted.
+The source code is private. I've left out credentials, customer data, infrastructure and device identifiers, smart-contract addresses and private service addresses.
 
+- Case studies: https://brewerlogic.com/case-studies/
 - Portfolio: https://brewerlogic.com/
 - CV: https://brewerlogic.com/Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf

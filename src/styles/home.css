@@ -1,78 +1,6 @@
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --black: var(--site-background);
-    --white: #f0ede6;
-    --red: #00e5ff;
-    --grey: var(--site-border);
-    --grey-light: #999;
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: var(--site-header-height);
-    font-size: 16px;
-}
-
-body {
-    background: var(--black);
-    color: var(--white);
-    font-family: var(--font-mono);
+.home-page body {
     font-size: 0.875rem;
-    line-height: 1.6;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-::selection {
-    background: var(--red);
-    color: var(--black);
-}
-
-a {
-    color: var(--red);
-    text-decoration: none;
-    transition: color 0.15s;
-}
-
-a:hover {
-    color: var(--white);
-}
-
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--red);
-    outline-offset: 4px;
-}
-
-img {
-    max-width: 100%;
-}
-
-.skip-link {
-    position: absolute;
-    top: -100%;
-    left: 16px;
-    background: var(--red);
-    color: var(--black);
-    padding: 8px 16px;
-    z-index: 1000;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-}
-
-.skip-link:focus {
-    top: 16px;
 }
 
 /* ═══════════════════ GRID OVERLAY ═══════════════════ */
@@ -100,7 +28,7 @@ img {
 
 .section {
     position: relative;
-    border-bottom: 2px solid var(--grey);
+    border-bottom: 2px solid var(--site-border);
     overflow: hidden;
 }
 
@@ -134,7 +62,7 @@ img {
         font-size: 0.6rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
-        color: var(--grey-light);
+        color: var(--site-subtle);
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         z-index: 2;
@@ -181,7 +109,7 @@ img {
     flex-direction: column;
     justify-content: center;
     padding: 128px 24px 64px;
-    border-bottom: 2px solid var(--grey);
+    border-bottom: 2px solid var(--site-border);
     position: relative;
     overflow: hidden;
 }
@@ -212,7 +140,7 @@ img {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    color: var(--red);
+    color: var(--site-accent);
     margin-bottom: 16px;
 }
 
@@ -222,7 +150,7 @@ img {
     line-height: 0.85;
     text-transform: uppercase;
     letter-spacing: -0.03em;
-    color: var(--white);
+    color: var(--site-text);
     margin-bottom: 8px;
 }
 
@@ -230,7 +158,7 @@ img {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 5vw, 4rem);
     text-transform: uppercase;
-    color: var(--red);
+    color: var(--site-accent);
     line-height: 1;
     margin-bottom: 4px;
 }
@@ -240,7 +168,7 @@ img {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--grey-light);
+    color: var(--site-subtle);
     margin-bottom: 32px;
 }
 
@@ -266,7 +194,7 @@ img {
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--grey-light);
+    color: var(--site-subtle);
     writing-mode: vertical-rl;
 }
 
@@ -302,26 +230,26 @@ img {
 }
 
 .btn--primary {
-    background: var(--red);
-    border-color: var(--red);
-    color: var(--black);
+    background: var(--site-accent);
+    border-color: var(--site-accent);
+    color: var(--site-background);
 }
 
 .btn--primary:hover {
-    background: var(--white);
-    border-color: var(--white);
-    color: var(--black);
+    background: var(--site-text);
+    border-color: var(--site-text);
+    color: var(--site-background);
 }
 
 .btn--secondary {
     background: transparent;
-    border-color: var(--white);
-    color: var(--white);
+    border-color: var(--site-text);
+    color: var(--site-text);
 }
 
 .btn--secondary:hover {
-    background: var(--white);
-    color: var(--black);
+    background: var(--site-text);
+    color: var(--site-background);
 }
 
 .btn--large {
@@ -344,20 +272,20 @@ img {
 }
 
 .about__text a {
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--site-accent);
 }
 
 .about__text a:hover {
-    border-color: var(--white);
+    border-color: var(--site-text);
 }
 
 .highlight {
-    color: var(--white);
+    color: var(--site-text);
     font-weight: 700;
 }
 
 .skills {
-    border-top: 2px solid var(--grey);
+    border-top: 2px solid var(--site-border);
     padding-top: 40px;
 }
 
@@ -366,7 +294,7 @@ img {
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--red);
+    color: var(--site-accent);
     margin-bottom: 24px;
 }
 
@@ -386,7 +314,7 @@ img {
 
 .skills__list li::before {
     content: '//';
-    color: var(--red);
+    color: var(--site-accent);
     margin-right: 8px;
     font-size: 0.7rem;
 }
@@ -409,7 +337,7 @@ img {
     display: grid;
     gap: 16px;
     padding: 40px 0;
-    border-top: 2px solid var(--grey);
+    border-top: 2px solid var(--site-border);
     position: relative;
 }
 
@@ -419,7 +347,7 @@ img {
     left: 0;
     width: 8px;
     height: 8px;
-    background: var(--red);
+    background: var(--site-accent);
 }
 
 .exp__header {
@@ -431,13 +359,13 @@ img {
     font-size: clamp(1.4rem, 3vw, 2.2rem);
     text-transform: uppercase;
     line-height: 1;
-    color: var(--white);
+    color: var(--site-text);
 }
 
 .exp__company {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--red);
+    color: var(--site-accent);
 }
 
 .exp__date {
@@ -445,7 +373,7 @@ img {
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--grey-light);
+    color: var(--site-subtle);
     padding-left: 24px;
 }
 
@@ -463,12 +391,12 @@ img {
 
 .exp__details li::before {
     content: '-';
-    color: var(--grey-light);
+    color: var(--site-subtle);
     margin-right: 8px;
 }
 
 .exp--army {
-    border-top: 2px solid var(--red);
+    border-top: 2px solid var(--site-accent);
 }
 
 .exp--army .exp__marker {
@@ -501,7 +429,7 @@ img {
         grid-column: 2;
         grid-row: 1 / span 2;
         padding-left: 0;
-        border-left: 2px solid var(--grey);
+        border-left: 2px solid var(--site-border);
         padding-left: 32px;
     }
 
@@ -511,6 +439,10 @@ img {
 }
 
 /* ═══════════════════ CONTACT ═══════════════════ */
+
+#contact {
+    min-height: calc(100svh - var(--site-header-height));
+}
 
 .contact__inner {
     max-width: 600px;
@@ -526,13 +458,13 @@ img {
 .contact__email {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--grey-light);
+    color: var(--site-subtle);
     margin-bottom: 40px;
     display: block;
 }
 
 .contact__email a {
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--site-accent);
     overflow-wrap: anywhere;
 }
 
@@ -541,7 +473,7 @@ img {
     font-size: clamp(3rem, 10vw, 8rem);
     text-transform: uppercase;
     line-height: 0.9;
-    color: var(--white);
+    color: var(--site-text);
     margin-bottom: 40px;
     max-width: none;
 }
@@ -550,20 +482,20 @@ img {
 
 .rule {
     border: none;
-    border-top: 2px solid var(--grey);
+    border-top: 2px solid var(--site-border);
 }
 
 .rule--red {
-    border-color: var(--red);
+    border-color: var(--site-accent);
 }
 
 /* ═══════════════════ ACCENT STRIP ═══════════════════ */
 
 .accent-strip {
-    border-bottom: 2px solid var(--grey);
-    border-top: 2px solid var(--grey);
+    border-bottom: 2px solid var(--site-border);
+    border-top: 2px solid var(--site-border);
     padding: 12px 0;
-    background: var(--red);
+    background: var(--site-accent);
 }
 
 /* ═══════════════════ CROSS DECORATION ═══════════════════ */
@@ -652,10 +584,6 @@ img {
 }
 
 @media (max-width: 480px) {
-    html {
-        font-size: 15px;
-    }
-
     .hero {
         padding: 96px 16px 40px;
     }
@@ -690,19 +618,6 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-    }
-
     .js .reveal {
         opacity: 1;
         transform: none;
