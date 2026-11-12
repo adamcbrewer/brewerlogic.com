@@ -20,7 +20,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogLayout title={post.data.title} description={post.data.description} canonicalPath={getPostPath(post.id)} article={post.data}>
+<BlogLayout title={post.data.title} description={post.data.description} canonicalPath={getPostPath(post.id)} article={post.data} postId={post.id}>
     <article class="article">
         <ArticleHeader title={post.data.title} description={post.data.description} backHref="/blog/" backLabel="Back to Thoughts">
             <RSSLink slot="action" />

@@ -5,11 +5,12 @@ import RSSLink from '../../components/RSSLink.astro';
 import ListingLayout from '../../layouts/ListingLayout.astro';
 import { getPosts } from '../../lib/posts';
 import { getPostPath } from '../../lib/urls';
+import { getSocialImage } from '../../lib/social-images';
 
 const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
 ---
 
-<ListingLayout title="Thoughts" description="Notes on building software." canonicalPath="/blog/">
+<ListingLayout title="Thoughts" description="Notes on building software." canonicalPath="/blog/" image={getSocialImage(Astro.site)}>
     <link slot="head" rel="alternate" type="application/rss+xml" title="Thoughts / Adam Brewer" href={new URL('/blog/rss.xml', Astro.site).href} />
     <RSSLink slot="action" />
     {posts.length === 0 ? (

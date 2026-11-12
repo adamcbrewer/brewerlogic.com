@@ -10,12 +10,13 @@ interface Props {
     description: string;
     canonicalPath: string;
     markdownPath?: string;
+    image?: { url: string; alt: string };
 }
 
-const { title, description, canonicalPath, markdownPath } = Astro.props;
+const { title, description, canonicalPath, markdownPath, image } = Astro.props;
 ---
 
-<SiteLayout title={`${title} / ${authorName}`} description={description} canonicalPath={canonicalPath} markdownPath={markdownPath} pageClass="listing-page" noindex={import.meta.env.DEV}>
+<SiteLayout title={`${title} / ${authorName}`} description={description} canonicalPath={canonicalPath} markdownPath={markdownPath} image={image} pageClass="listing-page" noindex={import.meta.env.DEV}>
     <Fragment slot="head"><slot name="head" /></Fragment>
     <div class="section__inner">
         <header class:list={[Astro.slots.has('action') && 'listing-header']}>
