@@ -40,7 +40,7 @@ Astro generates this static portfolio for DigitalOcean App Platform:
 
 ## Blog development
 
-See [the blog setup issue](https://github.com/adamcbrewer/brewerlogic.com/issues/12) for the full task checklist, local commands, Markdown articles and draft behaviour. Production changes deploy through DigitalOcean after the approved PR is merged into main.
+Production changes deploy through DigitalOcean after the approved PR is merged into main.
 
 ### Development and production builds
 
