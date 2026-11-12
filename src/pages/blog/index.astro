@@ -1,6 +1,7 @@
 ---
 import '../../styles/blog.css';
 import NumberedEntry from '../../components/NumberedEntry.astro';
+import RSSLink from '../../components/RSSLink.astro';
 import ListingLayout from '../../layouts/ListingLayout.astro';
 import { getPosts } from '../../lib/posts';
 import { getPostPath } from '../../lib/urls';
@@ -9,6 +10,8 @@ const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
 ---
 
 <ListingLayout title="Thoughts" description="Notes on building software." canonicalPath="/blog/">
+    <link slot="head" rel="alternate" type="application/rss+xml" title="Thoughts / Adam Brewer" href={new URL('/blog/rss.xml', Astro.site).href} />
+    <RSSLink slot="action" />
     {posts.length === 0 ? (
         <div class="empty-state">
             <p>No articles published yet.</p>
