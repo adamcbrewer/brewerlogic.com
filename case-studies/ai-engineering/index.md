@@ -1,5 +1,5 @@
 ---
-title: AI-assisted engineering case study | Adam Brewer
+title: AI-assisted engineering / Case studies / Adam Brewer
 description: How I diagnosed and fixed a Paper Trails checkout failure, using OpenCode and Claude Code to draft code and tests from my plan.
 canonical: https://brewerlogic.com/case-studies/ai-engineering/
 ---

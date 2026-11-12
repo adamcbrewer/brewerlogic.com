@@ -158,7 +158,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         assert.deepEqual(navItems.map((node) => attribute(node, 'hidden') !== undefined), [false, false, false]);
         assert.ok(!existsSync(join(site, '.site-public/index.html')), 'Astro must own the home route');
         assert.deepEqual(elements(homepage, 'h1').map(text), ['AdamBrewer']);
-        assert.match(text(elements(homepage, 'title')[0]), /Go & AWS$/);
+        assert.equal(text(elements(homepage, 'title')[0]), 'Senior Full-Stack Engineer / Adam Brewer');
         assert.deepEqual(elements(homepage, 'section').map((node) => attribute(node, 'id')).filter(Boolean), ['about', 'work', 'experience', 'contact']);
         assert.deepEqual(links(homepage, 'canonical').map((node) => attribute(node, 'href')), [origin + '/']);
         assert.equal(meta(homepage, 'robots'), 'index, follow');
@@ -332,6 +332,21 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         assert.equal(links(notFound, 'canonical').length, 0);
         assert.ok(elements(notFound, 'a').some((node) => attribute(node, 'href') === '/sitemap.xml'));
         assert.ok(elements(notFound, 'a').some((node) => attribute(node, 'href') === '/llms.txt'));
+        for (const [path, expectedTitle] of [
+            ['/', 'Senior Full-Stack Engineer / Adam Brewer'],
+            ['/portfolio/', 'CV / Adam Brewer'],
+            ['/privacy/', 'Privacy Notice / Adam Brewer'],
+            ['/blog/', 'Thoughts / Adam Brewer'],
+            [articlePath, `${title} / Thoughts / Adam Brewer`],
+            [plainPath, 'Plain build check / Thoughts / Adam Brewer'],
+            ['/case-studies/', 'Case studies / Adam Brewer'],
+            ['/case-studies/meshii/', 'Meshii WiFi / Case studies / Adam Brewer'],
+            ['/case-studies/ai-engineering/', 'AI-assisted engineering / Case studies / Adam Brewer'],
+        ]) {
+            const document = await readPage(dist, path);
+            assert.equal(text(elements(document, 'title')[0]), expectedTitle, `Page title: ${path}`);
+        }
+        assert.equal(text(elements(notFound, 'title')[0]), 'Page Not Found / Adam Brewer');
         for (const path of (await files(dist)).filter((path) => path.endsWith('.html'))) {
             const document = parse(await readFile(path, 'utf8'));
             const scripts = elements(document, 'script');
@@ -377,7 +392,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         const homepage = parse(await homeResponse.text());
         assert.ok(!elements(homepage, 'script').some((node) => /analytics|googletagmanager/.test(attribute(node, 'src') ?? '')));
         assert.deepEqual(elements(homepage, 'h1').map(text), ['AdamBrewer']);
-        assert.match(text(elements(homepage, 'title')[0]), /Go & AWS$/);
+        assert.equal(text(elements(homepage, 'title')[0]), 'Senior Full-Stack Engineer / Adam Brewer');
         assert.ok(elements(homepage, 'a').some((node) => attribute(node, 'href') === '#about'));
         assert.equal(elements(homepage, 'footer').length, 1);
         for (const path of ['/blog/', '/case-studies/', articlePath, '/blog/build-check/draft/']) {

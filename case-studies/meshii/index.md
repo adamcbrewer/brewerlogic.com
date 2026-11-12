@@ -1,5 +1,5 @@
 ---
-title: Meshii WiFi architecture case study | Adam Brewer
+title: Meshii WiFi / Case studies / Adam Brewer
 description: The app, AWS services, device data processing and Polygon test rewards I worked on as Software Architect for the Meshii WiFi private pilot.
 canonical: https://brewerlogic.com/case-studies/meshii/
 ---

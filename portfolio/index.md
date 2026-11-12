@@ -1,5 +1,5 @@
 ---
-title: Adam Brewer - Senior Full-Stack Engineer CV
+title: CV / Adam Brewer
 canonical: https://brewerlogic.com/portfolio
 ---
 

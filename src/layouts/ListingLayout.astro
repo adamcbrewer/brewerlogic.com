@@ -15,7 +15,7 @@ interface Props {
 const { title, description, canonicalPath, markdownPath } = Astro.props;
 ---
 
-<SiteLayout title={`${title} | ${authorName}`} description={description} canonicalPath={canonicalPath} markdownPath={markdownPath} pageClass="listing-page" noindex={import.meta.env.DEV}>
+<SiteLayout title={`${title} / ${authorName}`} description={description} canonicalPath={canonicalPath} markdownPath={markdownPath} pageClass="listing-page" noindex={import.meta.env.DEV}>
     <div class="section__inner">
         <header>
             <SectionHeading level="h1" eyebrow={description}>{title}</SectionHeading>

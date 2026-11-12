@@ -1,5 +1,5 @@
 ---
-title: Privacy Notice | Adam Brewer
+title: Privacy Notice / Adam Brewer
 description: How brewerlogic.com handles analytics data, server logs and direct enquiries.
 canonical: https://brewerlogic.com/privacy
 ---

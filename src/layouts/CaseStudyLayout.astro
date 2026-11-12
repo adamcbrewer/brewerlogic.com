@@ -16,7 +16,7 @@ const { study, sectionLinks } = Astro.props;
 const canonicalPath = getCaseStudyPath(study.slug);
 ---
 
-<SiteLayout title={`${study.metaTitle} | ${authorName}`} description={study.description} canonicalPath={canonicalPath} markdownPath={`${canonicalPath}index.md`} pageClass="article-page case-study-page">
+<SiteLayout title={`${study.title} / Case studies / ${authorName}`} description={study.description} canonicalPath={canonicalPath} markdownPath={`${canonicalPath}index.md`} pageClass="article-page case-study-page">
     <article class:list={['article', 'case-study', `case-study--${study.variant}`]}>
         <ArticleHeader title={study.title} backHref="/case-studies/" backLabel="Back to case studies">
             <Fragment slot="description"><slot name="intro" /></Fragment>

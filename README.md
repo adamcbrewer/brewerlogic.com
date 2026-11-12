@@ -42,10 +42,10 @@ The Google tag's single `config` call sends the initial page view automatically,
 Open **Reports > Acquisition** in the brewerlogic.com GA4 property:
 
 - [Traffic overview](https://analytics.google.com/analytics/web/#/a31471338p364661771/reports/explorer?r=16326191297) shows all visitors, sessions and page views by session source/medium. Switch the table dimension to **Page referrer** for referring URLs when available, or **Page path and screen class** for pages visited.
-- [AI assistant referrals](https://analytics.google.com/analytics/web/#/a31471338p364661771/reports/explorer?r=16326113549) groups visits attributed to the **AI Assistant** channel by session source/medium.
-- [Blog views from AI assistants](https://analytics.google.com/analytics/web/#/a31471338p364661771/reports/explorer?r=16326156793) shows page views during those sessions for paths starting with `/blog/`, covering the landing page and individual articles.
+- [Agent referrals](https://analytics.google.com/analytics/web/#/a31471338p364661771/reports/explorer?r=16326113549) groups visits attributed to GA4's built-in **AI Assistant** channel by session source/medium.
+- [Agent Views](https://analytics.google.com/analytics/web/#/a31471338p364661771/reports/explorer?r=16326156793) shows page views across the whole site during those sessions, grouped by page path.
 
-For blog traffic from all sources, open **Reports > Engagement > Pages and screens**, select **Page path and screen class**, and filter paths starting with `/blog/`. Use the page title dimension to inspect titles.
+For page views from all sources, open **Reports > Engagement > Pages and screens** and select **Page path and screen class**. Use the page title dimension to inspect titles.
 
 AI referrals measure visits attributed to assistants, not crawler requests. Missing referrers can appear as Direct, and GA4 automatically excludes known bots. See Google's [AI Assistant announcement](https://support.google.com/analytics/answer/9164320), [traffic acquisition report](https://support.google.com/analytics/answer/12923437), and [bot exclusion](https://support.google.com/analytics/answer/9888366).
 
@@ -57,7 +57,9 @@ Agent fetches of HTML, Markdown and `llms.txt` without JavaScript are outside th
 
 The three saved reports and their Acquisition menu entries were configured and reopened in GA4 on 12 November 2026. The AI reports showed no matching visits for 15 October to 11 November 2026.
 
-After deployment, visit `/`, `/portfolio/`, `/case-studies/meshii/`, `/privacy/`, `/blog/` and a published article. In browser network tools, check for one initial `page_view` sent to `G-TWKH9DPEMN` per load, with the expected URL, title and referrer. Confirm receipt in GA4 Realtime pages or DebugView. Inspect the stream's enhanced measurement settings if additional page views appear. Receipt of page views from the new tracking remains unverified. Record the deployment and dashboard evidence in issue #15 before closing it.
+Adam confirmed on 12 November 2026 that page views from the deployed tracking arrive in GA4 in real time.
+
+After changes to tracking, visit `/`, `/portfolio/`, `/case-studies/meshii/`, `/privacy/`, `/blog/` and a published article. In browser network tools, check for one initial `page_view` sent to `G-TWKH9DPEMN` per load, with the expected URL, title and referrer. Confirm receipt in GA4 Realtime pages or DebugView. Inspect the stream's enhanced measurement settings if additional page views appear.
 
 ## Licence
 

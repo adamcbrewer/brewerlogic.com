@@ -14,7 +14,7 @@ interface Props {
 
 const { title, description, canonicalPath, article } = Astro.props;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
-const pageTitle = `${title} | ${authorName}`;
+const pageTitle = article ? `${title} / Thoughts / ${authorName}` : `${title} / ${authorName}`;
 const image = article?.image;
 const canIndex = !import.meta.env.DEV && !article?.draft;
 const structuredData = article && {

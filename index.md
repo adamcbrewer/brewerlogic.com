@@ -1,5 +1,5 @@
 ---
-title: Adam Brewer - Senior Full-Stack Engineer | TypeScript, React, GraphQL, Rust, Go & AWS
+title: Senior Full-Stack Engineer / Adam Brewer
 description: Senior full-stack engineer with 15+ years delivering fintech, SaaS and design-system products. TypeScript, React, Next.js, GraphQL, Rust, Go and AWS.
 canonical: https://brewerlogic.com/
 ---
