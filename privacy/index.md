@@ -6,11 +6,13 @@ canonical: https://brewerlogic.com/privacy
 
 # Privacy Notice
 
-Last updated: 22 August 2026
+Last updated: 12 November 2026
 
 This is the privacy notice for brewerlogic.com, the personal portfolio of Adam Brewer. The site exists to describe my professional experience, publish engineering case studies and let people contact me about relevant work. I am responsible for the personal data described below. Questions or requests can be sent to adam@brewerlogic.com.
 
 ## Information collected
+
+Page-view tracking covers the site's HTML pages, including Thoughts, published articles, case studies and the CV. It records page URLs and titles and retains referral information, including referrals from AI assistants where available. Markdown copies and other downloadable files do not run the analytics script. Local development and preview domains do not collect page views.
 
 The site uses Google Analytics to understand aggregate activity such as pages visited, approximate location, device type and referral source. Google may set or read cookies and process technical identifiers under its own privacy terms. The hosting and delivery providers may also retain routine request logs containing an IP address, browser details, requested URL and timestamp for security, reliability and abuse prevention.
 

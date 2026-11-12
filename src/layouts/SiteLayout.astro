@@ -31,6 +31,7 @@ const canonicalURL = canonicalPath && new URL(canonicalPath, Astro.site).href;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
+        {import.meta.env.PROD && <script is:inline src="/assets/js/analytics.js" defer></script>}
         <meta name="description" content={description} />
         <meta name="author" content={authorName} />
         <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />

@@ -332,6 +332,12 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         assert.equal(links(notFound, 'canonical').length, 0);
         assert.ok(elements(notFound, 'a').some((node) => attribute(node, 'href') === '/sitemap.xml'));
         assert.ok(elements(notFound, 'a').some((node) => attribute(node, 'href') === '/llms.txt'));
+        for (const path of (await files(dist)).filter((path) => path.endsWith('.html'))) {
+            const document = parse(await readFile(path, 'utf8'));
+            const scripts = elements(document, 'script');
+            assert.equal(scripts.filter((node) => attribute(node, 'src') === '/assets/js/analytics.js').length, 1, `Analytics coverage: ${path}`);
+            assert.ok(!scripts.some((node) => /googletagmanager|gtag\(/.test((attribute(node, 'src') ?? '') + text(node))), `Duplicate analytics: ${path}`);
+        }
         await checkInternalLinks(dist);
     });
 
@@ -369,6 +375,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         const homeResponse = await fetch(localURL);
         assert.equal(homeResponse.status, 200);
         const homepage = parse(await homeResponse.text());
+        assert.ok(!elements(homepage, 'script').some((node) => /analytics|googletagmanager/.test(attribute(node, 'src') ?? '')));
         assert.deepEqual(elements(homepage, 'h1').map(text), ['AdamBrewer']);
         assert.match(text(elements(homepage, 'title')[0]), /Go & AWS$/);
         assert.ok(elements(homepage, 'a').some((node) => attribute(node, 'href') === '#about'));
@@ -377,6 +384,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
             const response = await fetch(new URL(path, localURL));
             assert.equal(response.status, 200);
             const document = parse(await response.text());
+            assert.ok(!elements(document, 'script').some((node) => /analytics|googletagmanager/.test(attribute(node, 'src') ?? '')));
             assert.equal(meta(document, 'robots'), 'noindex, nofollow');
             assert.equal(links(document, 'alternate').length, path === '/case-studies/' ? 1 : 0);
             if (path.endsWith('/draft/')) assert.ok(text(document).includes(draftMarker));
