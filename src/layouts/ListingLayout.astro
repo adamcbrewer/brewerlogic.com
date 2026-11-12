@@ -16,10 +16,26 @@ const { title, description, canonicalPath, markdownPath } = Astro.props;
 ---
 
 <SiteLayout title={`${title} / ${authorName}`} description={description} canonicalPath={canonicalPath} markdownPath={markdownPath} pageClass="listing-page" noindex={import.meta.env.DEV}>
+    <Fragment slot="head"><slot name="head" /></Fragment>
     <div class="section__inner">
-        <header>
+        <header class:list={[Astro.slots.has('action') && 'listing-header']}>
             <SectionHeading level="h1" eyebrow={description}>{title}</SectionHeading>
+            <slot name="action" />
         </header>
         <slot />
     </div>
 </SiteLayout>
+
+<style>
+    .listing-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .listing-header :global(.section-heading) {
+        margin-bottom: 0;
+    }
+</style>

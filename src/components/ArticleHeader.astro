@@ -10,16 +10,26 @@ const { title, backHref, backLabel, description } = Astro.props;
 ---
 
 <header class="article-header">
-    <a class="back-link" href={backHref}>{backLabel}</a>
+    <div class="article-links">
+        <a class="back-link" href={backHref}>{backLabel}</a>
+        <slot name="action" />
+    </div>
     <h1>{title}</h1>
     <p class="article-description"><slot name="description">{description}</slot></p>
     <div class="article-meta"><slot name="meta" /></div>
 </header>
 
 <style>
+    .article-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
     .back-link {
         display: inline-block;
-        margin-bottom: 3rem;
         font-size: 0.75rem;
         text-decoration: underline;
     }

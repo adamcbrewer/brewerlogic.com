@@ -16,7 +16,7 @@ const origin = 'https://brewerlogic.com';
 const articlePath = '/blog/build-check/published/';
 const plainPath = '/blog/build-check/plain/';
 const title = 'Build check [article] </script> & "quotes"';
-const description = 'A published article & its metadata.';
+const description = 'A published article & its <metadata> with "quotes", apostrophes\' and ]]>.';
 const body = '\nPublished fixture body.\n\n## Details\n\n- A list item\n\n```js\nconst value = "<raw> & code";\n```\n\n[Thoughts](/blog/) and [work](/#work).\n';
 const draftMarker = 'BUILD_CHECK_UNPUBLISHED_SECRET';
 const fixtures = {
@@ -51,6 +51,60 @@ function meta(document, key) {
 
 function links(document, rel) {
     return elements(document, 'link').filter((node) => attribute(node, 'rel') === rel);
+}
+
+function checkRSSLinks(document) {
+    const discovery = links(document, 'alternate').filter((node) => attribute(node, 'type') === 'application/rss+xml');
+    assert.deepEqual(discovery.map((node) => attribute(node, 'href')), [origin + '/blog/rss.xml']);
+    const subscriptions = elements(document, 'a').filter((node) => attribute(node, 'href') === '/blog/rss.xml');
+    assert.equal(subscriptions.length, 1);
+    assert.equal(text(subscriptions[0]), 'RSS');
+    assert.ok(elements(document, 'header').some((header) => nodes(header).includes(subscriptions[0])));
+}
+
+function rssFeed(source) {
+    const parser = sax.parser(true, { xmlns: true });
+    const channel = {};
+    const items = [];
+    const stack = [];
+    let item;
+    parser.onopentag = (node) => {
+        stack.push(node.name);
+        if (node.name === 'rss') assert.equal(node.attributes.version.value, '2.0');
+        if (node.name === 'item') item = {};
+        if (node.name === 'guid') assert.equal(node.attributes.isPermaLink.value, 'true');
+        if (node.name === 'dc:creator') assert.equal(node.uri, 'http://purl.org/dc/elements/1.1/');
+        if (node.name === 'atom:link') {
+            assert.equal(node.uri, 'http://www.w3.org/2005/Atom');
+            assert.equal(node.attributes.href.value, origin + '/blog/rss.xml');
+            assert.equal(node.attributes.rel.value, 'self');
+            assert.equal(node.attributes.type.value, 'application/rss+xml');
+        }
+    };
+    parser.ontext = (value) => {
+        if ((item && stack.length === 4) || (!item && stack.length === 3)) {
+            const target = item ?? channel;
+            const field = stack.at(-1);
+            target[field] = (target[field] ?? '') + value;
+        }
+    };
+    parser.onclosetag = (name) => {
+        if (name === 'item') { items.push(item); item = undefined; }
+        stack.pop();
+    };
+    parser.write(source).close();
+    assert.equal(channel.title, 'Thoughts / Adam Brewer');
+    assert.equal(channel.description, 'Notes on building software.');
+    assert.equal(channel.link, origin + '/blog/');
+    assert.equal(channel.language, 'en');
+    assert.equal(new Set(items.map((item) => item.guid)).size, items.length);
+    assert.ok(items.every((item) => item.guid === item.link && item['dc:creator'] === 'Adam Brewer'));
+    const dates = items.map((item) => Date.parse(item.pubDate));
+    assert.ok(dates.every(Number.isFinite));
+    assert.deepEqual(dates, [...dates].sort((a, b) => b - a));
+    assert.ok(!source.includes(draftMarker));
+    assert.ok(!source.includes('Published fixture body.'));
+    return items;
 }
 
 function sitemapEntries(source) {
@@ -197,9 +251,20 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
             'https://papertrails.io', '/portfolio', '/privacy', '#main',
         ]);
         const listing = await readPage(dist, '/blog/');
+        const feed = rssFeed(await readFile(join(dist, 'blog/rss.xml'), 'utf8'));
+        assert.equal(feed.length, elements(elements(listing, 'main')[0], 'h2').length);
+        const item = feed.find((item) => item.link === origin + articlePath);
+        assert.equal(item.title, title);
+        assert.equal(item.guid, origin + articlePath);
+        assert.equal(item.pubDate, 'Mon, 01 Jan 2024 00:00:00 GMT');
+        const summary = parse(item.description);
+        assert.equal(text(summary), description);
+        assert.equal(elements(summary, 'metadata').length, 0, 'Summary text must not become HTML');
+        assert.ok(feed.some((item) => item.link === origin + plainPath));
         assert.ok(text(listing).indexOf(title) < text(listing).indexOf('Plain build check'));
         for (const path of ['/blog/', articlePath, plainPath]) {
             const document = await readPage(dist, path);
+            checkRSSLinks(document);
             const footer = elements(document, 'footer').find((node) => attribute(node, 'class') === 'footer');
             assert.equal(serialize(footer), serialize(homeFooter), 'Home and blog must share the same footer');
             const thoughts = elements(document, 'a').filter((node) => attribute(node, 'aria-current') !== undefined);
@@ -401,7 +466,8 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
             const document = parse(await response.text());
             assert.ok(!elements(document, 'script').some((node) => /analytics|googletagmanager/.test(attribute(node, 'src') ?? '')));
             assert.equal(meta(document, 'robots'), 'noindex, nofollow');
-            assert.equal(links(document, 'alternate').length, path === '/case-studies/' ? 1 : 0);
+            assert.equal(links(document, 'alternate').length, 1);
+            if (path.startsWith('/blog/')) checkRSSLinks(document);
             if (path.endsWith('/draft/')) assert.ok(text(document).includes(draftMarker));
         }
         for (const path of [articlePath, '/blog/build-check/draft/']) {
@@ -412,6 +478,10 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
             assert.equal(response.status, 200);
             assert.equal(await response.text(), template);
         }
+        const response = await fetch(new URL('/blog/rss.xml', localURL));
+        assert.equal(response.status, 200);
+        assert.match(response.headers.get('content-type'), /^application\/rss\+xml; charset=utf-8$/);
+        assert.deepEqual(rssFeed(await response.text()), rssFeed(await readFile(join(dist, 'blog/rss.xml'), 'utf8')));
     });
 
     await t.test('an all-draft collection produces an empty public listing', async () => {
@@ -420,11 +490,21 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         await writeFile(join(content, 'draft.md'), fixtures['draft.md']);
         await build();
         const document = await readPage(dist, '/blog/');
+        checkRSSLinks(document);
         assert.ok(text(document).includes('No articles published yet.'));
         assert.equal(meta(document, 'robots'), 'index, follow');
-        assert.deepEqual((await files(join(dist, 'blog'))).map((path) => relative(join(dist, 'blog'), path)), ['index.html']);
+        assert.deepEqual((await files(join(dist, 'blog'))).map((path) => relative(join(dist, 'blog'), path)), ['index.html', 'rss.xml']);
+        assert.deepEqual(rssFeed(await readFile(join(dist, 'blog/rss.xml'), 'utf8')), []);
         const sitemap = sitemapEntries(await readFile(join(dist, 'sitemap.xml'), 'utf8'));
         assert.deepEqual(sitemap.filter((entry) => new URL(entry.loc).pathname.startsWith('/blog/')), [{ loc: origin + '/blog/' }]);
         assert.ok(!(await readFile(join(dist, 'llms.txt'), 'utf8')).includes(draftMarker));
+    });
+
+    await t.test('a collection with no articles produces an empty feed', async () => {
+        await rm(content, { recursive: true });
+        await mkdir(content);
+        await build();
+        assert.deepEqual(rssFeed(await readFile(join(dist, 'blog/rss.xml'), 'utf8')), []);
+        checkRSSLinks(await readPage(dist, '/blog/'));
     });
 });

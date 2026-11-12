@@ -21,6 +21,14 @@ I write about software and the ideas behind it. [Read all my thoughts](https://b
 
   What software never gets built because the person with the idea doesn't have the time, money or skills to try?
 
+### RSS
+
+[Subscribe to Thoughts](https://brewerlogic.com/blog/rss.xml) in a feed reader. The feed includes each published post's summary and a link to the full article. Drafts stay out in development and production. The listing and article headers have an RSS link, and their HTML heads advertise the canonical feed URL for automatic discovery.
+
+`npm test` checks RSS XML, summary escaping, canonical links and stable GUIDs, authors, publication dates, newest-first ordering, draft exclusion, discovery links and empty feeds. It also checks the development response's RSS content type.
+
+After deployment, check `/blog/rss.xml` returns HTTP 200 with an XML content type rather than an HTML fallback. Confirm its items match the published articles, then follow the RSS link from `/blog/` and a published post on desktop and mobile. Import the feed URL into a feed reader and check that summaries link to the full posts. Deployment checks remain pending until this branch is merged and deployed.
+
 ## Agent discovery
 
 If you're using an agent to read the site, these are the places to start:
