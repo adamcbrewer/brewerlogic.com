@@ -4,18 +4,20 @@ import '../styles/content.css';
 import SiteLayout from './SiteLayout.astro';
 import type { CollectionEntry } from 'astro:content';
 import { authorName } from '../lib/site';
+import { getSocialImage } from '../lib/social-images';
 
 interface Props {
     title: string;
     description: string;
     canonicalPath: string;
     article?: CollectionEntry<'blog'>['data'];
+    postId?: string;
 }
 
-const { title, description, canonicalPath, article } = Astro.props;
+const { title, description, canonicalPath, article, postId } = Astro.props;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
 const pageTitle = article ? `${title} / Thoughts / ${authorName}` : `${title} / ${authorName}`;
-const image = article?.image;
+const image = article?.image ?? getSocialImage(Astro.site, postId);
 const canIndex = !import.meta.env.DEV && !article?.draft;
 const structuredData = article && {
     '@context': 'https://schema.org',

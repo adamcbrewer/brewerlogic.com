@@ -1,6 +1,6 @@
 ---
 title: All the untold stories
-description: What software never gets built because the person with the idea doesn't have the time, money or skills to try?
+description: We attach too much importance to the code we write.
 pubDate: 2026-11-12
 draft: false
 ---

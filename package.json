@@ -3,8 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/prepare-static.mjs && astro dev",
-    "build": "node scripts/prepare-static.mjs && astro build",
+    "dev": "node scripts/social-images.mjs && node scripts/prepare-static.mjs && astro dev",
+    "build": "node scripts/social-images.mjs && node scripts/prepare-static.mjs && astro build",
+    "social:generate": "node scripts/social-images.mjs",
+    "social:check": "node scripts/social-images.mjs --check",
     "preview": "astro preview",
     "test": "node --test tests/*.test.mjs"
   },
@@ -16,7 +18,11 @@
     "astro": "7.4.5"
   },
   "devDependencies": {
+    "@astrojs/internal-helpers": "0.13.0",
+    "fontkitten": "1.0.3",
+    "github-slugger": "2.0.0",
     "parse5": "8.0.0",
-    "sax": "1.6.1"
+    "sax": "1.6.1",
+    "sharp": "0.35.5"
   }
 }

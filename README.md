@@ -19,7 +19,21 @@ I write about software and the ideas behind it. [Read all my thoughts](https://b
 
 - [All the untold stories](https://brewerlogic.com/blog/all-the-untold-stories/) · 12 November 2026
 
-  What software never gets built because the person with the idea doesn't have the time, money or skills to try?
+  We attach too much importance to the code we write.
+
+## Social-preview images
+
+Thoughts uses a sound-wave image for the listing and a separate image for each published post without a custom `image`. Each waveform is seeded from a SHA-256 hash of the post's slug. Editing the title or description changes the text while keeping that waveform stable. Drafts use the generic image in development and do not get public image files. Article-specific image overrides take precedence.
+
+Run `npm run social:generate` after changing article metadata or the image design. This also runs before `npm run dev` and `npm run build`. It generates only missing, changed or damaged images and removes obsolete ones. Images are 1200 × 630 PNGs under `assets/img/social/`; the hashes and metadata live in `src/data/social-images.json`. Commit both the generated PNGs and that manifest alongside the source changes.
+
+The manifest records the waveform seed hash, an input hash covering the slug, title, description, renderer source, font files, palette and relevant dependency versions, and a SHA-256 hash of the PNG bytes. Filenames include the input hash so changed artwork gets a new URL. Article body edits alone do not regenerate images.
+
+Run `npm run social:check` before opening a PR. It recomputes input hashes and verifies the saved PNG hashes without writing files. The **Verify committed social image hashes** step also runs on every PR and push, before the build can regenerate anything. Missing, stale, damaged or obsolete output fails the check with the regeneration command.
+
+Rendering uses the existing local fonts as SVG outlines, with no system-font or browser dependency. The renderer packages are pinned in `package-lock.json`. Install with `npm ci --ignore-scripts`, following [npm security best practices](https://github.com/lirantal/npm-security-best-practices).
+
+Local verification covers incremental generation, stale-output detection, metadata, custom image overrides and draft exclusion. Public image content types and LinkedIn, Slack and X cache refreshes still need checking after deployment.
 
 ### RSS
 

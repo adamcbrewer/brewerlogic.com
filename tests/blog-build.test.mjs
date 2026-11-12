@@ -174,7 +174,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
     const site = await mkdtemp(join(tmpdir(), 'brewerlogic-build-test-'));
     t.after(() => rm(site, { recursive: true, force: true }));
     const { stdout } = await execute('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root });
-    await Promise.all(stdout.split('\0').filter((path) => path && existsSync(join(root, path))).map(async (path) => {
+    await Promise.all(stdout.split('\0').filter((path) => path && !path.endsWith('/') && existsSync(join(root, path))).map(async (path) => {
         await mkdir(dirname(join(site, path)), { recursive: true });
         await cp(join(root, path), join(site, path));
     }));
@@ -261,6 +261,11 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         assert.equal(text(summary), description);
         assert.equal(elements(summary, 'metadata').length, 0, 'Summary text must not become HTML');
         assert.ok(feed.some((item) => item.link === origin + plainPath));
+        const socialImages = JSON.parse(await readFile(join(site,'src/data/social-images.json'),'utf8'));
+        assert.equal(meta(listing,'og:image'),origin + socialImages.listing.url);
+        assert.equal(meta(listing,'twitter:image'),origin + socialImages.listing.url);
+        assert.equal(meta(listing,'twitter:card'),'summary_large_image');
+        assert.equal(meta(listing,'og:image:alt'),socialImages.listing.alt);
         assert.ok(text(listing).indexOf(title) < text(listing).indexOf('Plain build check'));
         for (const path of ['/blog/', articlePath, plainPath]) {
             const document = await readPage(dist, path);
@@ -311,9 +316,15 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
                 assert.ok(markdown.includes(body.trim()) && markdown.includes('Updated: 2024-02-03'));
             } else {
                 assert.equal(article.datePublished, '2023-01-01T00:00:00.000Z');
-                assert.ok(!('dateModified' in article) && !('image' in article));
-                assert.ok(!elements(document, 'meta').some((node) => attribute(node, 'property') === 'og:image'));
-                assert.equal(meta(document, 'twitter:card'), 'summary');
+                assert.ok(!('dateModified' in article));
+                const image = socialImages['post:build-check/plain'];
+                assert.equal(article.image,origin + image.url);
+                assert.equal(meta(document,'og:image'),article.image);
+                assert.equal(meta(document,'twitter:image'),article.image);
+                assert.equal(meta(document,'og:image:alt'),image.alt);
+                assert.equal(meta(document,'twitter:image:alt'),image.alt);
+                assert.equal(meta(document, 'twitter:card'), 'summary_large_image');
+                assert.equal((await readFile(join(dist,image.url))).subarray(0,8).toString('hex'),'89504e470d0a1a0a');
                 assert.ok(markdown.includes('Plain fixture body.'));
             }
         }
