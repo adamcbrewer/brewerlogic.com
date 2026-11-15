@@ -6,6 +6,7 @@ import ListingLayout from '../../layouts/ListingLayout.astro';
 import { getPosts } from '../../lib/posts';
 import { getPostPath } from '../../lib/urls';
 import { getSocialImage } from '../../lib/social-images';
+import { getReadingTime } from '../../lib/reading-time';
 
 const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
 ---
@@ -26,6 +27,7 @@ const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
                         <time datetime={post.data.pubDate.toISOString()}>
                             {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
                         </time>
+                        <span class="reading-time">{getReadingTime(post.body ?? '')}</span>
                         {post.data.draft && <span class="draft-label">Draft preview</span>}
                     </div>
                     <p>{post.data.description}</p>

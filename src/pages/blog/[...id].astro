@@ -6,6 +6,7 @@ import RSSLink from '../../components/RSSLink.astro';
 import { getPosts } from '../../lib/posts';
 import { getPostPath } from '../../lib/urls';
 import { authorName } from '../../lib/site';
+import { getReadingTime } from '../../lib/reading-time';
 
 export async function getStaticPaths() {
     const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
@@ -29,6 +30,7 @@ const { Content } = await render(post);
                 <time datetime={post.data.pubDate.toISOString()}>
                     {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
                 </time>
+                <span class="reading-time">{getReadingTime(post.body ?? '')}</span>
                 {post.data.updatedDate && (
                     <span>Updated <time datetime={post.data.updatedDate.toISOString()}>
                         {post.data.updatedDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
