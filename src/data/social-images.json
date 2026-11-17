@@ -12,5 +12,12 @@
     "inputHash": "5f8b272f42123b0a20173fec62fa98e1b9cf5a2cde4b498daf625004aab7b128",
     "seedHash": "8466b4d43fa5e358fff655f6205ebf247483d1c8b7c089c615b62ae1e3d6d7af",
     "pngHash": "4e20032110bca1ff98b2b10dc688c0533d6864c5590f12fc97e16ee4f4448e3f"
+  },
+  "post:slop-happens": {
+    "url": "/assets/img/social/7304a6f65c3772a8-32273f07f2aaa84f.png",
+    "alt": "Slop happens. Humans write rough code too. What matters is knowing what we can accept, what needs work, and where mistakes cost too much.",
+    "inputHash": "32273f07f2aaa84f408a2c6a486884006d218d4c25c771d0f69c290d190f267d",
+    "seedHash": "a5805efeb68cfdc76849db5d051733f49233363710ec5303a3568214dbc6056f",
+    "pngHash": "256c16bbbbd95220aba36c64834013b4ff5246c0948c548b9919338d76ba75be"
   }
 }
