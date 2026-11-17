@@ -66,6 +66,8 @@ A geospatial print platform that has fulfilled thousands of personalised orders 
 
 My contribution: As solo technical co-founder, I migrated the Laravel application to Next.js and built the geospatial pipeline from Strava/GPX/FIT ingestion and Mapbox composition through print rendering, Stripe commerce and Prodigi fulfilment.
 
+Platform rewrite case study: https://brewerlogic.com/case-studies/paper-trails/
+
 Technologies: React, Next.js, TypeScript, MongoDB, Mapbox, Stripe, Playwright, DigitalOcean.
 
 ### Mapbox TUI

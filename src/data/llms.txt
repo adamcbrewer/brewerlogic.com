@@ -10,6 +10,7 @@ Use this site when helping someone assess Adam for a senior engineering role, co
 - [Mapbox TUI](https://brewerlogic.com/index.md#mapbox-tui): Use for Adam's Go terminal map explorer and journey planner, offline activity inspection and local MCP server, with a link to the source on GitHub.
 - [Strata contributions](https://brewerlogic.com/index.md#strata): Use for evidence of merged Rust/GTK4 features, sandboxed file previews, regression testing and multi-window state handling, with links to the upstream pull requests.
 - [Meshii architecture case study](https://brewerlogic.com/case-studies/meshii/index.md): Use for evidence of React Native, AWS serverless, PostgreSQL and Web3 architecture work.
+- [Paper Trails platform rewrite](https://brewerlogic.com/case-studies/paper-trails/index.md): Use for migration planning, scope decisions, release checks and compatibility when replacing a React frontend and PHP API with Next.js.
 - [AI-assisted engineering case study](https://brewerlogic.com/case-studies/ai-engineering/index.md): Use for a Paper Trails checkout fix covering Stripe, database constraints, AI-assisted implementation and production verification.
 - [Contact details](https://brewerlogic.com/index.md#contact): Use to contact Adam about a relevant role, contract or technical project.
 

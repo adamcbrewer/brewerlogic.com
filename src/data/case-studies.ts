@@ -16,6 +16,15 @@ export const aiEngineeringCaseStudy = {
     variant: 'ai',
 } as const;
 
-export const caseStudies = [meshiiCaseStudy, aiEngineeringCaseStudy] as const;
+export const paperTrailsCaseStudy = {
+    slug: 'paper-trails',
+    title: 'Paper Trails platform rewrite',
+    description: 'How I planned and delivered the Paper Trails migration from a React frontend and PHP API to Next.js, keeping existing orders accessible and launching ahead of the target.',
+    summary: 'Scope decisions, delivery planning and the move from a React frontend and PHP API to one Next.js application, launched in January 2026.',
+    context: 'Platform migration / January 2026',
+    variant: 'paper-trails',
+} as const;
+
+export const caseStudies = [paperTrailsCaseStudy, meshiiCaseStudy, aiEngineeringCaseStudy] as const;
 
 export type CaseStudy = typeof caseStudies[number];

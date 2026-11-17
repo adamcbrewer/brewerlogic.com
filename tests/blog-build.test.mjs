@@ -344,10 +344,11 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         for (const path of await files(join(site, '.site-public'))) {
             assert.deepEqual(await readFile(join(dist, relative(join(site, '.site-public'), path))), await readFile(path));
         }
-        for (const path of ['index.md', 'privacy/index.md', 'portfolio/index.html', 'portfolio/index.md', 'case-studies/meshii/index.md', 'case-studies/ai-engineering/index.md', 'robots.txt', 'Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf']) {
+        for (const path of ['index.md', 'privacy/index.md', 'portfolio/index.html', 'portfolio/index.md', 'case-studies/paper-trails/index.md', 'case-studies/meshii/index.md', 'case-studies/ai-engineering/index.md', 'robots.txt', 'Adam-Brewer-Senior-Full-Stack-Engineer-CV.pdf']) {
             assert.deepEqual(await readFile(join(dist, path)), await readFile(join(site, path)));
         }
         for (const [path, canonical, heading] of [
+            ['/case-studies/paper-trails/', '/case-studies/paper-trails/', 'Paper Trails platform rewrite'],
             ['/case-studies/meshii/', '/case-studies/meshii/', 'Meshii WiFi'],
             ['/case-studies/ai-engineering/', '/case-studies/ai-engineering/', 'AI-assisted engineering'],
             ['/privacy/', '/privacy', 'Privacy Notice'],
@@ -370,7 +371,9 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
                     ['/#contact', '#contact'], ['/case-studies/', 'Case studies'], ['/blog/', 'Thoughts'],
                 ]);
                 const contents = elements(document, 'nav').find((node) => attribute(node, 'aria-label') === 'In this case study');
-                const sectionIds = path.includes('meshii') ? ['architecture', 'decisions', 'boundaries'] : ['incident', 'workflow', 'outcome'];
+                const sectionIds = path.includes('paper-trails')
+                    ? ['rationale', 'decision', 'scope', 'release', 'outcome', 'lessons']
+                    : path.includes('meshii') ? ['architecture', 'decisions', 'boundaries'] : ['incident', 'workflow', 'outcome'];
                 for (const id of sectionIds) {
                     assert.ok(elements(document, 'section').some((node) => attribute(node, 'id') === id));
                     assert.equal(elements(contents, 'a').filter((node) => attribute(node, 'href') === '#' + id).length, 1);
@@ -383,9 +386,9 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
         assert.deepEqual(links(studies, 'alternate').map((node) => attribute(node, 'href')), ['/case-studies/index.md']);
         const studyMain = elements(studies, 'main')[0];
         assert.ok(text(elements(studyMain, 'h1')[0]).endsWith('Case studies'));
-        assert.deepEqual(elements(studyMain, 'h2').map(text), ['Meshii WiFi', 'AI-assisted engineering']);
+        assert.deepEqual(elements(studyMain, 'h2').map(text), ['Paper Trails platform rewrite', 'Meshii WiFi', 'AI-assisted engineering']);
         const studyMarkdown = await readFile(join(dist, 'case-studies/index.md'), 'utf8');
-        for (const slug of ['meshii', 'ai-engineering']) {
+        for (const slug of ['paper-trails', 'meshii', 'ai-engineering']) {
             const path = `/case-studies/${slug}/`;
             assert.ok(elements(studyMain, 'a').some((node) => attribute(node, 'href') === path));
             assert.ok(studyMarkdown.includes(origin + path + 'index.md'));
@@ -416,6 +419,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
             [articlePath, `${title} / Thoughts / Adam Brewer`],
             [plainPath, 'Plain build check / Thoughts / Adam Brewer'],
             ['/case-studies/', 'Case studies / Adam Brewer'],
+            ['/case-studies/paper-trails/', 'Paper Trails platform rewrite / Case studies / Adam Brewer'],
             ['/case-studies/meshii/', 'Meshii WiFi / Case studies / Adam Brewer'],
             ['/case-studies/ai-engineering/', 'AI-assisted engineering / Case studies / Adam Brewer'],
         ]) {
@@ -455,7 +459,7 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
                 if (url) { clearTimeout(timer); resolve(url); }
             });
         });
-        for (const path of ['/case-studies/', '/case-studies/meshii/', '/case-studies/ai-engineering/', '/privacy/', '/portfolio', '/portfolio/']) {
+        for (const path of ['/case-studies/', '/case-studies/paper-trails/', '/case-studies/meshii/', '/case-studies/ai-engineering/', '/privacy/', '/portfolio', '/portfolio/']) {
             const response = await fetch(new URL(path, localURL));
             assert.equal(response.status, 200, `Development route failed: ${path}`);
             assert.ok((await response.text()).includes('<h1'));
