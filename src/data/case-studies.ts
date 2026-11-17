@@ -19,8 +19,8 @@ export const aiEngineeringCaseStudy = {
 export const paperTrailsCaseStudy = {
     slug: 'paper-trails',
     title: 'Paper Trails platform rewrite',
-    description: 'How I planned and delivered the Paper Trails migration from a React frontend and PHP API to Next.js, keeping existing orders accessible and launching ahead of the target.',
-    summary: 'Scope decisions, delivery planning and the move from a React frontend and PHP API to one Next.js application, launched in January 2026.',
+    description: 'Why I rebuilt Paper Trails in Next.js, what we left out, and how we moved existing orders across before the February deadline.',
+    summary: 'Why I chose a rewrite, what we left out, and how we moved Paper Trails to Next.js while keeping old orders accessible.',
     context: 'Platform migration / January 2026',
     variant: 'paper-trails',
 } as const;
