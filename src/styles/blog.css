@@ -18,6 +18,28 @@
     font: 0.65rem/1.6 var(--font-mono);
 }
 
+.post-pulse {
+    display: block;
+    width: 7rem;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .post-pulse {
+        grid-column: 2;
+    }
+}
+
+@media (min-width: 960px) {
+    .post-pulse {
+        grid-column: 3;
+        justify-self: end;
+        align-self: end;
+        margin-block-end: 16px;
+    }
+}
+
 .empty-state p {
     max-width: 540px;
     margin: 0;

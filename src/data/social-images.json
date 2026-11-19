@@ -1,23 +1,30 @@
 {
   "listing": {
-    "url": "/assets/img/social/thoughts-10f48925d2703feb.png",
+    "url": "/assets/img/social/thoughts-7dd91662b52fb834.png",
     "alt": "Thoughts. Notes on building software.",
-    "inputHash": "10f48925d2703feb76cc3c33553b69e43eb8f4c1f41e4dac3d141577b1f37fc5",
+    "inputHash": "7dd91662b52fb8345c643c9204406a10fe818eac7a0493909d74b6f8c1a964ef",
     "seedHash": "56c758beba037a9a6c2fa25278e3ab56db381b38304a08ff0a49ed209c14c674",
-    "pngHash": "3103b5b343ad9f4079e2c923699e77e087f09755b192af88980908a59e7649b5"
+    "pngHash": "1f78c386eb90647975f720cafa887e6fba630f075b5af752ac16bd79e90bb3d9"
   },
   "post:all-the-untold-stories": {
-    "url": "/assets/img/social/cbd29e17461f0510-5f8b272f42123b0a.png",
+    "url": "/assets/img/social/cbd29e17461f0510-c410dd2d2931de38.png",
     "alt": "All the untold stories. We attach too much importance to the code we write.",
-    "inputHash": "5f8b272f42123b0a20173fec62fa98e1b9cf5a2cde4b498daf625004aab7b128",
+    "inputHash": "c410dd2d2931de380512face016edea719080c595670f3cec2e5a38b43a1c1a6",
     "seedHash": "8466b4d43fa5e358fff655f6205ebf247483d1c8b7c089c615b62ae1e3d6d7af",
-    "pngHash": "4e20032110bca1ff98b2b10dc688c0533d6864c5590f12fc97e16ee4f4448e3f"
+    "pngHash": "b68638d0e52ab722164c99e04d66c49cc0d2ea945c0c7b2c4356f1472440b33c"
   },
   "post:slop-happens": {
-    "url": "/assets/img/social/7304a6f65c3772a8-32273f07f2aaa84f.png",
+    "url": "/assets/img/social/7304a6f65c3772a8-89244eaff38166f7.png",
     "alt": "Slop happens. Humans write rough code too. What matters is knowing what we can accept, what needs work, and where mistakes cost too much.",
-    "inputHash": "32273f07f2aaa84f408a2c6a486884006d218d4c25c771d0f69c290d190f267d",
+    "inputHash": "89244eaff38166f73991578468f04a5f82c4db67ad4efad5e84650b4afafbcbc",
     "seedHash": "a5805efeb68cfdc76849db5d051733f49233363710ec5303a3568214dbc6056f",
-    "pngHash": "256c16bbbbd95220aba36c64834013b4ff5246c0948c548b9919338d76ba75be"
+    "pngHash": "47abf6d4d0d1b1aaf94e3b7cf857326f0afa9c9f70ae5335659ca71b02f84508"
+  },
+  "post:your-skills-are-not-my-skills": {
+    "url": "/assets/img/social/61a17bc87580a30d-5b7639c631e295cf.png",
+    "alt": "Your Skills Are Not My Skills. Take the skills, leave the storytelling.",
+    "inputHash": "5b7639c631e295cfa2f2b015e917573e8dcb093088e83153caf7cf987cfb90d1",
+    "seedHash": "c9d42ae3a2ec0b35d2bf5d5f5ce79476b235cdc25574501a977a8b721151e837",
+    "pngHash": "bfd22992edd330b54c1674bb221626f3f00d2a99ad7e11dbfa015f5facc14693"
   }
 }

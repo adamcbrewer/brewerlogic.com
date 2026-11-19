@@ -53,6 +53,15 @@ function links(document, rel) {
     return elements(document, 'link').filter((node) => attribute(node, 'rel') === rel);
 }
 
+function postNumbers(document) {
+    return elements(document, 'li')
+        .filter((node) => attribute(node, 'class')?.split(' ').includes('numbered-entry'))
+        .map((entry) => [
+            attribute(elements(entry, 'a')[0], 'href'),
+            text(elements(entry, 'div').find((node) => attribute(node, 'class') === 'numbered-entry__number')),
+        ]);
+}
+
 function checkRSSLinks(document) {
     const discovery = links(document, 'alternate').filter((node) => attribute(node, 'type') === 'application/rss+xml');
     assert.deepEqual(discovery.map((node) => attribute(node, 'href')), [origin + '/blog/rss.xml']);
@@ -251,6 +260,10 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
             'https://papertrails.io', '/portfolio', '/privacy', '#main',
         ]);
         const listing = await readPage(dist, '/blog/');
+        const numberedPosts = postNumbers(listing);
+        assert.deepEqual(numberedPosts.map(([, number]) => number),
+            numberedPosts.map((_, index) => String(numberedPosts.length - index).padStart(2, '0')));
+        assert.ok(numberedPosts.findIndex(([url]) => url === articlePath) < numberedPosts.findIndex(([url]) => url === plainPath));
         const feed = rssFeed(await readFile(join(dist, 'blog/rss.xml'), 'utf8'));
         assert.equal(feed.length, elements(elements(listing, 'main')[0], 'h2').length);
         const item = feed.find((item) => item.link === origin + articlePath);
@@ -483,6 +496,11 @@ test('static blog release builds', { timeout: 180_000 }, async (t) => {
             assert.equal(meta(document, 'robots'), 'noindex, nofollow');
             assert.equal(links(document, 'alternate').length, 1);
             if (path.startsWith('/blog/')) checkRSSLinks(document);
+            if (path === '/blog/') {
+                const numberedPosts = postNumbers(document);
+                assert.equal(new Map(numberedPosts).get('/blog/build-check/draft/'), '');
+                assert.deepEqual(numberedPosts.filter(([, number]) => number), postNumbers(await readPage(dist, '/blog/')));
+            }
             if (path.endsWith('/draft/')) assert.ok(text(document).includes(draftMarker));
         }
         for (const path of [articlePath, '/blog/build-check/draft/']) {
