@@ -1,8 +1,8 @@
 ---
 title: Your Skills Are Not My Skills
-description: Take the skills, leave the workflow.
+description: Take the skills, leave the storytelling.
 pubDate: 2026-11-19
-draft: true
+draft: false
 ---
 
 If the power goes out, I want an electrician who knows what to do. If I'm about to talk to a friend, do I need someone else to tell me what to say? Would I copy the way someone else talks and pretend to be them?

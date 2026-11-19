@@ -23,11 +23,11 @@ I write about software and the ideas behind it. [Read all my thoughts](https://b
 
 ## Social-preview images
 
-Thoughts uses a sound-wave image for the listing and a separate image for each published post without a custom `image`. Each waveform is seeded from a SHA-256 hash of the post's slug. Editing the title or description changes the text while keeping that waveform stable. Drafts use the generic image in development and do not get public image files. Article-specific image overrides take precedence.
+Thoughts uses a pulse graph for the listing and a separate image for each published post without a custom `image`. A SHA-256 hash of the post's slug determines the heights of the segmented bars and which one gets a cyan tip. Editing the title or description changes the text while keeping the graph stable. Drafts use the generic image in development and do not get public image files. Article-specific image overrides take precedence.
 
 Run `npm run social:generate` after changing article metadata or the image design. This also runs before `npm run dev` and `npm run build`. It generates only missing, changed or damaged images and removes obsolete ones. Images are 1200 × 630 PNGs under `assets/img/social/`; the hashes and metadata live in `src/data/social-images.json`. Commit both the generated PNGs and that manifest alongside the source changes.
 
-The manifest records the waveform seed hash, an input hash covering the slug, title, description, renderer source, font files, palette and relevant dependency versions, and a SHA-256 hash of the PNG bytes. Filenames include the input hash so changed artwork gets a new URL. Article body edits alone do not regenerate images.
+The manifest records the graph's seed hash, an input hash covering the slug, title, description, renderer source, font files, palette and relevant dependency versions, and a SHA-256 hash of the PNG bytes. Filenames include the input hash so changed artwork gets a new URL. Article body edits alone do not regenerate images.
 
 Run `npm run social:check` before opening a PR. It recomputes input hashes and verifies the saved PNG hashes without writing files. The **Verify committed social image hashes** step also runs on every PR and push, before the build can regenerate anything. Missing, stale, damaged or obsolete output fails the check with the regeneration command.
 

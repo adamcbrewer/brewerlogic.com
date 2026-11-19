@@ -9,6 +9,8 @@ import { getSocialImage } from '../../lib/social-images';
 import { getReadingTime } from '../../lib/reading-time';
 
 const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
+const publishedPosts = posts.filter((post) => !post.data.draft);
+const publishedNumbers = new Map(publishedPosts.map((post, index) => [post.id, publishedPosts.length - index]));
 ---
 
 <ListingLayout title="Thoughts" description="Notes on building software." canonicalPath="/blog/" image={getSocialImage(Astro.site)}>
@@ -21,8 +23,8 @@ const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
         </div>
     ) : (
         <ul class="numbered-list">
-            {posts.map((post, index) => (
-                <NumberedEntry as="li" number={index + 1} headingLevel="h2" title={post.data.title} href={getPostPath(post.id)}>
+            {posts.map((post) => (
+                <NumberedEntry as="li" number={publishedNumbers.get(post.id)} headingLevel="h2" title={post.data.title} href={getPostPath(post.id)}>
                     <div slot="label" class="post-meta">
                         <time datetime={post.data.pubDate.toISOString()}>
                             {post.data.pubDate.toLocaleDateString('en-GB', { timeZone: 'UTC', dateStyle: 'long' })}
@@ -31,8 +33,41 @@ const posts = await getPosts({ includeDrafts: import.meta.env.DEV });
                         {post.data.draft && <span class="draft-label">Draft preview</span>}
                     </div>
                     <p>{post.data.description}</p>
+                    <svg
+                        slot="aside"
+                        class="post-pulse"
+                        data-pulse-id={`post:${post.id}`}
+                        viewBox="796 148 340 204"
+                        width="340"
+                        height="204"
+                        aria-hidden="true"
+                    ></svg>
                 </NumberedEntry>
             ))}
         </ul>
     )}
 </ListingLayout>
+
+<script>
+    import { pulseGraph, pulseSeedInput } from '../../lib/pulse-graph.mjs';
+
+    async function sha256(value: string) {
+        const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value));
+        return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function drawPulse(graph: SVGElement, id: string) {
+        const seed = await sha256(pulseSeedInput(id));
+        graph.innerHTML = pulseGraph(seed, {
+            accent: 'var(--site-accent)',
+            muted: 'var(--site-muted)',
+        });
+    }
+
+    if (globalThis.crypto?.subtle) {
+        for (const graph of document.querySelectorAll<SVGElement>('svg[data-pulse-id]')) {
+            const id = graph.dataset.pulseId;
+            if (id) void drawPulse(graph, id);
+        }
+    }
+</script>

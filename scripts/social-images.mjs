@@ -6,10 +6,11 @@ import { parseFrontmatter } from '@astrojs/internal-helpers/frontmatter';
 import { create } from 'fontkitten';
 import { slug } from 'github-slugger';
 import sharp from 'sharp';
+import { pulseGraph, pulseSeedInput } from '../src/lib/pulse-graph.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 export const hash = (value) => createHash('sha256').update(value).digest('hex');
-export const seedHash = (id) => hash(`brewerlogic:thoughts:waveform:${id}`);
+export const seedHash = (id) => hash(pulseSeedInput(id));
 
 async function readOptional(path) {
     try { return await readFile(path); }
@@ -61,21 +62,10 @@ function outlines(value, x, y, size, font, color) {
 }
 
 export function renderSvg(input, fonts, palette) {
+    const { background, text, muted, accent } = palette;
+    let body = `<rect width="1200" height="630" fill="${background}"/>`;
     const seed = seedHash(input.id);
-    const frequency = 2.1 + parseInt(seed.slice(0,8),16) / 0xffffffff * 1.4;
-    const phase = parseInt(seed.slice(8,16),16) / 0xffffffff * Math.PI * 2;
-    const sample = (t, offset=0) => 284 + Math.sin(t * Math.PI * 2 * frequency + phase + offset) * Math.sin(t * Math.PI) ** 1.7 * 120;
-    const { background, text, muted, accent, border } = palette;
-    let body = `<rect width="1200" height="630" fill="${background}"/><path d="M798 284H1136" stroke="${border}"/>`;
-    for (const offset of [-.65,.65,0]) {
-        let path = '';
-        for (let i=0;i<=240;i++) {
-            const t=i/240;
-            path += `${i===0?'M':'L'}${(798+t*338).toFixed(2)} ${sample(t,offset).toFixed(2)}`;
-        }
-        body += `<path d="${path}" fill="none" stroke="${offset===0?accent:muted}" stroke-opacity="${offset===0?1:.45}" stroke-width="${offset===0?4:1.5}"/>`;
-    }
-    for (const t of [.29,.71]) body += `<circle cx="${798+t*338}" cy="${sample(t).toFixed(2)}" r="7" fill="${background}" stroke="${accent}" stroke-width="2"/>`;
+    body += pulseGraph(seed, { accent, muted });
     const title = fit(input.title.toUpperCase(),fonts.display,680,300,160);
     title.lines.forEach((line,i) => {
         body += outlines(line,64,96 + fonts.display.capHeight / fonts.display.unitsPerEm * title.size + i * title.size * 1.15,title.size,fonts.display,text);
@@ -105,14 +95,18 @@ export async function generateSocialImages({ siteRoot = root, check = false } = 
     const fontFiles = await Promise.all(['bebas-neue','jetbrains-mono'].map((name) => readFile(join(siteRoot,`assets/fonts/${name}-latin.woff2`))));
     const fonts = { display:create(fontFiles[0]), mono:create(fontFiles[1]) };
     const paletteSource = await readFile(join(siteRoot,'assets/css/palette.css'),'utf8');
-    const palette = Object.fromEntries(['background','text','muted','accent','border'].map((key) => {
+    const palette = Object.fromEntries(['background','text','muted','accent'].map((key) => {
         const value = paletteSource.match(new RegExp(`--site-${key}:\\s*(#[a-fA-F0-9]+)`))?.[1];
         if (!value) throw new Error(`Missing site color: ${key}`);
         return [key,value];
     }));
     const packageLock = JSON.parse(await readFile(join(siteRoot,'package-lock.json'),'utf8'));
     const versions = ['sharp','@img/sharp-libvips-linux-x64','fontkitten','@astrojs/internal-helpers','yaml','smol-toml','github-slugger'].map((name) => [name,packageLock.packages[`node_modules/${name}`]?.version]);
-    const designHash = hash(JSON.stringify({ source:hash(await readFile(fileURLToPath(import.meta.url))), fonts:fontFiles.map(hash), palette, versions }));
+    const rendererFiles = await Promise.all([
+        readFile(new URL(import.meta.url)),
+        readFile(new URL('../src/lib/pulse-graph.mjs', import.meta.url)),
+    ]);
+    const designHash = hash(JSON.stringify({ source:rendererFiles.map(hash), fonts:fontFiles.map(hash), palette, versions }));
     const previousSource = await readOptional(manifestPath);
     const previous = previousSource ? JSON.parse(previousSource) : {};
     const manifest = {};

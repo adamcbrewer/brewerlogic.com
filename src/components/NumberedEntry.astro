@@ -1,7 +1,7 @@
 ---
 interface Props {
     as?: 'article' | 'li';
-    number: string | number;
+    number?: string | number;
     label?: string;
     title?: string;
     href?: string;
@@ -16,8 +16,8 @@ const {
 } = Astro.props;
 ---
 
-<Entry class:list={['numbered-entry', className]} id={id}>
-    <div class="numbered-entry__number" aria-hidden="true">{String(number).padStart(2, '0')}</div>
+<Entry class:list={['numbered-entry', className, { 'numbered-entry--with-aside': Astro.slots.has('aside') }]} id={id}>
+    <div class="numbered-entry__number" aria-hidden="true">{number === undefined ? null : String(number).padStart(2, '0')}</div>
     <div class="numbered-entry__body">
         <div class="numbered-entry__label"><slot name="label">{label}</slot></div>
         <Heading class="numbered-entry__title">
@@ -25,6 +25,7 @@ const {
         </Heading>
         <slot />
     </div>
+    <slot name="aside" />
 </Entry>
 
 <style>
@@ -107,6 +108,10 @@ const {
         .numbered-entry__number {
             position: static;
         }
+
+        .numbered-entry__number:empty {
+            min-width: 2ch;
+        }
     }
 
     @media (max-width: 767px) {
@@ -116,6 +121,17 @@ const {
 
         .numbered-entry__number {
             font-size: clamp(3rem, 8vw, 5rem);
+        }
+    }
+
+    @media (min-width: 960px) {
+        .numbered-entry--with-aside {
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+        }
+
+        .numbered-entry--with-aside .numbered-entry__number {
+            align-self: start;
         }
     }
 </style>
